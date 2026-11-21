@@ -1,53 +1,120 @@
 ---
 title: "Terminal Trade"
-description: "Local market-research terminal (Next.js): desks F1–F8, dữ liệu công khai, chạy trên máy bạn."
+description: "Local market research terminal built with Next.js. Free public data plus optional keys in .env.local."
 author: "Le Tri Nhan"
 date: 2026-11-19
 categories: [apps]
 image: "thumbnail.png"
 ---
 
-**Terminal Trade** là market research terminal chạy local bằng Next.js. Chạy trên máy bạn, dùng dữ liệu công khai (và key tùy chọn trong `.env.local`). Không phải lời khuyên đầu tư.
+# Terminal Trade
 
-![Dashboard](thumbnail.png){fig-alt="Terminal Trade dashboard"}
+Local market research terminal built with Next.js.
 
-## Desks
+Run on your machine only. No hosted deploy. Free public data plus optional keys in `.env.local`. Not investment advice.
 
-| Key | Desk | Nội dung |
+![Dashboard](screenshots/dashboard.png){fig-alt="Terminal Trade dashboard"}
+
+## Screens
+
+| Key | Desk | What you get |
 | --- | --- | --- |
 | F1 | Dashboard | Indices, FX, commodities, pulse, quote, news |
-| F2 | Markets | OHLCV candles, watchlist, correlation |
+| F2 | Markets | OHLCV candles, watchlist tape, relative, correlation |
 | F3 | Equity | Research workbench, financials, ownership, ESG |
-| F4 | Signals | Rule-based detectors + chart markers |
-| F5 | Portfolio | Paper blotter, heatmap, NAV, risk |
+| F4 | Signals | Rule-based detectors with chart markers |
+| F5 | Portfolio | Paper blotter, heatmap, NAV, sectors, risk |
 | F6 | Economy | FRED macro series |
 | F7 | News | RSS monitor |
-| F8 | Geo | Macro risk proxies, Yahoo corr, GDELT |
+| F8 | Geo | Macro risk proxies, Yahoo corr, GDELT headlines |
+| - | Nodes | Correlation workflow canvas |
+| - | Ideas | Rules-based screener helper |
+| - | Options | Deribit crypto chain or Yahoo equity chain |
 
-Thêm: Nodes (correlation canvas), Ideas (screener), Options (Deribit / Yahoo chain).
+![Markets](screenshots/markets.png){fig-alt="Markets desk"}
+
+![Equity research](screenshots/equity.png){fig-alt="Equity research desk"}
+
+![Options](screenshots/options.png){fig-alt="Options desk"}
+
+## More UI
+
+![Overview tab](pictures/ov-tab.png){fig-alt="Overview tab"}
+
+![FIN subtab](pictures/fin-subtab.png){fig-alt="FIN subtab"}
+
+![Portfolio tab](pictures/port-tab.png){fig-alt="Portfolio tab"}
+
+![BT tab](pictures/bt-tab.png){fig-alt="BT tab"}
+
+![OP tab](pictures/op-tab.png){fig-alt="OP tab"}
+
+![3D vol surface](pictures/3d-vol-surface.png){fig-alt="3D volatility surface"}
 
 ## Data sources
 
-Yahoo Finance · CoinGecko · Coinbase · FRED · GDELT · Deribit · alternative.me · UN Comtrade.
+| Source | Used for |
+| --- | --- |
+| Yahoo Finance | Equities quotes, OHLCV, fundamentals, equity options |
+| CoinGecko Demo | Crypto market tape |
+| Coinbase Exchange | Crypto daily candles |
+| FRED | Economy series |
+| GDELT DOC API | Geopolitics headlines |
+| Deribit | BTC and ETH options |
+| alternative.me | Fear and Greed |
+| UN Comtrade | US trade partners |
 
-Optional keys: `FRED_API_KEY`, `FINNHUB_API_KEY`, `COINGECKO_DEMO_API_KEY` (xem `.env.example`).
+Optional keys (see `.env.example`): `FRED_API_KEY`, `FINNHUB_API_KEY`, `COINGECKO_DEMO_API_KEY`.
 
-## Quick start
+## Quick start (local)
 
 ```bash
 pnpm install
-cp .env.example .env.local
+cp .env.example .env.local   # optional keys for FRED / Finnhub / CoinGecko
 pnpm dev
 ```
 
-Mở http://localhost:4726 — giữ API key trong `.env.local`, không đưa lên host công khai.
+Open <http://localhost:4726>
 
-## Liên kết
+Keep API keys in `.env.local` on your machine. Do not put them on a public host.
+
+Command examples: `AAPL EQ`, `MKT`, `ECO`, `NWS`, `BTC`, `HELP`.
+
+## API surface
+
+Primary routes live under `/api/v1`:
+
+- `GET/POST /api/v1/equity/quote`
+- `GET /api/v1/equity/price/historical`
+- `GET /api/v1/markets/panel`
+- `GET /api/v1/crypto/markets`
+- `GET /api/v1/equity/overview` and related research routes
+- `GET /api/v1/economy/fred/series`
+- `GET /api/v1/technicals/signals`
+- `GET /api/v1/news`
+- `GET /api/v1/geopolitics/overview`
+- `GET /api/options/chain`
+
+## Layout
+
+```
+src/app/api/v1/     HTTP routers
+src/lib/platform/   providers, cache, envelopes
+src/lib/data/       Yahoo, CoinGecko, Coinbase, news, Comtrade
+src/components/     desk UI
+public/brand/       logo, favicon, cover, backdrop
+```
+
+## License
+
+MIT. Research and education only.
+
+## Links
 
 | | |
 | --- | --- |
 | Repo | [github.com/letrinhandn/Terminal-Trade](https://github.com/letrinhandn/Terminal-Trade) |
 | Demo | [terminal-trade-iota.vercel.app](https://terminal-trade-iota.vercel.app) |
-| License | MIT · research / education only |
+| README | [README](https://github.com/letrinhandn/Terminal-Trade#readme) |
 
-Nguồn: [README Terminal Trade](https://github.com/letrinhandn/Terminal-Trade#readme).
+Source: project README + screenshots from the repo.

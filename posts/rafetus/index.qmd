@@ -1,31 +1,119 @@
 ---
 title: "Rafetus"
-description: "AI document manager cho vault tài liệu lớn: nạp file, ghi chú, quan hệ tri thức và chat với AI."
+description: "AI document manager — store, read, search, and ask questions about your documents in one knowledge library."
 author: "Le Tri Nhan"
 date: 2026-11-20
 categories: [apps]
 image: "thumbnail.jpg"
 ---
 
-**Rafetus** giúp cá nhân và team đổ tài liệu vào một vault, viết note, nối quan hệ giữa các mảnh kiến thức, rồi chat với AI trên toàn bộ kho không cấu trúc.
+# Rafetus
 
-## Làm gì được
+Turn your document collection into a knowledge library you can explore with AI. With **Rafetus** you can store, read, search, and ask questions about your documents in one app.
 
-- Nạp và tổ chức tài liệu lớn (PDF, note, nguồn hỗn hợp)
-- Viết note gắn vào vault thay vì tách rời từng file
-- Nối quan hệ giữa tài liệu / ý tưởng (knowledge graph nhẹ)
-- Chat AI theo ngữ cảnh vault, không chỉ theo một file đang mở
+![Rafetus icon](brand/icon.png){fig-alt="Rafetus app icon" width="160"}
 
-## Dùng thử
+**Product:** [rafetus.vn](https://rafetus.vn)  
+**App Store:** [Rafetus - AI Document Manager](https://apps.apple.com/app/rafetus-quản-lý-tài-liệu-ai/id6768253916)  
+**Web sign-in:** [auth.rafetus.vn](https://auth.rafetus.vn/login?client=web)
 
-- Web: [rafetus.vn](https://rafetus.vn)
-- App Store: [Rafetus trên iOS](https://apps.apple.com/app/rafetus-quản-lý-tài-liệu-ai/id6768253916)
+![Ask AI](screenshots/01-hero-ask-ai.jpg){fig-alt="Rafetus Ask AI screen"}
 
-## Liên kết
+## Highlights
+
+- **Central document library** — Store PDF and DOCX files, organize them in folders, and tag them for easy management.
+- **Smart search** — Find information across documents and notes quickly without rereading everything.
+- **Ask AI (Rafai)** — Ask questions and get answers grounded in your own document content, with cited sources.
+- **Read and annotate** — Highlight key passages, select text, and ask AI to explain difficult sections.
+- **Knowledge connections** — Build an AI knowledge graph that links documents and notes so you can discover useful relationships.
+
+![AI library](screenshots/02-ai-library.jpg){fig-alt="Rafetus AI library"}
+
+![Deep search](screenshots/03-deep-search.jpg){fig-alt="Rafetus deep search"}
+
+![Reader selection](screenshots/04-reader-selection.jpg){fig-alt="Rafetus reader with selection"}
+
+## Tutorial flow
+
+Eight short steps from the [Rafetus tutorial](https://rafetus.vn/tutorial):
+
+### Library
+
+1. Upload documents to your library (PDF and files ready for search and AI).
+2. Tag your documents so you can find them again.
+
+### Read and search
+
+3. Read and ask AI on the page — select passages, mark what matters.
+4. Deep search — find related content even without exact keywords.
+
+### Ask AI about your documents
+
+5. Ask AI across many documents with clear source citations.
+6. Choose sources when asking AI so answers stay focused.
+
+### Knowledge network
+
+7. Explore the knowledge network — visualize documents, notes, and relations.
+8. Link notes to build your own knowledge network step by step.
+
+![Library tags](screenshots/05-library-tags.jpg){fig-alt="Rafetus library tags"}
+
+![Library folders](screenshots/06-library-folders.jpg){fig-alt="Rafetus library folders"}
+
+![Knowledge graph](screenshots/07-knowledge-graph.jpg){fig-alt="Rafetus knowledge graph"}
+
+## Rafai (AI assistant)
+
+From [rafetus.vn/ai](https://rafetus.vn/ai):
+
+- Connect related information across notes and documents.
+- Select relevant context for each question instead of searching manually.
+- Stay in control — choose which data AI can use; turn the feature off anytime.
+- Conversations are not used to train models under Rafetus policy ([Privacy](https://rafetus.vn/privacy)).
+
+## About
+
+*Thinking Without Limits* — connecting knowledge in a unified space with artificial intelligence.
+
+Core values (from [About](https://rafetus.vn/about)):
+
+1. **User-centric experience** — simplify upload → organize → explore.
+2. **Substantive tech** — optimize data architecture and core algorithms.
+3. **Accumulating knowledge** — a foundation for long-term intellectual legacy.
+4. **Absolute knowledge sovereignty** — your documents stay yours.
+5. **Continuous evolution** — product and platform keep moving with user needs.
+
+Founding team: **Lê Trí Nhân** (Administration & Lead Engineer), **Hồ Văn Thạnh** (Technical Administration & Data).
+
+![VEU 2026](brand/marketing-veu.jpg){fig-alt="Rafetus at VEU 2026"}
+
+## Plans
+
+Pay for plans and top up AI credit in the app ([pricing](https://rafetus.vn/pricing)):
+
+| Plan | Price | Storage |
+| --- | --- | --- |
+| Free | Free forever | 500 MB |
+| Plus | $14.98 / month | 20 GB |
+| Pro | $29.98 / month | 100 GB |
+
+AI credits can be topped up in-app (shared across chat and document processing).
+
+## Infrastructure
+
+Built on AWS, Cloudflare, and Supabase (as shown on [rafetus.vn](https://rafetus.vn)).
+
+## Links
 
 | | |
 | --- | --- |
 | Product | [rafetus.vn](https://rafetus.vn) |
-| Hub card | [letrinhan-site](https://letrinhandn.github.io/letrinhan-site/) |
+| App Store | [Rafetus - AI Document Manager](https://apps.apple.com/app/rafetus-quản-lý-tài-liệu-ai/id6768253916) |
+| AI | [rafetus.vn/ai](https://rafetus.vn/ai) |
+| Tutorial | [rafetus.vn/tutorial](https://rafetus.vn/tutorial) |
+| About | [rafetus.vn/about](https://rafetus.vn/about) |
+| Support | [support@rafetus.vn](mailto:support@rafetus.vn) |
+| X | [@RafetusApp](https://x.com/RafetusApp) |
 
-Bài này là intro trên Tech Lab. Chi tiết sản phẩm và đăng nhập nằm ở site Rafetus.
+Source: App Store listing, product site, and App Store screenshots. No public GitHub repo.
