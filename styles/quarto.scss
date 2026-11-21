@@ -378,6 +378,22 @@ body:not(:has(.quarto-listing)) #quarto-document-content {
   padding: 1.75rem 1.4rem 2.25rem;
 }
 
+/* Post body: justified paragraphs */
+#quarto-document-content p,
+main.content p,
+.lang-vi p,
+.lang-en p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+#quarto-document-content li,
+main.content li {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 @media (min-width: 992px) {
   body:not(:has(.quarto-listing)) #quarto-document-content {
     padding: 2.25rem 2.5rem 2.75rem;
