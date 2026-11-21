@@ -2,5 +2,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   var brand = document.querySelector(".navbar-brand");
   if (brand) brand.setAttribute("href", "https://letrinhandn.github.io/letrinhan-site/");
+  document.querySelectorAll(".quarto-listing-category-title").forEach(function (el) {
+    el.textContent = "Tags";
+  });
 });
 </script>
