@@ -1,0 +1,55 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - about.qmd
+    - posts/**/index.qmd
+
+website:
+  title: "Tech Lab"
+  description: "Personal tech essays, apps, and hardware notes by Le Tri Nhan"
+  site-url: https://letrinhandn.github.io/tech-lab
+  repo-url: https://github.com/letrinhandn/tech-lab
+  favicon: styles/favicon.svg
+  navbar:
+    background: primary
+    foreground: light
+    logo: styles/avatar.jpg
+    logo-alt: "Le Tri Nhan"
+    title: false
+    left:
+      - text: Tech
+        href: https://letrinhandn.github.io/tech-lab/
+      - text: Economics
+        href: https://letrinhandn.github.io/economic-lab/
+    right:
+      - text: Quant
+        href: https://letrinhandn.github.io/quant-theory-lab/
+      - text: Finance
+        href: https://letrinhandn.github.io/investment-research-lab/
+  page-footer:
+    left: "Le Tri Nhan"
+    center: "[Tech](https://letrinhandn.github.io/tech-lab/)  [Economics](https://letrinhandn.github.io/economic-lab/)  [Quant](https://letrinhandn.github.io/quant-theory-lab/)  [Finance](https://letrinhandn.github.io/investment-research-lab/)"
+    right: "Build notes"
+  search: false
+  draft-mode: gone
+
+format:
+  html:
+    theme:
+      - flatly
+      - styles/quarto.scss
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    code-copy: true
+    code-overflow: wrap
+    html-math-method: mathjax
+    link-external-newwindow: true
+    mainfont: "Be Vietnam Pro"
+    respect-user-color-scheme: false
+    include-after-body: styles/nav-home.html
+
+execute:
+  freeze: auto

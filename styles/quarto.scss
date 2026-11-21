@@ -1,0 +1,555 @@
+/*-- scss:defaults --*/
+/* Accents: #5e0b15 #90323d #bc8034 #8c7a6b — paper: ivory */
+$burgundy: #5e0b15;
+$burgundy-mid: #90323d;
+$paper: #f7f1ed;
+$paper-raised: #fffdfb;
+$gold: #bc8034;
+$taupe: #8c7a6b;
+$ink: #5e0b15;
+$ink-muted: #8c7a6b;
+$rule: rgba(94, 11, 21, 0.1);
+$rule-strong: rgba(94, 11, 21, 0.16);
+
+$body-bg: $paper;
+$body-color: $ink;
+$link-color: $burgundy-mid;
+$link-hover-color: $burgundy;
+
+$navbar-bg: $burgundy;
+$navbar-fg: $paper;
+$navbar-hl: $gold;
+$navbar-brand-color: $paper;
+$navbar-brand-hover-color: $gold;
+
+$footer-bg: #efe6e1;
+$footer-fg: $taupe;
+$footer-font-size: 0.85rem;
+
+$toc-color: $taupe;
+$toc-active-border: $burgundy-mid;
+$toc-font-size: 0.9rem;
+
+$code-bg: rgba(94, 11, 21, 0.06);
+$code-color: $burgundy;
+$pre-bg: #3a1218;
+
+$border-color: $rule;
+$card-bg: $paper-raised;
+$card-border-color: $rule-strong;
+
+$primary: $burgundy;
+$secondary: $gold;
+$light: $paper;
+$dark: $ink;
+
+$font-family-sans-serif: "Be Vietnam Pro", "Helvetica Neue", system-ui, sans-serif;
+$headings-font-family: "Be Vietnam Pro", "Helvetica Neue", system-ui, sans-serif;
+$headings-font-weight: 650;
+$headings-color: $ink;
+$font-size-base: 1.05rem;
+$line-height-base: 1.7;
+
+/*-- scss:rules --*/
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-feature-settings: "kern", "liga";
+  background: $paper;
+  min-height: 100vh;
+  color: $ink;
+}
+
+/* Shared header — match hub compact: Tech Economics | 40px avatar | Quant Finance */
+#quarto-header {
+  background: #3a070e;
+  overflow: visible !important;
+}
+
+.navbar {
+  --logo-compact: 40px;
+  --logo-gap: 1.25rem;
+  --nav-gap: 0.65rem;
+  --header-pad-y: 0.55rem;
+  background: #3a070e !important;
+  border-bottom: 3px solid #d9cab3 !important;
+  min-height: calc(var(--logo-compact) + var(--header-pad-y) * 2 + 3px);
+  height: calc(var(--logo-compact) + var(--header-pad-y) * 2 + 3px);
+  padding: var(--header-pad-y) 1rem !important;
+  overflow: visible !important;
+  align-items: center;
+}
+
+.navbar > .container,
+.navbar > .container-fluid,
+.navbar-container.container-fluid {
+  position: relative !important;
+  display: block !important;
+  width: min(720px, 100%) !important;
+  max-width: 720px !important;
+  height: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+/* Compact centered avatar (hub scrolled size) — links to root via nav-home.js */
+.navbar .navbar-brand-container,
+.navbar-brand-container {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  width: var(--logo-compact) !important;
+  height: var(--logo-compact) !important;
+  z-index: 40 !important;
+  order: 0 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar .navbar-brand,
+.navbar .navbar-brand.navbar-brand-logo {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  max-width: none !important;
+  width: var(--logo-compact) !important;
+  height: var(--logo-compact) !important;
+  line-height: 0;
+}
+
+.navbar .navbar-brand img,
+.navbar .navbar-logo {
+  width: var(--logo-compact) !important;
+  height: var(--logo-compact) !important;
+  max-height: var(--logo-compact) !important;
+  object-fit: cover;
+  border: 2px solid #d9cab3;
+  box-shadow: 2px 2px 0 #5e0b15;
+}
+
+@media (min-width: 992px) {
+  .navbar-toggler {
+    display: none !important;
+  }
+
+  /* Same geometry as hub: 1fr | avatar-slot | 1fr */
+  .navbar-container #navbarCollapse,
+  .navbar .navbar-collapse {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) calc(var(--logo-compact) + var(--logo-gap)) minmax(0, 1fr);
+    column-gap: var(--nav-gap);
+    align-items: center;
+    width: 100% !important;
+    height: 100%;
+    flex-basis: auto !important;
+    visibility: visible !important;
+    background: transparent !important;
+    position: relative;
+    z-index: 1;
+    padding: 0 !important;
+  }
+
+  .navbar-nav.navbar-nav-scroll.me-auto {
+    grid-column: 1;
+    margin: 0 !important;
+    padding: 0 !important;
+    justify-content: flex-end !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    gap: 0.35rem 0.55rem;
+  }
+
+  .navbar-nav.navbar-nav-scroll.ms-auto {
+    grid-column: 3;
+    margin: 0 !important;
+    padding: 0 !important;
+    justify-content: flex-start !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    gap: 0.35rem 0.55rem;
+  }
+}
+
+.quarto-navbar-tools {
+  display: none !important;
+}
+
+.navbar-nav .nav-link {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 650;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: rgba(217, 202, 179, 0.88) !important;
+  border: 2px solid transparent;
+  padding: 0.35rem 0.55rem !important;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: $gold !important;
+  border-color: rgba(188, 128, 52, 0.55);
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-item .nav-link[aria-current="page"] {
+  color: $gold !important;
+  border-color: #d9cab3;
+  background: rgba(188, 128, 52, 0.12);
+}
+
+/* Active lab in the shared navigator */
+.navbar-nav .nav-link[href="https://letrinhandn.github.io/tech-lab/"] {
+  color: $gold !important;
+  border-color: #d9cab3;
+  background: rgba(188, 128, 52, 0.12);
+}
+
+@media (max-width: 991.98px) {
+  .navbar {
+    height: auto;
+    min-height: calc(var(--logo-compact) + var(--header-pad-y) * 2 + 3px);
+  }
+
+  .navbar > .container,
+  .navbar > .container-fluid,
+  .navbar-container.container-fluid {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: space-between !important;
+    align-items: center;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .navbar .navbar-brand-container,
+  .navbar-brand-container {
+    position: static !important;
+    transform: none !important;
+    z-index: auto !important;
+  }
+
+  .navbar-container #navbarCollapse {
+    display: none;
+  }
+
+  .navbar-container #navbarCollapse.show {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    order: 3;
+    margin-top: 0.5rem;
+  }
+}
+
+#quarto-content,
+.page-columns {
+  position: relative;
+  z-index: 1;
+}
+
+/* Listing home: no page title / intro block */
+body:has(.quarto-listing) #title-block-header {
+  display: none !important;
+}
+
+/* Listing home: no heavy paper card wrapper */
+body:has(.quarto-listing) #quarto-document-content {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0.75rem 0 2rem;
+}
+
+body:has(.quarto-listing) #quarto-document-content > p {
+  display: none !important;
+}
+
+body:not(:has(.quarto-listing)) #quarto-document-content {
+  background: $paper-raised;
+  color: $ink;
+  border: 1px solid $rule-strong;
+  box-shadow: none;
+  padding: 1.75rem 1.4rem 2.25rem;
+}
+
+@media (min-width: 992px) {
+  body:not(:has(.quarto-listing)) #quarto-document-content {
+    padding: 2.25rem 2.5rem 2.75rem;
+  }
+}
+
+#title-block-header .title {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  color: $ink;
+  letter-spacing: -0.015em;
+}
+
+#title-block-header .description,
+#title-block-header .quarto-title-meta {
+  color: $ink-muted;
+}
+
+#title-block-header .quarto-categories .quarto-category {
+  border: 1px solid $rule-strong;
+  background: rgba(144, 50, 61, 0.08);
+  color: $burgundy-mid;
+  border-radius: 0;
+  font-weight: 600;
+}
+
+main.content a,
+#quarto-document-content a {
+  color: $burgundy-mid;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+}
+
+main.content a:hover,
+#quarto-document-content a:hover {
+  color: $burgundy;
+}
+
+main.content h1,
+main.content h2,
+main.content h3,
+main.content h4,
+#quarto-document-content h1,
+#quarto-document-content h2,
+#quarto-document-content h3,
+#quarto-document-content h4 {
+  color: $ink;
+  border-bottom-color: $rule;
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+
+main.content blockquote,
+#quarto-document-content blockquote {
+  border-left: 3px solid $gold;
+  background: rgba(188, 128, 52, 0.1);
+  color: darken($taupe, 8%);
+}
+
+main.content code,
+#quarto-document-content code {
+  color: $burgundy;
+  background: rgba(94, 11, 21, 0.06);
+}
+
+main.content pre,
+#quarto-document-content pre {
+  background: $pre-bg;
+  border: 1px solid $rule-strong;
+  box-shadow: none;
+}
+
+main.content pre code,
+#quarto-document-content pre code {
+  color: $paper;
+  background: transparent;
+}
+
+main.content figure img,
+#quarto-document-content figure img,
+main.content img,
+#quarto-document-content img {
+  border: 1px solid $rule-strong;
+  box-shadow: none;
+  background: #fff;
+}
+
+#quarto-document-content > p:first-of-type {
+  color: $ink-muted;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+#quarto-document-content > p a {
+  margin-right: 0.85rem;
+}
+
+.listing-actions-group {
+  margin: 1rem 0 1.25rem !important;
+}
+
+.quarto-listing-filter .search {
+  background: $paper-raised !important;
+  border: 1px solid $rule-strong !important;
+  border-radius: 0 !important;
+  color: $ink !important;
+}
+
+.quarto-listing-category-title {
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $ink-muted !important;
+}
+
+.quarto-listing-category .category {
+  color: $ink-muted !important;
+  border-left: 2px solid transparent;
+  padding-left: 0.55rem;
+}
+
+.quarto-listing-category .category:hover,
+.quarto-listing-category .category.active {
+  color: $burgundy-mid !important;
+  border-left-color: $burgundy-mid;
+}
+
+.quarto-grid-item {
+  border: 1px solid $rule-strong !important;
+  background: $paper-raised !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  overflow: hidden;
+  padding: 0 !important;
+  transition: border-color 0.15s ease;
+}
+
+.quarto-grid-item:hover {
+  border-color: $burgundy-mid !important;
+}
+
+.quarto-grid-item .card-img,
+.quarto-grid-item .listing-image,
+.quarto-grid-item img.thumbnail-image,
+.quarto-grid-item .card-img-top {
+  width: 100% !important;
+  height: 220px !important;
+  object-fit: cover !important;
+  object-position: center 35% !important;
+  border: 0 !important;
+  border-bottom: 1px solid $rule-strong !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  background: darken($paper, 6%) !important;
+}
+
+.quarto-grid-item .card-body,
+.quarto-grid-item .listing-body {
+  padding: 1.15rem 1.2rem 1.3rem !important;
+}
+
+.quarto-grid-item .listing-title,
+.quarto-grid-item .card-title {
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  margin: 0 0 0.5rem !important;
+}
+
+.quarto-grid-item .listing-title a,
+.quarto-grid-item .card-title a {
+  color: $ink !important;
+  text-decoration: none !important;
+}
+
+.quarto-grid-item .listing-title a:hover,
+.quarto-grid-item .card-title a:hover {
+  color: $burgundy-mid !important;
+}
+
+.quarto-grid-item .listing-description,
+.quarto-grid-item .card-text {
+  color: $ink-muted !important;
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  margin-bottom: 0.8rem !important;
+}
+
+.quarto-grid-item .listing-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.quarto-grid-item .listing-category {
+  display: inline-block;
+  margin: 0 !important;
+  padding: 0.18rem 0.45rem !important;
+  border: 1px solid $rule-strong !important;
+  border-radius: 0 !important;
+  color: $burgundy-mid !important;
+  background: rgba(144, 50, 61, 0.07) !important;
+  font-size: 0.68rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.quarto-grid-item .listing-date,
+.quarto-grid-item .listing-reading-time,
+.quarto-grid-item .listing-author {
+  color: $ink-muted !important;
+  font-size: 0.82rem !important;
+}
+
+.sidebar nav[role="doc-toc"] ul a {
+  color: $ink-muted;
+}
+
+.sidebar nav[role="doc-toc"] ul a.active,
+.sidebar nav[role="doc-toc"] ul a:hover {
+  color: $burgundy-mid;
+}
+
+.nav-footer {
+  border-top: 1px solid $rule-strong;
+  margin-top: 2rem;
+  background: $footer-bg !important;
+  color: $taupe !important;
+}
+
+.nav-footer a {
+  color: $burgundy-mid;
+}
+
+::selection {
+  background: rgba(188, 128, 52, 0.35);
+  color: $ink;
+}
+
+body.quarto-light,
+body.quarto-dark,
+body {
+  background: $paper !important;
+  color: $ink !important;
+}
+
+#quarto-content {
+  background: transparent !important;
+}
+
+.navbar {
+  background: #3a070e !important;
+}
+
+/* Hide repo-actions clutter for cleaner footer */
+.nav-footer .toc-actions,
+.nav-footer-center .toc-actions {
+  opacity: 0.7;
+}

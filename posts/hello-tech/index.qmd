@@ -1,0 +1,8 @@
+---
+title: "Hello Tech Lab"
+description: "First note in the tech notebook."
+date: 2026-11-21
+categories: [notes]
+---
+
+Scaffold post for Tech Lab.

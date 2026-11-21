@@ -1,0 +1,7 @@
+---
+title: "About"
+---
+
+Personal notes on apps, electronics, and building systems — by Le Tri Nhan.
+
+Hub: [letrinhan-site](https://letrinhandn.github.io/letrinhan-site/)
