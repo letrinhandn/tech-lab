@@ -64,7 +64,7 @@ body {
   color: $ink;
 }
 
-/* Shared header — match hub compact: Tech Economics | 40px avatar | Quant Finance */
+/* Shared header — same 3-col grid as hub compact: Tech Economics | avatar | Quant Finance */
 #quarto-header {
   background: #3a070e;
   overflow: visible !important;
@@ -87,34 +87,12 @@ body {
 .navbar > .container,
 .navbar > .container-fluid,
 .navbar-container.container-fluid {
-  position: relative !important;
-  display: block !important;
   width: min(720px, 100%) !important;
   max-width: 720px !important;
   height: 100% !important;
   margin: 0 auto !important;
   padding: 0 !important;
   overflow: visible !important;
-}
-
-/* Compact centered avatar (hub scrolled size) — links to root via nav-home.js */
-.navbar .navbar-brand-container,
-.navbar-brand-container {
-  position: absolute !important;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  max-width: none !important;
-  min-width: 0 !important;
-  width: var(--logo-compact) !important;
-  height: var(--logo-compact) !important;
-  z-index: 40 !important;
-  order: 0 !important;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
 }
 
 .navbar .navbar-brand,
@@ -133,12 +111,19 @@ body {
 
 .navbar .navbar-brand img,
 .navbar .navbar-logo {
+  display: block !important;
   width: var(--logo-compact) !important;
   height: var(--logo-compact) !important;
   max-height: var(--logo-compact) !important;
+  margin: 0 !important;
+  padding: 0 !important;
   object-fit: cover;
   border: 2px solid #d9cab3;
   box-shadow: 2px 2px 0 #5e0b15;
+}
+
+.quarto-navbar-tools {
+  display: none !important;
 }
 
 @media (min-width: 992px) {
@@ -146,28 +131,47 @@ body {
     display: none !important;
   }
 
-  /* Same geometry as hub: 1fr | avatar-slot | 1fr */
-  .navbar-container #navbarCollapse,
-  .navbar .navbar-collapse {
+  /* Hub-identical geometry: left nav | avatar | right nav */
+  .navbar-container.container-fluid {
     display: grid !important;
-    grid-template-columns: minmax(0, 1fr) calc(var(--logo-compact) + var(--logo-gap)) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     column-gap: var(--nav-gap);
     align-items: center;
-    width: 100% !important;
-    height: 100%;
-    flex-basis: auto !important;
-    visibility: visible !important;
-    background: transparent !important;
-    position: relative;
-    z-index: 1;
+  }
+
+  .navbar .navbar-brand-container,
+  .navbar-brand-container {
+    position: static !important;
+    transform: none !important;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    margin: 0 !important;
     padding: 0 !important;
+    max-width: none !important;
+    width: calc(var(--logo-compact) + var(--logo-gap)) !important;
+    height: var(--logo-compact) !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  /* Collapse children become grid items of the container */
+  .navbar-container #navbarCollapse,
+  .navbar .navbar-collapse {
+    display: contents !important;
+    visibility: visible !important;
   }
 
   .navbar-nav.navbar-nav-scroll.me-auto {
     grid-column: 1;
+    grid-row: 1;
     margin: 0 !important;
     padding: 0 !important;
     justify-content: flex-end !important;
+    justify-self: stretch;
+    align-self: center;
     flex-direction: row !important;
     flex-wrap: nowrap;
     gap: 0.35rem 0.55rem;
@@ -175,17 +179,16 @@ body {
 
   .navbar-nav.navbar-nav-scroll.ms-auto {
     grid-column: 3;
+    grid-row: 1;
     margin: 0 !important;
     padding: 0 !important;
     justify-content: flex-start !important;
+    justify-self: stretch;
+    align-self: center;
     flex-direction: row !important;
     flex-wrap: nowrap;
     gap: 0.35rem 0.55rem;
   }
-}
-
-.quarto-navbar-tools {
-  display: none !important;
 }
 
 .navbar-nav .nav-link {
@@ -200,6 +203,7 @@ body {
   padding: 0.35rem 0.55rem !important;
   margin: 0;
   white-space: nowrap;
+  box-sizing: border-box;
 }
 
 .navbar-nav .nav-link:hover,
@@ -243,7 +247,7 @@ body {
   .navbar-brand-container {
     position: static !important;
     transform: none !important;
-    z-index: auto !important;
+    width: var(--logo-compact) !important;
   }
 
   .navbar-container #navbarCollapse {
