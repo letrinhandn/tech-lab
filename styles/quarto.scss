@@ -667,11 +667,15 @@ html[data-theme="dark"] body::before {
   background-size: 180px 140px;
 }
 
-html[data-theme="dark"] #quarto-header,
+/* Keep #quarto-header position:fixed (headroom) — do not set relative */
 html[data-theme="dark"] #quarto-content,
 html[data-theme="dark"] .page-columns {
   position: relative;
   z-index: 1;
+}
+
+html[data-theme="dark"] #quarto-header {
+  z-index: 1030;
 }
 
 html[data-theme="dark"] #quarto-content {
