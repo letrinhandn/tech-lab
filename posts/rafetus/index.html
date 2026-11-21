@@ -8,7 +8,7 @@
 
 <meta name="author" content="Le Tri Nhan">
 <meta name="dcterms.date" content="2026-11-20">
-<meta name="description" content="Ứng dụng quản lý tài liệu tích hợp trí tuệ nhân tạo — lưu trữ, tìm kiếm ngữ nghĩa, ghi chú và hỏi đáp với Rafai.">
+<meta name="description" content="AI document manager — semantic search, notes, knowledge graph, and Rafai. Ứng dụng quản lý tài liệu tích hợp AI.">
 
 <title>Rafetus – Tech Lab</title>
 <style>
@@ -39,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-30ace844f7c9ddbb362ca40a1bbbd319.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-5706fd404b1b8b43773065f86154c82c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -67,6 +67,18 @@ ul.task-list li input[type="checkbox"] {
     document.documentElement.dataset.theme = t;
   } catch (e) {
     document.documentElement.dataset.theme = "dark";
+  }
+
+  try {
+    var l = localStorage.getItem("letrinhan-site-locale");
+    if (l !== "vi" && l !== "en") {
+      l = (navigator.language || "vi").toLowerCase().startsWith("vi")
+        ? "vi"
+        : "en";
+    }
+    document.documentElement.dataset.lang = l;
+  } catch (e) {
+    document.documentElement.dataset.lang = "vi";
   }
 })();
 </script>
@@ -119,27 +131,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#tổng-quan" id="toc-tổng-quan" class="nav-link active" data-scroll-target="#tổng-quan">Tổng quan</a></li>
-  <li><a href="#chức-năng-chính" id="toc-chức-năng-chính" class="nav-link" data-scroll-target="#chức-năng-chính">Chức năng chính</a>
-  <ul class="collapse">
-  <li><a href="#thư-viện-tài-liệu" id="toc-thư-viện-tài-liệu" class="nav-link" data-scroll-target="#thư-viện-tài-liệu">Thư viện tài liệu</a></li>
-  <li><a href="#tìm-kiếm-chuyên-sâu" id="toc-tìm-kiếm-chuyên-sâu" class="nav-link" data-scroll-target="#tìm-kiếm-chuyên-sâu">Tìm kiếm chuyên sâu</a></li>
-  <li><a href="#đọc-và-ghi-chú-tài-liệu" id="toc-đọc-và-ghi-chú-tài-liệu" class="nav-link" data-scroll-target="#đọc-và-ghi-chú-tài-liệu">Đọc và ghi chú tài liệu</a></li>
-  <li><a href="#trợ-lý-trí-tuệ-nhân-tạo-rafai" id="toc-trợ-lý-trí-tuệ-nhân-tạo-rafai" class="nav-link" data-scroll-target="#trợ-lý-trí-tuệ-nhân-tạo-rafai">Trợ lý trí tuệ nhân tạo Rafai</a></li>
-  <li><a href="#đồ-thị-tri-thức" id="toc-đồ-thị-tri-thức" class="nav-link" data-scroll-target="#đồ-thị-tri-thức">Đồ thị tri thức</a></li>
-  </ul></li>
-  <li><a href="#quyền-riêng-tư-và-dữ-liệu" id="toc-quyền-riêng-tư-và-dữ-liệu" class="nav-link" data-scroll-target="#quyền-riêng-tư-và-dữ-liệu">Quyền riêng tư và dữ liệu</a></li>
-  <li><a href="#nền-tảng-và-gói-dịch-vụ" id="toc-nền-tảng-và-gói-dịch-vụ" class="nav-link" data-scroll-target="#nền-tảng-và-gói-dịch-vụ">Nền tảng và gói dịch vụ</a></li>
-  <li><a href="#phát-triển-dự-án" id="toc-phát-triển-dự-án" class="nav-link" data-scroll-target="#phát-triển-dự-án">Phát triển dự án</a></li>
-  <li><a href="#hình-ảnh-giao-diện" id="toc-hình-ảnh-giao-diện" class="nav-link" data-scroll-target="#hình-ảnh-giao-diện">Hình ảnh giao diện</a></li>
-  <li><a href="#liên-kết-và-tài-nguyên" id="toc-liên-kết-và-tài-nguyên" class="nav-link" data-scroll-target="#liên-kết-và-tài-nguyên">Liên kết và tài nguyên</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -154,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Ứng dụng quản lý tài liệu tích hợp trí tuệ nhân tạo — lưu trữ, tìm kiếm ngữ nghĩa, ghi chú và hỏi đáp với Rafai.
+    AI document manager — semantic search, notes, knowledge graph, and Rafai. Ứng dụng quản lý tài liệu tích hợp AI.
   </div>
 </div>
 
@@ -183,6 +176,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="lang-vi">
 <p><strong>Ứng dụng quản lý tài liệu tích hợp trí tuệ nhân tạo</strong></p>
 <p><strong>Website</strong> <a href="https://rafetus.vn/">rafetus.vn</a><br>
 <strong>App Store</strong> <a href="https://apps.apple.com/app/id6768253916">Rafetus</a><br>
@@ -366,9 +360,196 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Biểu tượng Rafetus</figcaption>
 </figure>
 </div>
-
-
 </section>
+</div>
+<div class="lang-en">
+<p><strong>AI-Powered Document Management Application</strong></p>
+<p><strong>Website</strong> <a href="https://rafetus.vn/">rafetus.vn</a><br>
+<strong>App Store</strong> <a href="https://apps.apple.com/app/id6768253916">Rafetus</a><br>
+<strong>Web App</strong> <a href="https://app.rafetus.vn/">app.rafetus.vn</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/01-hero-ask-ai.jpg" class="img-fluid figure-img" alt="Rafetus Ask AI interface"></p>
+<figcaption>Rafetus Interface</figcaption>
+</figure>
+</div>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Rafetus is an AI-powered document management application designed to store, organize, search, and retrieve information from digital documents.</p>
+<p>The project addresses the challenges of managing and accessing information as document collections grow. Rather than functioning solely as a file storage application, Rafetus brings together document management, semantic search, note-taking, and AI-assisted question answering within a single system.</p>
+<p>Its primary focus is information retrieval across multiple documents, source traceability, and the organization of relationships between documents and notes through a knowledge graph.</p>
+</section>
+<section id="core-features" class="level2">
+<h2 class="anchored" data-anchor-id="core-features">Core Features</h2>
+<section id="document-library" class="level3">
+<h3 class="anchored" data-anchor-id="document-library">Document Library</h3>
+<p>Rafetus supports the storage and management of common document formats, including PDF and DOCX. Documents can be organized using folders, tags, and descriptive metadata for easier management and retrieval.</p>
+<p>Uploaded content is processed and indexed to support document search and AI-assisted question answering. Documents, notes, and related information are maintained within a unified library.</p>
+</section>
+<section id="deep-search" class="level3">
+<h3 class="anchored" data-anchor-id="deep-search">Deep Search</h3>
+<p>Rafetus uses semantic search to retrieve information based on the meaning of a query rather than relying exclusively on exact keyword matching.</p>
+<p>This allows users to locate relevant content across documents and notes, even when they do not remember the precise wording used in the original material.</p>
+</section>
+<section id="document-reading-and-annotations" class="level3">
+<h3 class="anchored" data-anchor-id="document-reading-and-annotations">Document Reading and Annotations</h3>
+<p>The integrated document reader supports text highlighting, reading progress tracking, and note-taking during document review.</p>
+<p>Users can select passages and request explanations or analysis from the AI assistant without leaving the document being read.</p>
+</section>
+<section id="rafai-ai-assistant" class="level3">
+<h3 class="anchored" data-anchor-id="rafai-ai-assistant">Rafai AI Assistant</h3>
+<p>Rafai is the AI assistant integrated into Rafetus, enabling natural language queries across a personal document library.</p>
+<p>The system retrieves and consolidates relevant information from multiple documents and notes to generate responses. Answers include source citations, allowing users to verify information against the original material.</p>
+<p>Users can also select specific reference documents for each conversation, controlling the scope of retrieval and the context available to the assistant.</p>
+</section>
+<section id="knowledge-graph" class="level3">
+<h3 class="anchored" data-anchor-id="knowledge-graph">Knowledge Graph</h3>
+<p>Rafetus supports the development of a knowledge graph by establishing defined relationships between documents and notes.</p>
+<p>Users can create links representing references, supporting information, or critical relationships between related ideas. These connections are visualized as a network to support knowledge organization and exploration.</p>
+<p>The knowledge graph also provides additional context for Rafai during information retrieval, combining document content with relationships explicitly defined by the user.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/07-knowledge-graph.jpg" class="img-fluid figure-img" alt="Rafetus knowledge graph"></p>
+<figcaption>Rafetus Knowledge Graph</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="privacy-and-data-control" class="level2">
+<h2 class="anchored" data-anchor-id="privacy-and-data-control">Privacy and Data Control</h2>
+<p>Rafetus is designed with access controls and personal data management in mind.</p>
+<p>Users can determine which information is available to Rafai and disable AI features when they are not required. According to the Rafetus privacy policy, personal data is not used to train artificial intelligence models.</p>
+<p>Further details are available in the <a href="https://rafetus.vn/privacy">Privacy Policy</a>.</p>
+</section>
+<section id="platforms-and-plans" class="level2">
+<h2 class="anchored" data-anchor-id="platforms-and-plans">Platforms and Plans</h2>
+<p>Rafetus is available as a web application and an iPhone app. Both platforms share the same account system for accessing and managing document libraries.</p>
+<p>The application offers three subscription plans with different storage capacities.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Plan</th>
+<th>Storage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Free</td>
+<td>500 MB</td>
+</tr>
+<tr class="even">
+<td>Plus</td>
+<td>20 GB</td>
+</tr>
+<tr class="odd">
+<td>Pro</td>
+<td>100 GB</td>
+</tr>
+</tbody>
+</table>
+<p>AI processing uses a separate credit system, with additional credits available according to usage requirements.</p>
+<p>Plan details are available on the <a href="https://rafetus.vn/pricing">Pricing</a> page.</p>
+</section>
+<section id="project-development" class="level2">
+<h2 class="anchored" data-anchor-id="project-development">Project Development</h2>
+<p>Rafetus is developed by Le Tri Nhan and Ho Van Thanh. Its infrastructure uses services provided by AWS, Cloudflare, and Supabase.</p>
+<p>The project focuses on three primary areas of development, including document data management, information retrieval, and the application of artificial intelligence to personal knowledge organization.</p>
+<p>Ongoing development focuses on improving retrieval across large document libraries, extending knowledge relationships, and refining context retrieval for the Rafai assistant.</p>
+<p>Under the philosophy of <strong>Thinking Without Limits</strong>, Rafetus is being developed as a platform for the long-term accumulation, organization, and use of personal knowledge.</p>
+</section>
+<section id="screenshots" class="level2">
+<h2 class="anchored" data-anchor-id="screenshots">Screenshots</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/02-ai-library.jpg" class="img-fluid figure-img" alt="Document library"></p>
+<figcaption>Document Library</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/03-deep-search.jpg" class="img-fluid figure-img" alt="Deep search"></p>
+<figcaption>Deep Search</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/04-reader-selection.jpg" class="img-fluid figure-img" alt="Document reader"></p>
+<figcaption>Document Reader</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/05-library-tags.jpg" class="img-fluid figure-img" alt="Library tags"></p>
+<figcaption>Library Tags</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/06-library-folders.jpg" class="img-fluid figure-img" alt="Library folders"></p>
+<figcaption>Library Folders</figcaption>
+</figure>
+</div>
+</section>
+<section id="links-and-resources" class="level2">
+<h2 class="anchored" data-anchor-id="links-and-resources">Links and Resources</h2>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td>Official Website</td>
+<td><a href="https://rafetus.vn/">rafetus.vn</a></td>
+</tr>
+<tr class="even">
+<td>iOS Application</td>
+<td><a href="https://apps.apple.com/app/id6768253916">Rafetus on the App Store</a></td>
+</tr>
+<tr class="odd">
+<td>Web Application</td>
+<td><a href="https://app.rafetus.vn/">app.rafetus.vn</a></td>
+</tr>
+<tr class="even">
+<td>Sign In</td>
+<td><a href="https://auth.rafetus.vn/login?client=web">auth.rafetus.vn</a></td>
+</tr>
+<tr class="odd">
+<td>Rafai Assistant</td>
+<td><a href="https://rafetus.vn/ai">rafetus.vn/ai</a></td>
+</tr>
+<tr class="even">
+<td>Tutorial</td>
+<td><a href="https://rafetus.vn/tutorial">rafetus.vn/tutorial</a></td>
+</tr>
+<tr class="odd">
+<td>About</td>
+<td><a href="https://rafetus.vn/about">rafetus.vn/about</a></td>
+</tr>
+<tr class="even">
+<td>Pricing</td>
+<td><a href="https://rafetus.vn/pricing">rafetus.vn/pricing</a></td>
+</tr>
+<tr class="odd">
+<td>Privacy Policy</td>
+<td><a href="https://rafetus.vn/privacy">rafetus.vn/privacy</a></td>
+</tr>
+<tr class="even">
+<td>Email</td>
+<td><a href="mailto:support@rafetus.vn">support@rafetus.vn</a></td>
+</tr>
+<tr class="odd">
+<td>X</td>
+<td><a href="https://x.com/RafetusApp"><span class="citation" data-cites="RafetusApp">@RafetusApp</span></a></td>
+</tr>
+</tbody>
+</table>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="brand/icon.png" class="img-fluid figure-img" alt="Rafetus icon" width="120"></p>
+<figcaption>Rafetus Icon</figcaption>
+</figure>
+</div>
+</section>
+</div>
+
+
 
 </main> <!-- /main -->
 <script>
@@ -420,9 +601,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function applyLang(lang) {
+    if (lang !== "vi" && lang !== "en") lang = "vi";
     try {
       localStorage.setItem(LANG_KEY, lang);
     } catch (e) {}
+    document.documentElement.dataset.lang = lang;
     var btn = document.getElementById("lang-chip");
     if (btn) btn.textContent = lang === "vi" ? "VI" : "EN";
   }

@@ -36,7 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-30ace844f7c9ddbb362ca40a1bbbd319.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5706fd404b1b8b43773065f86154c82c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -64,6 +64,18 @@ ul.task-list li input[type="checkbox"] {
     document.documentElement.dataset.theme = t;
   } catch (e) {
     document.documentElement.dataset.theme = "dark";
+  }
+
+  try {
+    var l = localStorage.getItem("letrinhan-site-locale");
+    if (l !== "vi" && l !== "en") {
+      l = (navigator.language || "vi").toLowerCase().startsWith("vi")
+        ? "vi"
+        : "en";
+    }
+    document.documentElement.dataset.lang = l;
+  } catch (e) {
+    document.documentElement.dataset.lang = "vi";
   }
 })();
 </script>
@@ -196,9 +208,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function applyLang(lang) {
+    if (lang !== "vi" && lang !== "en") lang = "vi";
     try {
       localStorage.setItem(LANG_KEY, lang);
     } catch (e) {}
+    document.documentElement.dataset.lang = lang;
     var btn = document.getElementById("lang-chip");
     if (btn) btn.textContent = lang === "vi" ? "VI" : "EN";
   }
