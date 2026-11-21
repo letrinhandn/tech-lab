@@ -880,24 +880,108 @@ html[data-theme="dark"] main.content code,
 html[data-theme="dark"] #quarto-document-content code,
 html[data-theme="dark"] code:not(pre code) {
   color: #f0e6d8 !important;
-  background: rgba(0, 0, 0, 0.35) !important;
-  border: 1px solid rgba(217, 202, 179, 0.28);
+  background: #140408 !important;
+  border: 1px solid rgba(217, 202, 179, 0.32);
   padding: 0.08em 0.35em;
   border-radius: 0;
 }
 
-html[data-theme="dark"] main.content pre,
-html[data-theme="dark"] #quarto-document-content pre {
-  background: rgba(0, 0, 0, 0.42) !important;
-  border-color: var(--dm-border) !important;
+/* Code blocks — burgundy terminal, no light-gray highlight chrome */
+html[data-theme="dark"] {
+  --quarto-hl-ot-color: #f0e6d8;
+  --quarto-hl-at-color: #d4a84b;
+  --quarto-hl-ss-color: #c9a66b;
+  --quarto-hl-an-color: #9a8575;
+  --quarto-hl-fu-color: #d4a84b;
+  --quarto-hl-st-color: #c9a66b;
+  --quarto-hl-cf-color: #e8c07a;
+  --quarto-hl-op-color: #d9cab3;
+  --quarto-hl-er-color: #e8a0a8;
+  --quarto-hl-bn-color: #e8a0a8;
+  --quarto-hl-al-color: #e8a0a8;
+  --quarto-hl-va-color: #f0e6d8;
+  --quarto-hl-bu-color: #d4a84b;
+  --quarto-hl-ex-color: #d4a84b;
+  --quarto-hl-pp-color: #e8a0a8;
+  --quarto-hl-in-color: #9a8575;
+  --quarto-hl-vs-color: #c9a66b;
+  --quarto-hl-wa-color: #9a8575;
+  --quarto-hl-do-color: #9a8575;
+  --quarto-hl-im-color: #d4a84b;
+  --quarto-hl-ch-color: #c9a66b;
+  --quarto-hl-dt-color: #e8a0a8;
+  --quarto-hl-fl-color: #e8a0a8;
+  --quarto-hl-co-color: #9a8575;
+  --quarto-hl-cv-color: #9a8575;
+  --quarto-hl-cn-color: #d4a84b;
+  --quarto-hl-sc-color: #d9cab3;
+  --quarto-hl-dv-color: #e8a0a8;
+  --quarto-hl-kw-color: #e8c07a;
 }
 
+html[data-theme="dark"] div.sourceCode,
+html[data-theme="dark"] div.sourceCode pre.sourceCode,
+html[data-theme="dark"] pre.sourceCode,
+html[data-theme="dark"] pre.code-with-copy,
+html[data-theme="dark"] main.content pre,
+html[data-theme="dark"] #quarto-document-content pre {
+  background: #140408 !important;
+  color: #f0e6d8 !important;
+  border: 1px solid rgba(217, 202, 179, 0.32) !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="dark"] div.sourceCode pre.sourceCode,
+html[data-theme="dark"] pre.sourceCode code,
 html[data-theme="dark"] main.content pre code,
 html[data-theme="dark"] #quarto-document-content pre code {
   color: #f0e6d8 !important;
   background: transparent !important;
   border: 0 !important;
   padding: 0 !important;
+}
+
+html[data-theme="dark"] code span,
+html[data-theme="dark"] pre > code.sourceCode > span,
+html[data-theme="dark"] code.sourceCode > span,
+html[data-theme="dark"] div.sourceCode,
+html[data-theme="dark"] div.sourceCode pre.sourceCode {
+  color: #f0e6d8 !important;
+}
+
+html[data-theme="dark"] code span.co,
+html[data-theme="dark"] code span.an,
+html[data-theme="dark"] code span.in,
+html[data-theme="dark"] code span.wa,
+html[data-theme="dark"] code span.do,
+html[data-theme="dark"] code span.cv {
+  color: #9a8575 !important;
+}
+
+html[data-theme="dark"] code span.ex,
+html[data-theme="dark"] code span.fu,
+html[data-theme="dark"] code span.at,
+html[data-theme="dark"] code span.im,
+html[data-theme="dark"] code span.cn {
+  color: #d4a84b !important;
+}
+
+html[data-theme="dark"] code span.kw,
+html[data-theme="dark"] code span.cf,
+html[data-theme="dark"] code span.ot {
+  color: #e8c07a !important;
+}
+
+html[data-theme="dark"] .code-copy-button,
+html[data-theme="dark"] button.code-copy-button {
+  background: transparent !important;
+  color: #d9cab3 !important;
+  border-color: rgba(217, 202, 179, 0.35) !important;
+}
+
+html[data-theme="dark"] .code-copy-button:hover {
+  color: #d4a84b !important;
+  border-color: #d4a84b !important;
 }
 
 html[data-theme="dark"] #title-block-header .quarto-categories .quarto-category,
