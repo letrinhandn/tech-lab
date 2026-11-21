@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "posts/hello-tech/index.html",
+    "href": "posts/hello-tech/index.html",
+    "title": "Hello Tech Lab",
+    "section": "",
+    "text": "Scaffold post for Tech Lab."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Tech Lab",
+    "section": "",
+    "text": "Hello Tech Lab\n\n1 min\n\n\nnotes\n\n\n\nFirst note in the tech notebook.\n\n\n\nNov 21, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Personal notes on apps, electronics, and building systems — by Le Tri Nhan.\nHub: letrinhan-site"
+  }
+]
