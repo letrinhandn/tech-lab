@@ -4,119 +4,196 @@
     "href": "posts/ticker/index.html",
     "title": "TICKER",
     "section": "",
-    "text": "Multiplayer stock-market board game (Vietnamese name: Cờ chứng khoán).\nShare a room code, take a seat, and trade until one fund remains. No accounts.\nPlay: tickergame.vercel.app\nTutorial: tickergame.vercel.app/tutorial\nitch.io: comrade-lenan.itch.io/ticker\n\n\n\nTICKER cover\n\n\n\n\n\nTICKER banner\n\n\n\n\n\n\n\nTICKER game board\n\n\nThe green felt board has company tiles, ETF rings, and corners for START, SEC, and WEEKEND. Dice sit in the center. Price Reaction and Market News decks sit beside the eight-sector market track.\n\n\n\nTICKER lobby\n\n\nCreate a room, share the short code, pick a fund seat, and play in English or Vietnamese. You can also watch computer-controlled funds.\n\n\n\nCompany deed card\n\n\n\n\n\nTrade buy moment\n\n\n\n\n\nPrice Reaction card\n\n\n\n\n\nMarket News card\n\n\n\n\n\n\nNext.js App Router for the board UI\nCloudflare PartyServer with one Durable Object per room\nRulebook: MARKETPOLY_RULEBOOK_V5.md\n\n\n\n\nsrc/\n  app/           Routes\n  components/    Board, cards, FX, HUD, room, shell\n  content/       Company, news, and PR decks\n  lib/game/      Engine, bots, balance harness\n  lib/fx/        Peg, cash, and card choreography\n  shared/        Protocol and GameState\nparty/           PartyServer worker\ndocs/rulebook/   Shipped V5 rules\ndocs/archive/    Historical drafts\nscripts/         Balance and fund-matrix CLIs\npublic/press/    Cover, banner, and screenshots\n\n\n\nnpm install\ncp .env.example .env.local\nnpm run dev:all\nSet NEXT_PUBLIC_PARTY_HOST=localhost:8888 in .env.local.\n\nNext.js: http://localhost:3010\nPartyServer: port 8888\n\nYou start in the room lobby as a spectator, then join a seat. If you leave mid-game, that seat keeps autoplaying.\n\n\n\nnpm test\nnpm run balance:sim -- --scenario standard2 --games 200\nnpm run balance:funds -- --games 12\nnpm run balance:audit -- --games 600 --fundGames 14\n\n\n\n\n\n\nPiece\nHost\nProduction\n\n\n\n\nFrontend\nVercel\nhttps://tickergame.vercel.app\n\n\nRealtime\nCloudflare Workers\nhttps://ticker.letrinhan123.workers.dev\n\n\n\nnpm run party:deploy\nnpx vercel deploy --prod\nOn Vercel, set NEXT_PUBLIC_PARTY_HOST to ticker.letrinhan123.workers.dev.\n\n\n\nThe live multiplayer table stays on Vercel and Cloudflare. The itch page is a branded HTML wrapper that opens that build.\n\nCreate the game at itch.io/game/new with URL slug ticker under account comrade-lenan.\nInstall butler once: npm run itch:setup\nExport your API key (never commit it): export ITCH_API_KEY=your_key\nDeploy: npm run itch:deploy\n\nDefault target is comrade-lenan/ticker:html. Override with ITCH_TARGET if needed. Cover art is at itch/cover.jpg and public/brand/ticker-cover.jpg.\n\n\n\n\n\n\nRepo\ngithub.com/letrinhandn/ticker\n\n\nPlay\ntickergame.vercel.app\n\n\nitch.io\ncomrade-lenan.itch.io/ticker\n\n\nREADME\nREADME\n\n\n\nSource: project README."
+    "text": "Cờ chứng khoán — board game multiplayer\nChơi tickergame.vercel.app\nTutorial tickergame.vercel.app/tutorial\nitch.io comrade-lenan.itch.io/ticker\nMã nguồn github.com/letrinhandn/ticker\n\n\nTICKER (Cờ chứng khoán) là board game multiplayer về thị trường. Chia room code, ngồi ghế quỹ, trade đến khi còn một fund. Không cần tài khoản.\n\n\n\nHình 1. Bìa game TICKER.\n\n\n\n\n\nBàn xanh có ô công ty, vòng ETF, góc START / SEC / WEEKEND. Xúc xắc ở giữa. Bộ Price Reaction và Market News cạnh track 8 ngành.\n\n\n\nHình 2. Bàn chơi TICKER.\n\n\nTạo phòng, gửi mã ngắn, chọn ghế quỹ, chơi EN hoặc VI; cũng có thể xem bot chơi.\n\n\n\nHình 3. Phòng chờ (lobby).\n\n\n\n\n\nHình 4. Thẻ deed công ty.\n\n\n\n\n\nHình 5. Khoảnh khắc mua cổ phiếu.\n\n\n\n\n\nHình 6. Thẻ Price Reaction.\n\n\n\n\n\nHình 7. Thẻ Market News.\n\n\n\n\n\n\nNext.js App Router (board UI)\nCloudflare PartyServer — một Durable Object mỗi room\nRulebook: MARKETPOLY_RULEBOOK_V5.md\n\n\n\n\nnpm install\ncp .env.example .env.local\nnpm run dev:all\nĐặt NEXT_PUBLIC_PARTY_HOST=localhost:8888 trong .env.local.\n\nNext.js: http://localhost:3010\nPartyServer: port 8888\n\nVào lobby với tư cách spectator, rồi chọn ghế. Rời giữa ván thì ghế đó tiếp tục autoplay.\n\n\n\n\n\n\nPiece\nHost\nProduction\n\n\n\n\nFrontend\nVercel\nhttps://tickergame.vercel.app\n\n\nRealtime\nCloudflare Workers\nhttps://ticker.letrinhan123.workers.dev\n\n\n\nnpm run party:deploy\nnpx vercel deploy --prod\nTrên Vercel, đặt NEXT_PUBLIC_PARTY_HOST thành ticker.letrinhan123.workers.dev.\n\n\n\n\n\n\nRepo\ngithub.com/letrinhandn/ticker\n\n\nPlay\ntickergame.vercel.app\n\n\nitch.io\ncomrade-lenan.itch.io/ticker\n\n\nREADME\nREADME"
   },
   {
-    "objectID": "posts/ticker/index.html#screenshots",
-    "href": "posts/ticker/index.html#screenshots",
+    "objectID": "posts/ticker/index.html#tổng-quan",
+    "href": "posts/ticker/index.html#tổng-quan",
     "title": "TICKER",
     "section": "",
-    "text": "TICKER game board\n\n\nThe green felt board has company tiles, ETF rings, and corners for START, SEC, and WEEKEND. Dice sit in the center. Price Reaction and Market News decks sit beside the eight-sector market track.\n\n\n\nTICKER lobby\n\n\nCreate a room, share the short code, pick a fund seat, and play in English or Vietnamese. You can also watch computer-controlled funds.\n\n\n\nCompany deed card\n\n\n\n\n\nTrade buy moment\n\n\n\n\n\nPrice Reaction card\n\n\n\n\n\nMarket News card"
+    "text": "TICKER (Cờ chứng khoán) là board game multiplayer về thị trường. Chia room code, ngồi ghế quỹ, trade đến khi còn một fund. Không cần tài khoản.\n\n\n\nHình 1. Bìa game TICKER."
+  },
+  {
+    "objectID": "posts/ticker/index.html#gameplay",
+    "href": "posts/ticker/index.html#gameplay",
+    "title": "TICKER",
+    "section": "",
+    "text": "Bàn xanh có ô công ty, vòng ETF, góc START / SEC / WEEKEND. Xúc xắc ở giữa. Bộ Price Reaction và Market News cạnh track 8 ngành.\n\n\n\nHình 2. Bàn chơi TICKER.\n\n\nTạo phòng, gửi mã ngắn, chọn ghế quỹ, chơi EN hoặc VI; cũng có thể xem bot chơi.\n\n\n\nHình 3. Phòng chờ (lobby).\n\n\n\n\n\nHình 4. Thẻ deed công ty.\n\n\n\n\n\nHình 5. Khoảnh khắc mua cổ phiếu.\n\n\n\n\n\nHình 6. Thẻ Price Reaction.\n\n\n\n\n\nHình 7. Thẻ Market News."
   },
   {
     "objectID": "posts/ticker/index.html#stack",
     "href": "posts/ticker/index.html#stack",
     "title": "TICKER",
     "section": "",
-    "text": "Next.js App Router for the board UI\nCloudflare PartyServer with one Durable Object per room\nRulebook: MARKETPOLY_RULEBOOK_V5.md"
-  },
-  {
-    "objectID": "posts/ticker/index.html#layout",
-    "href": "posts/ticker/index.html#layout",
-    "title": "TICKER",
-    "section": "",
-    "text": "src/\n  app/           Routes\n  components/    Board, cards, FX, HUD, room, shell\n  content/       Company, news, and PR decks\n  lib/game/      Engine, bots, balance harness\n  lib/fx/        Peg, cash, and card choreography\n  shared/        Protocol and GameState\nparty/           PartyServer worker\ndocs/rulebook/   Shipped V5 rules\ndocs/archive/    Historical drafts\nscripts/         Balance and fund-matrix CLIs\npublic/press/    Cover, banner, and screenshots"
+    "text": "Next.js App Router (board UI)\nCloudflare PartyServer — một Durable Object mỗi room\nRulebook: MARKETPOLY_RULEBOOK_V5.md"
   },
   {
     "objectID": "posts/ticker/index.html#develop",
     "href": "posts/ticker/index.html#develop",
     "title": "TICKER",
     "section": "",
-    "text": "npm install\ncp .env.example .env.local\nnpm run dev:all\nSet NEXT_PUBLIC_PARTY_HOST=localhost:8888 in .env.local.\n\nNext.js: http://localhost:3010\nPartyServer: port 8888\n\nYou start in the room lobby as a spectator, then join a seat. If you leave mid-game, that seat keeps autoplaying."
-  },
-  {
-    "objectID": "posts/ticker/index.html#test-and-balance",
-    "href": "posts/ticker/index.html#test-and-balance",
-    "title": "TICKER",
-    "section": "",
-    "text": "npm test\nnpm run balance:sim -- --scenario standard2 --games 200\nnpm run balance:funds -- --games 12\nnpm run balance:audit -- --games 600 --fundGames 14"
+    "text": "npm install\ncp .env.example .env.local\nnpm run dev:all\nĐặt NEXT_PUBLIC_PARTY_HOST=localhost:8888 trong .env.local.\n\nNext.js: http://localhost:3010\nPartyServer: port 8888\n\nVào lobby với tư cách spectator, rồi chọn ghế. Rời giữa ván thì ghế đó tiếp tục autoplay."
   },
   {
     "objectID": "posts/ticker/index.html#deploy",
     "href": "posts/ticker/index.html#deploy",
     "title": "TICKER",
     "section": "",
-    "text": "Piece\nHost\nProduction\n\n\n\n\nFrontend\nVercel\nhttps://tickergame.vercel.app\n\n\nRealtime\nCloudflare Workers\nhttps://ticker.letrinhan123.workers.dev\n\n\n\nnpm run party:deploy\nnpx vercel deploy --prod\nOn Vercel, set NEXT_PUBLIC_PARTY_HOST to ticker.letrinhan123.workers.dev."
+    "text": "Piece\nHost\nProduction\n\n\n\n\nFrontend\nVercel\nhttps://tickergame.vercel.app\n\n\nRealtime\nCloudflare Workers\nhttps://ticker.letrinhan123.workers.dev\n\n\n\nnpm run party:deploy\nnpx vercel deploy --prod\nTrên Vercel, đặt NEXT_PUBLIC_PARTY_HOST thành ticker.letrinhan123.workers.dev."
   },
   {
-    "objectID": "posts/ticker/index.html#itch.io",
-    "href": "posts/ticker/index.html#itch.io",
+    "objectID": "posts/ticker/index.html#liên-kết",
+    "href": "posts/ticker/index.html#liên-kết",
     "title": "TICKER",
     "section": "",
-    "text": "The live multiplayer table stays on Vercel and Cloudflare. The itch page is a branded HTML wrapper that opens that build.\n\nCreate the game at itch.io/game/new with URL slug ticker under account comrade-lenan.\nInstall butler once: npm run itch:setup\nExport your API key (never commit it): export ITCH_API_KEY=your_key\nDeploy: npm run itch:deploy\n\nDefault target is comrade-lenan/ticker:html. Override with ITCH_TARGET if needed. Cover art is at itch/cover.jpg and public/brand/ticker-cover.jpg."
+    "text": "Repo\ngithub.com/letrinhandn/ticker\n\n\nPlay\ntickergame.vercel.app\n\n\nitch.io\ncomrade-lenan.itch.io/ticker\n\n\nREADME\nREADME"
+  },
+  {
+    "objectID": "posts/ticker/index.html#overview",
+    "href": "posts/ticker/index.html#overview",
+    "title": "TICKER",
+    "section": "Overview",
+    "text": "Overview\nTICKER is a multiplayer stock-market board game. Share a room code, take a fund seat, and trade until one fund remains. No accounts.\n\n\n\nFigure 1. TICKER cover art."
+  },
+  {
+    "objectID": "posts/ticker/index.html#gameplay-1",
+    "href": "posts/ticker/index.html#gameplay-1",
+    "title": "TICKER",
+    "section": "Gameplay",
+    "text": "Gameplay\nThe green felt board has company tiles, ETF rings, and corners for START, SEC, and WEEKEND. Dice sit in the center. Price Reaction and Market News decks sit beside the eight-sector market track.\n\n\n\nFigure 2. TICKER game board.\n\n\nCreate a room, share the short code, pick a fund seat, and play in English or Vietnamese. You can also watch computer-controlled funds.\n\n\n\nFigure 3. Room lobby.\n\n\n\n\n\nFigure 4. Company deed card.\n\n\n\n\n\nFigure 5. Trade buy moment.\n\n\n\n\n\nFigure 6. Price Reaction card.\n\n\n\n\n\nFigure 7. Market News card."
+  },
+  {
+    "objectID": "posts/ticker/index.html#stack-1",
+    "href": "posts/ticker/index.html#stack-1",
+    "title": "TICKER",
+    "section": "Stack",
+    "text": "Stack\n\nNext.js App Router for the board UI\nCloudflare PartyServer with one Durable Object per room\nRulebook: MARKETPOLY_RULEBOOK_V5.md"
+  },
+  {
+    "objectID": "posts/ticker/index.html#develop-1",
+    "href": "posts/ticker/index.html#develop-1",
+    "title": "TICKER",
+    "section": "Develop",
+    "text": "Develop\nnpm install\ncp .env.example .env.local\nnpm run dev:all\nSet NEXT_PUBLIC_PARTY_HOST=localhost:8888 in .env.local.\n\nNext.js: http://localhost:3010\nPartyServer: port 8888\n\nYou start in the room lobby as a spectator, then join a seat. If you leave mid-game, that seat keeps autoplaying."
+  },
+  {
+    "objectID": "posts/ticker/index.html#deploy-1",
+    "href": "posts/ticker/index.html#deploy-1",
+    "title": "TICKER",
+    "section": "Deploy",
+    "text": "Deploy\n\n\n\nPiece\nHost\nProduction\n\n\n\n\nFrontend\nVercel\nhttps://tickergame.vercel.app\n\n\nRealtime\nCloudflare Workers\nhttps://ticker.letrinhan123.workers.dev\n\n\n\nnpm run party:deploy\nnpx vercel deploy --prod\nOn Vercel, set NEXT_PUBLIC_PARTY_HOST to ticker.letrinhan123.workers.dev."
   },
   {
     "objectID": "posts/ticker/index.html#links",
     "href": "posts/ticker/index.html#links",
     "title": "TICKER",
-    "section": "",
-    "text": "Repo\ngithub.com/letrinhandn/ticker\n\n\nPlay\ntickergame.vercel.app\n\n\nitch.io\ncomrade-lenan.itch.io/ticker\n\n\nREADME\nREADME\n\n\n\nSource: project README."
+    "section": "Links",
+    "text": "Links\n\n\n\nRepo\ngithub.com/letrinhandn/ticker\n\n\nPlay\ntickergame.vercel.app\n\n\nitch.io\ncomrade-lenan.itch.io/ticker\n\n\nREADME\nREADME"
   },
   {
     "objectID": "posts/retro-typewriter-cyberdeck/index.html",
     "href": "posts/retro-typewriter-cyberdeck/index.html",
     "title": "Retro Typewriter Cyberdeck",
     "section": "",
-    "text": "A self-contained portable computing unit built around the Raspberry Pi 5, housed in a repurposed decorative wooden chest. Designed and assembled in London, winter 2024/2025.\n\n\n\nFront\n\n\n\n\n\nFully portable: battery-backed, no dependency on mains power\nSelf-contained: display, input, compute, and networking in one enclosure\nDual-purpose: general-purpose Linux workstation and passive 802.11 network monitoring via Pwnagotchi co-processor\nNo 3D printing, no CNC: enclosure repurposed from off-the-shelf hardware\n\n\n\n\n\n\n\n\n\n\n\n\n\nComponent\nSpecification\nSource\nUnit Price\n\n\n\n\nSBC\nRaspberry Pi 5, 4GB\nAmazon UK\n£143.00\n\n\nDisplay\nGeeekPi 7” IPS LCD, 1024x600, 60Hz, 500 cd/m2, HDMI\nAmazon UK\n£44.99\n\n\nUPS HAT\nWaveshare UPS HAT (E), 5V/6A output, bi-directional fast charge, Pogo Pin connector\nAmazon UK\n£39.99\n\n\nThermal\nRaspberry Pi Active Cooler (official)\nAmazon UK\n£9.56\n\n\nDisplay cable\nCoiled Micro HDMI to HDMI, 4K@60Hz, 0.5-2.4M\nAliExpress\n$3.97\n\n\nInternal wiring\nHOQO FFC Flat Flexible Cable kit, 18 connector types\nAliExpress\n$10.05\n\n\nEnclosure\nEuropean Vintage Small Wood Box with lock, approx. 30x15x12cm\nAliExpress\n$4.77\n\n\nKeyboard\nIDOBAO ID42 40%, hotswap, Kailh Box Navy switches, white keycaps\nAliExpress\n£18.87\n\n\nBattery cells\n2x 18650 Li-ion, 4200mAh, 3.7V\n-\nTBD\n\n\n\nTotal (confirmed components): ~£256.41 + $18.79 + batteries\n\n\n\n\n\nRaspberry Pi 5 (4GB LPDDR4X) running Ubuntu 24.04 LTS. The active cooler is fitted directly to the SoC heatspreader and routed to exhaust through a ventilation gap at the rear of the enclosure.\n\n\n\nThe Waveshare UPS HAT (E) is stacked directly on the GPIO header via Pogo Pins, supplying 5V/6A to the Pi. Two 18650 Li-ion cells (4200mAh each, ~31Wh combined at nominal voltage) are housed in the HAT’s integrated battery bay. The HAT supports hot-swap charging: the system remains operational while charging via USB-C. Known issue: battery percentage readout is unreliable under Ubuntu; the HAT reports via I2C but driver support is incomplete.\n\n\n\nThe GeeekPi 7” IPS panel is mounted externally on the inner face of the lid, connected via a coiled Micro HDMI cable routed through the hinge gap. The coil accommodates lid open/close movement without cable stress. Resolution set to 1024x600 at 60Hz; display is powered directly from the HDMI port.\n\n\n\nIDOBAO ID42 40% hotswap mechanical keyboard, fitted with Kailh Box Navy tactile-clicky switches and IDOBAO white keycaps. The 40% layout reduces footprint while retaining full alphanumeric coverage via layers. The keyboard sits external to the enclosure and connects via USB.\n\n\n\nThe Pi’s onboard BCM43455 handles primary wireless. A secondary USB Wi-Fi adapter extends range. The Pwnagotchi co-processor runs on a dedicated microcontroller with its own 2.13” e-ink status display, performing passive 802.11 handshake capture and AI-driven interaction loop independent of the main OS.\n\n\n\nThe upper compartment houses the main board stack (Pi 5, UPS HAT, cooler) and battery cells, with styrofoam-carved dividers holding each component in a fixed position to prevent movement under transport. The lower compartment is left open as a carry space for peripheral gadgets: Pwnagotchi, cables, USB adapters, or anything else in rotation. The wooden chest provides adequate rigidity and incidental EMF containment without requiring any machining.\n\n\n\n\n\n\n\nInternals\n\n\n\n\n\nBack\n\n\n\n\n\nPOV\n\n\n\n\n\nBench test\n\n\n\n\n\n\n\n\n\n\n\n\nIssue\nStatus\n\n\n\n\nUPS battery percentage unreliable via I2C on Ubuntu\nOpen\n\n\nLid closure requires partial cable disconnection\nBy design (constraint of enclosure geometry)\n\n\nNo active ventilation: relies on passive gap at rear\nAcceptable under normal load; throttles under sustained CPU stress\n\n\n\n\n\n\n\nUbuntu 24.04 LTS (Raspberry Pi build)\nPwnagotchi: standalone AI on co-processor, does not share OS with main system\nPrimary use: writing, research, terminal work\n\n\n\n\n\n\n\nRepo\ngithub.com/letrinhandn/retro-typewriter-cyberdeck\n\n\nREADME\nREADME + photos\n\n\n\nSource: project README."
+    "text": "Máy tính xách tay tự chế quanh Raspberry Pi 5\nMã nguồn github.com/letrinhandn/retro-typewriter-cyberdeck\n\n\nCyberdeck tự chứa, dựng quanh Raspberry Pi 5, đặt trong hộp gỗ trang trí tái sử dụng. Thiết kế và lắp tại London, đông 2024/2025.\nĐây là khối máy portable: có pin, màn hình, bàn phím, máy tính và mạng trong cùng một khối — vừa làm workstation Linux, vừa kèm Pwnagotchi theo dõi 802.11 thụ động.\n\n\n\nHình 1. Mặt trước Retro Typewriter Cyberdeck.\n\n\n\n\n\n\nPortable: có pin, không phụ thuộc ổ cắm\nSelf-contained: display + input + compute + network trong một khối\nDual-purpose: Linux workstation + passive 802.11 monitoring (Pwnagotchi)\nKhông in 3D / CNC: enclosure lấy sẵn rồi lắp\n\n\n\n\n\n\n\n\n\n\n\n\n\nComponent\nSpecification\nSource\nUnit Price\n\n\n\n\nSBC\nRaspberry Pi 5, 4GB\nAmazon UK\n£143.00\n\n\nDisplay\nGeeekPi 7” IPS LCD, 1024x600, 60Hz, 500 cd/m2, HDMI\nAmazon UK\n£44.99\n\n\nUPS HAT\nWaveshare UPS HAT (E), 5V/6A output, bi-directional fast charge, Pogo Pin connector\nAmazon UK\n£39.99\n\n\nThermal\nRaspberry Pi Active Cooler (official)\nAmazon UK\n£9.56\n\n\nDisplay cable\nCoiled Micro HDMI to HDMI, 4K@60Hz, 0.5-2.4M\nAliExpress\n$3.97\n\n\nInternal wiring\nHOQO FFC Flat Flexible Cable kit, 18 connector types\nAliExpress\n$10.05\n\n\nEnclosure\nEuropean Vintage Small Wood Box with lock, approx. 30x15x12cm\nAliExpress\n$4.77\n\n\nKeyboard\nIDOBAO ID42 40%, hotswap, Kailh Box Navy switches, white keycaps\nAliExpress\n£18.87\n\n\nBattery cells\n2x 18650 Li-ion, 4200mAh, 3.7V\n-\nTBD\n\n\n\nTổng linh kiện đã chốt: ~£256.41 + $18.79 + pin\n\n\n\nHình 2. Phần cứng bên trong hộp.\n\n\n\n\n\n\n\nRaspberry Pi 5 (4GB LPDDR4X) chạy Ubuntu 24.04 LTS. Active cooler gắn trực tiếp lên SoC và thoát nhiệt qua khe phía sau enclosure.\n\n\n\nWaveshare UPS HAT (E) gắn GPIO qua Pogo Pins, cấp 5V/6A. Hai cell 18650 (~31Wh) nằm trong bay pin của HAT. Có thể sạc USB-C khi đang chạy. Đọc % pin qua I2C trên Ubuntu chưa ổn định.\n\n\n\nPanel GeeekPi 7” gắn mặt trong nắp, nối bằng cáp Micro HDMI xoắn qua bản lề. Độ phân giải 1024×600 @ 60Hz.\n\n\n\nHình 3. Mặt sau và khe thoát nhiệt.\n\n\n\n\n\nBàn phím IDOBAO ID42 40%, Kailh Box Navy, keycap trắng. Kết nối USB, nằm ngoài enclosure.\n\n\n\nWi-Fi onboard BCM43455; thêm USB adapter mở rộng. Pwnagotchi chạy trên microcontroller riêng với e-ink 2.13”, bắt handshake 802.11 thụ động độc lập với OS chính.\n\n\n\nNgăn trên chứa stack Pi 5 + UPS HAT + cooler + pin, cố định bằng miếng xốp. Ngăn dưới để trống mang phụ kiện: Pwnagotchi, cáp, adapter.\n\n\n\nHình 4. Góc nhìn khi làm việc.\n\n\n\n\n\n\n\n\n\n\n\n\n\nIssue\nStatus\n\n\n\n\n% pin UPS qua I2C trên Ubuntu chưa ổn\nOpen\n\n\nĐóng nắp đôi khi cần rút cáp một phần\nBy design (constraint hình học hộp)\n\n\nThông gió thụ động: throttle khi CPU kéo dài\nAcceptable under normal load\n\n\n\n\n\n\nHình 5. Thử nghiệm trên bàn.\n\n\n\n\n\n\nUbuntu 24.04 LTS (Raspberry Pi build)\nPwnagotchi: AI standalone trên co-processor, không chung OS với máy chính\nMục đích chính: viết, nghiên cứu, làm việc terminal\n\n\n\n\n\n\n\nRepo\ngithub.com/letrinhandn/retro-typewriter-cyberdeck\n\n\nREADME\nREADME + photos"
   },
   {
-    "objectID": "posts/retro-typewriter-cyberdeck/index.html#design-objectives",
-    "href": "posts/retro-typewriter-cyberdeck/index.html#design-objectives",
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#tổng-quan",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#tổng-quan",
     "title": "Retro Typewriter Cyberdeck",
     "section": "",
-    "text": "Fully portable: battery-backed, no dependency on mains power\nSelf-contained: display, input, compute, and networking in one enclosure\nDual-purpose: general-purpose Linux workstation and passive 802.11 network monitoring via Pwnagotchi co-processor\nNo 3D printing, no CNC: enclosure repurposed from off-the-shelf hardware"
+    "text": "Cyberdeck tự chứa, dựng quanh Raspberry Pi 5, đặt trong hộp gỗ trang trí tái sử dụng. Thiết kế và lắp tại London, đông 2024/2025.\nĐây là khối máy portable: có pin, màn hình, bàn phím, máy tính và mạng trong cùng một khối — vừa làm workstation Linux, vừa kèm Pwnagotchi theo dõi 802.11 thụ động.\n\n\n\nHình 1. Mặt trước Retro Typewriter Cyberdeck."
+  },
+  {
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#mục-tiêu-thiết-kế",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#mục-tiêu-thiết-kế",
+    "title": "Retro Typewriter Cyberdeck",
+    "section": "",
+    "text": "Portable: có pin, không phụ thuộc ổ cắm\nSelf-contained: display + input + compute + network trong một khối\nDual-purpose: Linux workstation + passive 802.11 monitoring (Pwnagotchi)\nKhông in 3D / CNC: enclosure lấy sẵn rồi lắp"
   },
   {
     "objectID": "posts/retro-typewriter-cyberdeck/index.html#bill-of-materials",
     "href": "posts/retro-typewriter-cyberdeck/index.html#bill-of-materials",
     "title": "Retro Typewriter Cyberdeck",
     "section": "",
-    "text": "Component\nSpecification\nSource\nUnit Price\n\n\n\n\nSBC\nRaspberry Pi 5, 4GB\nAmazon UK\n£143.00\n\n\nDisplay\nGeeekPi 7” IPS LCD, 1024x600, 60Hz, 500 cd/m2, HDMI\nAmazon UK\n£44.99\n\n\nUPS HAT\nWaveshare UPS HAT (E), 5V/6A output, bi-directional fast charge, Pogo Pin connector\nAmazon UK\n£39.99\n\n\nThermal\nRaspberry Pi Active Cooler (official)\nAmazon UK\n£9.56\n\n\nDisplay cable\nCoiled Micro HDMI to HDMI, 4K@60Hz, 0.5-2.4M\nAliExpress\n$3.97\n\n\nInternal wiring\nHOQO FFC Flat Flexible Cable kit, 18 connector types\nAliExpress\n$10.05\n\n\nEnclosure\nEuropean Vintage Small Wood Box with lock, approx. 30x15x12cm\nAliExpress\n$4.77\n\n\nKeyboard\nIDOBAO ID42 40%, hotswap, Kailh Box Navy switches, white keycaps\nAliExpress\n£18.87\n\n\nBattery cells\n2x 18650 Li-ion, 4200mAh, 3.7V\n-\nTBD\n\n\n\nTotal (confirmed components): ~£256.41 + $18.79 + batteries"
+    "text": "Component\nSpecification\nSource\nUnit Price\n\n\n\n\nSBC\nRaspberry Pi 5, 4GB\nAmazon UK\n£143.00\n\n\nDisplay\nGeeekPi 7” IPS LCD, 1024x600, 60Hz, 500 cd/m2, HDMI\nAmazon UK\n£44.99\n\n\nUPS HAT\nWaveshare UPS HAT (E), 5V/6A output, bi-directional fast charge, Pogo Pin connector\nAmazon UK\n£39.99\n\n\nThermal\nRaspberry Pi Active Cooler (official)\nAmazon UK\n£9.56\n\n\nDisplay cable\nCoiled Micro HDMI to HDMI, 4K@60Hz, 0.5-2.4M\nAliExpress\n$3.97\n\n\nInternal wiring\nHOQO FFC Flat Flexible Cable kit, 18 connector types\nAliExpress\n$10.05\n\n\nEnclosure\nEuropean Vintage Small Wood Box with lock, approx. 30x15x12cm\nAliExpress\n$4.77\n\n\nKeyboard\nIDOBAO ID42 40%, hotswap, Kailh Box Navy switches, white keycaps\nAliExpress\n£18.87\n\n\nBattery cells\n2x 18650 Li-ion, 4200mAh, 3.7V\n-\nTBD\n\n\n\nTổng linh kiện đã chốt: ~£256.41 + $18.79 + pin\n\n\n\nHình 2. Phần cứng bên trong hộp."
   },
   {
-    "objectID": "posts/retro-typewriter-cyberdeck/index.html#system-architecture",
-    "href": "posts/retro-typewriter-cyberdeck/index.html#system-architecture",
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#kiến-trúc-hệ-thống",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#kiến-trúc-hệ-thống",
     "title": "Retro Typewriter Cyberdeck",
     "section": "",
-    "text": "Raspberry Pi 5 (4GB LPDDR4X) running Ubuntu 24.04 LTS. The active cooler is fitted directly to the SoC heatspreader and routed to exhaust through a ventilation gap at the rear of the enclosure.\n\n\n\nThe Waveshare UPS HAT (E) is stacked directly on the GPIO header via Pogo Pins, supplying 5V/6A to the Pi. Two 18650 Li-ion cells (4200mAh each, ~31Wh combined at nominal voltage) are housed in the HAT’s integrated battery bay. The HAT supports hot-swap charging: the system remains operational while charging via USB-C. Known issue: battery percentage readout is unreliable under Ubuntu; the HAT reports via I2C but driver support is incomplete.\n\n\n\nThe GeeekPi 7” IPS panel is mounted externally on the inner face of the lid, connected via a coiled Micro HDMI cable routed through the hinge gap. The coil accommodates lid open/close movement without cable stress. Resolution set to 1024x600 at 60Hz; display is powered directly from the HDMI port.\n\n\n\nIDOBAO ID42 40% hotswap mechanical keyboard, fitted with Kailh Box Navy tactile-clicky switches and IDOBAO white keycaps. The 40% layout reduces footprint while retaining full alphanumeric coverage via layers. The keyboard sits external to the enclosure and connects via USB.\n\n\n\nThe Pi’s onboard BCM43455 handles primary wireless. A secondary USB Wi-Fi adapter extends range. The Pwnagotchi co-processor runs on a dedicated microcontroller with its own 2.13” e-ink status display, performing passive 802.11 handshake capture and AI-driven interaction loop independent of the main OS.\n\n\n\nThe upper compartment houses the main board stack (Pi 5, UPS HAT, cooler) and battery cells, with styrofoam-carved dividers holding each component in a fixed position to prevent movement under transport. The lower compartment is left open as a carry space for peripheral gadgets: Pwnagotchi, cables, USB adapters, or anything else in rotation. The wooden chest provides adequate rigidity and incidental EMF containment without requiring any machining."
-  },
-  {
-    "objectID": "posts/retro-typewriter-cyberdeck/index.html#photos",
-    "href": "posts/retro-typewriter-cyberdeck/index.html#photos",
-    "title": "Retro Typewriter Cyberdeck",
-    "section": "",
-    "text": "Internals\n\n\n\n\n\nBack\n\n\n\n\n\nPOV\n\n\n\n\n\nBench test"
+    "text": "Raspberry Pi 5 (4GB LPDDR4X) chạy Ubuntu 24.04 LTS. Active cooler gắn trực tiếp lên SoC và thoát nhiệt qua khe phía sau enclosure.\n\n\n\nWaveshare UPS HAT (E) gắn GPIO qua Pogo Pins, cấp 5V/6A. Hai cell 18650 (~31Wh) nằm trong bay pin của HAT. Có thể sạc USB-C khi đang chạy. Đọc % pin qua I2C trên Ubuntu chưa ổn định.\n\n\n\nPanel GeeekPi 7” gắn mặt trong nắp, nối bằng cáp Micro HDMI xoắn qua bản lề. Độ phân giải 1024×600 @ 60Hz.\n\n\n\nHình 3. Mặt sau và khe thoát nhiệt.\n\n\n\n\n\nBàn phím IDOBAO ID42 40%, Kailh Box Navy, keycap trắng. Kết nối USB, nằm ngoài enclosure.\n\n\n\nWi-Fi onboard BCM43455; thêm USB adapter mở rộng. Pwnagotchi chạy trên microcontroller riêng với e-ink 2.13”, bắt handshake 802.11 thụ động độc lập với OS chính.\n\n\n\nNgăn trên chứa stack Pi 5 + UPS HAT + cooler + pin, cố định bằng miếng xốp. Ngăn dưới để trống mang phụ kiện: Pwnagotchi, cáp, adapter.\n\n\n\nHình 4. Góc nhìn khi làm việc."
   },
   {
     "objectID": "posts/retro-typewriter-cyberdeck/index.html#known-issues",
     "href": "posts/retro-typewriter-cyberdeck/index.html#known-issues",
     "title": "Retro Typewriter Cyberdeck",
     "section": "",
-    "text": "Issue\nStatus\n\n\n\n\nUPS battery percentage unreliable via I2C on Ubuntu\nOpen\n\n\nLid closure requires partial cable disconnection\nBy design (constraint of enclosure geometry)\n\n\nNo active ventilation: relies on passive gap at rear\nAcceptable under normal load; throttles under sustained CPU stress"
+    "text": "Issue\nStatus\n\n\n\n\n% pin UPS qua I2C trên Ubuntu chưa ổn\nOpen\n\n\nĐóng nắp đôi khi cần rút cáp một phần\nBy design (constraint hình học hộp)\n\n\nThông gió thụ động: throttle khi CPU kéo dài\nAcceptable under normal load\n\n\n\n\n\n\nHình 5. Thử nghiệm trên bàn."
+  },
+  {
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#os-và-phần-mềm",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#os-và-phần-mềm",
+    "title": "Retro Typewriter Cyberdeck",
+    "section": "",
+    "text": "Ubuntu 24.04 LTS (Raspberry Pi build)\nPwnagotchi: AI standalone trên co-processor, không chung OS với máy chính\nMục đích chính: viết, nghiên cứu, làm việc terminal"
+  },
+  {
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#liên-kết",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#liên-kết",
+    "title": "Retro Typewriter Cyberdeck",
+    "section": "",
+    "text": "Repo\ngithub.com/letrinhandn/retro-typewriter-cyberdeck\n\n\nREADME\nREADME + photos"
+  },
+  {
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#overview",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#overview",
+    "title": "Retro Typewriter Cyberdeck",
+    "section": "Overview",
+    "text": "Overview\nA self-contained portable computing unit built around the Raspberry Pi 5, housed in a repurposed decorative wooden chest. Designed and assembled in London, winter 2024/2025.\nFully portable and battery-backed: display, input, compute, and networking in one enclosure — a general-purpose Linux workstation with a Pwnagotchi co-processor for passive 802.11 monitoring.\n\n\n\nFigure 1. Front view of the Retro Typewriter Cyberdeck."
+  },
+  {
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#design-objectives",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#design-objectives",
+    "title": "Retro Typewriter Cyberdeck",
+    "section": "Design Objectives",
+    "text": "Design Objectives\n\nFully portable: battery-backed, no dependency on mains power\nSelf-contained: display, input, compute, and networking in one enclosure\nDual-purpose: general-purpose Linux workstation and passive 802.11 network monitoring via Pwnagotchi co-processor\nNo 3D printing, no CNC: enclosure repurposed from off-the-shelf hardware"
+  },
+  {
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#bill-of-materials-1",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#bill-of-materials-1",
+    "title": "Retro Typewriter Cyberdeck",
+    "section": "Bill of Materials",
+    "text": "Bill of Materials\n\n\n\n\n\n\n\n\n\nComponent\nSpecification\nSource\nUnit Price\n\n\n\n\nSBC\nRaspberry Pi 5, 4GB\nAmazon UK\n£143.00\n\n\nDisplay\nGeeekPi 7” IPS LCD, 1024x600, 60Hz, 500 cd/m2, HDMI\nAmazon UK\n£44.99\n\n\nUPS HAT\nWaveshare UPS HAT (E), 5V/6A output, bi-directional fast charge, Pogo Pin connector\nAmazon UK\n£39.99\n\n\nThermal\nRaspberry Pi Active Cooler (official)\nAmazon UK\n£9.56\n\n\nDisplay cable\nCoiled Micro HDMI to HDMI, 4K@60Hz, 0.5-2.4M\nAliExpress\n$3.97\n\n\nInternal wiring\nHOQO FFC Flat Flexible Cable kit, 18 connector types\nAliExpress\n$10.05\n\n\nEnclosure\nEuropean Vintage Small Wood Box with lock, approx. 30x15x12cm\nAliExpress\n$4.77\n\n\nKeyboard\nIDOBAO ID42 40%, hotswap, Kailh Box Navy switches, white keycaps\nAliExpress\n£18.87\n\n\nBattery cells\n2x 18650 Li-ion, 4200mAh, 3.7V\n-\nTBD\n\n\n\nTotal (confirmed components): ~£256.41 + $18.79 + batteries\n\n\n\nFigure 2. Internal hardware layout."
+  },
+  {
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#system-architecture",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#system-architecture",
+    "title": "Retro Typewriter Cyberdeck",
+    "section": "System Architecture",
+    "text": "System Architecture\n\nCompute\nRaspberry Pi 5 (4GB LPDDR4X) running Ubuntu 24.04 LTS. The active cooler is fitted directly to the SoC heatspreader and routed to exhaust through a ventilation gap at the rear of the enclosure.\n\n\nPower\nThe Waveshare UPS HAT (E) is stacked directly on the GPIO header via Pogo Pins, supplying 5V/6A to the Pi. Two 18650 Li-ion cells (4200mAh each, ~31Wh combined at nominal voltage) are housed in the HAT’s integrated battery bay. The HAT supports hot-swap charging via USB-C. Battery percentage readout via I2C on Ubuntu remains unreliable.\n\n\nDisplay\nThe GeeekPi 7” IPS panel is mounted on the inner face of the lid, connected via a coiled Micro HDMI cable routed through the hinge gap. Resolution is 1024×600 at 60Hz.\n\n\n\nFigure 3. Rear view and ventilation gap.\n\n\n\n\nInput\nIDOBAO ID42 40% hotswap mechanical keyboard with Kailh Box Navy switches and white keycaps. The keyboard sits external to the enclosure and connects via USB.\n\n\nNetworking\nThe Pi’s onboard BCM43455 handles primary wireless. A secondary USB Wi-Fi adapter extends range. The Pwnagotchi co-processor runs on a dedicated microcontroller with its own 2.13” e-ink status display.\n\n\nInternal Structure\nThe upper compartment houses the main board stack and battery cells with styrofoam-carved dividers. The lower compartment is left open as carry space for peripherals.\n\n\n\nFigure 4. Working point of view."
+  },
+  {
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#known-issues-1",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#known-issues-1",
+    "title": "Retro Typewriter Cyberdeck",
+    "section": "Known Issues",
+    "text": "Known Issues\n\n\n\n\n\n\n\nIssue\nStatus\n\n\n\n\nUPS battery percentage unreliable via I2C on Ubuntu\nOpen\n\n\nLid closure requires partial cable disconnection\nBy design (constraint of enclosure geometry)\n\n\nNo active ventilation: relies on passive gap at rear\nAcceptable under normal load; throttles under sustained CPU stress\n\n\n\n\n\n\nFigure 5. Bench test setup."
   },
   {
     "objectID": "posts/retro-typewriter-cyberdeck/index.html#os-and-software",
     "href": "posts/retro-typewriter-cyberdeck/index.html#os-and-software",
     "title": "Retro Typewriter Cyberdeck",
-    "section": "",
-    "text": "Ubuntu 24.04 LTS (Raspberry Pi build)\nPwnagotchi: standalone AI on co-processor, does not share OS with main system\nPrimary use: writing, research, terminal work"
+    "section": "OS and Software",
+    "text": "OS and Software\n\nUbuntu 24.04 LTS (Raspberry Pi build)\nPwnagotchi: standalone AI on co-processor, does not share OS with main system\nPrimary use: writing, research, terminal work"
   },
   {
     "objectID": "posts/retro-typewriter-cyberdeck/index.html#links",
     "href": "posts/retro-typewriter-cyberdeck/index.html#links",
     "title": "Retro Typewriter Cyberdeck",
-    "section": "",
-    "text": "Repo\ngithub.com/letrinhandn/retro-typewriter-cyberdeck\n\n\nREADME\nREADME + photos\n\n\n\nSource: project README."
+    "section": "Links",
+    "text": "Links\n\n\n\nRepo\ngithub.com/letrinhandn/retro-typewriter-cyberdeck\n\n\nREADME\nREADME + photos"
   },
   {
     "objectID": "about.html",
@@ -130,7 +207,7 @@
     "href": "index.html",
     "title": "Tech Lab",
     "section": "",
-    "text": "Rafetus\n\n10 min\n\n\napps\n\n\n\n\n\n\n\nNov 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTerminal Trade\n\n2 min\n\n\napps\n\n\n\nLocal market research terminal built with Next.js. Free public data plus optional keys in .env.local.\n\n\n\nNov 19, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nRetro Typewriter Cyberdeck\n\n4 min\n\n\nhardware\n\n\n\nSelf-contained portable computing unit around Raspberry Pi 5 in a repurposed wooden chest. London, winter 2024/2025.\n\n\n\nNov 18, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTICKER\n\n3 min\n\n\ngames\n\n\n\nMultiplayer stock-market board game (Cờ chứng khoán). Share a room code, take a seat, trade until one fund remains.\n\n\n\nNov 17, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Rafetus\n\n10 min\n\n\napps\n\n\n\n\n\n\n\nNov 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTerminal Trade\n\n10 min\n\n\napps\n\n\n\n\n\n\n\nNov 19, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nRetro Typewriter Cyberdeck\n\n7 min\n\n\nhardware\n\n\n\n\n\n\n\nNov 18, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTICKER\n\n3 min\n\n\ngames\n\n\n\n\n\n\n\nNov 17, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/rafetus/index.html",
@@ -228,55 +305,90 @@
     "href": "posts/terminal-trade/index.html",
     "title": "Terminal Trade",
     "section": "",
-    "text": "Local market research terminal built with Next.js.\nRun on your machine only. No hosted deploy. Free public data plus optional keys in .env.local. Not investment advice.\n\n\n\nDashboard\n\n\n\n\n\n\n\nKey\nDesk\nWhat you get\n\n\n\n\nF1\nDashboard\nIndices, FX, commodities, pulse, quote, news\n\n\nF2\nMarkets\nOHLCV candles, watchlist tape, relative, correlation\n\n\nF3\nEquity\nResearch workbench, financials, ownership, ESG\n\n\nF4\nSignals\nRule-based detectors with chart markers\n\n\nF5\nPortfolio\nPaper blotter, heatmap, NAV, sectors, risk\n\n\nF6\nEconomy\nFRED macro series\n\n\nF7\nNews\nRSS monitor\n\n\nF8\nGeo\nMacro risk proxies, Yahoo corr, GDELT headlines\n\n\n-\nNodes\nCorrelation workflow canvas\n\n\n-\nIdeas\nRules-based screener helper\n\n\n-\nOptions\nDeribit crypto chain or Yahoo equity chain\n\n\n\n\n\n\nMarkets\n\n\n\n\n\nEquity research\n\n\n\n\n\nOptions\n\n\n\n\n\n\n\n\nSource\nUsed for\n\n\n\n\nYahoo Finance\nEquities quotes, OHLCV, fundamentals, equity options\n\n\nCoinGecko Demo\nCrypto market tape\n\n\nCoinbase Exchange\nCrypto daily candles\n\n\nFRED\nEconomy series\n\n\nGDELT DOC API\nGeopolitics headlines\n\n\nDeribit\nBTC and ETH options\n\n\nalternative.me\nFear and Greed\n\n\nUN Comtrade\nUS trade partners\n\n\n\nOptional keys (see .env.example): FRED_API_KEY, FINNHUB_API_KEY, COINGECKO_DEMO_API_KEY.\n\n\n\npnpm install\ncp .env.example .env.local   # optional keys for FRED / Finnhub / CoinGecko\npnpm dev\nOpen http://localhost:4726\nKeep API keys in .env.local on your machine. Do not put them on a public host.\nCommand examples: AAPL EQ, MKT, ECO, NWS, BTC, HELP.\n\n\n\nPrimary routes live under /api/v1:\n\nGET/POST /api/v1/equity/quote\nGET /api/v1/equity/price/historical\nGET /api/v1/markets/panel\nGET /api/v1/crypto/markets\nGET /api/v1/equity/overview and related research routes\nGET /api/v1/economy/fred/series\nGET /api/v1/technicals/signals\nGET /api/v1/news\nGET /api/v1/geopolitics/overview\nGET /api/options/chain\n\n\n\n\nsrc/app/api/v1/     HTTP routers\nsrc/lib/platform/   providers, cache, envelopes\nsrc/lib/data/       Yahoo, CoinGecko, Coinbase, news, Comtrade\nsrc/components/     desk UI\npublic/brand/       logo, favicon, cover, backdrop\n\n\n\nMIT. Research and education only.\n\n\n\n\n\n\nRepo\ngithub.com/letrinhandn/Terminal-Trade\n\n\nDemo\nterminal-trade-iota.vercel.app\n\n\nREADME\nREADME\n\n\n\nSource: project README + screenshots from the repo."
+    "text": "Ứng dụng nghiên cứu và phân tích thị trường tài chính\nMã nguồn github.com/letrinhandn/Terminal-Trade\nBản demo terminal-trade-iota.vercel.app\n\n\nTerminal Trade là ứng dụng nghiên cứu và phân tích thị trường tài chính, tập hợp dữ liệu cổ phiếu, tiền mã hóa, kinh tế vĩ mô và tin tức trong một giao diện làm việc thống nhất. Dự án được xây dựng bằng Next.js và TypeScript, với cách tổ chức màn hình và thao tác lấy cảm hứng từ các hệ thống thông tin tài chính chuyên dụng.\nỨng dụng hướng đến nhu cầu theo dõi thị trường, tra cứu dữ liệu lịch sử, phân tích công cụ tài chính và kiểm tra các giả thuyết đầu tư. Thay vì phụ thuộc vào một nhà cung cấp dữ liệu duy nhất, Terminal Trade tích hợp nhiều nguồn công khai và cho phép cấu hình khóa truy cập bổ sung khi cần. Dự án phục vụ nghiên cứu và học tập, không kết nối để thực hiện giao dịch bằng tiền thật.\n\n\n\nHình 1. Giao diện tổng quan Terminal Trade.\n\n\n\n\n\n\n\nMàn hình tổng quan hiển thị các chỉ số thị trường, tỷ giá ngoại hối, hàng hóa, báo giá và tin tức tài chính. Thông tin về diễn biến thị trường được bố trí thành các bảng theo dõi, giúp người dùng quan sát nhiều nhóm tài sản từ cùng một giao diện.\nKhu vực phân tích thị trường cung cấp biểu đồ nến, khối lượng giao dịch, danh sách mã theo dõi và công cụ so sánh biến động. Người dùng có thể xem diễn biến giá tương đối và hệ số tương quan giữa các tài sản trong những khoảng thời gian được lựa chọn.\n\n\n\nHình 2. Màn hình phân tích thị trường.\n\n\n\n\n\nKhông gian nghiên cứu cổ phiếu tập hợp báo giá, dữ liệu lịch sử và các thông tin doanh nghiệp. Những nội dung có thể tra cứu bao gồm báo cáo tài chính, kết quả kinh doanh, cơ cấu sở hữu, thông tin cổ đông và các chỉ số môi trường, xã hội, quản trị doanh nghiệp khi nguồn dữ liệu hỗ trợ.\nCác bảng và biểu đồ được tổ chức trong cùng một khu vực làm việc để thuận tiện đối chiếu dữ liệu giá với thông tin cơ bản của doanh nghiệp.\n\n\n\nHình 3. Màn hình nghiên cứu cổ phiếu.\n\n\n\n\n\nTerminal Trade cung cấp bộ phát hiện tín hiệu kỹ thuật dựa trên những quy tắc xác định trước. Tín hiệu được thể hiện trực tiếp trên biểu đồ giá nhằm hỗ trợ quan sát và đánh giá diễn biến thị trường. Đây là công cụ phân tích, không phải hệ thống tự động đưa ra hoặc thực hiện lệnh giao dịch.\nPhần danh mục cho phép ghi nhận các giao dịch mô phỏng, theo dõi giá trị tài sản ròng, lãi lỗ, phân bổ theo ngành và một số chỉ số rủi ro. Các biểu đồ và bản đồ nhiệt hỗ trợ xem xét cơ cấu danh mục trong quá trình nghiên cứu.\n\n\n\nỨng dụng tích hợp dữ liệu kinh tế vĩ mô từ FRED cùng nguồn tin được tổng hợp qua RSS. Màn hình địa chính trị sử dụng các chỉ báo thị trường đại diện cho rủi ro vĩ mô, dữ liệu tương quan và tin tức từ GDELT để hỗ trợ theo dõi những chủ đề có khả năng tác động đến thị trường.\nNhững thông tin này đóng vai trò tham khảo nghiên cứu, không phải phép đo trực tiếp hoặc dự báo chắc chắn về rủi ro địa chính trị.\n\n\n\nBên cạnh các màn hình chính, Terminal Trade có không gian trực quan hóa quy trình phân tích tương quan, công cụ hỗ trợ sàng lọc ý tưởng theo quy tắc và khu vực tra cứu chuỗi quyền chọn.\nDữ liệu quyền chọn được lấy từ Deribit đối với Bitcoin và Ethereum, hoặc Yahoo Finance đối với quyền chọn cổ phiếu. Các chức năng này bổ sung góc nhìn về mối quan hệ giữa tài sản và cấu trúc thị trường phái sinh.\n\n\n\nHình 4. Màn hình phân tích quyền chọn.\n\n\n\n\n\n\nTerminal Trade sử dụng Yahoo Finance cho dữ liệu cổ phiếu, báo giá, lịch sử giá và một số thông tin doanh nghiệp. Dữ liệu tiền mã hóa được khai thác từ CoinGecko và Coinbase Exchange. FRED cung cấp chuỗi dữ liệu kinh tế, Deribit cung cấp dữ liệu quyền chọn, trong khi GDELT và các nguồn RSS được sử dụng để tổng hợp tin tức. Dự án còn tham chiếu chỉ số tâm lý thị trường từ alternative.me và dữ liệu thương mại quốc tế từ UN Comtrade.\nỨng dụng được phát triển trên Next.js, React và TypeScript. Các bộ xử lý nguồn dữ liệu, lớp lưu đệm và giao diện lập trình ứng dụng được tổ chức tách biệt với các thành phần giao diện. Phần lớn các tuyến truy cập dữ liệu được đặt dưới đường dẫn /api/v1, tạo cơ sở để mở rộng hoặc thay thế nguồn dữ liệu trong quá trình phát triển.\nMột số nguồn có thể được sử dụng mà không cần khóa truy cập. Các tính năng bổ sung sử dụng khóa của FRED, Finnhub hoặc CoinGecko Demo được cấu hình trong tệp .env.local. Riêng màn hình dữ liệu kinh tế từ FRED cần khóa truy cập tương ứng để hoạt động đầy đủ.\n\n\n\nTerminal Trade được thiết kế để có thể chạy trên máy cá nhân. Sau khi tải mã nguồn, cài đặt các thư viện và khởi động môi trường phát triển bằng các lệnh sau.\ngit clone https://github.com/letrinhandn/Terminal-Trade.git\ncd Terminal-Trade\npnpm install\ncp .env.example .env.local\npnpm dev\nTruy cập http://localhost:4726 để mở ứng dụng. Các khóa truy cập dịch vụ, nếu sử dụng, cần được lưu trong .env.local và không đưa lên kho mã nguồn công khai.\nỨng dụng hỗ trợ thanh lệnh với các cú pháp như AAPL EQ, MKT, ECO, NWS, BTC SIG và HELP. Bản demo trực tuyến được cung cấp để tham khảo giao diện, trong khi việc truy xuất dữ liệu phụ thuộc vào cấu hình và tình trạng của từng nguồn cung cấp.\n\n\n\nTerminal Trade là dự án mã nguồn mở theo giấy phép MIT, được xây dựng phục vụ nghiên cứu thị trường và mục đích giáo dục. Dữ liệu và kết quả phân tích phụ thuộc vào nguồn cung cấp, có thể chịu giới hạn truy cập, độ trễ hoặc thiếu dữ liệu ở một số thời điểm.\nDự án không cung cấp dịch vụ môi giới, không thực hiện giao dịch thực tế và không đưa ra khuyến nghị đầu tư. Hệ thống được phát triển như một môi trường thử nghiệm các phương pháp tổng hợp dữ liệu và xây dựng công cụ phân tích thị trường trên nền tảng web.\n\n\n\n\n\n\nKho mã nguồn\ngithub.com/letrinhandn/Terminal-Trade\n\n\nBản demo\nterminal-trade-iota.vercel.app\n\n\nREADME\nTài liệu dự án\n\n\nCấu hình mẫu\n.env.example\n\n\nGiấy phép\nMIT"
   },
   {
-    "objectID": "posts/terminal-trade/index.html#screens",
-    "href": "posts/terminal-trade/index.html#screens",
+    "objectID": "posts/terminal-trade/index.html#tổng-quan",
+    "href": "posts/terminal-trade/index.html#tổng-quan",
     "title": "Terminal Trade",
     "section": "",
-    "text": "Key\nDesk\nWhat you get\n\n\n\n\nF1\nDashboard\nIndices, FX, commodities, pulse, quote, news\n\n\nF2\nMarkets\nOHLCV candles, watchlist tape, relative, correlation\n\n\nF3\nEquity\nResearch workbench, financials, ownership, ESG\n\n\nF4\nSignals\nRule-based detectors with chart markers\n\n\nF5\nPortfolio\nPaper blotter, heatmap, NAV, sectors, risk\n\n\nF6\nEconomy\nFRED macro series\n\n\nF7\nNews\nRSS monitor\n\n\nF8\nGeo\nMacro risk proxies, Yahoo corr, GDELT headlines\n\n\n-\nNodes\nCorrelation workflow canvas\n\n\n-\nIdeas\nRules-based screener helper\n\n\n-\nOptions\nDeribit crypto chain or Yahoo equity chain\n\n\n\n\n\n\nMarkets\n\n\n\n\n\nEquity research\n\n\n\n\n\nOptions"
+    "text": "Terminal Trade là ứng dụng nghiên cứu và phân tích thị trường tài chính, tập hợp dữ liệu cổ phiếu, tiền mã hóa, kinh tế vĩ mô và tin tức trong một giao diện làm việc thống nhất. Dự án được xây dựng bằng Next.js và TypeScript, với cách tổ chức màn hình và thao tác lấy cảm hứng từ các hệ thống thông tin tài chính chuyên dụng.\nỨng dụng hướng đến nhu cầu theo dõi thị trường, tra cứu dữ liệu lịch sử, phân tích công cụ tài chính và kiểm tra các giả thuyết đầu tư. Thay vì phụ thuộc vào một nhà cung cấp dữ liệu duy nhất, Terminal Trade tích hợp nhiều nguồn công khai và cho phép cấu hình khóa truy cập bổ sung khi cần. Dự án phục vụ nghiên cứu và học tập, không kết nối để thực hiện giao dịch bằng tiền thật.\n\n\n\nHình 1. Giao diện tổng quan Terminal Trade."
   },
   {
-    "objectID": "posts/terminal-trade/index.html#data-sources",
-    "href": "posts/terminal-trade/index.html#data-sources",
+    "objectID": "posts/terminal-trade/index.html#chức-năng-chính",
+    "href": "posts/terminal-trade/index.html#chức-năng-chính",
     "title": "Terminal Trade",
     "section": "",
-    "text": "Source\nUsed for\n\n\n\n\nYahoo Finance\nEquities quotes, OHLCV, fundamentals, equity options\n\n\nCoinGecko Demo\nCrypto market tape\n\n\nCoinbase Exchange\nCrypto daily candles\n\n\nFRED\nEconomy series\n\n\nGDELT DOC API\nGeopolitics headlines\n\n\nDeribit\nBTC and ETH options\n\n\nalternative.me\nFear and Greed\n\n\nUN Comtrade\nUS trade partners\n\n\n\nOptional keys (see .env.example): FRED_API_KEY, FINNHUB_API_KEY, COINGECKO_DEMO_API_KEY."
+    "text": "Màn hình tổng quan hiển thị các chỉ số thị trường, tỷ giá ngoại hối, hàng hóa, báo giá và tin tức tài chính. Thông tin về diễn biến thị trường được bố trí thành các bảng theo dõi, giúp người dùng quan sát nhiều nhóm tài sản từ cùng một giao diện.\nKhu vực phân tích thị trường cung cấp biểu đồ nến, khối lượng giao dịch, danh sách mã theo dõi và công cụ so sánh biến động. Người dùng có thể xem diễn biến giá tương đối và hệ số tương quan giữa các tài sản trong những khoảng thời gian được lựa chọn.\n\n\n\nHình 2. Màn hình phân tích thị trường.\n\n\n\n\n\nKhông gian nghiên cứu cổ phiếu tập hợp báo giá, dữ liệu lịch sử và các thông tin doanh nghiệp. Những nội dung có thể tra cứu bao gồm báo cáo tài chính, kết quả kinh doanh, cơ cấu sở hữu, thông tin cổ đông và các chỉ số môi trường, xã hội, quản trị doanh nghiệp khi nguồn dữ liệu hỗ trợ.\nCác bảng và biểu đồ được tổ chức trong cùng một khu vực làm việc để thuận tiện đối chiếu dữ liệu giá với thông tin cơ bản của doanh nghiệp.\n\n\n\nHình 3. Màn hình nghiên cứu cổ phiếu.\n\n\n\n\n\nTerminal Trade cung cấp bộ phát hiện tín hiệu kỹ thuật dựa trên những quy tắc xác định trước. Tín hiệu được thể hiện trực tiếp trên biểu đồ giá nhằm hỗ trợ quan sát và đánh giá diễn biến thị trường. Đây là công cụ phân tích, không phải hệ thống tự động đưa ra hoặc thực hiện lệnh giao dịch.\nPhần danh mục cho phép ghi nhận các giao dịch mô phỏng, theo dõi giá trị tài sản ròng, lãi lỗ, phân bổ theo ngành và một số chỉ số rủi ro. Các biểu đồ và bản đồ nhiệt hỗ trợ xem xét cơ cấu danh mục trong quá trình nghiên cứu.\n\n\n\nỨng dụng tích hợp dữ liệu kinh tế vĩ mô từ FRED cùng nguồn tin được tổng hợp qua RSS. Màn hình địa chính trị sử dụng các chỉ báo thị trường đại diện cho rủi ro vĩ mô, dữ liệu tương quan và tin tức từ GDELT để hỗ trợ theo dõi những chủ đề có khả năng tác động đến thị trường.\nNhững thông tin này đóng vai trò tham khảo nghiên cứu, không phải phép đo trực tiếp hoặc dự báo chắc chắn về rủi ro địa chính trị.\n\n\n\nBên cạnh các màn hình chính, Terminal Trade có không gian trực quan hóa quy trình phân tích tương quan, công cụ hỗ trợ sàng lọc ý tưởng theo quy tắc và khu vực tra cứu chuỗi quyền chọn.\nDữ liệu quyền chọn được lấy từ Deribit đối với Bitcoin và Ethereum, hoặc Yahoo Finance đối với quyền chọn cổ phiếu. Các chức năng này bổ sung góc nhìn về mối quan hệ giữa tài sản và cấu trúc thị trường phái sinh.\n\n\n\nHình 4. Màn hình phân tích quyền chọn."
   },
   {
-    "objectID": "posts/terminal-trade/index.html#quick-start-local",
-    "href": "posts/terminal-trade/index.html#quick-start-local",
+    "objectID": "posts/terminal-trade/index.html#nguồn-dữ-liệu-và-kiến-trúc",
+    "href": "posts/terminal-trade/index.html#nguồn-dữ-liệu-và-kiến-trúc",
     "title": "Terminal Trade",
     "section": "",
-    "text": "pnpm install\ncp .env.example .env.local   # optional keys for FRED / Finnhub / CoinGecko\npnpm dev\nOpen http://localhost:4726\nKeep API keys in .env.local on your machine. Do not put them on a public host.\nCommand examples: AAPL EQ, MKT, ECO, NWS, BTC, HELP."
+    "text": "Terminal Trade sử dụng Yahoo Finance cho dữ liệu cổ phiếu, báo giá, lịch sử giá và một số thông tin doanh nghiệp. Dữ liệu tiền mã hóa được khai thác từ CoinGecko và Coinbase Exchange. FRED cung cấp chuỗi dữ liệu kinh tế, Deribit cung cấp dữ liệu quyền chọn, trong khi GDELT và các nguồn RSS được sử dụng để tổng hợp tin tức. Dự án còn tham chiếu chỉ số tâm lý thị trường từ alternative.me và dữ liệu thương mại quốc tế từ UN Comtrade.\nỨng dụng được phát triển trên Next.js, React và TypeScript. Các bộ xử lý nguồn dữ liệu, lớp lưu đệm và giao diện lập trình ứng dụng được tổ chức tách biệt với các thành phần giao diện. Phần lớn các tuyến truy cập dữ liệu được đặt dưới đường dẫn /api/v1, tạo cơ sở để mở rộng hoặc thay thế nguồn dữ liệu trong quá trình phát triển.\nMột số nguồn có thể được sử dụng mà không cần khóa truy cập. Các tính năng bổ sung sử dụng khóa của FRED, Finnhub hoặc CoinGecko Demo được cấu hình trong tệp .env.local. Riêng màn hình dữ liệu kinh tế từ FRED cần khóa truy cập tương ứng để hoạt động đầy đủ."
   },
   {
-    "objectID": "posts/terminal-trade/index.html#api-surface",
-    "href": "posts/terminal-trade/index.html#api-surface",
+    "objectID": "posts/terminal-trade/index.html#cài-đặt-và-sử-dụng",
+    "href": "posts/terminal-trade/index.html#cài-đặt-và-sử-dụng",
     "title": "Terminal Trade",
     "section": "",
-    "text": "Primary routes live under /api/v1:\n\nGET/POST /api/v1/equity/quote\nGET /api/v1/equity/price/historical\nGET /api/v1/markets/panel\nGET /api/v1/crypto/markets\nGET /api/v1/equity/overview and related research routes\nGET /api/v1/economy/fred/series\nGET /api/v1/technicals/signals\nGET /api/v1/news\nGET /api/v1/geopolitics/overview\nGET /api/options/chain"
+    "text": "Terminal Trade được thiết kế để có thể chạy trên máy cá nhân. Sau khi tải mã nguồn, cài đặt các thư viện và khởi động môi trường phát triển bằng các lệnh sau.\ngit clone https://github.com/letrinhandn/Terminal-Trade.git\ncd Terminal-Trade\npnpm install\ncp .env.example .env.local\npnpm dev\nTruy cập http://localhost:4726 để mở ứng dụng. Các khóa truy cập dịch vụ, nếu sử dụng, cần được lưu trong .env.local và không đưa lên kho mã nguồn công khai.\nỨng dụng hỗ trợ thanh lệnh với các cú pháp như AAPL EQ, MKT, ECO, NWS, BTC SIG và HELP. Bản demo trực tuyến được cung cấp để tham khảo giao diện, trong khi việc truy xuất dữ liệu phụ thuộc vào cấu hình và tình trạng của từng nguồn cung cấp."
   },
   {
-    "objectID": "posts/terminal-trade/index.html#layout",
-    "href": "posts/terminal-trade/index.html#layout",
+    "objectID": "posts/terminal-trade/index.html#phạm-vi-dự-án",
+    "href": "posts/terminal-trade/index.html#phạm-vi-dự-án",
     "title": "Terminal Trade",
     "section": "",
-    "text": "src/app/api/v1/     HTTP routers\nsrc/lib/platform/   providers, cache, envelopes\nsrc/lib/data/       Yahoo, CoinGecko, Coinbase, news, Comtrade\nsrc/components/     desk UI\npublic/brand/       logo, favicon, cover, backdrop"
+    "text": "Terminal Trade là dự án mã nguồn mở theo giấy phép MIT, được xây dựng phục vụ nghiên cứu thị trường và mục đích giáo dục. Dữ liệu và kết quả phân tích phụ thuộc vào nguồn cung cấp, có thể chịu giới hạn truy cập, độ trễ hoặc thiếu dữ liệu ở một số thời điểm.\nDự án không cung cấp dịch vụ môi giới, không thực hiện giao dịch thực tế và không đưa ra khuyến nghị đầu tư. Hệ thống được phát triển như một môi trường thử nghiệm các phương pháp tổng hợp dữ liệu và xây dựng công cụ phân tích thị trường trên nền tảng web."
   },
   {
-    "objectID": "posts/terminal-trade/index.html#license",
-    "href": "posts/terminal-trade/index.html#license",
+    "objectID": "posts/terminal-trade/index.html#liên-kết-và-tài-nguyên",
+    "href": "posts/terminal-trade/index.html#liên-kết-và-tài-nguyên",
     "title": "Terminal Trade",
     "section": "",
-    "text": "MIT. Research and education only."
+    "text": "Kho mã nguồn\ngithub.com/letrinhandn/Terminal-Trade\n\n\nBản demo\nterminal-trade-iota.vercel.app\n\n\nREADME\nTài liệu dự án\n\n\nCấu hình mẫu\n.env.example\n\n\nGiấy phép\nMIT"
   },
   {
-    "objectID": "posts/terminal-trade/index.html#links",
-    "href": "posts/terminal-trade/index.html#links",
+    "objectID": "posts/terminal-trade/index.html#overview",
+    "href": "posts/terminal-trade/index.html#overview",
     "title": "Terminal Trade",
-    "section": "",
-    "text": "Repo\ngithub.com/letrinhandn/Terminal-Trade\n\n\nDemo\nterminal-trade-iota.vercel.app\n\n\nREADME\nREADME\n\n\n\nSource: project README + screenshots from the repo."
+    "section": "Overview",
+    "text": "Overview\nTerminal Trade is a financial market research and analysis application that brings equity, cryptocurrency, macroeconomic, and news data into a unified workspace. Built with Next.js and TypeScript, the project adopts the screen layout and interaction conventions of professional financial information terminals.\nThe application supports market monitoring, historical data retrieval, financial instrument analysis, and the evaluation of investment hypotheses. Rather than relying on a single data vendor, Terminal Trade combines several public sources with optional API credentials for additional coverage. It is intended for research and education and does not connect to execute trades with real funds.\n\n\n\nFigure 1. Terminal Trade dashboard overview."
+  },
+  {
+    "objectID": "posts/terminal-trade/index.html#core-features",
+    "href": "posts/terminal-trade/index.html#core-features",
+    "title": "Terminal Trade",
+    "section": "Core Features",
+    "text": "Core Features\n\nMarket Overview and Monitoring\nThe dashboard presents market indices, foreign exchange rates, commodities, price quotes, and financial news. Information is arranged into monitoring panels that make it possible to review different asset classes within one interface.\nThe markets workspace provides candlestick charts, trading volume, watchlists, and comparative analysis. Users can examine relative price performance and correlations between assets over selected periods.\n\n\n\nFigure 2. Markets analysis workspace.\n\n\n\n\nEquity Research\nThe equity research workspace brings together market quotes, historical prices, and company information. Available research areas include financial statements, earnings, ownership, shareholder information, and environmental, social, and governance indicators where supported by the data source.\nTables and charts are presented within the same workspace, allowing price movements to be examined alongside company fundamentals.\n\n\n\nFigure 3. Equity research workspace.\n\n\n\n\nTechnical Signals and Paper Portfolio\nTerminal Trade includes rule-based technical signal detectors. Signals appear as markers on price charts to support market observation and analysis. They are analytical indicators rather than instructions or automated trade execution.\nThe portfolio workspace supports simulated transaction records, net asset value tracking, profit and loss, sector allocation, and selected risk measures. Charts and heatmaps help users examine portfolio composition during research.\n\n\nMacroeconomics, News, and Geopolitical Risk\nThe application integrates macroeconomic series from FRED and financial news aggregated through RSS feeds. The geopolitics workspace combines market-based proxies for macroeconomic risk, correlation data, and headlines from GDELT to help users monitor developments that may affect financial markets.\nThese inputs are research references, not direct measurements or definitive forecasts of geopolitical risk.\n\n\nCorrelation Workflows, Screening, and Options\nAdditional workspaces provide a visual correlation workflow, a rules-based idea screening tool, and options chain analysis.\nOptions data is sourced from Deribit for Bitcoin and Ethereum and from Yahoo Finance for equity options. These features provide further ways to study relationships between assets and the structure of derivatives markets.\n\n\n\nFigure 4. Options analysis workspace."
+  },
+  {
+    "objectID": "posts/terminal-trade/index.html#data-sources-and-architecture",
+    "href": "posts/terminal-trade/index.html#data-sources-and-architecture",
+    "title": "Terminal Trade",
+    "section": "Data Sources and Architecture",
+    "text": "Data Sources and Architecture\nTerminal Trade uses Yahoo Finance for equity quotes, historical prices, and selected company fundamentals. Cryptocurrency market data comes from CoinGecko and Coinbase Exchange. FRED supplies economic series, Deribit provides options data, and GDELT and public RSS feeds supply news. The project also references market sentiment data from alternative.me and international trade data from UN Comtrade.\nThe application is built with Next.js, React, and TypeScript. Data providers, caching, and application programming interfaces are separated from user interface components. Most data endpoints are organized under /api/v1, making it easier to extend or replace providers as the project evolves.\nSeveral data sources work without credentials. Optional access keys for FRED, Finnhub, and CoinGecko Demo can be configured in .env.local. The FRED-based economy workspace requires the corresponding key for full functionality."
+  },
+  {
+    "objectID": "posts/terminal-trade/index.html#local-setup",
+    "href": "posts/terminal-trade/index.html#local-setup",
+    "title": "Terminal Trade",
+    "section": "Local Setup",
+    "text": "Local Setup\nTerminal Trade is designed to run on a personal computer. Clone the repository, install dependencies, and start the development server with the following commands.\ngit clone https://github.com/letrinhandn/Terminal-Trade.git\ncd Terminal-Trade\npnpm install\ncp .env.example .env.local\npnpm dev\nOpen http://localhost:4726 to access the application. Any service credentials should remain in .env.local and must not be committed to a public repository.\nThe command bar accepts inputs such as AAPL EQ, MKT, ECO, NWS, BTC SIG, and HELP. A public demo is available for interface reference, while data availability depends on provider access and configuration."
+  },
+  {
+    "objectID": "posts/terminal-trade/index.html#project-scope",
+    "href": "posts/terminal-trade/index.html#project-scope",
+    "title": "Terminal Trade",
+    "section": "Project Scope",
+    "text": "Project Scope\nTerminal Trade is an open-source project released under the MIT license for market research and educational use. Its information and analysis depend on third-party sources, which may impose rate limits, delays, or periods of missing data.\nThe project does not provide brokerage services, execute real trades, or offer investment advice. It serves as an experimental environment for integrating market data and developing financial analysis tools on the web."
+  },
+  {
+    "objectID": "posts/terminal-trade/index.html#links-and-resources",
+    "href": "posts/terminal-trade/index.html#links-and-resources",
+    "title": "Terminal Trade",
+    "section": "Links and Resources",
+    "text": "Links and Resources\n\n\n\nSource Code\ngithub.com/letrinhandn/Terminal-Trade\n\n\nDemo\nterminal-trade-iota.vercel.app\n\n\nDocumentation\nREADME\n\n\nEnvironment Template\n.env.example\n\n\nLicense\nMIT"
   }
 ]

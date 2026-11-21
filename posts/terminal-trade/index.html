@@ -8,7 +8,6 @@
 
 <meta name="author" content="Le Tri Nhan">
 <meta name="dcterms.date" content="2026-11-19">
-<meta name="description" content="Local market research terminal built with Next.js. Free public data plus optional keys in .env.local.">
 
 <title>Terminal Trade – Tech Lab</title>
 <style>
@@ -166,23 +165,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#terminal-trade" id="toc-terminal-trade" class="nav-link active" data-scroll-target="#terminal-trade">Terminal Trade</a>
-  <ul class="collapse">
-  <li><a href="#screens" id="toc-screens" class="nav-link" data-scroll-target="#screens">Screens</a></li>
-  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data sources</a></li>
-  <li><a href="#quick-start-local" id="toc-quick-start-local" class="nav-link" data-scroll-target="#quick-start-local">Quick start (local)</a></li>
-  <li><a href="#api-surface" id="toc-api-surface" class="nav-link" data-scroll-target="#api-surface">API surface</a></li>
-  <li><a href="#layout" id="toc-layout" class="nav-link" data-scroll-target="#layout">Layout</a></li>
-  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
-  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -195,11 +179,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   </div>
 
-<div>
-  <div class="description">
-    Local market research terminal built with Next.js. Free public data plus optional keys in .env.local.
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -226,209 +205,230 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="terminal-trade" class="level1">
-<h1>Terminal Trade</h1>
-<p>Local market research terminal built with Next.js.</p>
-<p>Run on your machine only. No hosted deploy. Free public data plus optional keys in <code>.env.local</code>. Not investment advice.</p>
+<div class="lang-vi">
+<p><strong>Ứng dụng nghiên cứu và phân tích thị trường tài chính</strong></p>
+<p><strong>Mã nguồn</strong> <a href="https://github.com/letrinhandn/Terminal-Trade">github.com/letrinhandn/Terminal-Trade</a><br>
+<strong>Bản demo</strong> <a href="https://terminal-trade-iota.vercel.app/">terminal-trade-iota.vercel.app</a></p>
+<section id="tổng-quan" class="level2">
+<h2 class="anchored" data-anchor-id="tổng-quan">Tổng quan</h2>
+<p>Terminal Trade là ứng dụng nghiên cứu và phân tích thị trường tài chính, tập hợp dữ liệu cổ phiếu, tiền mã hóa, kinh tế vĩ mô và tin tức trong một giao diện làm việc thống nhất. Dự án được xây dựng bằng Next.js và TypeScript, với cách tổ chức màn hình và thao tác lấy cảm hứng từ các hệ thống thông tin tài chính chuyên dụng.</p>
+<p>Ứng dụng hướng đến nhu cầu theo dõi thị trường, tra cứu dữ liệu lịch sử, phân tích công cụ tài chính và kiểm tra các giả thuyết đầu tư. Thay vì phụ thuộc vào một nhà cung cấp dữ liệu duy nhất, Terminal Trade tích hợp nhiều nguồn công khai và cho phép cấu hình khóa truy cập bổ sung khi cần. Dự án phục vụ nghiên cứu và học tập, không kết nối để thực hiện giao dịch bằng tiền thật.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="screenshots/dashboard.png" class="img-fluid figure-img" alt="Terminal Trade dashboard"></p>
-<figcaption>Dashboard</figcaption>
+<p><img src="screenshots/dashboard.png" class="img-fluid figure-img" alt="Hình 1. Giao diện tổng quan Terminal Trade."></p>
+<figcaption>Hình 1. Giao diện tổng quan Terminal Trade.</figcaption>
 </figure>
 </div>
-<section id="screens" class="level2">
-<h2 class="anchored" data-anchor-id="screens">Screens</h2>
+</section>
+<section id="chức-năng-chính" class="level2">
+<h2 class="anchored" data-anchor-id="chức-năng-chính">Chức năng chính</h2>
+<section id="tổng-quan-và-theo-dõi-thị-trường" class="level3">
+<h3 class="anchored" data-anchor-id="tổng-quan-và-theo-dõi-thị-trường">Tổng quan và theo dõi thị trường</h3>
+<p>Màn hình tổng quan hiển thị các chỉ số thị trường, tỷ giá ngoại hối, hàng hóa, báo giá và tin tức tài chính. Thông tin về diễn biến thị trường được bố trí thành các bảng theo dõi, giúp người dùng quan sát nhiều nhóm tài sản từ cùng một giao diện.</p>
+<p>Khu vực phân tích thị trường cung cấp biểu đồ nến, khối lượng giao dịch, danh sách mã theo dõi và công cụ so sánh biến động. Người dùng có thể xem diễn biến giá tương đối và hệ số tương quan giữa các tài sản trong những khoảng thời gian được lựa chọn.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/markets.png" class="img-fluid figure-img" alt="Hình 2. Màn hình phân tích thị trường."></p>
+<figcaption>Hình 2. Màn hình phân tích thị trường.</figcaption>
+</figure>
+</div>
+</section>
+<section id="phân-tích-cổ-phiếu" class="level3">
+<h3 class="anchored" data-anchor-id="phân-tích-cổ-phiếu">Phân tích cổ phiếu</h3>
+<p>Không gian nghiên cứu cổ phiếu tập hợp báo giá, dữ liệu lịch sử và các thông tin doanh nghiệp. Những nội dung có thể tra cứu bao gồm báo cáo tài chính, kết quả kinh doanh, cơ cấu sở hữu, thông tin cổ đông và các chỉ số môi trường, xã hội, quản trị doanh nghiệp khi nguồn dữ liệu hỗ trợ.</p>
+<p>Các bảng và biểu đồ được tổ chức trong cùng một khu vực làm việc để thuận tiện đối chiếu dữ liệu giá với thông tin cơ bản của doanh nghiệp.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/equity.png" class="img-fluid figure-img" alt="Hình 3. Màn hình nghiên cứu cổ phiếu."></p>
+<figcaption>Hình 3. Màn hình nghiên cứu cổ phiếu.</figcaption>
+</figure>
+</div>
+</section>
+<section id="tín-hiệu-kỹ-thuật-và-danh-mục-mô-phỏng" class="level3">
+<h3 class="anchored" data-anchor-id="tín-hiệu-kỹ-thuật-và-danh-mục-mô-phỏng">Tín hiệu kỹ thuật và danh mục mô phỏng</h3>
+<p>Terminal Trade cung cấp bộ phát hiện tín hiệu kỹ thuật dựa trên những quy tắc xác định trước. Tín hiệu được thể hiện trực tiếp trên biểu đồ giá nhằm hỗ trợ quan sát và đánh giá diễn biến thị trường. Đây là công cụ phân tích, không phải hệ thống tự động đưa ra hoặc thực hiện lệnh giao dịch.</p>
+<p>Phần danh mục cho phép ghi nhận các giao dịch mô phỏng, theo dõi giá trị tài sản ròng, lãi lỗ, phân bổ theo ngành và một số chỉ số rủi ro. Các biểu đồ và bản đồ nhiệt hỗ trợ xem xét cơ cấu danh mục trong quá trình nghiên cứu.</p>
+</section>
+<section id="kinh-tế-vĩ-mô-tin-tức-và-rủi-ro-địa-chính-trị" class="level3">
+<h3 class="anchored" data-anchor-id="kinh-tế-vĩ-mô-tin-tức-và-rủi-ro-địa-chính-trị">Kinh tế vĩ mô, tin tức và rủi ro địa chính trị</h3>
+<p>Ứng dụng tích hợp dữ liệu kinh tế vĩ mô từ FRED cùng nguồn tin được tổng hợp qua RSS. Màn hình địa chính trị sử dụng các chỉ báo thị trường đại diện cho rủi ro vĩ mô, dữ liệu tương quan và tin tức từ GDELT để hỗ trợ theo dõi những chủ đề có khả năng tác động đến thị trường.</p>
+<p>Những thông tin này đóng vai trò tham khảo nghiên cứu, không phải phép đo trực tiếp hoặc dự báo chắc chắn về rủi ro địa chính trị.</p>
+</section>
+<section id="tương-quan-sàng-lọc-và-quyền-chọn" class="level3">
+<h3 class="anchored" data-anchor-id="tương-quan-sàng-lọc-và-quyền-chọn">Tương quan, sàng lọc và quyền chọn</h3>
+<p>Bên cạnh các màn hình chính, Terminal Trade có không gian trực quan hóa quy trình phân tích tương quan, công cụ hỗ trợ sàng lọc ý tưởng theo quy tắc và khu vực tra cứu chuỗi quyền chọn.</p>
+<p>Dữ liệu quyền chọn được lấy từ Deribit đối với Bitcoin và Ethereum, hoặc Yahoo Finance đối với quyền chọn cổ phiếu. Các chức năng này bổ sung góc nhìn về mối quan hệ giữa tài sản và cấu trúc thị trường phái sinh.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/options.png" class="img-fluid figure-img" alt="Hình 4. Màn hình phân tích quyền chọn."></p>
+<figcaption>Hình 4. Màn hình phân tích quyền chọn.</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="nguồn-dữ-liệu-và-kiến-trúc" class="level2">
+<h2 class="anchored" data-anchor-id="nguồn-dữ-liệu-và-kiến-trúc">Nguồn dữ liệu và kiến trúc</h2>
+<p>Terminal Trade sử dụng Yahoo Finance cho dữ liệu cổ phiếu, báo giá, lịch sử giá và một số thông tin doanh nghiệp. Dữ liệu tiền mã hóa được khai thác từ CoinGecko và Coinbase Exchange. FRED cung cấp chuỗi dữ liệu kinh tế, Deribit cung cấp dữ liệu quyền chọn, trong khi GDELT và các nguồn RSS được sử dụng để tổng hợp tin tức. Dự án còn tham chiếu chỉ số tâm lý thị trường từ alternative.me và dữ liệu thương mại quốc tế từ UN Comtrade.</p>
+<p>Ứng dụng được phát triển trên Next.js, React và TypeScript. Các bộ xử lý nguồn dữ liệu, lớp lưu đệm và giao diện lập trình ứng dụng được tổ chức tách biệt với các thành phần giao diện. Phần lớn các tuyến truy cập dữ liệu được đặt dưới đường dẫn <code>/api/v1</code>, tạo cơ sở để mở rộng hoặc thay thế nguồn dữ liệu trong quá trình phát triển.</p>
+<p>Một số nguồn có thể được sử dụng mà không cần khóa truy cập. Các tính năng bổ sung sử dụng khóa của FRED, Finnhub hoặc CoinGecko Demo được cấu hình trong tệp <code>.env.local</code>. Riêng màn hình dữ liệu kinh tế từ FRED cần khóa truy cập tương ứng để hoạt động đầy đủ.</p>
+</section>
+<section id="cài-đặt-và-sử-dụng" class="level2">
+<h2 class="anchored" data-anchor-id="cài-đặt-và-sử-dụng">Cài đặt và sử dụng</h2>
+<p>Terminal Trade được thiết kế để có thể chạy trên máy cá nhân. Sau khi tải mã nguồn, cài đặt các thư viện và khởi động môi trường phát triển bằng các lệnh sau.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/letrinhandn/Terminal-Trade.git</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Terminal-Trade</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pnpm</span> install</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> .env.example .env.local</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pnpm</span> dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Truy cập <a href="http://localhost:4726">http://localhost:4726</a> để mở ứng dụng. Các khóa truy cập dịch vụ, nếu sử dụng, cần được lưu trong <code>.env.local</code> và không đưa lên kho mã nguồn công khai.</p>
+<p>Ứng dụng hỗ trợ thanh lệnh với các cú pháp như <code>AAPL EQ</code>, <code>MKT</code>, <code>ECO</code>, <code>NWS</code>, <code>BTC SIG</code> và <code>HELP</code>. Bản demo trực tuyến được cung cấp để tham khảo giao diện, trong khi việc truy xuất dữ liệu phụ thuộc vào cấu hình và tình trạng của từng nguồn cung cấp.</p>
+</section>
+<section id="phạm-vi-dự-án" class="level2">
+<h2 class="anchored" data-anchor-id="phạm-vi-dự-án">Phạm vi dự án</h2>
+<p>Terminal Trade là dự án mã nguồn mở theo giấy phép MIT, được xây dựng phục vụ nghiên cứu thị trường và mục đích giáo dục. Dữ liệu và kết quả phân tích phụ thuộc vào nguồn cung cấp, có thể chịu giới hạn truy cập, độ trễ hoặc thiếu dữ liệu ở một số thời điểm.</p>
+<p>Dự án không cung cấp dịch vụ môi giới, không thực hiện giao dịch thực tế và không đưa ra khuyến nghị đầu tư. Hệ thống được phát triển như một môi trường thử nghiệm các phương pháp tổng hợp dữ liệu và xây dựng công cụ phân tích thị trường trên nền tảng web.</p>
+</section>
+<section id="liên-kết-và-tài-nguyên" class="level2">
+<h2 class="anchored" data-anchor-id="liên-kết-và-tài-nguyên">Liên kết và tài nguyên</h2>
 <table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Key</th>
-<th>Desk</th>
-<th>What you get</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>F1</td>
-<td>Dashboard</td>
-<td>Indices, FX, commodities, pulse, quote, news</td>
+<td>Kho mã nguồn</td>
+<td><a href="https://github.com/letrinhandn/Terminal-Trade">github.com/letrinhandn/Terminal-Trade</a></td>
 </tr>
 <tr class="even">
-<td>F2</td>
-<td>Markets</td>
-<td>OHLCV candles, watchlist tape, relative, correlation</td>
+<td>Bản demo</td>
+<td><a href="https://terminal-trade-iota.vercel.app/">terminal-trade-iota.vercel.app</a></td>
 </tr>
 <tr class="odd">
-<td>F3</td>
-<td>Equity</td>
-<td>Research workbench, financials, ownership, ESG</td>
+<td>README</td>
+<td><a href="https://github.com/letrinhandn/Terminal-Trade#readme">Tài liệu dự án</a></td>
 </tr>
 <tr class="even">
-<td>F4</td>
-<td>Signals</td>
-<td>Rule-based detectors with chart markers</td>
+<td>Cấu hình mẫu</td>
+<td><a href="https://github.com/letrinhandn/Terminal-Trade/blob/main/.env.example">.env.example</a></td>
 </tr>
 <tr class="odd">
-<td>F5</td>
-<td>Portfolio</td>
-<td>Paper blotter, heatmap, NAV, sectors, risk</td>
-</tr>
-<tr class="even">
-<td>F6</td>
-<td>Economy</td>
-<td>FRED macro series</td>
-</tr>
-<tr class="odd">
-<td>F7</td>
-<td>News</td>
-<td>RSS monitor</td>
-</tr>
-<tr class="even">
-<td>F8</td>
-<td>Geo</td>
-<td>Macro risk proxies, Yahoo corr, GDELT headlines</td>
-</tr>
-<tr class="odd">
-<td>-</td>
-<td>Nodes</td>
-<td>Correlation workflow canvas</td>
-</tr>
-<tr class="even">
-<td>-</td>
-<td>Ideas</td>
-<td>Rules-based screener helper</td>
-</tr>
-<tr class="odd">
-<td>-</td>
-<td>Options</td>
-<td>Deribit crypto chain or Yahoo equity chain</td>
+<td>Giấy phép</td>
+<td><a href="https://github.com/letrinhandn/Terminal-Trade/blob/main/LICENSE">MIT</a></td>
 </tr>
 </tbody>
 </table>
+</section>
+</div>
+<div class="lang-en">
+<p><strong>Financial Market Research and Analysis Application</strong></p>
+<p><strong>Source Code</strong> <a href="https://github.com/letrinhandn/Terminal-Trade">github.com/letrinhandn/Terminal-Trade</a><br>
+<strong>Demo</strong> <a href="https://terminal-trade-iota.vercel.app/">terminal-trade-iota.vercel.app</a></p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Terminal Trade is a financial market research and analysis application that brings equity, cryptocurrency, macroeconomic, and news data into a unified workspace. Built with Next.js and TypeScript, the project adopts the screen layout and interaction conventions of professional financial information terminals.</p>
+<p>The application supports market monitoring, historical data retrieval, financial instrument analysis, and the evaluation of investment hypotheses. Rather than relying on a single data vendor, Terminal Trade combines several public sources with optional API credentials for additional coverage. It is intended for research and education and does not connect to execute trades with real funds.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="screenshots/markets.png" class="img-fluid figure-img" alt="Markets desk"></p>
-<figcaption>Markets</figcaption>
+<p><img src="screenshots/dashboard.png" class="img-fluid figure-img" alt="Figure 1. Terminal Trade dashboard overview."></p>
+<figcaption>Figure 1. Terminal Trade dashboard overview.</figcaption>
 </figure>
 </div>
+</section>
+<section id="core-features" class="level2">
+<h2 class="anchored" data-anchor-id="core-features">Core Features</h2>
+<section id="market-overview-and-monitoring" class="level3">
+<h3 class="anchored" data-anchor-id="market-overview-and-monitoring">Market Overview and Monitoring</h3>
+<p>The dashboard presents market indices, foreign exchange rates, commodities, price quotes, and financial news. Information is arranged into monitoring panels that make it possible to review different asset classes within one interface.</p>
+<p>The markets workspace provides candlestick charts, trading volume, watchlists, and comparative analysis. Users can examine relative price performance and correlations between assets over selected periods.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="screenshots/equity.png" class="img-fluid figure-img" alt="Equity research desk"></p>
-<figcaption>Equity research</figcaption>
+<p><img src="screenshots/markets.png" class="img-fluid figure-img" alt="Figure 2. Markets analysis workspace."></p>
+<figcaption>Figure 2. Markets analysis workspace.</figcaption>
 </figure>
 </div>
+</section>
+<section id="equity-research" class="level3">
+<h3 class="anchored" data-anchor-id="equity-research">Equity Research</h3>
+<p>The equity research workspace brings together market quotes, historical prices, and company information. Available research areas include financial statements, earnings, ownership, shareholder information, and environmental, social, and governance indicators where supported by the data source.</p>
+<p>Tables and charts are presented within the same workspace, allowing price movements to be examined alongside company fundamentals.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="screenshots/options.png" class="img-fluid figure-img" alt="Options desk"></p>
-<figcaption>Options</figcaption>
+<p><img src="screenshots/equity.png" class="img-fluid figure-img" alt="Figure 3. Equity research workspace."></p>
+<figcaption>Figure 3. Equity research workspace.</figcaption>
 </figure>
 </div>
 </section>
-<section id="data-sources" class="level2">
-<h2 class="anchored" data-anchor-id="data-sources">Data sources</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Source</th>
-<th>Used for</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Yahoo Finance</td>
-<td>Equities quotes, OHLCV, fundamentals, equity options</td>
-</tr>
-<tr class="even">
-<td>CoinGecko Demo</td>
-<td>Crypto market tape</td>
-</tr>
-<tr class="odd">
-<td>Coinbase Exchange</td>
-<td>Crypto daily candles</td>
-</tr>
-<tr class="even">
-<td>FRED</td>
-<td>Economy series</td>
-</tr>
-<tr class="odd">
-<td>GDELT DOC API</td>
-<td>Geopolitics headlines</td>
-</tr>
-<tr class="even">
-<td>Deribit</td>
-<td>BTC and ETH options</td>
-</tr>
-<tr class="odd">
-<td>alternative.me</td>
-<td>Fear and Greed</td>
-</tr>
-<tr class="even">
-<td>UN Comtrade</td>
-<td>US trade partners</td>
-</tr>
-</tbody>
-</table>
-<p>Optional keys (see <code>.env.example</code>): <code>FRED_API_KEY</code>, <code>FINNHUB_API_KEY</code>, <code>COINGECKO_DEMO_API_KEY</code>.</p>
+<section id="technical-signals-and-paper-portfolio" class="level3">
+<h3 class="anchored" data-anchor-id="technical-signals-and-paper-portfolio">Technical Signals and Paper Portfolio</h3>
+<p>Terminal Trade includes rule-based technical signal detectors. Signals appear as markers on price charts to support market observation and analysis. They are analytical indicators rather than instructions or automated trade execution.</p>
+<p>The portfolio workspace supports simulated transaction records, net asset value tracking, profit and loss, sector allocation, and selected risk measures. Charts and heatmaps help users examine portfolio composition during research.</p>
 </section>
-<section id="quick-start-local" class="level2">
-<h2 class="anchored" data-anchor-id="quick-start-local">Quick start (local)</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pnpm</span> install</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> .env.example .env.local   <span class="co"># optional keys for FRED / Finnhub / CoinGecko</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pnpm</span> dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Open <a href="http://localhost:4726" class="uri">http://localhost:4726</a></p>
-<p>Keep API keys in <code>.env.local</code> on your machine. Do not put them on a public host.</p>
-<p>Command examples: <code>AAPL EQ</code>, <code>MKT</code>, <code>ECO</code>, <code>NWS</code>, <code>BTC</code>, <code>HELP</code>.</p>
+<section id="macroeconomics-news-and-geopolitical-risk" class="level3">
+<h3 class="anchored" data-anchor-id="macroeconomics-news-and-geopolitical-risk">Macroeconomics, News, and Geopolitical Risk</h3>
+<p>The application integrates macroeconomic series from FRED and financial news aggregated through RSS feeds. The geopolitics workspace combines market-based proxies for macroeconomic risk, correlation data, and headlines from GDELT to help users monitor developments that may affect financial markets.</p>
+<p>These inputs are research references, not direct measurements or definitive forecasts of geopolitical risk.</p>
 </section>
-<section id="api-surface" class="level2">
-<h2 class="anchored" data-anchor-id="api-surface">API surface</h2>
-<p>Primary routes live under <code>/api/v1</code>:</p>
-<ul>
-<li><code>GET/POST /api/v1/equity/quote</code></li>
-<li><code>GET /api/v1/equity/price/historical</code></li>
-<li><code>GET /api/v1/markets/panel</code></li>
-<li><code>GET /api/v1/crypto/markets</code></li>
-<li><code>GET /api/v1/equity/overview</code> and related research routes</li>
-<li><code>GET /api/v1/economy/fred/series</code></li>
-<li><code>GET /api/v1/technicals/signals</code></li>
-<li><code>GET /api/v1/news</code></li>
-<li><code>GET /api/v1/geopolitics/overview</code></li>
-<li><code>GET /api/options/chain</code></li>
-</ul>
+<section id="correlation-workflows-screening-and-options" class="level3">
+<h3 class="anchored" data-anchor-id="correlation-workflows-screening-and-options">Correlation Workflows, Screening, and Options</h3>
+<p>Additional workspaces provide a visual correlation workflow, a rules-based idea screening tool, and options chain analysis.</p>
+<p>Options data is sourced from Deribit for Bitcoin and Ethereum and from Yahoo Finance for equity options. These features provide further ways to study relationships between assets and the structure of derivatives markets.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/options.png" class="img-fluid figure-img" alt="Figure 4. Options analysis workspace."></p>
+<figcaption>Figure 4. Options analysis workspace.</figcaption>
+</figure>
+</div>
 </section>
-<section id="layout" class="level2">
-<h2 class="anchored" data-anchor-id="layout">Layout</h2>
-<pre><code>src/app/api/v1/     HTTP routers
-src/lib/platform/   providers, cache, envelopes
-src/lib/data/       Yahoo, CoinGecko, Coinbase, news, Comtrade
-src/components/     desk UI
-public/brand/       logo, favicon, cover, backdrop</code></pre>
 </section>
-<section id="license" class="level2">
-<h2 class="anchored" data-anchor-id="license">License</h2>
-<p>MIT. Research and education only.</p>
+<section id="data-sources-and-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="data-sources-and-architecture">Data Sources and Architecture</h2>
+<p>Terminal Trade uses Yahoo Finance for equity quotes, historical prices, and selected company fundamentals. Cryptocurrency market data comes from CoinGecko and Coinbase Exchange. FRED supplies economic series, Deribit provides options data, and GDELT and public RSS feeds supply news. The project also references market sentiment data from alternative.me and international trade data from UN Comtrade.</p>
+<p>The application is built with Next.js, React, and TypeScript. Data providers, caching, and application programming interfaces are separated from user interface components. Most data endpoints are organized under <code>/api/v1</code>, making it easier to extend or replace providers as the project evolves.</p>
+<p>Several data sources work without credentials. Optional access keys for FRED, Finnhub, and CoinGecko Demo can be configured in <code>.env.local</code>. The FRED-based economy workspace requires the corresponding key for full functionality.</p>
 </section>
-<section id="links" class="level2">
-<h2 class="anchored" data-anchor-id="links">Links</h2>
+<section id="local-setup" class="level2">
+<h2 class="anchored" data-anchor-id="local-setup">Local Setup</h2>
+<p>Terminal Trade is designed to run on a personal computer. Clone the repository, install dependencies, and start the development server with the following commands.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/letrinhandn/Terminal-Trade.git</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Terminal-Trade</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pnpm</span> install</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> .env.example .env.local</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pnpm</span> dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Open <a href="http://localhost:4726">http://localhost:4726</a> to access the application. Any service credentials should remain in <code>.env.local</code> and must not be committed to a public repository.</p>
+<p>The command bar accepts inputs such as <code>AAPL EQ</code>, <code>MKT</code>, <code>ECO</code>, <code>NWS</code>, <code>BTC SIG</code>, and <code>HELP</code>. A public demo is available for interface reference, while data availability depends on provider access and configuration.</p>
+</section>
+<section id="project-scope" class="level2">
+<h2 class="anchored" data-anchor-id="project-scope">Project Scope</h2>
+<p>Terminal Trade is an open-source project released under the MIT license for market research and educational use. Its information and analysis depend on third-party sources, which may impose rate limits, delays, or periods of missing data.</p>
+<p>The project does not provide brokerage services, execute real trades, or offer investment advice. It serves as an experimental environment for integrating market data and developing financial analysis tools on the web.</p>
+</section>
+<section id="links-and-resources" class="level2">
+<h2 class="anchored" data-anchor-id="links-and-resources">Links and Resources</h2>
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
-<td>Repo</td>
+<td>Source Code</td>
 <td><a href="https://github.com/letrinhandn/Terminal-Trade">github.com/letrinhandn/Terminal-Trade</a></td>
 </tr>
 <tr class="even">
 <td>Demo</td>
-<td><a href="https://terminal-trade-iota.vercel.app">terminal-trade-iota.vercel.app</a></td>
+<td><a href="https://terminal-trade-iota.vercel.app/">terminal-trade-iota.vercel.app</a></td>
 </tr>
 <tr class="odd">
-<td>README</td>
+<td>Documentation</td>
 <td><a href="https://github.com/letrinhandn/Terminal-Trade#readme">README</a></td>
+</tr>
+<tr class="even">
+<td>Environment Template</td>
+<td><a href="https://github.com/letrinhandn/Terminal-Trade/blob/main/.env.example">.env.example</a></td>
+</tr>
+<tr class="odd">
+<td>License</td>
+<td><a href="https://github.com/letrinhandn/Terminal-Trade/blob/main/LICENSE">MIT</a></td>
 </tr>
 </tbody>
 </table>
-<p>Source: project README + screenshots from the repo.</p>
+</section>
+</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script>

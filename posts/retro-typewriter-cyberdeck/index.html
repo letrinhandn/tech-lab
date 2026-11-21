@@ -8,7 +8,6 @@
 
 <meta name="author" content="Le Tri Nhan">
 <meta name="dcterms.date" content="2026-11-18">
-<meta name="description" content="Self-contained portable computing unit around Raspberry Pi 5 in a repurposed wooden chest. London, winter 2024/2025.">
 
 <title>Retro Typewriter Cyberdeck – Tech Lab</title>
 <style>
@@ -131,31 +130,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#retro-typewriter-cyberdeck" id="toc-retro-typewriter-cyberdeck" class="nav-link active" data-scroll-target="#retro-typewriter-cyberdeck">Retro Typewriter Cyberdeck</a>
-  <ul class="collapse">
-  <li><a href="#design-objectives" id="toc-design-objectives" class="nav-link" data-scroll-target="#design-objectives">Design Objectives</a></li>
-  <li><a href="#bill-of-materials" id="toc-bill-of-materials" class="nav-link" data-scroll-target="#bill-of-materials">Bill of Materials</a></li>
-  <li><a href="#system-architecture" id="toc-system-architecture" class="nav-link" data-scroll-target="#system-architecture">System Architecture</a>
-  <ul class="collapse">
-  <li><a href="#compute" id="toc-compute" class="nav-link" data-scroll-target="#compute">Compute</a></li>
-  <li><a href="#power" id="toc-power" class="nav-link" data-scroll-target="#power">Power</a></li>
-  <li><a href="#display" id="toc-display" class="nav-link" data-scroll-target="#display">Display</a></li>
-  <li><a href="#input" id="toc-input" class="nav-link" data-scroll-target="#input">Input</a></li>
-  <li><a href="#networking" id="toc-networking" class="nav-link" data-scroll-target="#networking">Networking</a></li>
-  <li><a href="#internal-structure" id="toc-internal-structure" class="nav-link" data-scroll-target="#internal-structure">Internal Structure</a></li>
-  </ul></li>
-  <li><a href="#photos" id="toc-photos" class="nav-link" data-scroll-target="#photos">Photos</a></li>
-  <li><a href="#known-issues" id="toc-known-issues" class="nav-link" data-scroll-target="#known-issues">Known Issues</a></li>
-  <li><a href="#os-and-software" id="toc-os-and-software" class="nav-link" data-scroll-target="#os-and-software">OS and Software</a></li>
-  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -168,11 +144,6 @@ ul.task-list li input[type="checkbox"] {
   </div>
   </div>
 
-<div>
-  <div class="description">
-    Self-contained portable computing unit around Raspberry Pi 5 in a repurposed wooden chest. London, winter 2024/2025.
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -199,22 +170,27 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="retro-typewriter-cyberdeck" class="level1">
-<h1>Retro Typewriter Cyberdeck</h1>
-<p>A self-contained portable computing unit built around the Raspberry Pi 5, housed in a repurposed decorative wooden chest. Designed and assembled in London, winter 2024/2025.</p>
+<div class="lang-vi">
+<p><strong>Máy tính xách tay tự chế quanh Raspberry Pi 5</strong></p>
+<p><strong>Mã nguồn</strong> <a href="https://github.com/letrinhandn/retro-typewriter-cyberdeck">github.com/letrinhandn/retro-typewriter-cyberdeck</a></p>
+<section id="tổng-quan" class="level2">
+<h2 class="anchored" data-anchor-id="tổng-quan">Tổng quan</h2>
+<p>Cyberdeck tự chứa, dựng quanh <strong>Raspberry Pi 5</strong>, đặt trong hộp gỗ trang trí tái sử dụng. Thiết kế và lắp tại London, đông 2024/2025.</p>
+<p>Đây là khối máy portable: có pin, màn hình, bàn phím, máy tính và mạng trong cùng một khối — vừa làm workstation Linux, vừa kèm Pwnagotchi theo dõi 802.11 thụ động.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/front.jpeg" class="img-fluid figure-img" alt="Cyberdeck front view"></p>
-<figcaption>Front</figcaption>
+<p><img src="images/front.jpeg" class="img-fluid figure-img" alt="Hình 1. Mặt trước Retro Typewriter Cyberdeck."></p>
+<figcaption>Hình 1. Mặt trước Retro Typewriter Cyberdeck.</figcaption>
 </figure>
 </div>
-<section id="design-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="design-objectives">Design Objectives</h2>
+</section>
+<section id="mục-tiêu-thiết-kế" class="level2">
+<h2 class="anchored" data-anchor-id="mục-tiêu-thiết-kế">Mục tiêu thiết kế</h2>
 <ul>
-<li>Fully portable: battery-backed, no dependency on mains power</li>
-<li>Self-contained: display, input, compute, and networking in one enclosure</li>
-<li>Dual-purpose: general-purpose Linux workstation and passive 802.11 network monitoring via Pwnagotchi co-processor</li>
-<li>No 3D printing, no CNC: enclosure repurposed from off-the-shelf hardware</li>
+<li>Portable: có pin, không phụ thuộc ổ cắm</li>
+<li>Self-contained: display + input + compute + network trong một khối</li>
+<li>Dual-purpose: Linux workstation + passive 802.11 monitoring (Pwnagotchi)</li>
+<li>Không in 3D / CNC: enclosure lấy sẵn rồi lắp</li>
 </ul>
 </section>
 <section id="bill-of-materials" class="level2">
@@ -291,64 +267,258 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><strong>Total (confirmed components): ~£256.41 + $18.79 + batteries</strong></p>
+<p><strong>Tổng linh kiện đã chốt: ~£256.41 + $18.79 + pin</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/internals.jpeg" class="img-fluid figure-img" alt="Hình 2. Phần cứng bên trong hộp."></p>
+<figcaption>Hình 2. Phần cứng bên trong hộp.</figcaption>
+</figure>
+</div>
 </section>
-<section id="system-architecture" class="level2">
-<h2 class="anchored" data-anchor-id="system-architecture">System Architecture</h2>
+<section id="kiến-trúc-hệ-thống" class="level2">
+<h2 class="anchored" data-anchor-id="kiến-trúc-hệ-thống">Kiến trúc hệ thống</h2>
 <section id="compute" class="level3">
 <h3 class="anchored" data-anchor-id="compute">Compute</h3>
-<p>Raspberry Pi 5 (4GB LPDDR4X) running Ubuntu 24.04 LTS. The active cooler is fitted directly to the SoC heatspreader and routed to exhaust through a ventilation gap at the rear of the enclosure.</p>
+<p>Raspberry Pi 5 (4GB LPDDR4X) chạy Ubuntu 24.04 LTS. Active cooler gắn trực tiếp lên SoC và thoát nhiệt qua khe phía sau enclosure.</p>
 </section>
 <section id="power" class="level3">
 <h3 class="anchored" data-anchor-id="power">Power</h3>
-<p>The Waveshare UPS HAT (E) is stacked directly on the GPIO header via Pogo Pins, supplying 5V/6A to the Pi. Two 18650 Li-ion cells (4200mAh each, ~31Wh combined at nominal voltage) are housed in the HAT’s integrated battery bay. The HAT supports hot-swap charging: the system remains operational while charging via USB-C. Known issue: battery percentage readout is unreliable under Ubuntu; the HAT reports via I2C but driver support is incomplete.</p>
+<p>Waveshare UPS HAT (E) gắn GPIO qua Pogo Pins, cấp 5V/6A. Hai cell 18650 (~31Wh) nằm trong bay pin của HAT. Có thể sạc USB-C khi đang chạy. Đọc % pin qua I2C trên Ubuntu chưa ổn định.</p>
 </section>
 <section id="display" class="level3">
 <h3 class="anchored" data-anchor-id="display">Display</h3>
-<p>The GeeekPi 7” IPS panel is mounted externally on the inner face of the lid, connected via a coiled Micro HDMI cable routed through the hinge gap. The coil accommodates lid open/close movement without cable stress. Resolution set to 1024x600 at 60Hz; display is powered directly from the HDMI port.</p>
+<p>Panel GeeekPi 7” gắn mặt trong nắp, nối bằng cáp Micro HDMI xoắn qua bản lề. Độ phân giải 1024×600 @ 60Hz.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/back.jpeg" class="img-fluid figure-img" alt="Hình 3. Mặt sau và khe thoát nhiệt."></p>
+<figcaption>Hình 3. Mặt sau và khe thoát nhiệt.</figcaption>
+</figure>
+</div>
 </section>
 <section id="input" class="level3">
 <h3 class="anchored" data-anchor-id="input">Input</h3>
-<p>IDOBAO ID42 40% hotswap mechanical keyboard, fitted with Kailh Box Navy tactile-clicky switches and IDOBAO white keycaps. The 40% layout reduces footprint while retaining full alphanumeric coverage via layers. The keyboard sits external to the enclosure and connects via USB.</p>
+<p>Bàn phím IDOBAO ID42 40%, Kailh Box Navy, keycap trắng. Kết nối USB, nằm ngoài enclosure.</p>
 </section>
 <section id="networking" class="level3">
 <h3 class="anchored" data-anchor-id="networking">Networking</h3>
-<p>The Pi’s onboard BCM43455 handles primary wireless. A secondary USB Wi-Fi adapter extends range. The Pwnagotchi co-processor runs on a dedicated microcontroller with its own 2.13” e-ink status display, performing passive 802.11 handshake capture and AI-driven interaction loop independent of the main OS.</p>
+<p>Wi-Fi onboard BCM43455; thêm USB adapter mở rộng. Pwnagotchi chạy trên microcontroller riêng với e-ink 2.13”, bắt handshake 802.11 thụ động độc lập với OS chính.</p>
+</section>
+<section id="cấu-trúc-bên-trong" class="level3">
+<h3 class="anchored" data-anchor-id="cấu-trúc-bên-trong">Cấu trúc bên trong</h3>
+<p>Ngăn trên chứa stack Pi 5 + UPS HAT + cooler + pin, cố định bằng miếng xốp. Ngăn dưới để trống mang phụ kiện: Pwnagotchi, cáp, adapter.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/pov.jpeg" class="img-fluid figure-img" alt="Hình 4. Góc nhìn khi làm việc."></p>
+<figcaption>Hình 4. Góc nhìn khi làm việc.</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="known-issues" class="level2">
+<h2 class="anchored" data-anchor-id="known-issues">Known issues</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Issue</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>% pin UPS qua I2C trên Ubuntu chưa ổn</td>
+<td>Open</td>
+</tr>
+<tr class="even">
+<td>Đóng nắp đôi khi cần rút cáp một phần</td>
+<td>By design (constraint hình học hộp)</td>
+</tr>
+<tr class="odd">
+<td>Thông gió thụ động: throttle khi CPU kéo dài</td>
+<td>Acceptable under normal load</td>
+</tr>
+</tbody>
+</table>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lib-test.jpeg" class="img-fluid figure-img" alt="Hình 5. Thử nghiệm trên bàn."></p>
+<figcaption>Hình 5. Thử nghiệm trên bàn.</figcaption>
+</figure>
+</div>
+</section>
+<section id="os-và-phần-mềm" class="level2">
+<h2 class="anchored" data-anchor-id="os-và-phần-mềm">OS và phần mềm</h2>
+<ul>
+<li>Ubuntu 24.04 LTS (Raspberry Pi build)</li>
+<li>Pwnagotchi: AI standalone trên co-processor, không chung OS với máy chính</li>
+<li>Mục đích chính: viết, nghiên cứu, làm việc terminal</li>
+</ul>
+</section>
+<section id="liên-kết" class="level2">
+<h2 class="anchored" data-anchor-id="liên-kết">Liên kết</h2>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td>Repo</td>
+<td><a href="https://github.com/letrinhandn/retro-typewriter-cyberdeck">github.com/letrinhandn/retro-typewriter-cyberdeck</a></td>
+</tr>
+<tr class="even">
+<td>README</td>
+<td><a href="https://github.com/letrinhandn/retro-typewriter-cyberdeck#readme">README + photos</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+<div class="lang-en">
+<p><strong>Self-contained portable computing unit around Raspberry Pi 5</strong></p>
+<p><strong>Source</strong> <a href="https://github.com/letrinhandn/retro-typewriter-cyberdeck">github.com/letrinhandn/retro-typewriter-cyberdeck</a></p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>A self-contained portable computing unit built around the Raspberry Pi 5, housed in a repurposed decorative wooden chest. Designed and assembled in London, winter 2024/2025.</p>
+<p>Fully portable and battery-backed: display, input, compute, and networking in one enclosure — a general-purpose Linux workstation with a Pwnagotchi co-processor for passive 802.11 monitoring.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/front.jpeg" class="img-fluid figure-img" alt="Figure 1. Front view of the Retro Typewriter Cyberdeck."></p>
+<figcaption>Figure 1. Front view of the Retro Typewriter Cyberdeck.</figcaption>
+</figure>
+</div>
+</section>
+<section id="design-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="design-objectives">Design Objectives</h2>
+<ul>
+<li>Fully portable: battery-backed, no dependency on mains power</li>
+<li>Self-contained: display, input, compute, and networking in one enclosure</li>
+<li>Dual-purpose: general-purpose Linux workstation and passive 802.11 network monitoring via Pwnagotchi co-processor</li>
+<li>No 3D printing, no CNC: enclosure repurposed from off-the-shelf hardware</li>
+</ul>
+</section>
+<section id="bill-of-materials-1" class="level2">
+<h2 class="anchored" data-anchor-id="bill-of-materials-1">Bill of Materials</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Specification</th>
+<th>Source</th>
+<th>Unit Price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SBC</td>
+<td>Raspberry Pi 5, 4GB</td>
+<td>Amazon UK</td>
+<td>£143.00</td>
+</tr>
+<tr class="even">
+<td>Display</td>
+<td>GeeekPi 7” IPS LCD, 1024x600, 60Hz, 500 cd/m2, HDMI</td>
+<td>Amazon UK</td>
+<td>£44.99</td>
+</tr>
+<tr class="odd">
+<td>UPS HAT</td>
+<td>Waveshare UPS HAT (E), 5V/6A output, bi-directional fast charge, Pogo Pin connector</td>
+<td>Amazon UK</td>
+<td>£39.99</td>
+</tr>
+<tr class="even">
+<td>Thermal</td>
+<td>Raspberry Pi Active Cooler (official)</td>
+<td>Amazon UK</td>
+<td>£9.56</td>
+</tr>
+<tr class="odd">
+<td>Display cable</td>
+<td>Coiled Micro HDMI to HDMI, 4K@60Hz, 0.5-2.4M</td>
+<td>AliExpress</td>
+<td>$3.97</td>
+</tr>
+<tr class="even">
+<td>Internal wiring</td>
+<td>HOQO FFC Flat Flexible Cable kit, 18 connector types</td>
+<td>AliExpress</td>
+<td>$10.05</td>
+</tr>
+<tr class="odd">
+<td>Enclosure</td>
+<td>European Vintage Small Wood Box with lock, approx. 30x15x12cm</td>
+<td>AliExpress</td>
+<td>$4.77</td>
+</tr>
+<tr class="even">
+<td>Keyboard</td>
+<td>IDOBAO ID42 40%, hotswap, Kailh Box Navy switches, white keycaps</td>
+<td>AliExpress</td>
+<td>£18.87</td>
+</tr>
+<tr class="odd">
+<td>Battery cells</td>
+<td>2x 18650 Li-ion, 4200mAh, 3.7V</td>
+<td>-</td>
+<td>TBD</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total (confirmed components): ~£256.41 + $18.79 + batteries</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/internals.jpeg" class="img-fluid figure-img" alt="Figure 2. Internal hardware layout."></p>
+<figcaption>Figure 2. Internal hardware layout.</figcaption>
+</figure>
+</div>
+</section>
+<section id="system-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="system-architecture">System Architecture</h2>
+<section id="compute-1" class="level3">
+<h3 class="anchored" data-anchor-id="compute-1">Compute</h3>
+<p>Raspberry Pi 5 (4GB LPDDR4X) running Ubuntu 24.04 LTS. The active cooler is fitted directly to the SoC heatspreader and routed to exhaust through a ventilation gap at the rear of the enclosure.</p>
+</section>
+<section id="power-1" class="level3">
+<h3 class="anchored" data-anchor-id="power-1">Power</h3>
+<p>The Waveshare UPS HAT (E) is stacked directly on the GPIO header via Pogo Pins, supplying 5V/6A to the Pi. Two 18650 Li-ion cells (4200mAh each, ~31Wh combined at nominal voltage) are housed in the HAT’s integrated battery bay. The HAT supports hot-swap charging via USB-C. Battery percentage readout via I2C on Ubuntu remains unreliable.</p>
+</section>
+<section id="display-1" class="level3">
+<h3 class="anchored" data-anchor-id="display-1">Display</h3>
+<p>The GeeekPi 7” IPS panel is mounted on the inner face of the lid, connected via a coiled Micro HDMI cable routed through the hinge gap. Resolution is 1024×600 at 60Hz.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/back.jpeg" class="img-fluid figure-img" alt="Figure 3. Rear view and ventilation gap."></p>
+<figcaption>Figure 3. Rear view and ventilation gap.</figcaption>
+</figure>
+</div>
+</section>
+<section id="input-1" class="level3">
+<h3 class="anchored" data-anchor-id="input-1">Input</h3>
+<p>IDOBAO ID42 40% hotswap mechanical keyboard with Kailh Box Navy switches and white keycaps. The keyboard sits external to the enclosure and connects via USB.</p>
+</section>
+<section id="networking-1" class="level3">
+<h3 class="anchored" data-anchor-id="networking-1">Networking</h3>
+<p>The Pi’s onboard BCM43455 handles primary wireless. A secondary USB Wi-Fi adapter extends range. The Pwnagotchi co-processor runs on a dedicated microcontroller with its own 2.13” e-ink status display.</p>
 </section>
 <section id="internal-structure" class="level3">
 <h3 class="anchored" data-anchor-id="internal-structure">Internal Structure</h3>
-<p>The upper compartment houses the main board stack (Pi 5, UPS HAT, cooler) and battery cells, with styrofoam-carved dividers holding each component in a fixed position to prevent movement under transport. The lower compartment is left open as a carry space for peripheral gadgets: Pwnagotchi, cables, USB adapters, or anything else in rotation. The wooden chest provides adequate rigidity and incidental EMF containment without requiring any machining.</p>
-</section>
-</section>
-<section id="photos" class="level2">
-<h2 class="anchored" data-anchor-id="photos">Photos</h2>
+<p>The upper compartment houses the main board stack and battery cells with styrofoam-carved dividers. The lower compartment is left open as carry space for peripherals.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/internals.jpeg" class="img-fluid figure-img" alt="Cyberdeck internals"></p>
-<figcaption>Internals</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/back.jpeg" class="img-fluid figure-img" alt="Cyberdeck back"></p>
-<figcaption>Back</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/pov.jpeg" class="img-fluid figure-img" alt="Cyberdeck point of view"></p>
-<figcaption>POV</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/lib-test.jpeg" class="img-fluid figure-img" alt="Cyberdeck bench test"></p>
-<figcaption>Bench test</figcaption>
+<p><img src="images/pov.jpeg" class="img-fluid figure-img" alt="Figure 4. Working point of view."></p>
+<figcaption>Figure 4. Working point of view.</figcaption>
 </figure>
 </div>
 </section>
-<section id="known-issues" class="level2">
-<h2 class="anchored" data-anchor-id="known-issues">Known Issues</h2>
+</section>
+<section id="known-issues-1" class="level2">
+<h2 class="anchored" data-anchor-id="known-issues-1">Known Issues</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -375,6 +545,12 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lib-test.jpeg" class="img-fluid figure-img" alt="Figure 5. Bench test setup."></p>
+<figcaption>Figure 5. Bench test setup.</figcaption>
+</figure>
+</div>
 </section>
 <section id="os-and-software" class="level2">
 <h2 class="anchored" data-anchor-id="os-and-software">OS and Software</h2>
@@ -398,11 +574,10 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>Source: project README.</p>
+</section>
+</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script>
