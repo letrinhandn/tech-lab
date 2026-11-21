@@ -228,38 +228,122 @@ body {
 
 @media (max-width: 991.98px) {
   .navbar {
-    height: auto;
+    --logo-compact: 36px;
+    --header-pad-y: 0.45rem;
+    height: auto !important;
     min-height: calc(var(--logo-compact) + var(--header-pad-y) * 2 + 3px);
+    padding: var(--header-pad-y) 0.75rem !important;
+    display: grid !important;
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-areas:
+      "toggler . chips brand"
+      "menu menu menu menu";
+    align-items: center;
+    column-gap: 0.45rem;
+    row-gap: 0;
   }
 
+  /* Flatten so toggler / brand / menu join the navbar grid with .site-controls */
   .navbar > .container,
   .navbar > .container-fluid,
   .navbar-container.container-fluid {
-    display: flex !important;
-    flex-wrap: wrap;
-    justify-content: space-between !important;
-    align-items: center;
-    width: 100% !important;
+    display: contents !important;
+    width: auto !important;
     max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .navbar-toggler {
+    grid-area: toggler;
+    order: 0 !important;
+    width: 2.35rem;
+    height: 2.35rem;
+    padding: 0.3rem !important;
+    margin: 0 !important;
+    border: 2px solid #d9cab3 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-toggler:focus,
+  .navbar-toggler:focus-visible {
+    box-shadow: none !important;
+    outline: 1px solid $gold;
+  }
+
+  .navbar-toggler-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  .site-controls {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    transform: none !important;
+    grid-area: chips;
+    justify-self: end;
+    gap: 0.35rem;
   }
 
   .navbar .navbar-brand-container,
   .navbar-brand-container {
+    grid-area: brand;
     position: static !important;
     transform: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
     width: var(--logo-compact) !important;
+    height: var(--logo-compact) !important;
+    max-width: none !important;
+    justify-self: end;
   }
 
-  .navbar-container #navbarCollapse {
-    display: none;
+  #navbarCollapse {
+    display: none !important;
+    grid-area: menu;
   }
 
-  .navbar-container #navbarCollapse.show {
+  #navbarCollapse.show {
     display: flex !important;
-    flex-direction: column;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    margin: 0.55rem 0 0 !important;
+    padding: 0.55rem 0 0.15rem !important;
+    border-top: 1px solid rgba(217, 202, 179, 0.35);
+    gap: 0.15rem;
+  }
+
+  #navbarCollapse .navbar-nav,
+  #navbarCollapse .navbar-nav.me-auto,
+  #navbarCollapse .navbar-nav.ms-auto {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0.1rem;
+  }
+
+  #navbarCollapse .nav-item {
     width: 100%;
-    order: 3;
-    margin-top: 0.5rem;
+  }
+
+  #navbarCollapse .nav-link {
+    width: 100%;
+    text-align: left;
+    padding: 0.55rem 0.65rem !important;
+  }
+
+  .quarto-navbar-tools {
+    display: none !important;
   }
 }
 
@@ -586,19 +670,19 @@ body {
 }
 
 .site-controls {
-  position: absolute;
-  top: 50%;
-  right: 1rem;
   z-index: 50;
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  transform: translateY(-50%);
 }
 
-@media (max-width: 991.98px) {
+/* Desktop: chips float to the right of the centered nav strip */
+@media (min-width: 992px) {
   .site-controls {
-    right: 3.25rem;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
   }
 }
 
