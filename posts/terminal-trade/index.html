@@ -8,7 +8,7 @@
 
 <meta name="author" content="Le Tri Nhan">
 <meta name="dcterms.date" content="2026-11-19">
-<meta name="description" content="Local market-research terminal (Next.js): desks F1–F8, dữ liệu công khai, chạy trên máy bạn.">
+<meta name="description" content="Local market research terminal built with Next.js. Free public data plus optional keys in .env.local.">
 
 <title>Terminal Trade – Tech Lab</title>
 <style>
@@ -159,10 +159,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#desks" id="toc-desks" class="nav-link active" data-scroll-target="#desks">Desks</a></li>
+  <li><a href="#terminal-trade" id="toc-terminal-trade" class="nav-link active" data-scroll-target="#terminal-trade">Terminal Trade</a>
+  <ul class="collapse">
+  <li><a href="#screens" id="toc-screens" class="nav-link" data-scroll-target="#screens">Screens</a></li>
+  <li><a href="#more-ui" id="toc-more-ui" class="nav-link" data-scroll-target="#more-ui">More UI</a></li>
   <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data sources</a></li>
-  <li><a href="#quick-start" id="toc-quick-start" class="nav-link" data-scroll-target="#quick-start">Quick start</a></li>
-  <li><a href="#liên-kết" id="toc-liên-kết" class="nav-link" data-scroll-target="#liên-kết">Liên kết</a></li>
+  <li><a href="#quick-start-local" id="toc-quick-start-local" class="nav-link" data-scroll-target="#quick-start-local">Quick start (local)</a></li>
+  <li><a href="#api-surface" id="toc-api-surface" class="nav-link" data-scroll-target="#api-surface">API surface</a></li>
+  <li><a href="#layout" id="toc-layout" class="nav-link" data-scroll-target="#layout">Layout</a></li>
+  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -179,7 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    Local market-research terminal (Next.js): desks F1–F8, dữ liệu công khai, chạy trên máy bạn.
+    Local market research terminal built with Next.js. Free public data plus optional keys in .env.local.
   </div>
 </div>
 
@@ -208,21 +215,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><strong>Terminal Trade</strong> là market research terminal chạy local bằng Next.js. Chạy trên máy bạn, dùng dữ liệu công khai (và key tùy chọn trong <code>.env.local</code>). Không phải lời khuyên đầu tư.</p>
+<section id="terminal-trade" class="level1">
+<h1>Terminal Trade</h1>
+<p>Local market research terminal built with Next.js.</p>
+<p>Run on your machine only. No hosted deploy. Free public data plus optional keys in <code>.env.local</code>. Not investment advice.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="thumbnail.png" class="img-fluid figure-img" alt="Terminal Trade dashboard"></p>
+<p><img src="screenshots/dashboard.png" class="img-fluid figure-img" alt="Terminal Trade dashboard"></p>
 <figcaption>Dashboard</figcaption>
 </figure>
 </div>
-<section id="desks" class="level2">
-<h2 class="anchored" data-anchor-id="desks">Desks</h2>
+<section id="screens" class="level2">
+<h2 class="anchored" data-anchor-id="screens">Screens</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Key</th>
 <th>Desk</th>
-<th>Nội dung</th>
+<th>What you get</th>
 </tr>
 </thead>
 <tbody>
@@ -234,7 +244,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>F2</td>
 <td>Markets</td>
-<td>OHLCV candles, watchlist, correlation</td>
+<td>OHLCV candles, watchlist tape, relative, correlation</td>
 </tr>
 <tr class="odd">
 <td>F3</td>
@@ -244,12 +254,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>F4</td>
 <td>Signals</td>
-<td>Rule-based detectors + chart markers</td>
+<td>Rule-based detectors with chart markers</td>
 </tr>
 <tr class="odd">
 <td>F5</td>
 <td>Portfolio</td>
-<td>Paper blotter, heatmap, NAV, risk</td>
+<td>Paper blotter, heatmap, NAV, sectors, risk</td>
 </tr>
 <tr class="even">
 <td>F6</td>
@@ -264,26 +274,168 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>F8</td>
 <td>Geo</td>
-<td>Macro risk proxies, Yahoo corr, GDELT</td>
+<td>Macro risk proxies, Yahoo corr, GDELT headlines</td>
+</tr>
+<tr class="odd">
+<td>-</td>
+<td>Nodes</td>
+<td>Correlation workflow canvas</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>Ideas</td>
+<td>Rules-based screener helper</td>
+</tr>
+<tr class="odd">
+<td>-</td>
+<td>Options</td>
+<td>Deribit crypto chain or Yahoo equity chain</td>
 </tr>
 </tbody>
 </table>
-<p>Thêm: Nodes (correlation canvas), Ideas (screener), Options (Deribit / Yahoo chain).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/markets.png" class="img-fluid figure-img" alt="Markets desk"></p>
+<figcaption>Markets</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/equity.png" class="img-fluid figure-img" alt="Equity research desk"></p>
+<figcaption>Equity research</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/options.png" class="img-fluid figure-img" alt="Options desk"></p>
+<figcaption>Options</figcaption>
+</figure>
+</div>
+</section>
+<section id="more-ui" class="level2">
+<h2 class="anchored" data-anchor-id="more-ui">More UI</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pictures/ov-tab.png" class="img-fluid figure-img" alt="Overview tab"></p>
+<figcaption>Overview tab</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pictures/fin-subtab.png" class="img-fluid figure-img" alt="FIN subtab"></p>
+<figcaption>FIN subtab</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pictures/port-tab.png" class="img-fluid figure-img" alt="Portfolio tab"></p>
+<figcaption>Portfolio tab</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pictures/bt-tab.png" class="img-fluid figure-img" alt="BT tab"></p>
+<figcaption>BT tab</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pictures/op-tab.png" class="img-fluid figure-img" alt="OP tab"></p>
+<figcaption>OP tab</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pictures/3d-vol-surface.png" class="img-fluid figure-img" alt="3D volatility surface"></p>
+<figcaption>3D vol surface</figcaption>
+</figure>
+</div>
 </section>
 <section id="data-sources" class="level2">
 <h2 class="anchored" data-anchor-id="data-sources">Data sources</h2>
-<p>Yahoo Finance · CoinGecko · Coinbase · FRED · GDELT · Deribit · alternative.me · UN Comtrade.</p>
-<p>Optional keys: <code>FRED_API_KEY</code>, <code>FINNHUB_API_KEY</code>, <code>COINGECKO_DEMO_API_KEY</code> (xem <code>.env.example</code>).</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>Used for</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Yahoo Finance</td>
+<td>Equities quotes, OHLCV, fundamentals, equity options</td>
+</tr>
+<tr class="even">
+<td>CoinGecko Demo</td>
+<td>Crypto market tape</td>
+</tr>
+<tr class="odd">
+<td>Coinbase Exchange</td>
+<td>Crypto daily candles</td>
+</tr>
+<tr class="even">
+<td>FRED</td>
+<td>Economy series</td>
+</tr>
+<tr class="odd">
+<td>GDELT DOC API</td>
+<td>Geopolitics headlines</td>
+</tr>
+<tr class="even">
+<td>Deribit</td>
+<td>BTC and ETH options</td>
+</tr>
+<tr class="odd">
+<td>alternative.me</td>
+<td>Fear and Greed</td>
+</tr>
+<tr class="even">
+<td>UN Comtrade</td>
+<td>US trade partners</td>
+</tr>
+</tbody>
+</table>
+<p>Optional keys (see <code>.env.example</code>): <code>FRED_API_KEY</code>, <code>FINNHUB_API_KEY</code>, <code>COINGECKO_DEMO_API_KEY</code>.</p>
 </section>
-<section id="quick-start" class="level2">
-<h2 class="anchored" data-anchor-id="quick-start">Quick start</h2>
+<section id="quick-start-local" class="level2">
+<h2 class="anchored" data-anchor-id="quick-start-local">Quick start (local)</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pnpm</span> install</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> .env.example .env.local</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> .env.example .env.local   <span class="co"># optional keys for FRED / Finnhub / CoinGecko</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pnpm</span> dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Mở http://localhost:4726 — giữ API key trong <code>.env.local</code>, không đưa lên host công khai.</p>
+<p>Open <a href="http://localhost:4726" class="uri">http://localhost:4726</a></p>
+<p>Keep API keys in <code>.env.local</code> on your machine. Do not put them on a public host.</p>
+<p>Command examples: <code>AAPL EQ</code>, <code>MKT</code>, <code>ECO</code>, <code>NWS</code>, <code>BTC</code>, <code>HELP</code>.</p>
 </section>
-<section id="liên-kết" class="level2">
-<h2 class="anchored" data-anchor-id="liên-kết">Liên kết</h2>
+<section id="api-surface" class="level2">
+<h2 class="anchored" data-anchor-id="api-surface">API surface</h2>
+<p>Primary routes live under <code>/api/v1</code>:</p>
+<ul>
+<li><code>GET/POST /api/v1/equity/quote</code></li>
+<li><code>GET /api/v1/equity/price/historical</code></li>
+<li><code>GET /api/v1/markets/panel</code></li>
+<li><code>GET /api/v1/crypto/markets</code></li>
+<li><code>GET /api/v1/equity/overview</code> and related research routes</li>
+<li><code>GET /api/v1/economy/fred/series</code></li>
+<li><code>GET /api/v1/technicals/signals</code></li>
+<li><code>GET /api/v1/news</code></li>
+<li><code>GET /api/v1/geopolitics/overview</code></li>
+<li><code>GET /api/options/chain</code></li>
+</ul>
+</section>
+<section id="layout" class="level2">
+<h2 class="anchored" data-anchor-id="layout">Layout</h2>
+<pre><code>src/app/api/v1/     HTTP routers
+src/lib/platform/   providers, cache, envelopes
+src/lib/data/       Yahoo, CoinGecko, Coinbase, news, Comtrade
+src/components/     desk UI
+public/brand/       logo, favicon, cover, backdrop</code></pre>
+</section>
+<section id="license" class="level2">
+<h2 class="anchored" data-anchor-id="license">License</h2>
+<p>MIT. Research and education only.</p>
+</section>
+<section id="links" class="level2">
+<h2 class="anchored" data-anchor-id="links">Links</h2>
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -295,14 +447,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><a href="https://terminal-trade-iota.vercel.app">terminal-trade-iota.vercel.app</a></td>
 </tr>
 <tr class="odd">
-<td>License</td>
-<td>MIT · research / education only</td>
+<td>README</td>
+<td><a href="https://github.com/letrinhandn/Terminal-Trade#readme">README</a></td>
 </tr>
 </tbody>
 </table>
-<p>Nguồn: <a href="https://github.com/letrinhandn/Terminal-Trade#readme">README Terminal Trade</a>.</p>
+<p>Source: project README + screenshots from the repo.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

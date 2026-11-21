@@ -8,7 +8,7 @@
 
 <meta name="author" content="Le Tri Nhan">
 <meta name="dcterms.date" content="2026-11-17">
-<meta name="description" content="Cờ chứng khoán — multiplayer board game: room code, ngồi ghế quỹ, trade đến khi còn một fund.">
+<meta name="description" content="Multiplayer stock-market board game (Cờ chứng khoán). Share a room code, take a seat, trade until one fund remains.">
 
 <title>TICKER – Tech Lab</title>
 <style>
@@ -159,11 +159,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#chơi" id="toc-chơi" class="nav-link active" data-scroll-target="#chơi">Chơi</a></li>
-  <li><a href="#gameplay" id="toc-gameplay" class="nav-link" data-scroll-target="#gameplay">Gameplay</a></li>
+  <li><a href="#ticker" id="toc-ticker" class="nav-link active" data-scroll-target="#ticker">TICKER</a>
+  <ul class="collapse">
+  <li><a href="#screenshots" id="toc-screenshots" class="nav-link" data-scroll-target="#screenshots">Screenshots</a></li>
   <li><a href="#stack" id="toc-stack" class="nav-link" data-scroll-target="#stack">Stack</a></li>
+  <li><a href="#layout" id="toc-layout" class="nav-link" data-scroll-target="#layout">Layout</a></li>
   <li><a href="#develop" id="toc-develop" class="nav-link" data-scroll-target="#develop">Develop</a></li>
-  <li><a href="#liên-kết" id="toc-liên-kết" class="nav-link" data-scroll-target="#liên-kết">Liên kết</a></li>
+  <li><a href="#test-and-balance" id="toc-test-and-balance" class="nav-link" data-scroll-target="#test-and-balance">Test and balance</a></li>
+  <li><a href="#deploy" id="toc-deploy" class="nav-link" data-scroll-target="#deploy">Deploy</a></li>
+  <li><a href="#itch.io" id="toc-itch.io" class="nav-link" data-scroll-target="#itch.io">itch.io</a></li>
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -180,7 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    Cờ chứng khoán — multiplayer board game: room code, ngồi ghế quỹ, trade đến khi còn một fund.
+    Multiplayer stock-market board game (Cờ chứng khoán). Share a room code, take a seat, trade until one fund remains.
   </div>
 </div>
 
@@ -209,42 +215,148 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><strong>TICKER</strong> (Cờ chứng khoán) là board game multiplayer về thị trường. Chia room code, ngồi ghế quỹ, trade đến khi còn một fund. Không cần tài khoản.</p>
+<section id="ticker" class="level1">
+<h1>TICKER</h1>
+<p>Multiplayer stock-market board game (Vietnamese name: Cờ chứng khoán).</p>
+<p>Share a room code, take a seat, and trade until one fund remains. No accounts.</p>
+<p><strong>Play:</strong> <a href="https://tickergame.vercel.app">tickergame.vercel.app</a><br>
+<strong>Tutorial:</strong> <a href="https://tickergame.vercel.app/tutorial">tickergame.vercel.app/tutorial</a><br>
+<strong>itch.io:</strong> <a href="https://comrade-lenan.itch.io/ticker">comrade-lenan.itch.io/ticker</a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="thumbnail.jpg" class="img-fluid figure-img" alt="TICKER cover"></p>
+<p><img src="brand/cover.jpg" class="img-fluid figure-img" alt="TICKER cover"></p>
 <figcaption>TICKER cover</figcaption>
 </figure>
 </div>
-<section id="chơi" class="level2">
-<h2 class="anchored" data-anchor-id="chơi">Chơi</h2>
-<ul>
-<li>Play: <a href="https://tickergame.vercel.app">tickergame.vercel.app</a></li>
-<li>Tutorial: <a href="https://tickergame.vercel.app/tutorial">tickergame.vercel.app/tutorial</a></li>
-<li>itch.io: <a href="https://comrade-lenan.itch.io/ticker">comrade-lenan.itch.io/ticker</a></li>
-</ul>
-</section>
-<section id="gameplay" class="level2">
-<h2 class="anchored" data-anchor-id="gameplay">Gameplay</h2>
-<p>Bàn xanh có ô công ty, vòng ETF, góc START / SEC / WEEKEND. Xúc xắc ở giữa. Bộ Price Reaction và Market News cạnh track 8 ngành. Tạo phòng, gửi mã ngắn, chọn ghế quỹ, chơi EN hoặc VI; cũng có thể xem bot chơi.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="brand/banner.jpg" class="img-fluid figure-img" alt="TICKER banner"></p>
+<figcaption>TICKER banner</figcaption>
+</figure>
+</div>
+<section id="screenshots" class="level2">
+<h2 class="anchored" data-anchor-id="screenshots">Screenshots</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/01-board.jpg" class="img-fluid figure-img" alt="TICKER game board"></p>
+<figcaption>TICKER game board</figcaption>
+</figure>
+</div>
+<p>The green felt board has company tiles, ETF rings, and corners for START, SEC, and WEEKEND. Dice sit in the center. Price Reaction and Market News decks sit beside the eight-sector market track.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/02-lobby.jpg" class="img-fluid figure-img" alt="TICKER lobby"></p>
+<figcaption>TICKER lobby</figcaption>
+</figure>
+</div>
+<p>Create a room, share the short code, pick a fund seat, and play in English or Vietnamese. You can also watch computer-controlled funds.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/03-company-deed.jpg" class="img-fluid figure-img" alt="Company deed card"></p>
+<figcaption>Company deed card</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/04-trade-buy.jpg" class="img-fluid figure-img" alt="Trade buy moment"></p>
+<figcaption>Trade buy moment</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/05-price-reaction.jpg" class="img-fluid figure-img" alt="Price Reaction card"></p>
+<figcaption>Price Reaction card</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/06-market-news.jpg" class="img-fluid figure-img" alt="Market News card"></p>
+<figcaption>Market News card</figcaption>
+</figure>
+</div>
 </section>
 <section id="stack" class="level2">
 <h2 class="anchored" data-anchor-id="stack">Stack</h2>
 <ul>
-<li>Next.js App Router (board UI)</li>
-<li>Cloudflare PartyServer — một Durable Object mỗi room</li>
-<li>Rulebook: <code>docs/rulebook/MARKETPOLY_RULEBOOK_V5.md</code> trong repo</li>
+<li>Next.js App Router for the board UI</li>
+<li>Cloudflare PartyServer with one Durable Object per room</li>
+<li>Rulebook: <a href="https://github.com/letrinhandn/ticker/blob/main/docs/rulebook/MARKETPOLY_RULEBOOK_V5.md">MARKETPOLY_RULEBOOK_V5.md</a></li>
 </ul>
+</section>
+<section id="layout" class="level2">
+<h2 class="anchored" data-anchor-id="layout">Layout</h2>
+<pre class="text"><code>src/
+  app/           Routes
+  components/    Board, cards, FX, HUD, room, shell
+  content/       Company, news, and PR decks
+  lib/game/      Engine, bots, balance harness
+  lib/fx/        Peg, cash, and card choreography
+  shared/        Protocol and GameState
+party/           PartyServer worker
+docs/rulebook/   Shipped V5 rules
+docs/archive/    Historical drafts
+scripts/         Balance and fund-matrix CLIs
+public/press/    Cover, banner, and screenshots</code></pre>
 </section>
 <section id="develop" class="level2">
 <h2 class="anchored" data-anchor-id="develop">Develop</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> .env.example .env.local</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run dev:all</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Đặt <code>NEXT_PUBLIC_PARTY_HOST=localhost:8888</code> trong <code>.env.local</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> .env.example .env.local</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run dev:all</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Set <code>NEXT_PUBLIC_PARTY_HOST=localhost:8888</code> in <code>.env.local</code>.</p>
+<ul>
+<li>Next.js: <a href="http://localhost:3010" class="uri">http://localhost:3010</a></li>
+<li>PartyServer: port 8888</li>
+</ul>
+<p>You start in the room lobby as a spectator, then join a seat. If you leave mid-game, that seat keeps autoplaying.</p>
 </section>
-<section id="liên-kết" class="level2">
-<h2 class="anchored" data-anchor-id="liên-kết">Liên kết</h2>
+<section id="test-and-balance" class="level2">
+<h2 class="anchored" data-anchor-id="test-and-balance">Test and balance</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> test</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run balance:sim <span class="at">--</span> <span class="at">--scenario</span> standard2 <span class="at">--games</span> 200</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run balance:funds <span class="at">--</span> <span class="at">--games</span> 12</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run balance:audit <span class="at">--</span> <span class="at">--games</span> 600 <span class="at">--fundGames</span> 14</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="deploy" class="level2">
+<h2 class="anchored" data-anchor-id="deploy">Deploy</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Piece</th>
+<th>Host</th>
+<th>Production</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Frontend</td>
+<td>Vercel</td>
+<td><a href="https://tickergame.vercel.app" class="uri">https://tickergame.vercel.app</a></td>
+</tr>
+<tr class="even">
+<td>Realtime</td>
+<td>Cloudflare Workers</td>
+<td><a href="https://ticker.letrinhan123.workers.dev" class="uri">https://ticker.letrinhan123.workers.dev</a></td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run party:deploy</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> vercel deploy <span class="at">--prod</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>On Vercel, set <code>NEXT_PUBLIC_PARTY_HOST</code> to <code>ticker.letrinhan123.workers.dev</code>.</p>
+</section>
+<section id="itch.io" class="level2">
+<h2 class="anchored" data-anchor-id="itch.io">itch.io</h2>
+<p>The live multiplayer table stays on Vercel and Cloudflare. The itch page is a branded HTML wrapper that opens that build.</p>
+<ol type="1">
+<li>Create the game at <a href="https://itch.io/game/new">itch.io/game/new</a> with URL slug <code>ticker</code> under account <code>comrade-lenan</code>.</li>
+<li>Install butler once: <code>npm run itch:setup</code></li>
+<li>Export your API key (never commit it): <code>export ITCH_API_KEY=your_key</code></li>
+<li>Deploy: <code>npm run itch:deploy</code></li>
+</ol>
+<p>Default target is <code>comrade-lenan/ticker:html</code>. Override with <code>ITCH_TARGET</code> if needed. Cover art is at <code>itch/cover.jpg</code> and <code>public/brand/ticker-cover.jpg</code>.</p>
+</section>
+<section id="links" class="level2">
+<h2 class="anchored" data-anchor-id="links">Links</h2>
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -261,13 +373,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>README</td>
-<td><a href="https://github.com/letrinhandn/ticker#readme">README TICKER</a></td>
+<td><a href="https://github.com/letrinhandn/ticker#readme">README</a></td>
 </tr>
 </tbody>
 </table>
-<p>Nguồn: README của repo game.</p>
+<p>Source: project README.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -4,84 +4,119 @@
     "href": "posts/ticker/index.html",
     "title": "TICKER",
     "section": "",
-    "text": "TICKER (Cờ chứng khoán) là board game multiplayer về thị trường. Chia room code, ngồi ghế quỹ, trade đến khi còn một fund. Không cần tài khoản."
+    "text": "Multiplayer stock-market board game (Vietnamese name: Cờ chứng khoán).\nShare a room code, take a seat, and trade until one fund remains. No accounts.\nPlay: tickergame.vercel.app\nTutorial: tickergame.vercel.app/tutorial\nitch.io: comrade-lenan.itch.io/ticker\n\n\n\nTICKER cover\n\n\n\n\n\nTICKER banner\n\n\n\n\n\n\n\nTICKER game board\n\n\nThe green felt board has company tiles, ETF rings, and corners for START, SEC, and WEEKEND. Dice sit in the center. Price Reaction and Market News decks sit beside the eight-sector market track.\n\n\n\nTICKER lobby\n\n\nCreate a room, share the short code, pick a fund seat, and play in English or Vietnamese. You can also watch computer-controlled funds.\n\n\n\nCompany deed card\n\n\n\n\n\nTrade buy moment\n\n\n\n\n\nPrice Reaction card\n\n\n\n\n\nMarket News card\n\n\n\n\n\n\nNext.js App Router for the board UI\nCloudflare PartyServer with one Durable Object per room\nRulebook: MARKETPOLY_RULEBOOK_V5.md\n\n\n\n\nsrc/\n  app/           Routes\n  components/    Board, cards, FX, HUD, room, shell\n  content/       Company, news, and PR decks\n  lib/game/      Engine, bots, balance harness\n  lib/fx/        Peg, cash, and card choreography\n  shared/        Protocol and GameState\nparty/           PartyServer worker\ndocs/rulebook/   Shipped V5 rules\ndocs/archive/    Historical drafts\nscripts/         Balance and fund-matrix CLIs\npublic/press/    Cover, banner, and screenshots\n\n\n\nnpm install\ncp .env.example .env.local\nnpm run dev:all\nSet NEXT_PUBLIC_PARTY_HOST=localhost:8888 in .env.local.\n\nNext.js: http://localhost:3010\nPartyServer: port 8888\n\nYou start in the room lobby as a spectator, then join a seat. If you leave mid-game, that seat keeps autoplaying.\n\n\n\nnpm test\nnpm run balance:sim -- --scenario standard2 --games 200\nnpm run balance:funds -- --games 12\nnpm run balance:audit -- --games 600 --fundGames 14\n\n\n\n\n\n\nPiece\nHost\nProduction\n\n\n\n\nFrontend\nVercel\nhttps://tickergame.vercel.app\n\n\nRealtime\nCloudflare Workers\nhttps://ticker.letrinhan123.workers.dev\n\n\n\nnpm run party:deploy\nnpx vercel deploy --prod\nOn Vercel, set NEXT_PUBLIC_PARTY_HOST to ticker.letrinhan123.workers.dev.\n\n\n\nThe live multiplayer table stays on Vercel and Cloudflare. The itch page is a branded HTML wrapper that opens that build.\n\nCreate the game at itch.io/game/new with URL slug ticker under account comrade-lenan.\nInstall butler once: npm run itch:setup\nExport your API key (never commit it): export ITCH_API_KEY=your_key\nDeploy: npm run itch:deploy\n\nDefault target is comrade-lenan/ticker:html. Override with ITCH_TARGET if needed. Cover art is at itch/cover.jpg and public/brand/ticker-cover.jpg.\n\n\n\n\n\n\nRepo\ngithub.com/letrinhandn/ticker\n\n\nPlay\ntickergame.vercel.app\n\n\nitch.io\ncomrade-lenan.itch.io/ticker\n\n\nREADME\nREADME\n\n\n\nSource: project README."
   },
   {
-    "objectID": "posts/ticker/index.html#chơi",
-    "href": "posts/ticker/index.html#chơi",
+    "objectID": "posts/ticker/index.html#screenshots",
+    "href": "posts/ticker/index.html#screenshots",
     "title": "TICKER",
-    "section": "Chơi",
-    "text": "Chơi\n\nPlay: tickergame.vercel.app\nTutorial: tickergame.vercel.app/tutorial\nitch.io: comrade-lenan.itch.io/ticker"
-  },
-  {
-    "objectID": "posts/ticker/index.html#gameplay",
-    "href": "posts/ticker/index.html#gameplay",
-    "title": "TICKER",
-    "section": "Gameplay",
-    "text": "Gameplay\nBàn xanh có ô công ty, vòng ETF, góc START / SEC / WEEKEND. Xúc xắc ở giữa. Bộ Price Reaction và Market News cạnh track 8 ngành. Tạo phòng, gửi mã ngắn, chọn ghế quỹ, chơi EN hoặc VI; cũng có thể xem bot chơi."
+    "section": "",
+    "text": "TICKER game board\n\n\nThe green felt board has company tiles, ETF rings, and corners for START, SEC, and WEEKEND. Dice sit in the center. Price Reaction and Market News decks sit beside the eight-sector market track.\n\n\n\nTICKER lobby\n\n\nCreate a room, share the short code, pick a fund seat, and play in English or Vietnamese. You can also watch computer-controlled funds.\n\n\n\nCompany deed card\n\n\n\n\n\nTrade buy moment\n\n\n\n\n\nPrice Reaction card\n\n\n\n\n\nMarket News card"
   },
   {
     "objectID": "posts/ticker/index.html#stack",
     "href": "posts/ticker/index.html#stack",
     "title": "TICKER",
-    "section": "Stack",
-    "text": "Stack\n\nNext.js App Router (board UI)\nCloudflare PartyServer — một Durable Object mỗi room\nRulebook: docs/rulebook/MARKETPOLY_RULEBOOK_V5.md trong repo"
+    "section": "",
+    "text": "Next.js App Router for the board UI\nCloudflare PartyServer with one Durable Object per room\nRulebook: MARKETPOLY_RULEBOOK_V5.md"
+  },
+  {
+    "objectID": "posts/ticker/index.html#layout",
+    "href": "posts/ticker/index.html#layout",
+    "title": "TICKER",
+    "section": "",
+    "text": "src/\n  app/           Routes\n  components/    Board, cards, FX, HUD, room, shell\n  content/       Company, news, and PR decks\n  lib/game/      Engine, bots, balance harness\n  lib/fx/        Peg, cash, and card choreography\n  shared/        Protocol and GameState\nparty/           PartyServer worker\ndocs/rulebook/   Shipped V5 rules\ndocs/archive/    Historical drafts\nscripts/         Balance and fund-matrix CLIs\npublic/press/    Cover, banner, and screenshots"
   },
   {
     "objectID": "posts/ticker/index.html#develop",
     "href": "posts/ticker/index.html#develop",
     "title": "TICKER",
-    "section": "Develop",
-    "text": "Develop\nnpm install\ncp .env.example .env.local\nnpm run dev:all\nĐặt NEXT_PUBLIC_PARTY_HOST=localhost:8888 trong .env.local."
+    "section": "",
+    "text": "npm install\ncp .env.example .env.local\nnpm run dev:all\nSet NEXT_PUBLIC_PARTY_HOST=localhost:8888 in .env.local.\n\nNext.js: http://localhost:3010\nPartyServer: port 8888\n\nYou start in the room lobby as a spectator, then join a seat. If you leave mid-game, that seat keeps autoplaying."
   },
   {
-    "objectID": "posts/ticker/index.html#liên-kết",
-    "href": "posts/ticker/index.html#liên-kết",
+    "objectID": "posts/ticker/index.html#test-and-balance",
+    "href": "posts/ticker/index.html#test-and-balance",
     "title": "TICKER",
-    "section": "Liên kết",
-    "text": "Liên kết\n\n\n\nRepo\ngithub.com/letrinhandn/ticker\n\n\nPlay\ntickergame.vercel.app\n\n\nitch.io\ncomrade-lenan.itch.io/ticker\n\n\nREADME\nREADME TICKER\n\n\n\nNguồn: README của repo game."
+    "section": "",
+    "text": "npm test\nnpm run balance:sim -- --scenario standard2 --games 200\nnpm run balance:funds -- --games 12\nnpm run balance:audit -- --games 600 --fundGames 14"
+  },
+  {
+    "objectID": "posts/ticker/index.html#deploy",
+    "href": "posts/ticker/index.html#deploy",
+    "title": "TICKER",
+    "section": "",
+    "text": "Piece\nHost\nProduction\n\n\n\n\nFrontend\nVercel\nhttps://tickergame.vercel.app\n\n\nRealtime\nCloudflare Workers\nhttps://ticker.letrinhan123.workers.dev\n\n\n\nnpm run party:deploy\nnpx vercel deploy --prod\nOn Vercel, set NEXT_PUBLIC_PARTY_HOST to ticker.letrinhan123.workers.dev."
+  },
+  {
+    "objectID": "posts/ticker/index.html#itch.io",
+    "href": "posts/ticker/index.html#itch.io",
+    "title": "TICKER",
+    "section": "",
+    "text": "The live multiplayer table stays on Vercel and Cloudflare. The itch page is a branded HTML wrapper that opens that build.\n\nCreate the game at itch.io/game/new with URL slug ticker under account comrade-lenan.\nInstall butler once: npm run itch:setup\nExport your API key (never commit it): export ITCH_API_KEY=your_key\nDeploy: npm run itch:deploy\n\nDefault target is comrade-lenan/ticker:html. Override with ITCH_TARGET if needed. Cover art is at itch/cover.jpg and public/brand/ticker-cover.jpg."
+  },
+  {
+    "objectID": "posts/ticker/index.html#links",
+    "href": "posts/ticker/index.html#links",
+    "title": "TICKER",
+    "section": "",
+    "text": "Repo\ngithub.com/letrinhandn/ticker\n\n\nPlay\ntickergame.vercel.app\n\n\nitch.io\ncomrade-lenan.itch.io/ticker\n\n\nREADME\nREADME\n\n\n\nSource: project README."
   },
   {
     "objectID": "posts/retro-typewriter-cyberdeck/index.html",
     "href": "posts/retro-typewriter-cyberdeck/index.html",
     "title": "Retro Typewriter Cyberdeck",
     "section": "",
-    "text": "Cyberdeck tự chứa, dựng quanh Raspberry Pi 5, đặt trong hộp gỗ trang trí tái sử dụng. Thiết kế và lắp tại London, đông 2024/2025."
+    "text": "A self-contained portable computing unit built around the Raspberry Pi 5, housed in a repurposed decorative wooden chest. Designed and assembled in London, winter 2024/2025.\n\n\n\nFront\n\n\n\n\n\nFully portable: battery-backed, no dependency on mains power\nSelf-contained: display, input, compute, and networking in one enclosure\nDual-purpose: general-purpose Linux workstation and passive 802.11 network monitoring via Pwnagotchi co-processor\nNo 3D printing, no CNC: enclosure repurposed from off-the-shelf hardware\n\n\n\n\n\n\n\n\n\n\n\n\n\nComponent\nSpecification\nSource\nUnit Price\n\n\n\n\nSBC\nRaspberry Pi 5, 4GB\nAmazon UK\n£143.00\n\n\nDisplay\nGeeekPi 7” IPS LCD, 1024x600, 60Hz, 500 cd/m2, HDMI\nAmazon UK\n£44.99\n\n\nUPS HAT\nWaveshare UPS HAT (E), 5V/6A output, bi-directional fast charge, Pogo Pin connector\nAmazon UK\n£39.99\n\n\nThermal\nRaspberry Pi Active Cooler (official)\nAmazon UK\n£9.56\n\n\nDisplay cable\nCoiled Micro HDMI to HDMI, 4K@60Hz, 0.5-2.4M\nAliExpress\n$3.97\n\n\nInternal wiring\nHOQO FFC Flat Flexible Cable kit, 18 connector types\nAliExpress\n$10.05\n\n\nEnclosure\nEuropean Vintage Small Wood Box with lock, approx. 30x15x12cm\nAliExpress\n$4.77\n\n\nKeyboard\nIDOBAO ID42 40%, hotswap, Kailh Box Navy switches, white keycaps\nAliExpress\n£18.87\n\n\nBattery cells\n2x 18650 Li-ion, 4200mAh, 3.7V\n-\nTBD\n\n\n\nTotal (confirmed components): ~£256.41 + $18.79 + batteries\n\n\n\n\n\nRaspberry Pi 5 (4GB LPDDR4X) running Ubuntu 24.04 LTS. The active cooler is fitted directly to the SoC heatspreader and routed to exhaust through a ventilation gap at the rear of the enclosure.\n\n\n\nThe Waveshare UPS HAT (E) is stacked directly on the GPIO header via Pogo Pins, supplying 5V/6A to the Pi. Two 18650 Li-ion cells (4200mAh each, ~31Wh combined at nominal voltage) are housed in the HAT’s integrated battery bay. The HAT supports hot-swap charging: the system remains operational while charging via USB-C. Known issue: battery percentage readout is unreliable under Ubuntu; the HAT reports via I2C but driver support is incomplete.\n\n\n\nThe GeeekPi 7” IPS panel is mounted externally on the inner face of the lid, connected via a coiled Micro HDMI cable routed through the hinge gap. The coil accommodates lid open/close movement without cable stress. Resolution set to 1024x600 at 60Hz; display is powered directly from the HDMI port.\n\n\n\nIDOBAO ID42 40% hotswap mechanical keyboard, fitted with Kailh Box Navy tactile-clicky switches and IDOBAO white keycaps. The 40% layout reduces footprint while retaining full alphanumeric coverage via layers. The keyboard sits external to the enclosure and connects via USB.\n\n\n\nThe Pi’s onboard BCM43455 handles primary wireless. A secondary USB Wi-Fi adapter extends range. The Pwnagotchi co-processor runs on a dedicated microcontroller with its own 2.13” e-ink status display, performing passive 802.11 handshake capture and AI-driven interaction loop independent of the main OS.\n\n\n\nThe upper compartment houses the main board stack (Pi 5, UPS HAT, cooler) and battery cells, with styrofoam-carved dividers holding each component in a fixed position to prevent movement under transport. The lower compartment is left open as a carry space for peripheral gadgets: Pwnagotchi, cables, USB adapters, or anything else in rotation. The wooden chest provides adequate rigidity and incidental EMF containment without requiring any machining.\n\n\n\n\n\n\n\nInternals\n\n\n\n\n\nBack\n\n\n\n\n\nPOV\n\n\n\n\n\nBench test\n\n\n\n\n\n\n\n\n\n\n\n\nIssue\nStatus\n\n\n\n\nUPS battery percentage unreliable via I2C on Ubuntu\nOpen\n\n\nLid closure requires partial cable disconnection\nBy design (constraint of enclosure geometry)\n\n\nNo active ventilation: relies on passive gap at rear\nAcceptable under normal load; throttles under sustained CPU stress\n\n\n\n\n\n\n\nUbuntu 24.04 LTS (Raspberry Pi build)\nPwnagotchi: standalone AI on co-processor, does not share OS with main system\nPrimary use: writing, research, terminal work\n\n\n\n\n\n\n\nRepo\ngithub.com/letrinhandn/retro-typewriter-cyberdeck\n\n\nREADME\nREADME + photos\n\n\n\nSource: project README."
   },
   {
-    "objectID": "posts/retro-typewriter-cyberdeck/index.html#mục-tiêu",
-    "href": "posts/retro-typewriter-cyberdeck/index.html#mục-tiêu",
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#design-objectives",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#design-objectives",
     "title": "Retro Typewriter Cyberdeck",
-    "section": "Mục tiêu",
-    "text": "Mục tiêu\n\nPortable: có pin, không phụ thuộc ổ cắm\nSelf-contained: display + input + compute + network trong một khối\nDual-purpose: Linux workstation + passive 802.11 monitoring (Pwnagotchi)\nKhông in 3D / CNC: enclosure lấy sẵn rồi lắp"
+    "section": "",
+    "text": "Fully portable: battery-backed, no dependency on mains power\nSelf-contained: display, input, compute, and networking in one enclosure\nDual-purpose: general-purpose Linux workstation and passive 802.11 network monitoring via Pwnagotchi co-processor\nNo 3D printing, no CNC: enclosure repurposed from off-the-shelf hardware"
   },
   {
-    "objectID": "posts/retro-typewriter-cyberdeck/index.html#bom-rút-gọn",
-    "href": "posts/retro-typewriter-cyberdeck/index.html#bom-rút-gọn",
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#bill-of-materials",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#bill-of-materials",
     "title": "Retro Typewriter Cyberdeck",
-    "section": "BOM (rút gọn)",
-    "text": "BOM (rút gọn)\n\n\n\nComponent\nSpec\n\n\n\n\nSBC\nRaspberry Pi 5, 4GB\n\n\nDisplay\nGeeekPi 7” IPS 1024×600\n\n\nPower\nWaveshare UPS HAT (E) + 2×18650\n\n\nKeyboard\nIDOBAO ID42 40%, Kailh Box Navy\n\n\nEnclosure\nEuropean vintage wood box ~30×15×12cm\n\n\n\nTổng linh kiện đã chốt khoảng £256 + $19 + pin."
+    "section": "",
+    "text": "Component\nSpecification\nSource\nUnit Price\n\n\n\n\nSBC\nRaspberry Pi 5, 4GB\nAmazon UK\n£143.00\n\n\nDisplay\nGeeekPi 7” IPS LCD, 1024x600, 60Hz, 500 cd/m2, HDMI\nAmazon UK\n£44.99\n\n\nUPS HAT\nWaveshare UPS HAT (E), 5V/6A output, bi-directional fast charge, Pogo Pin connector\nAmazon UK\n£39.99\n\n\nThermal\nRaspberry Pi Active Cooler (official)\nAmazon UK\n£9.56\n\n\nDisplay cable\nCoiled Micro HDMI to HDMI, 4K@60Hz, 0.5-2.4M\nAliExpress\n$3.97\n\n\nInternal wiring\nHOQO FFC Flat Flexible Cable kit, 18 connector types\nAliExpress\n$10.05\n\n\nEnclosure\nEuropean Vintage Small Wood Box with lock, approx. 30x15x12cm\nAliExpress\n$4.77\n\n\nKeyboard\nIDOBAO ID42 40%, hotswap, Kailh Box Navy switches, white keycaps\nAliExpress\n£18.87\n\n\nBattery cells\n2x 18650 Li-ion, 4200mAh, 3.7V\n-\nTBD\n\n\n\nTotal (confirmed components): ~£256.41 + $18.79 + batteries"
   },
   {
-    "objectID": "posts/retro-typewriter-cyberdeck/index.html#kiến-trúc-ngắn",
-    "href": "posts/retro-typewriter-cyberdeck/index.html#kiến-trúc-ngắn",
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#system-architecture",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#system-architecture",
     "title": "Retro Typewriter Cyberdeck",
-    "section": "Kiến trúc ngắn",
-    "text": "Kiến trúc ngắn\n\nCompute: Pi 5, Ubuntu 24.04, active cooler\nPower: UPS HAT 5V/6A, sạc USB-C khi đang chạy\nDisplay: panel trên nắp, Micro HDMI xoắn qua bản lề\nInput: keyboard 40% USB bên ngoài\nNetwork: Wi-Fi onboard + USB adapter; Pwnagotchi riêng với e-ink 2.13”\n\n\n\n\nInternals"
+    "section": "",
+    "text": "Raspberry Pi 5 (4GB LPDDR4X) running Ubuntu 24.04 LTS. The active cooler is fitted directly to the SoC heatspreader and routed to exhaust through a ventilation gap at the rear of the enclosure.\n\n\n\nThe Waveshare UPS HAT (E) is stacked directly on the GPIO header via Pogo Pins, supplying 5V/6A to the Pi. Two 18650 Li-ion cells (4200mAh each, ~31Wh combined at nominal voltage) are housed in the HAT’s integrated battery bay. The HAT supports hot-swap charging: the system remains operational while charging via USB-C. Known issue: battery percentage readout is unreliable under Ubuntu; the HAT reports via I2C but driver support is incomplete.\n\n\n\nThe GeeekPi 7” IPS panel is mounted externally on the inner face of the lid, connected via a coiled Micro HDMI cable routed through the hinge gap. The coil accommodates lid open/close movement without cable stress. Resolution set to 1024x600 at 60Hz; display is powered directly from the HDMI port.\n\n\n\nIDOBAO ID42 40% hotswap mechanical keyboard, fitted with Kailh Box Navy tactile-clicky switches and IDOBAO white keycaps. The 40% layout reduces footprint while retaining full alphanumeric coverage via layers. The keyboard sits external to the enclosure and connects via USB.\n\n\n\nThe Pi’s onboard BCM43455 handles primary wireless. A secondary USB Wi-Fi adapter extends range. The Pwnagotchi co-processor runs on a dedicated microcontroller with its own 2.13” e-ink status display, performing passive 802.11 handshake capture and AI-driven interaction loop independent of the main OS.\n\n\n\nThe upper compartment houses the main board stack (Pi 5, UPS HAT, cooler) and battery cells, with styrofoam-carved dividers holding each component in a fixed position to prevent movement under transport. The lower compartment is left open as a carry space for peripheral gadgets: Pwnagotchi, cables, USB adapters, or anything else in rotation. The wooden chest provides adequate rigidity and incidental EMF containment without requiring any machining."
+  },
+  {
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#photos",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#photos",
+    "title": "Retro Typewriter Cyberdeck",
+    "section": "",
+    "text": "Internals\n\n\n\n\n\nBack\n\n\n\n\n\nPOV\n\n\n\n\n\nBench test"
   },
   {
     "objectID": "posts/retro-typewriter-cyberdeck/index.html#known-issues",
     "href": "posts/retro-typewriter-cyberdeck/index.html#known-issues",
     "title": "Retro Typewriter Cyberdeck",
-    "section": "Known issues",
-    "text": "Known issues\n\n% pin UPS qua I2C trên Ubuntu chưa ổn\nĐóng nắp đôi khi cần rút cáp một phần (constraint hình học hộp)\nThông gió thụ động: throttle khi CPU kéo dài"
+    "section": "",
+    "text": "Issue\nStatus\n\n\n\n\nUPS battery percentage unreliable via I2C on Ubuntu\nOpen\n\n\nLid closure requires partial cable disconnection\nBy design (constraint of enclosure geometry)\n\n\nNo active ventilation: relies on passive gap at rear\nAcceptable under normal load; throttles under sustained CPU stress"
   },
   {
-    "objectID": "posts/retro-typewriter-cyberdeck/index.html#liên-kết",
-    "href": "posts/retro-typewriter-cyberdeck/index.html#liên-kết",
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#os-and-software",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#os-and-software",
     "title": "Retro Typewriter Cyberdeck",
-    "section": "Liên kết",
-    "text": "Liên kết\n\n\n\nRepo\ngithub.com/letrinhandn/retro-typewriter-cyberdeck\n\n\nREADME\nREADME đầy đủ + photos\n\n\n\nNguồn: README của repo phần cứng."
+    "section": "",
+    "text": "Ubuntu 24.04 LTS (Raspberry Pi build)\nPwnagotchi: standalone AI on co-processor, does not share OS with main system\nPrimary use: writing, research, terminal work"
+  },
+  {
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#links",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#links",
+    "title": "Retro Typewriter Cyberdeck",
+    "section": "",
+    "text": "Repo\ngithub.com/letrinhandn/retro-typewriter-cyberdeck\n\n\nREADME\nREADME + photos\n\n\n\nSource: project README."
   },
   {
     "objectID": "about.html",
@@ -95,69 +130,125 @@
     "href": "index.html",
     "title": "Tech Lab",
     "section": "",
-    "text": "Rafetus\n\n1 min\n\n\napps\n\n\n\nAI document manager cho vault tài liệu lớn: nạp file, ghi chú, quan hệ tri thức và chat với AI.\n\n\n\nNov 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTerminal Trade\n\n2 min\n\n\napps\n\n\n\nLocal market-research terminal (Next.js): desks F1–F8, dữ liệu công khai, chạy trên máy bạn.\n\n\n\nNov 19, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nRetro Typewriter Cyberdeck\n\n2 min\n\n\nhardware\n\n\n\nPortable Pi 5 cyberdeck trong hộp gỗ vintage: UPS, màn 7”, keyboard 40%, Pwnagotchi.\n\n\n\nNov 18, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTICKER\n\n1 min\n\n\ngames\n\n\n\nCờ chứng khoán — multiplayer board game: room code, ngồi ghế quỹ, trade đến khi còn một fund.\n\n\n\nNov 17, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Rafetus\n\n3 min\n\n\napps\n\n\n\nAI document manager — store, read, search, and ask questions about your documents in one knowledge library.\n\n\n\nNov 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTerminal Trade\n\n2 min\n\n\napps\n\n\n\nLocal market research terminal built with Next.js. Free public data plus optional keys in .env.local.\n\n\n\nNov 19, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nRetro Typewriter Cyberdeck\n\n4 min\n\n\nhardware\n\n\n\nSelf-contained portable computing unit around Raspberry Pi 5 in a repurposed wooden chest. London, winter 2024/2025.\n\n\n\nNov 18, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTICKER\n\n3 min\n\n\ngames\n\n\n\nMultiplayer stock-market board game (Cờ chứng khoán). Share a room code, take a seat, trade until one fund remains.\n\n\n\nNov 17, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/rafetus/index.html",
     "href": "posts/rafetus/index.html",
     "title": "Rafetus",
     "section": "",
-    "text": "Rafetus giúp cá nhân và team đổ tài liệu vào một vault, viết note, nối quan hệ giữa các mảnh kiến thức, rồi chat với AI trên toàn bộ kho không cấu trúc."
+    "text": "Turn your document collection into a knowledge library you can explore with AI. With Rafetus you can store, read, search, and ask questions about your documents in one app.\n\n\n\nRafetus icon\n\n\nProduct: rafetus.vn\nApp Store: Rafetus - AI Document Manager\nWeb sign-in: auth.rafetus.vn\n\n\n\nAsk AI\n\n\n\n\n\nCentral document library — Store PDF and DOCX files, organize them in folders, and tag them for easy management.\nSmart search — Find information across documents and notes quickly without rereading everything.\nAsk AI (Rafai) — Ask questions and get answers grounded in your own document content, with cited sources.\nRead and annotate — Highlight key passages, select text, and ask AI to explain difficult sections.\nKnowledge connections — Build an AI knowledge graph that links documents and notes so you can discover useful relationships.\n\n\n\n\nAI library\n\n\n\n\n\nDeep search\n\n\n\n\n\nReader selection\n\n\n\n\n\nEight short steps from the Rafetus tutorial:\n\n\n\nUpload documents to your library (PDF and files ready for search and AI).\nTag your documents so you can find them again.\n\n\n\n\n\nRead and ask AI on the page — select passages, mark what matters.\nDeep search — find related content even without exact keywords.\n\n\n\n\n\nAsk AI across many documents with clear source citations.\nChoose sources when asking AI so answers stay focused.\n\n\n\n\n\nExplore the knowledge network — visualize documents, notes, and relations.\nLink notes to build your own knowledge network step by step.\n\n\n\n\nLibrary tags\n\n\n\n\n\nLibrary folders\n\n\n\n\n\nKnowledge graph\n\n\n\n\n\n\nFrom rafetus.vn/ai:\n\nConnect related information across notes and documents.\nSelect relevant context for each question instead of searching manually.\nStay in control — choose which data AI can use; turn the feature off anytime.\nConversations are not used to train models under Rafetus policy (Privacy).\n\n\n\n\nThinking Without Limits — connecting knowledge in a unified space with artificial intelligence.\nCore values (from About):\n\nUser-centric experience — simplify upload → organize → explore.\nSubstantive tech — optimize data architecture and core algorithms.\nAccumulating knowledge — a foundation for long-term intellectual legacy.\nAbsolute knowledge sovereignty — your documents stay yours.\nContinuous evolution — product and platform keep moving with user needs.\n\nFounding team: Lê Trí Nhân (Administration & Lead Engineer), Hồ Văn Thạnh (Technical Administration & Data).\n\n\n\nVEU 2026\n\n\n\n\n\nPay for plans and top up AI credit in the app (pricing):\n\n\n\nPlan\nPrice\nStorage\n\n\n\n\nFree\nFree forever\n500 MB\n\n\nPlus\n$14.98 / month\n20 GB\n\n\nPro\n$29.98 / month\n100 GB\n\n\n\nAI credits can be topped up in-app (shared across chat and document processing).\n\n\n\nBuilt on AWS, Cloudflare, and Supabase (as shown on rafetus.vn).\n\n\n\n\n\n\nProduct\nrafetus.vn\n\n\nApp Store\nRafetus - AI Document Manager\n\n\nAI\nrafetus.vn/ai\n\n\nTutorial\nrafetus.vn/tutorial\n\n\nAbout\nrafetus.vn/about\n\n\nSupport\nsupport@rafetus.vn\n\n\nX\n@RafetusApp\n\n\n\nSource: App Store listing, product site, and App Store screenshots. No public GitHub repo."
   },
   {
-    "objectID": "posts/rafetus/index.html#làm-gì-được",
-    "href": "posts/rafetus/index.html#làm-gì-được",
+    "objectID": "posts/rafetus/index.html#highlights",
+    "href": "posts/rafetus/index.html#highlights",
     "title": "Rafetus",
-    "section": "Làm gì được",
-    "text": "Làm gì được\n\nNạp và tổ chức tài liệu lớn (PDF, note, nguồn hỗn hợp)\nViết note gắn vào vault thay vì tách rời từng file\nNối quan hệ giữa tài liệu / ý tưởng (knowledge graph nhẹ)\nChat AI theo ngữ cảnh vault, không chỉ theo một file đang mở"
+    "section": "",
+    "text": "Central document library — Store PDF and DOCX files, organize them in folders, and tag them for easy management.\nSmart search — Find information across documents and notes quickly without rereading everything.\nAsk AI (Rafai) — Ask questions and get answers grounded in your own document content, with cited sources.\nRead and annotate — Highlight key passages, select text, and ask AI to explain difficult sections.\nKnowledge connections — Build an AI knowledge graph that links documents and notes so you can discover useful relationships.\n\n\n\n\nAI library\n\n\n\n\n\nDeep search\n\n\n\n\n\nReader selection"
   },
   {
-    "objectID": "posts/rafetus/index.html#dùng-thử",
-    "href": "posts/rafetus/index.html#dùng-thử",
+    "objectID": "posts/rafetus/index.html#tutorial-flow",
+    "href": "posts/rafetus/index.html#tutorial-flow",
     "title": "Rafetus",
-    "section": "Dùng thử",
-    "text": "Dùng thử\n\nWeb: rafetus.vn\nApp Store: Rafetus trên iOS"
+    "section": "",
+    "text": "Eight short steps from the Rafetus tutorial:\n\n\n\nUpload documents to your library (PDF and files ready for search and AI).\nTag your documents so you can find them again.\n\n\n\n\n\nRead and ask AI on the page — select passages, mark what matters.\nDeep search — find related content even without exact keywords.\n\n\n\n\n\nAsk AI across many documents with clear source citations.\nChoose sources when asking AI so answers stay focused.\n\n\n\n\n\nExplore the knowledge network — visualize documents, notes, and relations.\nLink notes to build your own knowledge network step by step.\n\n\n\n\nLibrary tags\n\n\n\n\n\nLibrary folders\n\n\n\n\n\nKnowledge graph"
   },
   {
-    "objectID": "posts/rafetus/index.html#liên-kết",
-    "href": "posts/rafetus/index.html#liên-kết",
+    "objectID": "posts/rafetus/index.html#rafai-ai-assistant",
+    "href": "posts/rafetus/index.html#rafai-ai-assistant",
     "title": "Rafetus",
-    "section": "Liên kết",
-    "text": "Liên kết\n\n\n\nProduct\nrafetus.vn\n\n\nHub card\nletrinhan-site\n\n\n\nBài này là intro trên Tech Lab. Chi tiết sản phẩm và đăng nhập nằm ở site Rafetus."
+    "section": "",
+    "text": "From rafetus.vn/ai:\n\nConnect related information across notes and documents.\nSelect relevant context for each question instead of searching manually.\nStay in control — choose which data AI can use; turn the feature off anytime.\nConversations are not used to train models under Rafetus policy (Privacy)."
+  },
+  {
+    "objectID": "posts/rafetus/index.html#about",
+    "href": "posts/rafetus/index.html#about",
+    "title": "Rafetus",
+    "section": "",
+    "text": "Thinking Without Limits — connecting knowledge in a unified space with artificial intelligence.\nCore values (from About):\n\nUser-centric experience — simplify upload → organize → explore.\nSubstantive tech — optimize data architecture and core algorithms.\nAccumulating knowledge — a foundation for long-term intellectual legacy.\nAbsolute knowledge sovereignty — your documents stay yours.\nContinuous evolution — product and platform keep moving with user needs.\n\nFounding team: Lê Trí Nhân (Administration & Lead Engineer), Hồ Văn Thạnh (Technical Administration & Data).\n\n\n\nVEU 2026"
+  },
+  {
+    "objectID": "posts/rafetus/index.html#plans",
+    "href": "posts/rafetus/index.html#plans",
+    "title": "Rafetus",
+    "section": "",
+    "text": "Pay for plans and top up AI credit in the app (pricing):\n\n\n\nPlan\nPrice\nStorage\n\n\n\n\nFree\nFree forever\n500 MB\n\n\nPlus\n$14.98 / month\n20 GB\n\n\nPro\n$29.98 / month\n100 GB\n\n\n\nAI credits can be topped up in-app (shared across chat and document processing)."
+  },
+  {
+    "objectID": "posts/rafetus/index.html#infrastructure",
+    "href": "posts/rafetus/index.html#infrastructure",
+    "title": "Rafetus",
+    "section": "",
+    "text": "Built on AWS, Cloudflare, and Supabase (as shown on rafetus.vn)."
+  },
+  {
+    "objectID": "posts/rafetus/index.html#links",
+    "href": "posts/rafetus/index.html#links",
+    "title": "Rafetus",
+    "section": "",
+    "text": "Product\nrafetus.vn\n\n\nApp Store\nRafetus - AI Document Manager\n\n\nAI\nrafetus.vn/ai\n\n\nTutorial\nrafetus.vn/tutorial\n\n\nAbout\nrafetus.vn/about\n\n\nSupport\nsupport@rafetus.vn\n\n\nX\n@RafetusApp\n\n\n\nSource: App Store listing, product site, and App Store screenshots. No public GitHub repo."
   },
   {
     "objectID": "posts/terminal-trade/index.html",
     "href": "posts/terminal-trade/index.html",
     "title": "Terminal Trade",
     "section": "",
-    "text": "Terminal Trade là market research terminal chạy local bằng Next.js. Chạy trên máy bạn, dùng dữ liệu công khai (và key tùy chọn trong .env.local). Không phải lời khuyên đầu tư."
+    "text": "Local market research terminal built with Next.js.\nRun on your machine only. No hosted deploy. Free public data plus optional keys in .env.local. Not investment advice.\n\n\n\nDashboard\n\n\n\n\n\n\n\nKey\nDesk\nWhat you get\n\n\n\n\nF1\nDashboard\nIndices, FX, commodities, pulse, quote, news\n\n\nF2\nMarkets\nOHLCV candles, watchlist tape, relative, correlation\n\n\nF3\nEquity\nResearch workbench, financials, ownership, ESG\n\n\nF4\nSignals\nRule-based detectors with chart markers\n\n\nF5\nPortfolio\nPaper blotter, heatmap, NAV, sectors, risk\n\n\nF6\nEconomy\nFRED macro series\n\n\nF7\nNews\nRSS monitor\n\n\nF8\nGeo\nMacro risk proxies, Yahoo corr, GDELT headlines\n\n\n-\nNodes\nCorrelation workflow canvas\n\n\n-\nIdeas\nRules-based screener helper\n\n\n-\nOptions\nDeribit crypto chain or Yahoo equity chain\n\n\n\n\n\n\nMarkets\n\n\n\n\n\nEquity research\n\n\n\n\n\nOptions\n\n\n\n\n\n\n\n\nOverview tab\n\n\n\n\n\nFIN subtab\n\n\n\n\n\nPortfolio tab\n\n\n\n\n\nBT tab\n\n\n\n\n\nOP tab\n\n\n\n\n\n3D vol surface\n\n\n\n\n\n\n\n\nSource\nUsed for\n\n\n\n\nYahoo Finance\nEquities quotes, OHLCV, fundamentals, equity options\n\n\nCoinGecko Demo\nCrypto market tape\n\n\nCoinbase Exchange\nCrypto daily candles\n\n\nFRED\nEconomy series\n\n\nGDELT DOC API\nGeopolitics headlines\n\n\nDeribit\nBTC and ETH options\n\n\nalternative.me\nFear and Greed\n\n\nUN Comtrade\nUS trade partners\n\n\n\nOptional keys (see .env.example): FRED_API_KEY, FINNHUB_API_KEY, COINGECKO_DEMO_API_KEY.\n\n\n\npnpm install\ncp .env.example .env.local   # optional keys for FRED / Finnhub / CoinGecko\npnpm dev\nOpen http://localhost:4726\nKeep API keys in .env.local on your machine. Do not put them on a public host.\nCommand examples: AAPL EQ, MKT, ECO, NWS, BTC, HELP.\n\n\n\nPrimary routes live under /api/v1:\n\nGET/POST /api/v1/equity/quote\nGET /api/v1/equity/price/historical\nGET /api/v1/markets/panel\nGET /api/v1/crypto/markets\nGET /api/v1/equity/overview and related research routes\nGET /api/v1/economy/fred/series\nGET /api/v1/technicals/signals\nGET /api/v1/news\nGET /api/v1/geopolitics/overview\nGET /api/options/chain\n\n\n\n\nsrc/app/api/v1/     HTTP routers\nsrc/lib/platform/   providers, cache, envelopes\nsrc/lib/data/       Yahoo, CoinGecko, Coinbase, news, Comtrade\nsrc/components/     desk UI\npublic/brand/       logo, favicon, cover, backdrop\n\n\n\nMIT. Research and education only.\n\n\n\n\n\n\nRepo\ngithub.com/letrinhandn/Terminal-Trade\n\n\nDemo\nterminal-trade-iota.vercel.app\n\n\nREADME\nREADME\n\n\n\nSource: project README + screenshots from the repo."
   },
   {
-    "objectID": "posts/terminal-trade/index.html#desks",
-    "href": "posts/terminal-trade/index.html#desks",
+    "objectID": "posts/terminal-trade/index.html#screens",
+    "href": "posts/terminal-trade/index.html#screens",
     "title": "Terminal Trade",
-    "section": "Desks",
-    "text": "Desks\n\n\n\nKey\nDesk\nNội dung\n\n\n\n\nF1\nDashboard\nIndices, FX, commodities, pulse, quote, news\n\n\nF2\nMarkets\nOHLCV candles, watchlist, correlation\n\n\nF3\nEquity\nResearch workbench, financials, ownership, ESG\n\n\nF4\nSignals\nRule-based detectors + chart markers\n\n\nF5\nPortfolio\nPaper blotter, heatmap, NAV, risk\n\n\nF6\nEconomy\nFRED macro series\n\n\nF7\nNews\nRSS monitor\n\n\nF8\nGeo\nMacro risk proxies, Yahoo corr, GDELT\n\n\n\nThêm: Nodes (correlation canvas), Ideas (screener), Options (Deribit / Yahoo chain)."
+    "section": "",
+    "text": "Key\nDesk\nWhat you get\n\n\n\n\nF1\nDashboard\nIndices, FX, commodities, pulse, quote, news\n\n\nF2\nMarkets\nOHLCV candles, watchlist tape, relative, correlation\n\n\nF3\nEquity\nResearch workbench, financials, ownership, ESG\n\n\nF4\nSignals\nRule-based detectors with chart markers\n\n\nF5\nPortfolio\nPaper blotter, heatmap, NAV, sectors, risk\n\n\nF6\nEconomy\nFRED macro series\n\n\nF7\nNews\nRSS monitor\n\n\nF8\nGeo\nMacro risk proxies, Yahoo corr, GDELT headlines\n\n\n-\nNodes\nCorrelation workflow canvas\n\n\n-\nIdeas\nRules-based screener helper\n\n\n-\nOptions\nDeribit crypto chain or Yahoo equity chain\n\n\n\n\n\n\nMarkets\n\n\n\n\n\nEquity research\n\n\n\n\n\nOptions"
+  },
+  {
+    "objectID": "posts/terminal-trade/index.html#more-ui",
+    "href": "posts/terminal-trade/index.html#more-ui",
+    "title": "Terminal Trade",
+    "section": "",
+    "text": "Overview tab\n\n\n\n\n\nFIN subtab\n\n\n\n\n\nPortfolio tab\n\n\n\n\n\nBT tab\n\n\n\n\n\nOP tab\n\n\n\n\n\n3D vol surface"
   },
   {
     "objectID": "posts/terminal-trade/index.html#data-sources",
     "href": "posts/terminal-trade/index.html#data-sources",
     "title": "Terminal Trade",
-    "section": "Data sources",
-    "text": "Data sources\nYahoo Finance · CoinGecko · Coinbase · FRED · GDELT · Deribit · alternative.me · UN Comtrade.\nOptional keys: FRED_API_KEY, FINNHUB_API_KEY, COINGECKO_DEMO_API_KEY (xem .env.example)."
+    "section": "",
+    "text": "Source\nUsed for\n\n\n\n\nYahoo Finance\nEquities quotes, OHLCV, fundamentals, equity options\n\n\nCoinGecko Demo\nCrypto market tape\n\n\nCoinbase Exchange\nCrypto daily candles\n\n\nFRED\nEconomy series\n\n\nGDELT DOC API\nGeopolitics headlines\n\n\nDeribit\nBTC and ETH options\n\n\nalternative.me\nFear and Greed\n\n\nUN Comtrade\nUS trade partners\n\n\n\nOptional keys (see .env.example): FRED_API_KEY, FINNHUB_API_KEY, COINGECKO_DEMO_API_KEY."
   },
   {
-    "objectID": "posts/terminal-trade/index.html#quick-start",
-    "href": "posts/terminal-trade/index.html#quick-start",
+    "objectID": "posts/terminal-trade/index.html#quick-start-local",
+    "href": "posts/terminal-trade/index.html#quick-start-local",
     "title": "Terminal Trade",
-    "section": "Quick start",
-    "text": "Quick start\npnpm install\ncp .env.example .env.local\npnpm dev\nMở http://localhost:4726 — giữ API key trong .env.local, không đưa lên host công khai."
+    "section": "",
+    "text": "pnpm install\ncp .env.example .env.local   # optional keys for FRED / Finnhub / CoinGecko\npnpm dev\nOpen http://localhost:4726\nKeep API keys in .env.local on your machine. Do not put them on a public host.\nCommand examples: AAPL EQ, MKT, ECO, NWS, BTC, HELP."
   },
   {
-    "objectID": "posts/terminal-trade/index.html#liên-kết",
-    "href": "posts/terminal-trade/index.html#liên-kết",
+    "objectID": "posts/terminal-trade/index.html#api-surface",
+    "href": "posts/terminal-trade/index.html#api-surface",
     "title": "Terminal Trade",
-    "section": "Liên kết",
-    "text": "Liên kết\n\n\n\nRepo\ngithub.com/letrinhandn/Terminal-Trade\n\n\nDemo\nterminal-trade-iota.vercel.app\n\n\nLicense\nMIT · research / education only\n\n\n\nNguồn: README Terminal Trade."
+    "section": "",
+    "text": "Primary routes live under /api/v1:\n\nGET/POST /api/v1/equity/quote\nGET /api/v1/equity/price/historical\nGET /api/v1/markets/panel\nGET /api/v1/crypto/markets\nGET /api/v1/equity/overview and related research routes\nGET /api/v1/economy/fred/series\nGET /api/v1/technicals/signals\nGET /api/v1/news\nGET /api/v1/geopolitics/overview\nGET /api/options/chain"
+  },
+  {
+    "objectID": "posts/terminal-trade/index.html#layout",
+    "href": "posts/terminal-trade/index.html#layout",
+    "title": "Terminal Trade",
+    "section": "",
+    "text": "src/app/api/v1/     HTTP routers\nsrc/lib/platform/   providers, cache, envelopes\nsrc/lib/data/       Yahoo, CoinGecko, Coinbase, news, Comtrade\nsrc/components/     desk UI\npublic/brand/       logo, favicon, cover, backdrop"
+  },
+  {
+    "objectID": "posts/terminal-trade/index.html#license",
+    "href": "posts/terminal-trade/index.html#license",
+    "title": "Terminal Trade",
+    "section": "",
+    "text": "MIT. Research and education only."
+  },
+  {
+    "objectID": "posts/terminal-trade/index.html#links",
+    "href": "posts/terminal-trade/index.html#links",
+    "title": "Terminal Trade",
+    "section": "",
+    "text": "Repo\ngithub.com/letrinhandn/Terminal-Trade\n\n\nDemo\nterminal-trade-iota.vercel.app\n\n\nREADME\nREADME\n\n\n\nSource: project README + screenshots from the repo."
   }
 ]
