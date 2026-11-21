@@ -28,10 +28,6 @@ website:
         href: https://letrinhandn.github.io/quant-theory-lab/
       - text: Finance
         href: https://letrinhandn.github.io/investment-research-lab/
-  page-footer:
-    left: "Le Tri Nhan"
-    center: "[Tech](https://letrinhandn.github.io/tech-lab/)  [Economics](https://letrinhandn.github.io/economic-lab/)  [Quant](https://letrinhandn.github.io/quant-theory-lab/)  [Finance](https://letrinhandn.github.io/investment-research-lab/)"
-    right: "Build notes"
   search: false
   draft-mode: gone
 
