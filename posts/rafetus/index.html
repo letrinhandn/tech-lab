@@ -8,7 +8,7 @@
 
 <meta name="author" content="Le Tri Nhan">
 <meta name="dcterms.date" content="2026-11-20">
-<meta name="description" content="AI document manager — store, read, search, and ask questions about your documents in one knowledge library.">
+<meta name="description" content="Ứng dụng quản lý tài liệu tích hợp trí tuệ nhân tạo — lưu trữ, tìm kiếm ngữ nghĩa, ghi chú và hỏi đáp với Rafai.">
 
 <title>Rafetus – Tech Lab</title>
 <style>
@@ -124,22 +124,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#rafetus" id="toc-rafetus" class="nav-link active" data-scroll-target="#rafetus">Rafetus</a>
+  <li><a href="#tổng-quan" id="toc-tổng-quan" class="nav-link active" data-scroll-target="#tổng-quan">Tổng quan</a></li>
+  <li><a href="#chức-năng-chính" id="toc-chức-năng-chính" class="nav-link" data-scroll-target="#chức-năng-chính">Chức năng chính</a>
   <ul class="collapse">
-  <li><a href="#highlights" id="toc-highlights" class="nav-link" data-scroll-target="#highlights">Highlights</a></li>
-  <li><a href="#tutorial-flow" id="toc-tutorial-flow" class="nav-link" data-scroll-target="#tutorial-flow">Tutorial flow</a>
-  <ul class="collapse">
-  <li><a href="#library" id="toc-library" class="nav-link" data-scroll-target="#library">Library</a></li>
-  <li><a href="#read-and-search" id="toc-read-and-search" class="nav-link" data-scroll-target="#read-and-search">Read and search</a></li>
-  <li><a href="#ask-ai-about-your-documents" id="toc-ask-ai-about-your-documents" class="nav-link" data-scroll-target="#ask-ai-about-your-documents">Ask AI about your documents</a></li>
-  <li><a href="#knowledge-network" id="toc-knowledge-network" class="nav-link" data-scroll-target="#knowledge-network">Knowledge network</a></li>
+  <li><a href="#thư-viện-tài-liệu" id="toc-thư-viện-tài-liệu" class="nav-link" data-scroll-target="#thư-viện-tài-liệu">Thư viện tài liệu</a></li>
+  <li><a href="#tìm-kiếm-chuyên-sâu" id="toc-tìm-kiếm-chuyên-sâu" class="nav-link" data-scroll-target="#tìm-kiếm-chuyên-sâu">Tìm kiếm chuyên sâu</a></li>
+  <li><a href="#đọc-và-ghi-chú-tài-liệu" id="toc-đọc-và-ghi-chú-tài-liệu" class="nav-link" data-scroll-target="#đọc-và-ghi-chú-tài-liệu">Đọc và ghi chú tài liệu</a></li>
+  <li><a href="#trợ-lý-trí-tuệ-nhân-tạo-rafai" id="toc-trợ-lý-trí-tuệ-nhân-tạo-rafai" class="nav-link" data-scroll-target="#trợ-lý-trí-tuệ-nhân-tạo-rafai">Trợ lý trí tuệ nhân tạo Rafai</a></li>
+  <li><a href="#đồ-thị-tri-thức" id="toc-đồ-thị-tri-thức" class="nav-link" data-scroll-target="#đồ-thị-tri-thức">Đồ thị tri thức</a></li>
   </ul></li>
-  <li><a href="#rafai-ai-assistant" id="toc-rafai-ai-assistant" class="nav-link" data-scroll-target="#rafai-ai-assistant">Rafai (AI assistant)</a></li>
-  <li><a href="#about" id="toc-about" class="nav-link" data-scroll-target="#about">About</a></li>
-  <li><a href="#plans" id="toc-plans" class="nav-link" data-scroll-target="#plans">Plans</a></li>
-  <li><a href="#infrastructure" id="toc-infrastructure" class="nav-link" data-scroll-target="#infrastructure">Infrastructure</a></li>
-  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
-  </ul></li>
+  <li><a href="#quyền-riêng-tư-và-dữ-liệu" id="toc-quyền-riêng-tư-và-dữ-liệu" class="nav-link" data-scroll-target="#quyền-riêng-tư-và-dữ-liệu">Quyền riêng tư và dữ liệu</a></li>
+  <li><a href="#nền-tảng-và-gói-dịch-vụ" id="toc-nền-tảng-và-gói-dịch-vụ" class="nav-link" data-scroll-target="#nền-tảng-và-gói-dịch-vụ">Nền tảng và gói dịch vụ</a></li>
+  <li><a href="#phát-triển-dự-án" id="toc-phát-triển-dự-án" class="nav-link" data-scroll-target="#phát-triển-dự-án">Phát triển dự án</a></li>
+  <li><a href="#hình-ảnh-giao-diện" id="toc-hình-ảnh-giao-diện" class="nav-link" data-scroll-target="#hình-ảnh-giao-diện">Hình ảnh giao diện</a></li>
+  <li><a href="#liên-kết-và-tài-nguyên" id="toc-liên-kết-và-tài-nguyên" class="nav-link" data-scroll-target="#liên-kết-và-tài-nguyên">Liên kết và tài nguyên</a></li>
   </ul>
 </nav>
     </div>
@@ -156,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    AI document manager — store, read, search, and ask questions about your documents in one knowledge library.
+    Ứng dụng quản lý tài liệu tích hợp trí tuệ nhân tạo — lưu trữ, tìm kiếm ngữ nghĩa, ghi chú và hỏi đáp với Rafai.
   </div>
 </div>
 
@@ -185,192 +183,175 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="rafetus" class="level1">
-<h1>Rafetus</h1>
-<p>Turn your document collection into a knowledge library you can explore with AI. With <strong>Rafetus</strong> you can store, read, search, and ask questions about your documents in one app.</p>
+<p><strong>Ứng dụng quản lý tài liệu tích hợp trí tuệ nhân tạo</strong></p>
+<p><strong>Website</strong> <a href="https://rafetus.vn/">rafetus.vn</a><br>
+<strong>App Store</strong> <a href="https://apps.apple.com/app/id6768253916">Rafetus</a><br>
+<strong>Ứng dụng web</strong> <a href="https://app.rafetus.vn/">app.rafetus.vn</a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="brand/icon.png" class="img-fluid figure-img" alt="Rafetus app icon" width="160"></p>
-<figcaption>Rafetus icon</figcaption>
+<p><img src="screenshots/01-hero-ask-ai.jpg" class="img-fluid figure-img" alt="Giao diện Rafetus — Ask AI"></p>
+<figcaption>Giao diện Rafetus</figcaption>
 </figure>
 </div>
-<p><strong>Product:</strong> <a href="https://rafetus.vn">rafetus.vn</a><br>
-<strong>App Store:</strong> <a href="https://apps.apple.com/app/rafetus-quản-lý-tài-liệu-ai/id6768253916">Rafetus - AI Document Manager</a><br>
-<strong>Web sign-in:</strong> <a href="https://auth.rafetus.vn/login?client=web">auth.rafetus.vn</a></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="screenshots/01-hero-ask-ai.jpg" class="img-fluid figure-img" alt="Rafetus Ask AI screen"></p>
-<figcaption>Ask AI</figcaption>
-</figure>
-</div>
-<section id="highlights" class="level2">
-<h2 class="anchored" data-anchor-id="highlights">Highlights</h2>
-<ul>
-<li><strong>Central document library</strong> — Store PDF and DOCX files, organize them in folders, and tag them for easy management.</li>
-<li><strong>Smart search</strong> — Find information across documents and notes quickly without rereading everything.</li>
-<li><strong>Ask AI (Rafai)</strong> — Ask questions and get answers grounded in your own document content, with cited sources.</li>
-<li><strong>Read and annotate</strong> — Highlight key passages, select text, and ask AI to explain difficult sections.</li>
-<li><strong>Knowledge connections</strong> — Build an AI knowledge graph that links documents and notes so you can discover useful relationships.</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="screenshots/02-ai-library.jpg" class="img-fluid figure-img" alt="Rafetus AI library"></p>
-<figcaption>AI library</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="screenshots/03-deep-search.jpg" class="img-fluid figure-img" alt="Rafetus deep search"></p>
-<figcaption>Deep search</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="screenshots/04-reader-selection.jpg" class="img-fluid figure-img" alt="Rafetus reader with selection"></p>
-<figcaption>Reader selection</figcaption>
-</figure>
-</div>
+<section id="tổng-quan" class="level2">
+<h2 class="anchored" data-anchor-id="tổng-quan">Tổng quan</h2>
+<p>Rafetus là ứng dụng quản lý tài liệu tích hợp trí tuệ nhân tạo, hỗ trợ lưu trữ, tổ chức, tìm kiếm và khai thác thông tin từ tài liệu số.</p>
+<p>Dự án được phát triển nhằm giải quyết những khó khăn trong việc quản lý và tra cứu tài liệu khi khối lượng thông tin ngày càng lớn. Thay vì chỉ tập trung vào lưu trữ tệp, Rafetus kết hợp quản lý tài liệu, tìm kiếm ngữ nghĩa, ghi chú và hỏi đáp bằng trí tuệ nhân tạo trong cùng một hệ thống.</p>
+<p>Điểm trọng tâm của Rafetus là khả năng truy xuất thông tin trên nhiều tài liệu, duy trì nguồn tham chiếu và thiết lập mối liên hệ giữa các nội dung thông qua đồ thị tri thức.</p>
 </section>
-<section id="tutorial-flow" class="level2">
-<h2 class="anchored" data-anchor-id="tutorial-flow">Tutorial flow</h2>
-<p>Eight short steps from the <a href="https://rafetus.vn/tutorial">Rafetus tutorial</a>:</p>
-<section id="library" class="level3">
-<h3 class="anchored" data-anchor-id="library">Library</h3>
-<ol type="1">
-<li>Upload documents to your library (PDF and files ready for search and AI).</li>
-<li>Tag your documents so you can find them again.</li>
-</ol>
+<section id="chức-năng-chính" class="level2">
+<h2 class="anchored" data-anchor-id="chức-năng-chính">Chức năng chính</h2>
+<section id="thư-viện-tài-liệu" class="level3">
+<h3 class="anchored" data-anchor-id="thư-viện-tài-liệu">Thư viện tài liệu</h3>
+<p>Rafetus hỗ trợ lưu trữ và quản lý các định dạng tài liệu phổ biến như PDF và DOCX. Tài liệu được tổ chức theo thư mục, thẻ phân loại và thông tin mô tả, giúp việc quản lý và truy xuất thuận tiện hơn.</p>
+<p>Sau khi tải lên, nội dung tài liệu được xử lý và lập chỉ mục để phục vụ tìm kiếm và hỏi đáp. Người dùng có thể quản lý tài liệu, ghi chú và những thông tin liên quan trong cùng một thư viện.</p>
 </section>
-<section id="read-and-search" class="level3">
-<h3 class="anchored" data-anchor-id="read-and-search">Read and search</h3>
-<ol start="3" type="1">
-<li>Read and ask AI on the page — select passages, mark what matters.</li>
-<li>Deep search — find related content even without exact keywords.</li>
-</ol>
+<section id="tìm-kiếm-chuyên-sâu" class="level3">
+<h3 class="anchored" data-anchor-id="tìm-kiếm-chuyên-sâu">Tìm kiếm chuyên sâu</h3>
+<p>Rafetus sử dụng công nghệ tìm kiếm ngữ nghĩa để truy xuất nội dung dựa trên ý nghĩa của câu truy vấn, thay vì phụ thuộc hoàn toàn vào từ khóa chính xác.</p>
+<p>Tính năng này cho phép tìm kiếm thông tin liên quan trong nhiều tài liệu và ghi chú, kể cả khi người dùng không nhớ chính xác cách diễn đạt trong văn bản gốc.</p>
 </section>
-<section id="ask-ai-about-your-documents" class="level3">
-<h3 class="anchored" data-anchor-id="ask-ai-about-your-documents">Ask AI about your documents</h3>
-<ol start="5" type="1">
-<li>Ask AI across many documents with clear source citations.</li>
-<li>Choose sources when asking AI so answers stay focused.</li>
-</ol>
+<section id="đọc-và-ghi-chú-tài-liệu" class="level3">
+<h3 class="anchored" data-anchor-id="đọc-và-ghi-chú-tài-liệu">Đọc và ghi chú tài liệu</h3>
+<p>Trình đọc tích hợp hỗ trợ xem tài liệu, đánh dấu những đoạn quan trọng, theo dõi vị trí đọc và tạo ghi chú trong quá trình nghiên cứu.</p>
+<p>Người dùng có thể lựa chọn trực tiếp một đoạn văn bản để yêu cầu trí tuệ nhân tạo giải thích hoặc phân tích mà không cần rời khỏi tài liệu đang đọc.</p>
 </section>
-<section id="knowledge-network" class="level3">
-<h3 class="anchored" data-anchor-id="knowledge-network">Knowledge network</h3>
-<ol start="7" type="1">
-<li>Explore the knowledge network — visualize documents, notes, and relations.</li>
-<li>Link notes to build your own knowledge network step by step.</li>
-</ol>
+<section id="trợ-lý-trí-tuệ-nhân-tạo-rafai" class="level3">
+<h3 class="anchored" data-anchor-id="trợ-lý-trí-tuệ-nhân-tạo-rafai">Trợ lý trí tuệ nhân tạo Rafai</h3>
+<p>Rafai là trợ lý trí tuệ nhân tạo được tích hợp trong Rafetus, cho phép người dùng đặt câu hỏi và truy xuất thông tin từ thư viện tài liệu cá nhân.</p>
+<p>Hệ thống có thể tìm kiếm, tổng hợp nội dung từ nhiều tài liệu và ghi chú để xây dựng câu trả lời. Các thông tin được cung cấp kèm trích dẫn nguồn, giúp người dùng kiểm tra và đối chiếu với tài liệu gốc.</p>
+<p>Rafai cũng cho phép lựa chọn những nguồn tài liệu cụ thể trong từng phiên hỏi đáp nhằm giới hạn phạm vi truy xuất và kiểm soát ngữ cảnh sử dụng.</p>
+</section>
+<section id="đồ-thị-tri-thức" class="level3">
+<h3 class="anchored" data-anchor-id="đồ-thị-tri-thức">Đồ thị tri thức</h3>
+<p>Rafetus hỗ trợ xây dựng đồ thị tri thức thông qua việc liên kết tài liệu và ghi chú theo những mối quan hệ xác định.</p>
+<p>Người dùng có thể thiết lập các liên kết thể hiện sự tham chiếu, bổ sung hoặc phản biện giữa những nội dung có liên quan. Các mối quan hệ được trực quan hóa thành mạng lưới, giúp theo dõi và tổ chức kiến thức theo từng chủ đề.</p>
+<p>Đồ thị tri thức đồng thời cung cấp ngữ cảnh bổ sung cho Rafai trong quá trình tìm kiếm và tổng hợp thông tin, kết hợp nội dung tài liệu với những liên kết do người dùng thiết lập.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="screenshots/05-library-tags.jpg" class="img-fluid figure-img" alt="Rafetus library tags"></p>
-<figcaption>Library tags</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="screenshots/06-library-folders.jpg" class="img-fluid figure-img" alt="Rafetus library folders"></p>
-<figcaption>Library folders</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="screenshots/07-knowledge-graph.jpg" class="img-fluid figure-img" alt="Rafetus knowledge graph"></p>
-<figcaption>Knowledge graph</figcaption>
+<p><img src="screenshots/07-knowledge-graph.jpg" class="img-fluid figure-img" alt="Đồ thị tri thức Rafetus"></p>
+<figcaption>Đồ thị tri thức Rafetus</figcaption>
 </figure>
 </div>
 </section>
 </section>
-<section id="rafai-ai-assistant" class="level2">
-<h2 class="anchored" data-anchor-id="rafai-ai-assistant">Rafai (AI assistant)</h2>
-<p>From <a href="https://rafetus.vn/ai">rafetus.vn/ai</a>:</p>
-<ul>
-<li>Connect related information across notes and documents.</li>
-<li>Select relevant context for each question instead of searching manually.</li>
-<li>Stay in control — choose which data AI can use; turn the feature off anytime.</li>
-<li>Conversations are not used to train models under Rafetus policy (<a href="https://rafetus.vn/privacy">Privacy</a>).</li>
-</ul>
+<section id="quyền-riêng-tư-và-dữ-liệu" class="level2">
+<h2 class="anchored" data-anchor-id="quyền-riêng-tư-và-dữ-liệu">Quyền riêng tư và dữ liệu</h2>
+<p>Rafetus được thiết kế với cơ chế kiểm soát truy cập và quản lý dữ liệu cá nhân.</p>
+<p>Người dùng có thể lựa chọn phạm vi thông tin được cung cấp cho Rafai và chủ động tắt tính năng trí tuệ nhân tạo khi không sử dụng. Theo chính sách quyền riêng tư của Rafetus, dữ liệu cá nhân không được sử dụng để huấn luyện các mô hình trí tuệ nhân tạo.</p>
+<p>Thông tin chi tiết được công bố tại <a href="https://rafetus.vn/privacy">Chính sách quyền riêng tư</a>.</p>
 </section>
-<section id="about" class="level2">
-<h2 class="anchored" data-anchor-id="about">About</h2>
-<p><em>Thinking Without Limits</em> — connecting knowledge in a unified space with artificial intelligence.</p>
-<p>Core values (from <a href="https://rafetus.vn/about">About</a>):</p>
-<ol type="1">
-<li><strong>User-centric experience</strong> — simplify upload → organize → explore.</li>
-<li><strong>Substantive tech</strong> — optimize data architecture and core algorithms.</li>
-<li><strong>Accumulating knowledge</strong> — a foundation for long-term intellectual legacy.</li>
-<li><strong>Absolute knowledge sovereignty</strong> — your documents stay yours.</li>
-<li><strong>Continuous evolution</strong> — product and platform keep moving with user needs.</li>
-</ol>
-<p>Founding team: <strong>Lê Trí Nhân</strong> (Administration &amp; Lead Engineer), <strong>Hồ Văn Thạnh</strong> (Technical Administration &amp; Data).</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="brand/marketing-veu.jpg" class="img-fluid figure-img" alt="Rafetus at VEU 2026"></p>
-<figcaption>VEU 2026</figcaption>
-</figure>
-</div>
-</section>
-<section id="plans" class="level2">
-<h2 class="anchored" data-anchor-id="plans">Plans</h2>
-<p>Pay for plans and top up AI credit in the app (<a href="https://rafetus.vn/pricing">pricing</a>):</p>
+<section id="nền-tảng-và-gói-dịch-vụ" class="level2">
+<h2 class="anchored" data-anchor-id="nền-tảng-và-gói-dịch-vụ">Nền tảng và gói dịch vụ</h2>
+<p>Rafetus hiện có phiên bản web và ứng dụng dành cho iPhone. Các phiên bản sử dụng chung hệ thống tài khoản để truy cập và quản lý thư viện tài liệu.</p>
+<p>Ứng dụng cung cấp ba gói dịch vụ với dung lượng lưu trữ khác nhau.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Plan</th>
-<th>Price</th>
-<th>Storage</th>
+<th>Gói dịch vụ</th>
+<th>Dung lượng</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Free</td>
-<td>Free forever</td>
 <td>500 MB</td>
 </tr>
 <tr class="even">
 <td>Plus</td>
-<td>$14.98 / month</td>
 <td>20 GB</td>
 </tr>
 <tr class="odd">
 <td>Pro</td>
-<td>$29.98 / month</td>
 <td>100 GB</td>
 </tr>
 </tbody>
 </table>
-<p>AI credits can be topped up in-app (shared across chat and document processing).</p>
+<p>Các tác vụ sử dụng trí tuệ nhân tạo được tính theo hệ thống tín dụng riêng, có thể bổ sung tùy theo nhu cầu sử dụng.</p>
+<p>Thông tin chi tiết được cập nhật tại <a href="https://rafetus.vn/pricing">Các gói dịch vụ</a>.</p>
 </section>
-<section id="infrastructure" class="level2">
-<h2 class="anchored" data-anchor-id="infrastructure">Infrastructure</h2>
-<p>Built on AWS, Cloudflare, and Supabase (as shown on <a href="https://rafetus.vn">rafetus.vn</a>).</p>
+<section id="phát-triển-dự-án" class="level2">
+<h2 class="anchored" data-anchor-id="phát-triển-dự-án">Phát triển dự án</h2>
+<p>Rafetus được phát triển bởi Lê Trí Nhân và Hồ Văn Thạnh. Hệ thống sử dụng hạ tầng dịch vụ từ AWS, Cloudflare và Supabase.</p>
+<p>Dự án tập trung vào ba lĩnh vực chính gồm quản lý dữ liệu tài liệu, truy xuất thông tin và ứng dụng trí tuệ nhân tạo trong tổ chức tri thức cá nhân.</p>
+<p>Định hướng phát triển tiếp theo là tiếp tục cải thiện khả năng tìm kiếm trên thư viện lớn, mở rộng các phương thức liên kết tri thức và nâng cao chất lượng truy xuất ngữ cảnh cho trợ lý Rafai.</p>
+<p>Với triết lý <strong>Thinking Without Limits</strong>, Rafetus được phát triển như một nền tảng hỗ trợ tích lũy, tổ chức và khai thác tri thức lâu dài.</p>
 </section>
-<section id="links" class="level2">
-<h2 class="anchored" data-anchor-id="links">Links</h2>
+<section id="hình-ảnh-giao-diện" class="level2">
+<h2 class="anchored" data-anchor-id="hình-ảnh-giao-diện">Hình ảnh giao diện</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/02-ai-library.jpg" class="img-fluid figure-img" alt="Thư viện tài liệu"></p>
+<figcaption>Thư viện tài liệu</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/03-deep-search.jpg" class="img-fluid figure-img" alt="Tìm kiếm chuyên sâu"></p>
+<figcaption>Tìm kiếm chuyên sâu</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/04-reader-selection.jpg" class="img-fluid figure-img" alt="Trình đọc tài liệu"></p>
+<figcaption>Trình đọc tài liệu</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/05-library-tags.jpg" class="img-fluid figure-img" alt="Quản lý thẻ phân loại"></p>
+<figcaption>Quản lý thẻ phân loại</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/06-library-folders.jpg" class="img-fluid figure-img" alt="Quản lý thư mục"></p>
+<figcaption>Quản lý thư mục</figcaption>
+</figure>
+</div>
+</section>
+<section id="liên-kết-và-tài-nguyên" class="level2">
+<h2 class="anchored" data-anchor-id="liên-kết-và-tài-nguyên">Liên kết và tài nguyên</h2>
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
-<td>Product</td>
-<td><a href="https://rafetus.vn">rafetus.vn</a></td>
+<td>Website</td>
+<td><a href="https://rafetus.vn/">rafetus.vn</a></td>
 </tr>
 <tr class="even">
-<td>App Store</td>
-<td><a href="https://apps.apple.com/app/rafetus-quản-lý-tài-liệu-ai/id6768253916">Rafetus - AI Document Manager</a></td>
+<td>iOS</td>
+<td><a href="https://apps.apple.com/app/id6768253916">Rafetus trên App Store</a></td>
 </tr>
 <tr class="odd">
-<td>AI</td>
+<td>Web app</td>
+<td><a href="https://app.rafetus.vn/">app.rafetus.vn</a></td>
+</tr>
+<tr class="even">
+<td>Đăng nhập</td>
+<td><a href="https://auth.rafetus.vn/login?client=web">auth.rafetus.vn</a></td>
+</tr>
+<tr class="odd">
+<td>Rafai</td>
 <td><a href="https://rafetus.vn/ai">rafetus.vn/ai</a></td>
 </tr>
 <tr class="even">
-<td>Tutorial</td>
+<td>Hướng dẫn</td>
 <td><a href="https://rafetus.vn/tutorial">rafetus.vn/tutorial</a></td>
 </tr>
 <tr class="odd">
-<td>About</td>
+<td>Giới thiệu</td>
 <td><a href="https://rafetus.vn/about">rafetus.vn/about</a></td>
 </tr>
 <tr class="even">
-<td>Support</td>
+<td>Gói dịch vụ</td>
+<td><a href="https://rafetus.vn/pricing">rafetus.vn/pricing</a></td>
+</tr>
+<tr class="odd">
+<td>Privacy</td>
+<td><a href="https://rafetus.vn/privacy">rafetus.vn/privacy</a></td>
+</tr>
+<tr class="even">
+<td>Email</td>
 <td><a href="mailto:support@rafetus.vn">support@rafetus.vn</a></td>
 </tr>
 <tr class="odd">
@@ -379,10 +360,14 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>Source: App Store listing, product site, and App Store screenshots. No public GitHub repo.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="brand/icon.png" class="img-fluid figure-img" alt="Rafetus icon" width="120"></p>
+<figcaption>Biểu tượng Rafetus</figcaption>
+</figure>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

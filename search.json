@@ -130,63 +130,63 @@
     "href": "index.html",
     "title": "Tech Lab",
     "section": "",
-    "text": "Rafetus\n\n3 min\n\n\napps\n\n\n\nAI document manager — store, read, search, and ask questions about your documents in one knowledge library.\n\n\n\nNov 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTerminal Trade\n\n2 min\n\n\napps\n\n\n\nLocal market research terminal built with Next.js. Free public data plus optional keys in .env.local.\n\n\n\nNov 19, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nRetro Typewriter Cyberdeck\n\n4 min\n\n\nhardware\n\n\n\nSelf-contained portable computing unit around Raspberry Pi 5 in a repurposed wooden chest. London, winter 2024/2025.\n\n\n\nNov 18, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTICKER\n\n3 min\n\n\ngames\n\n\n\nMultiplayer stock-market board game (Cờ chứng khoán). Share a room code, take a seat, trade until one fund remains.\n\n\n\nNov 17, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Rafetus\n\n6 min\n\n\napps\n\n\n\nỨng dụng quản lý tài liệu tích hợp trí tuệ nhân tạo — lưu trữ, tìm kiếm ngữ nghĩa, ghi chú và hỏi đáp với Rafai.\n\n\n\nNov 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTerminal Trade\n\n2 min\n\n\napps\n\n\n\nLocal market research terminal built with Next.js. Free public data plus optional keys in .env.local.\n\n\n\nNov 19, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nRetro Typewriter Cyberdeck\n\n4 min\n\n\nhardware\n\n\n\nSelf-contained portable computing unit around Raspberry Pi 5 in a repurposed wooden chest. London, winter 2024/2025.\n\n\n\nNov 18, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTICKER\n\n3 min\n\n\ngames\n\n\n\nMultiplayer stock-market board game (Cờ chứng khoán). Share a room code, take a seat, trade until one fund remains.\n\n\n\nNov 17, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/rafetus/index.html",
     "href": "posts/rafetus/index.html",
     "title": "Rafetus",
     "section": "",
-    "text": "Turn your document collection into a knowledge library you can explore with AI. With Rafetus you can store, read, search, and ask questions about your documents in one app.\n\n\n\nRafetus icon\n\n\nProduct: rafetus.vn\nApp Store: Rafetus - AI Document Manager\nWeb sign-in: auth.rafetus.vn\n\n\n\nAsk AI\n\n\n\n\n\nCentral document library — Store PDF and DOCX files, organize them in folders, and tag them for easy management.\nSmart search — Find information across documents and notes quickly without rereading everything.\nAsk AI (Rafai) — Ask questions and get answers grounded in your own document content, with cited sources.\nRead and annotate — Highlight key passages, select text, and ask AI to explain difficult sections.\nKnowledge connections — Build an AI knowledge graph that links documents and notes so you can discover useful relationships.\n\n\n\n\nAI library\n\n\n\n\n\nDeep search\n\n\n\n\n\nReader selection\n\n\n\n\n\nEight short steps from the Rafetus tutorial:\n\n\n\nUpload documents to your library (PDF and files ready for search and AI).\nTag your documents so you can find them again.\n\n\n\n\n\nRead and ask AI on the page — select passages, mark what matters.\nDeep search — find related content even without exact keywords.\n\n\n\n\n\nAsk AI across many documents with clear source citations.\nChoose sources when asking AI so answers stay focused.\n\n\n\n\n\nExplore the knowledge network — visualize documents, notes, and relations.\nLink notes to build your own knowledge network step by step.\n\n\n\n\nLibrary tags\n\n\n\n\n\nLibrary folders\n\n\n\n\n\nKnowledge graph\n\n\n\n\n\n\nFrom rafetus.vn/ai:\n\nConnect related information across notes and documents.\nSelect relevant context for each question instead of searching manually.\nStay in control — choose which data AI can use; turn the feature off anytime.\nConversations are not used to train models under Rafetus policy (Privacy).\n\n\n\n\nThinking Without Limits — connecting knowledge in a unified space with artificial intelligence.\nCore values (from About):\n\nUser-centric experience — simplify upload → organize → explore.\nSubstantive tech — optimize data architecture and core algorithms.\nAccumulating knowledge — a foundation for long-term intellectual legacy.\nAbsolute knowledge sovereignty — your documents stay yours.\nContinuous evolution — product and platform keep moving with user needs.\n\nFounding team: Lê Trí Nhân (Administration & Lead Engineer), Hồ Văn Thạnh (Technical Administration & Data).\n\n\n\nVEU 2026\n\n\n\n\n\nPay for plans and top up AI credit in the app (pricing):\n\n\n\nPlan\nPrice\nStorage\n\n\n\n\nFree\nFree forever\n500 MB\n\n\nPlus\n$14.98 / month\n20 GB\n\n\nPro\n$29.98 / month\n100 GB\n\n\n\nAI credits can be topped up in-app (shared across chat and document processing).\n\n\n\nBuilt on AWS, Cloudflare, and Supabase (as shown on rafetus.vn).\n\n\n\n\n\n\nProduct\nrafetus.vn\n\n\nApp Store\nRafetus - AI Document Manager\n\n\nAI\nrafetus.vn/ai\n\n\nTutorial\nrafetus.vn/tutorial\n\n\nAbout\nrafetus.vn/about\n\n\nSupport\nsupport@rafetus.vn\n\n\nX\n@RafetusApp\n\n\n\nSource: App Store listing, product site, and App Store screenshots. No public GitHub repo."
+    "text": "Ứng dụng quản lý tài liệu tích hợp trí tuệ nhân tạo\nWebsite rafetus.vn\nApp Store Rafetus\nỨng dụng web app.rafetus.vn"
   },
   {
-    "objectID": "posts/rafetus/index.html#highlights",
-    "href": "posts/rafetus/index.html#highlights",
+    "objectID": "posts/rafetus/index.html#tổng-quan",
+    "href": "posts/rafetus/index.html#tổng-quan",
     "title": "Rafetus",
-    "section": "",
-    "text": "Central document library — Store PDF and DOCX files, organize them in folders, and tag them for easy management.\nSmart search — Find information across documents and notes quickly without rereading everything.\nAsk AI (Rafai) — Ask questions and get answers grounded in your own document content, with cited sources.\nRead and annotate — Highlight key passages, select text, and ask AI to explain difficult sections.\nKnowledge connections — Build an AI knowledge graph that links documents and notes so you can discover useful relationships.\n\n\n\n\nAI library\n\n\n\n\n\nDeep search\n\n\n\n\n\nReader selection"
+    "section": "Tổng quan",
+    "text": "Tổng quan\nRafetus là ứng dụng quản lý tài liệu tích hợp trí tuệ nhân tạo, hỗ trợ lưu trữ, tổ chức, tìm kiếm và khai thác thông tin từ tài liệu số.\nDự án được phát triển nhằm giải quyết những khó khăn trong việc quản lý và tra cứu tài liệu khi khối lượng thông tin ngày càng lớn. Thay vì chỉ tập trung vào lưu trữ tệp, Rafetus kết hợp quản lý tài liệu, tìm kiếm ngữ nghĩa, ghi chú và hỏi đáp bằng trí tuệ nhân tạo trong cùng một hệ thống.\nĐiểm trọng tâm của Rafetus là khả năng truy xuất thông tin trên nhiều tài liệu, duy trì nguồn tham chiếu và thiết lập mối liên hệ giữa các nội dung thông qua đồ thị tri thức."
   },
   {
-    "objectID": "posts/rafetus/index.html#tutorial-flow",
-    "href": "posts/rafetus/index.html#tutorial-flow",
+    "objectID": "posts/rafetus/index.html#chức-năng-chính",
+    "href": "posts/rafetus/index.html#chức-năng-chính",
     "title": "Rafetus",
-    "section": "",
-    "text": "Eight short steps from the Rafetus tutorial:\n\n\n\nUpload documents to your library (PDF and files ready for search and AI).\nTag your documents so you can find them again.\n\n\n\n\n\nRead and ask AI on the page — select passages, mark what matters.\nDeep search — find related content even without exact keywords.\n\n\n\n\n\nAsk AI across many documents with clear source citations.\nChoose sources when asking AI so answers stay focused.\n\n\n\n\n\nExplore the knowledge network — visualize documents, notes, and relations.\nLink notes to build your own knowledge network step by step.\n\n\n\n\nLibrary tags\n\n\n\n\n\nLibrary folders\n\n\n\n\n\nKnowledge graph"
+    "section": "Chức năng chính",
+    "text": "Chức năng chính\n\nThư viện tài liệu\nRafetus hỗ trợ lưu trữ và quản lý các định dạng tài liệu phổ biến như PDF và DOCX. Tài liệu được tổ chức theo thư mục, thẻ phân loại và thông tin mô tả, giúp việc quản lý và truy xuất thuận tiện hơn.\nSau khi tải lên, nội dung tài liệu được xử lý và lập chỉ mục để phục vụ tìm kiếm và hỏi đáp. Người dùng có thể quản lý tài liệu, ghi chú và những thông tin liên quan trong cùng một thư viện.\n\n\nTìm kiếm chuyên sâu\nRafetus sử dụng công nghệ tìm kiếm ngữ nghĩa để truy xuất nội dung dựa trên ý nghĩa của câu truy vấn, thay vì phụ thuộc hoàn toàn vào từ khóa chính xác.\nTính năng này cho phép tìm kiếm thông tin liên quan trong nhiều tài liệu và ghi chú, kể cả khi người dùng không nhớ chính xác cách diễn đạt trong văn bản gốc.\n\n\nĐọc và ghi chú tài liệu\nTrình đọc tích hợp hỗ trợ xem tài liệu, đánh dấu những đoạn quan trọng, theo dõi vị trí đọc và tạo ghi chú trong quá trình nghiên cứu.\nNgười dùng có thể lựa chọn trực tiếp một đoạn văn bản để yêu cầu trí tuệ nhân tạo giải thích hoặc phân tích mà không cần rời khỏi tài liệu đang đọc.\n\n\nTrợ lý trí tuệ nhân tạo Rafai\nRafai là trợ lý trí tuệ nhân tạo được tích hợp trong Rafetus, cho phép người dùng đặt câu hỏi và truy xuất thông tin từ thư viện tài liệu cá nhân.\nHệ thống có thể tìm kiếm, tổng hợp nội dung từ nhiều tài liệu và ghi chú để xây dựng câu trả lời. Các thông tin được cung cấp kèm trích dẫn nguồn, giúp người dùng kiểm tra và đối chiếu với tài liệu gốc.\nRafai cũng cho phép lựa chọn những nguồn tài liệu cụ thể trong từng phiên hỏi đáp nhằm giới hạn phạm vi truy xuất và kiểm soát ngữ cảnh sử dụng.\n\n\nĐồ thị tri thức\nRafetus hỗ trợ xây dựng đồ thị tri thức thông qua việc liên kết tài liệu và ghi chú theo những mối quan hệ xác định.\nNgười dùng có thể thiết lập các liên kết thể hiện sự tham chiếu, bổ sung hoặc phản biện giữa những nội dung có liên quan. Các mối quan hệ được trực quan hóa thành mạng lưới, giúp theo dõi và tổ chức kiến thức theo từng chủ đề.\nĐồ thị tri thức đồng thời cung cấp ngữ cảnh bổ sung cho Rafai trong quá trình tìm kiếm và tổng hợp thông tin, kết hợp nội dung tài liệu với những liên kết do người dùng thiết lập.\n\n\n\nĐồ thị tri thức Rafetus"
   },
   {
-    "objectID": "posts/rafetus/index.html#rafai-ai-assistant",
-    "href": "posts/rafetus/index.html#rafai-ai-assistant",
+    "objectID": "posts/rafetus/index.html#quyền-riêng-tư-và-dữ-liệu",
+    "href": "posts/rafetus/index.html#quyền-riêng-tư-và-dữ-liệu",
     "title": "Rafetus",
-    "section": "",
-    "text": "From rafetus.vn/ai:\n\nConnect related information across notes and documents.\nSelect relevant context for each question instead of searching manually.\nStay in control — choose which data AI can use; turn the feature off anytime.\nConversations are not used to train models under Rafetus policy (Privacy)."
+    "section": "Quyền riêng tư và dữ liệu",
+    "text": "Quyền riêng tư và dữ liệu\nRafetus được thiết kế với cơ chế kiểm soát truy cập và quản lý dữ liệu cá nhân.\nNgười dùng có thể lựa chọn phạm vi thông tin được cung cấp cho Rafai và chủ động tắt tính năng trí tuệ nhân tạo khi không sử dụng. Theo chính sách quyền riêng tư của Rafetus, dữ liệu cá nhân không được sử dụng để huấn luyện các mô hình trí tuệ nhân tạo.\nThông tin chi tiết được công bố tại Chính sách quyền riêng tư."
   },
   {
-    "objectID": "posts/rafetus/index.html#about",
-    "href": "posts/rafetus/index.html#about",
+    "objectID": "posts/rafetus/index.html#nền-tảng-và-gói-dịch-vụ",
+    "href": "posts/rafetus/index.html#nền-tảng-và-gói-dịch-vụ",
     "title": "Rafetus",
-    "section": "",
-    "text": "Thinking Without Limits — connecting knowledge in a unified space with artificial intelligence.\nCore values (from About):\n\nUser-centric experience — simplify upload → organize → explore.\nSubstantive tech — optimize data architecture and core algorithms.\nAccumulating knowledge — a foundation for long-term intellectual legacy.\nAbsolute knowledge sovereignty — your documents stay yours.\nContinuous evolution — product and platform keep moving with user needs.\n\nFounding team: Lê Trí Nhân (Administration & Lead Engineer), Hồ Văn Thạnh (Technical Administration & Data).\n\n\n\nVEU 2026"
+    "section": "Nền tảng và gói dịch vụ",
+    "text": "Nền tảng và gói dịch vụ\nRafetus hiện có phiên bản web và ứng dụng dành cho iPhone. Các phiên bản sử dụng chung hệ thống tài khoản để truy cập và quản lý thư viện tài liệu.\nỨng dụng cung cấp ba gói dịch vụ với dung lượng lưu trữ khác nhau.\n\n\n\nGói dịch vụ\nDung lượng\n\n\n\n\nFree\n500 MB\n\n\nPlus\n20 GB\n\n\nPro\n100 GB\n\n\n\nCác tác vụ sử dụng trí tuệ nhân tạo được tính theo hệ thống tín dụng riêng, có thể bổ sung tùy theo nhu cầu sử dụng.\nThông tin chi tiết được cập nhật tại Các gói dịch vụ."
   },
   {
-    "objectID": "posts/rafetus/index.html#plans",
-    "href": "posts/rafetus/index.html#plans",
+    "objectID": "posts/rafetus/index.html#phát-triển-dự-án",
+    "href": "posts/rafetus/index.html#phát-triển-dự-án",
     "title": "Rafetus",
-    "section": "",
-    "text": "Pay for plans and top up AI credit in the app (pricing):\n\n\n\nPlan\nPrice\nStorage\n\n\n\n\nFree\nFree forever\n500 MB\n\n\nPlus\n$14.98 / month\n20 GB\n\n\nPro\n$29.98 / month\n100 GB\n\n\n\nAI credits can be topped up in-app (shared across chat and document processing)."
+    "section": "Phát triển dự án",
+    "text": "Phát triển dự án\nRafetus được phát triển bởi Lê Trí Nhân và Hồ Văn Thạnh. Hệ thống sử dụng hạ tầng dịch vụ từ AWS, Cloudflare và Supabase.\nDự án tập trung vào ba lĩnh vực chính gồm quản lý dữ liệu tài liệu, truy xuất thông tin và ứng dụng trí tuệ nhân tạo trong tổ chức tri thức cá nhân.\nĐịnh hướng phát triển tiếp theo là tiếp tục cải thiện khả năng tìm kiếm trên thư viện lớn, mở rộng các phương thức liên kết tri thức và nâng cao chất lượng truy xuất ngữ cảnh cho trợ lý Rafai.\nVới triết lý Thinking Without Limits, Rafetus được phát triển như một nền tảng hỗ trợ tích lũy, tổ chức và khai thác tri thức lâu dài."
   },
   {
-    "objectID": "posts/rafetus/index.html#infrastructure",
-    "href": "posts/rafetus/index.html#infrastructure",
+    "objectID": "posts/rafetus/index.html#hình-ảnh-giao-diện",
+    "href": "posts/rafetus/index.html#hình-ảnh-giao-diện",
     "title": "Rafetus",
-    "section": "",
-    "text": "Built on AWS, Cloudflare, and Supabase (as shown on rafetus.vn)."
+    "section": "Hình ảnh giao diện",
+    "text": "Hình ảnh giao diện\n\n\n\nThư viện tài liệu\n\n\n\n\n\nTìm kiếm chuyên sâu\n\n\n\n\n\nTrình đọc tài liệu\n\n\n\n\n\nQuản lý thẻ phân loại\n\n\n\n\n\nQuản lý thư mục"
   },
   {
-    "objectID": "posts/rafetus/index.html#links",
-    "href": "posts/rafetus/index.html#links",
+    "objectID": "posts/rafetus/index.html#liên-kết-và-tài-nguyên",
+    "href": "posts/rafetus/index.html#liên-kết-và-tài-nguyên",
     "title": "Rafetus",
-    "section": "",
-    "text": "Product\nrafetus.vn\n\n\nApp Store\nRafetus - AI Document Manager\n\n\nAI\nrafetus.vn/ai\n\n\nTutorial\nrafetus.vn/tutorial\n\n\nAbout\nrafetus.vn/about\n\n\nSupport\nsupport@rafetus.vn\n\n\nX\n@RafetusApp\n\n\n\nSource: App Store listing, product site, and App Store screenshots. No public GitHub repo."
+    "section": "Liên kết và tài nguyên",
+    "text": "Liên kết và tài nguyên\n\n\n\nWebsite\nrafetus.vn\n\n\niOS\nRafetus trên App Store\n\n\nWeb app\napp.rafetus.vn\n\n\nĐăng nhập\nauth.rafetus.vn\n\n\nRafai\nrafetus.vn/ai\n\n\nHướng dẫn\nrafetus.vn/tutorial\n\n\nGiới thiệu\nrafetus.vn/about\n\n\nGói dịch vụ\nrafetus.vn/pricing\n\n\nPrivacy\nrafetus.vn/privacy\n\n\nEmail\nsupport@rafetus.vn\n\n\nX\n@RafetusApp\n\n\n\n\n\n\nBiểu tượng Rafetus"
   },
   {
     "objectID": "posts/terminal-trade/index.html",
