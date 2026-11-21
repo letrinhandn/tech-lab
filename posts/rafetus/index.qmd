@@ -1,0 +1,31 @@
+---
+title: "Rafetus"
+description: "AI document manager cho vault tài liệu lớn: nạp file, ghi chú, quan hệ tri thức và chat với AI."
+author: "Le Tri Nhan"
+date: 2026-11-20
+categories: [apps]
+image: "thumbnail.jpg"
+---
+
+**Rafetus** giúp cá nhân và team đổ tài liệu vào một vault, viết note, nối quan hệ giữa các mảnh kiến thức, rồi chat với AI trên toàn bộ kho không cấu trúc.
+
+## Làm gì được
+
+- Nạp và tổ chức tài liệu lớn (PDF, note, nguồn hỗn hợp)
+- Viết note gắn vào vault thay vì tách rời từng file
+- Nối quan hệ giữa tài liệu / ý tưởng (knowledge graph nhẹ)
+- Chat AI theo ngữ cảnh vault, không chỉ theo một file đang mở
+
+## Dùng thử
+
+- Web: [rafetus.vn](https://rafetus.vn)
+- App Store: [Rafetus trên iOS](https://apps.apple.com/app/rafetus-quản-lý-tài-liệu-ai/id6768253916)
+
+## Liên kết
+
+| | |
+| --- | --- |
+| Product | [rafetus.vn](https://rafetus.vn) |
+| Hub card | [letrinhan-site](https://letrinhandn.github.io/letrinhan-site/) |
+
+Bài này là intro trên Tech Lab. Chi tiết sản phẩm và đăng nhập nằm ở site Rafetus.

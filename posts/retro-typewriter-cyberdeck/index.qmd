@@ -1,0 +1,56 @@
+---
+title: "Retro Typewriter Cyberdeck"
+description: "Portable Pi 5 cyberdeck trong hộp gỗ vintage: UPS, màn 7\", keyboard 40%, Pwnagotchi."
+author: "Le Tri Nhan"
+date: 2026-11-18
+categories: [hardware]
+image: "thumbnail.jpg"
+---
+
+Cyberdeck tự chứa, dựng quanh **Raspberry Pi 5**, đặt trong hộp gỗ trang trí tái sử dụng. Thiết kế và lắp tại London, đông 2024/2025.
+
+![Front](thumbnail.jpg){fig-alt="Retro Typewriter Cyberdeck front"}
+
+## Mục tiêu
+
+- Portable: có pin, không phụ thuộc ổ cắm
+- Self-contained: display + input + compute + network trong một khối
+- Dual-purpose: Linux workstation + passive 802.11 monitoring (Pwnagotchi)
+- Không in 3D / CNC: enclosure lấy sẵn rồi lắp
+
+## BOM (rút gọn)
+
+| Component | Spec |
+| --- | --- |
+| SBC | Raspberry Pi 5, 4GB |
+| Display | GeeekPi 7" IPS 1024×600 |
+| Power | Waveshare UPS HAT (E) + 2×18650 |
+| Keyboard | IDOBAO ID42 40%, Kailh Box Navy |
+| Enclosure | European vintage wood box ~30×15×12cm |
+
+Tổng linh kiện đã chốt khoảng £256 + $19 + pin.
+
+## Kiến trúc ngắn
+
+- **Compute:** Pi 5, Ubuntu 24.04, active cooler
+- **Power:** UPS HAT 5V/6A, sạc USB-C khi đang chạy
+- **Display:** panel trên nắp, Micro HDMI xoắn qua bản lề
+- **Input:** keyboard 40% USB bên ngoài
+- **Network:** Wi-Fi onboard + USB adapter; Pwnagotchi riêng với e-ink 2.13"
+
+![Internals](internals.jpg){fig-alt="Cyberdeck internals"}
+
+## Known issues
+
+- % pin UPS qua I2C trên Ubuntu chưa ổn
+- Đóng nắp đôi khi cần rút cáp một phần (constraint hình học hộp)
+- Thông gió thụ động: throttle khi CPU kéo dài
+
+## Liên kết
+
+| | |
+| --- | --- |
+| Repo | [github.com/letrinhandn/retro-typewriter-cyberdeck](https://github.com/letrinhandn/retro-typewriter-cyberdeck) |
+| README | [README đầy đủ + photos](https://github.com/letrinhandn/retro-typewriter-cyberdeck#readme) |
+
+Nguồn: README của repo phần cứng.

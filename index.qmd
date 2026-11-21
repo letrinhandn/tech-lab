@@ -1,12 +1,17 @@
 ---
-title: "Tech Lab"
 listing:
-  contents: posts
+  contents:
+    - posts/*/index.qmd
   type: grid
   sort: "date desc"
   categories: true
   sort-ui: false
   filter-ui: true
-  fields: [image, title, reading-time, categories, description, date]
+  grid-columns: 1
+  grid-item-border: false
+  image-height: 220px
+  fields: [image, title, description, date, reading-time, categories]
+  field-display-names:
+    reading-time: "Read"
 page-layout: full
 ---

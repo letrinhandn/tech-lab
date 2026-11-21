@@ -2,6 +2,6 @@
 title: "About"
 ---
 
-Personal notes on apps, electronics, and building systems — by Le Tri Nhan.
+Tech Lab là notebook cho apps, hardware và games.
 
-Hub: [letrinhan-site](https://letrinhandn.github.io/letrinhan-site/)
+Bài viết giới thiệu rút từ README / product page của từng dự án. Hub [letrinhan-site](https://letrinhandn.github.io/letrinhan-site/) chỉ wire card tới các bài này.

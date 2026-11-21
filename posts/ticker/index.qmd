@@ -1,0 +1,49 @@
+---
+title: "TICKER"
+description: "Cờ chứng khoán — multiplayer board game: room code, ngồi ghế quỹ, trade đến khi còn một fund."
+author: "Le Tri Nhan"
+date: 2026-11-17
+categories: [games]
+image: "thumbnail.jpg"
+---
+
+**TICKER** (Cờ chứng khoán) là board game multiplayer về thị trường. Chia room code, ngồi ghế quỹ, trade đến khi còn một fund. Không cần tài khoản.
+
+![TICKER cover](thumbnail.jpg){fig-alt="TICKER cover"}
+
+## Chơi
+
+- Play: [tickergame.vercel.app](https://tickergame.vercel.app)
+- Tutorial: [tickergame.vercel.app/tutorial](https://tickergame.vercel.app/tutorial)
+- itch.io: [comrade-lenan.itch.io/ticker](https://comrade-lenan.itch.io/ticker)
+
+## Gameplay
+
+Bàn xanh có ô công ty, vòng ETF, góc START / SEC / WEEKEND. Xúc xắc ở giữa. Bộ Price Reaction và Market News cạnh track 8 ngành. Tạo phòng, gửi mã ngắn, chọn ghế quỹ, chơi EN hoặc VI; cũng có thể xem bot chơi.
+
+## Stack
+
+- Next.js App Router (board UI)
+- Cloudflare PartyServer — một Durable Object mỗi room
+- Rulebook: `docs/rulebook/MARKETPOLY_RULEBOOK_V5.md` trong repo
+
+## Develop
+
+```bash
+npm install
+cp .env.example .env.local
+npm run dev:all
+```
+
+Đặt `NEXT_PUBLIC_PARTY_HOST=localhost:8888` trong `.env.local`.
+
+## Liên kết
+
+| | |
+| --- | --- |
+| Repo | [github.com/letrinhandn/ticker](https://github.com/letrinhandn/ticker) |
+| Play | [tickergame.vercel.app](https://tickergame.vercel.app) |
+| itch.io | [comrade-lenan.itch.io/ticker](https://comrade-lenan.itch.io/ticker) |
+| README | [README TICKER](https://github.com/letrinhandn/ticker#readme) |
+
+Nguồn: README của repo game.
