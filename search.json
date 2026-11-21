@@ -4,91 +4,77 @@
     "href": "posts/ticker/index.html",
     "title": "TICKER",
     "section": "",
-    "text": "Cờ chứng khoán — board game multiplayer\nChơi tickergame.vercel.app\nTutorial tickergame.vercel.app/tutorial\nitch.io comrade-lenan.itch.io/ticker\nMã nguồn github.com/letrinhandn/ticker\n\n\nTICKER (Cờ chứng khoán) là board game multiplayer về thị trường. Chia room code, ngồi ghế quỹ, trade đến khi còn một fund. Không cần tài khoản.\n\n\n\nHình 1. Bìa game TICKER.\n\n\n\n\n\nBàn xanh có ô công ty, vòng ETF, góc START / SEC / WEEKEND. Xúc xắc ở giữa. Bộ Price Reaction và Market News cạnh track 8 ngành.\n\n\n\nHình 2. Bàn chơi TICKER.\n\n\nTạo phòng, gửi mã ngắn, chọn ghế quỹ, chơi EN hoặc VI; cũng có thể xem bot chơi.\n\n\n\nHình 3. Phòng chờ (lobby).\n\n\n\n\n\nHình 4. Thẻ deed công ty.\n\n\n\n\n\nHình 5. Khoảnh khắc mua cổ phiếu.\n\n\n\n\n\nHình 6. Thẻ Price Reaction.\n\n\n\n\n\nHình 7. Thẻ Market News.\n\n\n\n\n\n\nNext.js App Router (board UI)\nCloudflare PartyServer — một Durable Object mỗi room\nRulebook: MARKETPOLY_RULEBOOK_V5.md\n\n\n\n\nnpm install\ncp .env.example .env.local\nnpm run dev:all\nĐặt NEXT_PUBLIC_PARTY_HOST=localhost:8888 trong .env.local.\n\nNext.js: http://localhost:3010\nPartyServer: port 8888\n\nVào lobby với tư cách spectator, rồi chọn ghế. Rời giữa ván thì ghế đó tiếp tục autoplay.\n\n\n\n\n\n\nPiece\nHost\nProduction\n\n\n\n\nFrontend\nVercel\nhttps://tickergame.vercel.app\n\n\nRealtime\nCloudflare Workers\nhttps://ticker.letrinhan123.workers.dev\n\n\n\nnpm run party:deploy\nnpx vercel deploy --prod\nTrên Vercel, đặt NEXT_PUBLIC_PARTY_HOST thành ticker.letrinhan123.workers.dev.\n\n\n\n\n\n\nRepo\ngithub.com/letrinhandn/ticker\n\n\nPlay\ntickergame.vercel.app\n\n\nitch.io\ncomrade-lenan.itch.io/ticker\n\n\nREADME\nREADME"
+    "text": "Trò chơi cờ chứng khoán nhiều người chơi\nChơi trực tuyến tickergame.vercel.app\nHướng dẫn chơi tickergame.vercel.app/tutorial\nitch.io comrade-lenan.itch.io/ticker\nMã nguồn github.com/letrinhandn/ticker\n\n\nTICKER (Cờ chứng khoán) là trò chơi bàn cờ chiến thuật nhiều người chơi lấy cảm hứng từ Cờ tỷ phú, với chủ đề và cơ chế giao dịch xoay quanh thị trường chứng khoán. Trò chơi được phát triển để chơi trực tiếp trên trình duyệt. Thay vì mua bán bất động sản, mỗi người điều hành một quỹ đầu tư, giao dịch cổ phiếu và chứng chỉ quỹ ETF, đồng thời quản lý tiền mặt trước các biến động thị trường và nghĩa vụ thanh toán.\nTrò chơi kết hợp di chuyển bằng xúc xắc với các quyết định đầu tư. Giá cổ phiếu phụ thuộc vào mức ngành biến động trong khoảng từ −5 đến +5. Việc sở hữu cổ phần của những công ty có lợi nhuận tạo ra thu nhập khi quỹ đi qua ô START, trong khi tiền mặt phải chịu thuế tại ô này. Người chơi còn có thể nhận phí khi đối thủ ghé vào ô công ty mà mình nắm giữ cổ phần. Ván chơi kết thúc khi chỉ còn một quỹ chưa phá sản.\n\n\n\nHình 1. Bìa trò chơi TICKER.\n\n\n\n\n\n\n\nBàn chơi gồm các ô công ty, quỹ ETF, tin tức thị trường, thuế và những vị trí đặc biệt như START, Weekend và SEC Investigation. Mỗi lượt, người chơi đổ hai xúc xắc, di chuyển quân cờ và xử lý sự kiện tại ô dừng.\nThị trường được chia thành tám nhóm ngành, mỗi nhóm có một mức biến động từ −5 đến +5. Giá cổ phiếu và doanh thu trên mỗi cổ phần của công ty được xác định theo mức ngành hiện tại. Giá chứng chỉ quỹ ETF được tính từ giá trị của những nhóm ngành cấu thành. Các mức ngành thay đổi theo sự kiện thị trường và phản ứng giá khi giao dịch.\n\n\n\nHình 2. Bàn chơi TICKER.\n\n\n\n\n\nMỗi quỹ bắt đầu với 5.000 M$ tiền mặt. Khi đến ô công ty hoặc ETF, người chơi có thể thực hiện một lệnh mua hoặc bán theo quy tắc của trò chơi.\nKhi ghé ô công ty, quỹ phải trả phí cho những người chơi khác đang sở hữu cổ phần của công ty đó. Số tiền mỗi người nhận được tính theo phí ghé ô trên mỗi cổ phần nhân với số cổ phần họ nắm giữ. Người chơi không phải trả phí cho cổ phần của chính mình. Ô ETF không phát sinh phí ghé ô.\n\n\n\nHình 3. Thẻ thông tin công ty.\n\n\n\n\n\nHình 4. Giao dịch mua cổ phiếu.\n\n\n\n\n\nMỗi lần đi qua hoặc dừng tại ô START, quỹ phải nộp thuế bằng 10% số tiền mặt hiện có. Sau đó, hệ thống quyết toán kết quả kinh doanh của các công ty trong danh mục dựa trên doanh thu theo mức ngành, chi phí hoạt động và số cổ phần đang nắm giữ. Quỹ nhận tiền nếu kết quả ròng là lãi và phải thanh toán nếu kết quả là lỗ. ETF không tham gia quyết toán này.\nCơ chế này khuyến khích người chơi mua cổ phần của những công ty có khả năng sinh lời, thay vì chỉ tích trữ tiền mặt. Tuy nhiên, quỹ vẫn phải duy trì đủ thanh khoản để trả thuế, phí ghé ô và các nghĩa vụ bắt buộc khác. Nếu đã thanh lý tài sản có thể bán mà vẫn không thể thanh toán, quỹ sẽ phá sản và rời ván chơi.\n\n\n\nTICKER sử dụng hai bộ thẻ chính để tạo biến động thị trường. Thẻ Market News tác động đến trạng thái các nhóm ngành thông qua những sự kiện tăng hoặc giảm giá. Thẻ Price Reaction được sử dụng khi giao dịch cổ phiếu, khiến giá có thể thay đổi trước khi lệnh được thực hiện.\nHai cơ chế này buộc người chơi cân nhắc quy mô giao dịch, mức độ tập trung danh mục và rủi ro thanh khoản thay vì chỉ lựa chọn tài sản có giá thấp.\n\n\n\nHình 5. Thẻ phản ứng giá.\n\n\n\n\n\nHình 6. Thẻ tin tức thị trường.\n\n\n\n\n\n\nMỗi phòng chơi hỗ trợ từ hai đến bốn vị trí quỹ. Người chơi có thể tạo phòng, chia sẻ mã tham gia và chọn một vị trí trong phòng chờ mà không cần đăng ký tài khoản. Giao diện có tiếng Việt và tiếng Anh.\nTICKER hỗ trợ chơi cùng người khác, đấu với quỹ do máy điều khiển hoặc theo dõi một ván đấu giữa các quỹ tự động. Người tham gia có thể vào phòng với vai trò quan sát trước khi chọn vị trí. Nếu rời phòng giữa ván, quỹ đang điều khiển sẽ tiếp tục chơi tự động.\n\n\n\nHình 7. Phòng chờ TICKER.\n\n\n\n\n\nGiao diện trò chơi được xây dựng bằng Next.js với App Router. Phần đồng bộ nhiều người chơi sử dụng PartyServer trên Cloudflare Workers, kết hợp Durable Objects để duy trì một phiên xử lý riêng cho mỗi phòng. Cấu trúc mã nguồn tách phần hiển thị bàn cờ, dữ liệu thẻ, bộ luật, đối thủ máy và giao thức đồng bộ trạng thái.\nDự án cũng có các công cụ kiểm thử và mô phỏng nhiều ván nhằm đánh giá cân bằng giữa các chiến lược và cấu hình quỹ. Giao diện công khai được triển khai trên Vercel, trong khi máy chủ đồng bộ hoạt động trên Cloudflare. Trang itch.io dẫn đến phiên bản trò chơi trực tuyến này.\n\n\nnpm install\ncp .env.example .env.local\nnpm run dev:all\nĐặt NEXT_PUBLIC_PARTY_HOST=localhost:8888 trong tệp .env.local. Sau đó mở http://localhost:3010 để sử dụng trò chơi. Dịch vụ đồng bộ chạy trên cổng 8888.\nTài liệu luật chơi được lưu trong bộ luật phiên bản V5. Hướng dẫn dành cho người chơi có tại trang hướng dẫn chính thức.\n\n\n\n\n\n\n\nChơi trực tuyến\ntickergame.vercel.app\n\n\nHướng dẫn chơi\ntickergame.vercel.app/tutorial\n\n\nitch.io\ncomrade-lenan.itch.io/ticker\n\n\nMã nguồn\ngithub.com/letrinhandn/ticker\n\n\nREADME\nTài liệu dự án\n\n\nLuật chơi\nBộ luật V5\n\n\n\nTICKER là trò chơi mô phỏng, không thực hiện giao dịch chứng khoán thật."
   },
   {
     "objectID": "posts/ticker/index.html#tổng-quan",
     "href": "posts/ticker/index.html#tổng-quan",
     "title": "TICKER",
     "section": "",
-    "text": "TICKER (Cờ chứng khoán) là board game multiplayer về thị trường. Chia room code, ngồi ghế quỹ, trade đến khi còn một fund. Không cần tài khoản.\n\n\n\nHình 1. Bìa game TICKER."
+    "text": "TICKER (Cờ chứng khoán) là trò chơi bàn cờ chiến thuật nhiều người chơi lấy cảm hứng từ Cờ tỷ phú, với chủ đề và cơ chế giao dịch xoay quanh thị trường chứng khoán. Trò chơi được phát triển để chơi trực tiếp trên trình duyệt. Thay vì mua bán bất động sản, mỗi người điều hành một quỹ đầu tư, giao dịch cổ phiếu và chứng chỉ quỹ ETF, đồng thời quản lý tiền mặt trước các biến động thị trường và nghĩa vụ thanh toán.\nTrò chơi kết hợp di chuyển bằng xúc xắc với các quyết định đầu tư. Giá cổ phiếu phụ thuộc vào mức ngành biến động trong khoảng từ −5 đến +5. Việc sở hữu cổ phần của những công ty có lợi nhuận tạo ra thu nhập khi quỹ đi qua ô START, trong khi tiền mặt phải chịu thuế tại ô này. Người chơi còn có thể nhận phí khi đối thủ ghé vào ô công ty mà mình nắm giữ cổ phần. Ván chơi kết thúc khi chỉ còn một quỹ chưa phá sản.\n\n\n\nHình 1. Bìa trò chơi TICKER."
   },
   {
-    "objectID": "posts/ticker/index.html#gameplay",
-    "href": "posts/ticker/index.html#gameplay",
+    "objectID": "posts/ticker/index.html#cơ-chế-trò-chơi",
+    "href": "posts/ticker/index.html#cơ-chế-trò-chơi",
     "title": "TICKER",
     "section": "",
-    "text": "Bàn xanh có ô công ty, vòng ETF, góc START / SEC / WEEKEND. Xúc xắc ở giữa. Bộ Price Reaction và Market News cạnh track 8 ngành.\n\n\n\nHình 2. Bàn chơi TICKER.\n\n\nTạo phòng, gửi mã ngắn, chọn ghế quỹ, chơi EN hoặc VI; cũng có thể xem bot chơi.\n\n\n\nHình 3. Phòng chờ (lobby).\n\n\n\n\n\nHình 4. Thẻ deed công ty.\n\n\n\n\n\nHình 5. Khoảnh khắc mua cổ phiếu.\n\n\n\n\n\nHình 6. Thẻ Price Reaction.\n\n\n\n\n\nHình 7. Thẻ Market News."
+    "text": "Bàn chơi gồm các ô công ty, quỹ ETF, tin tức thị trường, thuế và những vị trí đặc biệt như START, Weekend và SEC Investigation. Mỗi lượt, người chơi đổ hai xúc xắc, di chuyển quân cờ và xử lý sự kiện tại ô dừng.\nThị trường được chia thành tám nhóm ngành, mỗi nhóm có một mức biến động từ −5 đến +5. Giá cổ phiếu và doanh thu trên mỗi cổ phần của công ty được xác định theo mức ngành hiện tại. Giá chứng chỉ quỹ ETF được tính từ giá trị của những nhóm ngành cấu thành. Các mức ngành thay đổi theo sự kiện thị trường và phản ứng giá khi giao dịch.\n\n\n\nHình 2. Bàn chơi TICKER.\n\n\n\n\n\nMỗi quỹ bắt đầu với 5.000 M$ tiền mặt. Khi đến ô công ty hoặc ETF, người chơi có thể thực hiện một lệnh mua hoặc bán theo quy tắc của trò chơi.\nKhi ghé ô công ty, quỹ phải trả phí cho những người chơi khác đang sở hữu cổ phần của công ty đó. Số tiền mỗi người nhận được tính theo phí ghé ô trên mỗi cổ phần nhân với số cổ phần họ nắm giữ. Người chơi không phải trả phí cho cổ phần của chính mình. Ô ETF không phát sinh phí ghé ô.\n\n\n\nHình 3. Thẻ thông tin công ty.\n\n\n\n\n\nHình 4. Giao dịch mua cổ phiếu.\n\n\n\n\n\nMỗi lần đi qua hoặc dừng tại ô START, quỹ phải nộp thuế bằng 10% số tiền mặt hiện có. Sau đó, hệ thống quyết toán kết quả kinh doanh của các công ty trong danh mục dựa trên doanh thu theo mức ngành, chi phí hoạt động và số cổ phần đang nắm giữ. Quỹ nhận tiền nếu kết quả ròng là lãi và phải thanh toán nếu kết quả là lỗ. ETF không tham gia quyết toán này.\nCơ chế này khuyến khích người chơi mua cổ phần của những công ty có khả năng sinh lời, thay vì chỉ tích trữ tiền mặt. Tuy nhiên, quỹ vẫn phải duy trì đủ thanh khoản để trả thuế, phí ghé ô và các nghĩa vụ bắt buộc khác. Nếu đã thanh lý tài sản có thể bán mà vẫn không thể thanh toán, quỹ sẽ phá sản và rời ván chơi.\n\n\n\nTICKER sử dụng hai bộ thẻ chính để tạo biến động thị trường. Thẻ Market News tác động đến trạng thái các nhóm ngành thông qua những sự kiện tăng hoặc giảm giá. Thẻ Price Reaction được sử dụng khi giao dịch cổ phiếu, khiến giá có thể thay đổi trước khi lệnh được thực hiện.\nHai cơ chế này buộc người chơi cân nhắc quy mô giao dịch, mức độ tập trung danh mục và rủi ro thanh khoản thay vì chỉ lựa chọn tài sản có giá thấp.\n\n\n\nHình 5. Thẻ phản ứng giá.\n\n\n\n\n\nHình 6. Thẻ tin tức thị trường."
   },
   {
-    "objectID": "posts/ticker/index.html#stack",
-    "href": "posts/ticker/index.html#stack",
+    "objectID": "posts/ticker/index.html#chơi-nhiều-người-và-đối-thủ-máy",
+    "href": "posts/ticker/index.html#chơi-nhiều-người-và-đối-thủ-máy",
     "title": "TICKER",
     "section": "",
-    "text": "Next.js App Router (board UI)\nCloudflare PartyServer — một Durable Object mỗi room\nRulebook: MARKETPOLY_RULEBOOK_V5.md"
+    "text": "Mỗi phòng chơi hỗ trợ từ hai đến bốn vị trí quỹ. Người chơi có thể tạo phòng, chia sẻ mã tham gia và chọn một vị trí trong phòng chờ mà không cần đăng ký tài khoản. Giao diện có tiếng Việt và tiếng Anh.\nTICKER hỗ trợ chơi cùng người khác, đấu với quỹ do máy điều khiển hoặc theo dõi một ván đấu giữa các quỹ tự động. Người tham gia có thể vào phòng với vai trò quan sát trước khi chọn vị trí. Nếu rời phòng giữa ván, quỹ đang điều khiển sẽ tiếp tục chơi tự động.\n\n\n\nHình 7. Phòng chờ TICKER."
   },
   {
-    "objectID": "posts/ticker/index.html#develop",
-    "href": "posts/ticker/index.html#develop",
+    "objectID": "posts/ticker/index.html#kiến-trúc-và-phát-triển",
+    "href": "posts/ticker/index.html#kiến-trúc-và-phát-triển",
     "title": "TICKER",
     "section": "",
-    "text": "npm install\ncp .env.example .env.local\nnpm run dev:all\nĐặt NEXT_PUBLIC_PARTY_HOST=localhost:8888 trong .env.local.\n\nNext.js: http://localhost:3010\nPartyServer: port 8888\n\nVào lobby với tư cách spectator, rồi chọn ghế. Rời giữa ván thì ghế đó tiếp tục autoplay."
+    "text": "Giao diện trò chơi được xây dựng bằng Next.js với App Router. Phần đồng bộ nhiều người chơi sử dụng PartyServer trên Cloudflare Workers, kết hợp Durable Objects để duy trì một phiên xử lý riêng cho mỗi phòng. Cấu trúc mã nguồn tách phần hiển thị bàn cờ, dữ liệu thẻ, bộ luật, đối thủ máy và giao thức đồng bộ trạng thái.\nDự án cũng có các công cụ kiểm thử và mô phỏng nhiều ván nhằm đánh giá cân bằng giữa các chiến lược và cấu hình quỹ. Giao diện công khai được triển khai trên Vercel, trong khi máy chủ đồng bộ hoạt động trên Cloudflare. Trang itch.io dẫn đến phiên bản trò chơi trực tuyến này.\n\n\nnpm install\ncp .env.example .env.local\nnpm run dev:all\nĐặt NEXT_PUBLIC_PARTY_HOST=localhost:8888 trong tệp .env.local. Sau đó mở http://localhost:3010 để sử dụng trò chơi. Dịch vụ đồng bộ chạy trên cổng 8888.\nTài liệu luật chơi được lưu trong bộ luật phiên bản V5. Hướng dẫn dành cho người chơi có tại trang hướng dẫn chính thức."
   },
   {
-    "objectID": "posts/ticker/index.html#deploy",
-    "href": "posts/ticker/index.html#deploy",
+    "objectID": "posts/ticker/index.html#liên-kết-và-tài-nguyên",
+    "href": "posts/ticker/index.html#liên-kết-và-tài-nguyên",
     "title": "TICKER",
     "section": "",
-    "text": "Piece\nHost\nProduction\n\n\n\n\nFrontend\nVercel\nhttps://tickergame.vercel.app\n\n\nRealtime\nCloudflare Workers\nhttps://ticker.letrinhan123.workers.dev\n\n\n\nnpm run party:deploy\nnpx vercel deploy --prod\nTrên Vercel, đặt NEXT_PUBLIC_PARTY_HOST thành ticker.letrinhan123.workers.dev."
-  },
-  {
-    "objectID": "posts/ticker/index.html#liên-kết",
-    "href": "posts/ticker/index.html#liên-kết",
-    "title": "TICKER",
-    "section": "",
-    "text": "Repo\ngithub.com/letrinhandn/ticker\n\n\nPlay\ntickergame.vercel.app\n\n\nitch.io\ncomrade-lenan.itch.io/ticker\n\n\nREADME\nREADME"
+    "text": "Chơi trực tuyến\ntickergame.vercel.app\n\n\nHướng dẫn chơi\ntickergame.vercel.app/tutorial\n\n\nitch.io\ncomrade-lenan.itch.io/ticker\n\n\nMã nguồn\ngithub.com/letrinhandn/ticker\n\n\nREADME\nTài liệu dự án\n\n\nLuật chơi\nBộ luật V5\n\n\n\nTICKER là trò chơi mô phỏng, không thực hiện giao dịch chứng khoán thật."
   },
   {
     "objectID": "posts/ticker/index.html#overview",
     "href": "posts/ticker/index.html#overview",
     "title": "TICKER",
     "section": "Overview",
-    "text": "Overview\nTICKER is a multiplayer stock-market board game. Share a room code, take a fund seat, and trade until one fund remains. No accounts.\n\n\n\nFigure 1. TICKER cover art."
+    "text": "Overview\nTICKER is a multiplayer strategy board game inspired by Monopoly, reimagined around stock market trading and playable directly in a web browser. Instead of buying and selling properties, each player manages an investment fund, trades company shares and exchange-traded fund (ETF) units, and maintains enough cash to meet payments as market conditions change.\nThe game combines dice-based movement with investment decisions. Share prices depend on sector levels ranging from −5 to +5. Holding shares in profitable companies can generate income when a fund passes START, while cash holdings are taxed at that space. Players can also collect fees when opponents land on company spaces in which they own shares. A match ends when only one solvent fund remains.\n\n\n\nFigure 1. TICKER game cover."
   },
   {
-    "objectID": "posts/ticker/index.html#gameplay-1",
-    "href": "posts/ticker/index.html#gameplay-1",
+    "objectID": "posts/ticker/index.html#gameplay",
+    "href": "posts/ticker/index.html#gameplay",
     "title": "TICKER",
     "section": "Gameplay",
-    "text": "Gameplay\nThe green felt board has company tiles, ETF rings, and corners for START, SEC, and WEEKEND. Dice sit in the center. Price Reaction and Market News decks sit beside the eight-sector market track.\n\n\n\nFigure 2. TICKER game board.\n\n\nCreate a room, share the short code, pick a fund seat, and play in English or Vietnamese. You can also watch computer-controlled funds.\n\n\n\nFigure 3. Room lobby.\n\n\n\n\n\nFigure 4. Company deed card.\n\n\n\n\n\nFigure 5. Trade buy moment.\n\n\n\n\n\nFigure 6. Price Reaction card.\n\n\n\n\n\nFigure 7. Market News card."
+    "text": "Gameplay\n\nBoard and Market\nThe board includes company spaces, ETFs, market news, taxes, and special locations such as START, Weekend, and SEC Investigation. Players roll two dice, move around the board, and resolve the effects of the spaces they land on.\nThe market is divided into eight sectors, each with a level ranging from −5 to +5. A company’s share price and revenue per share are determined by its sector’s current level. ETF unit prices are calculated from the values of their underlying sector components. Sector levels change in response to market events and price reactions during trading.\n\n\n\nFigure 2. TICKER game board.\n\n\n\n\nTrading and Fund Management\nEach fund begins with 5,000 M$ in cash. Landing on a company or ETF space can open an opportunity to place one buy or sell order under the game’s trading rules.\nWhen a fund lands on a company space, it pays a visit fee to the other players who own shares in that company. Each shareholder receives the per-share visit fee multiplied by the number of shares they hold. Players do not pay fees on their own shares, and ETF spaces have no visit fees.\n\n\n\nFigure 3. Company deed card.\n\n\n\n\n\nFigure 4. Share purchase.\n\n\n\n\nTaxes and Operating Returns at START\nWhenever a fund passes or lands on START, it first pays a tax equal to 10% of its current cash balance. The game then settles the operating results of the companies in its portfolio based on revenue at the current sector level, operating costs, and the number of shares held. The fund receives a payment for a net profit or makes a payment for a net loss. ETF holdings are excluded from this settlement.\nThis encourages players to invest in companies with the potential to generate profits rather than simply accumulate cash. At the same time, each fund must retain enough liquidity to cover taxes, visit fees, and other mandatory payments. A fund goes bankrupt if it cannot meet an obligation after liquidating all eligible holdings.\n\n\nMarket News and Price Reactions\nTICKER uses two main card decks to model market changes. Market News cards move sector levels in response to bullish or bearish events. Price Reaction cards apply to company share orders and may change prices before a trade is executed.\nTogether, these mechanics make order size, portfolio concentration, and liquidity relevant to each decision, rather than reducing the game to buying the cheapest available assets.\n\n\n\nFigure 5. Price Reaction card.\n\n\n\n\n\nFigure 6. Market News card."
   },
   {
-    "objectID": "posts/ticker/index.html#stack-1",
-    "href": "posts/ticker/index.html#stack-1",
+    "objectID": "posts/ticker/index.html#multiplayer-and-computer-controlled-funds",
+    "href": "posts/ticker/index.html#multiplayer-and-computer-controlled-funds",
     "title": "TICKER",
-    "section": "Stack",
-    "text": "Stack\n\nNext.js App Router for the board UI\nCloudflare PartyServer with one Durable Object per room\nRulebook: MARKETPOLY_RULEBOOK_V5.md"
+    "section": "Multiplayer and Computer-Controlled Funds",
+    "text": "Multiplayer and Computer-Controlled Funds\nEach room supports two to four fund seats. Players can create a room, share a short join code, and select a seat in the lobby without registering an account. The interface is available in English and Vietnamese.\nTICKER supports matches between people, matches against computer-controlled funds, and spectator sessions watching automated funds play. Players enter a room as spectators before taking a seat. If a player leaves during a match, their fund continues playing automatically.\n\n\n\nFigure 7. TICKER lobby."
   },
   {
-    "objectID": "posts/ticker/index.html#develop-1",
-    "href": "posts/ticker/index.html#develop-1",
+    "objectID": "posts/ticker/index.html#architecture-and-development",
+    "href": "posts/ticker/index.html#architecture-and-development",
     "title": "TICKER",
-    "section": "Develop",
-    "text": "Develop\nnpm install\ncp .env.example .env.local\nnpm run dev:all\nSet NEXT_PUBLIC_PARTY_HOST=localhost:8888 in .env.local.\n\nNext.js: http://localhost:3010\nPartyServer: port 8888\n\nYou start in the room lobby as a spectator, then join a seat. If you leave mid-game, that seat keeps autoplaying."
+    "section": "Architecture and Development",
+    "text": "Architecture and Development\nThe game interface is built with Next.js App Router. Real-time multiplayer sessions run on PartyServer through Cloudflare Workers, using Durable Objects to maintain a separate room instance for each match. The codebase separates the board interface, card content, game engine, computer-controlled opponents, and state synchronization protocol.\nThe project also includes tests and multi-game simulations for evaluating balance across strategies and fund configurations. The public interface is deployed on Vercel, while the real-time service runs on Cloudflare. The itch.io page links to this browser-based version.\n\nRunning Locally\nnpm install\ncp .env.example .env.local\nnpm run dev:all\nSet NEXT_PUBLIC_PARTY_HOST=localhost:8888 in .env.local, then open http://localhost:3010. The real-time server runs on port 8888.\nThe project includes a Version 5 rulebook. A player-facing explanation is available in the official tutorial."
   },
   {
-    "objectID": "posts/ticker/index.html#deploy-1",
-    "href": "posts/ticker/index.html#deploy-1",
+    "objectID": "posts/ticker/index.html#links-and-resources",
+    "href": "posts/ticker/index.html#links-and-resources",
     "title": "TICKER",
-    "section": "Deploy",
-    "text": "Deploy\n\n\n\nPiece\nHost\nProduction\n\n\n\n\nFrontend\nVercel\nhttps://tickergame.vercel.app\n\n\nRealtime\nCloudflare Workers\nhttps://ticker.letrinhan123.workers.dev\n\n\n\nnpm run party:deploy\nnpx vercel deploy --prod\nOn Vercel, set NEXT_PUBLIC_PARTY_HOST to ticker.letrinhan123.workers.dev."
-  },
-  {
-    "objectID": "posts/ticker/index.html#links",
-    "href": "posts/ticker/index.html#links",
-    "title": "TICKER",
-    "section": "Links",
-    "text": "Links\n\n\n\nRepo\ngithub.com/letrinhandn/ticker\n\n\nPlay\ntickergame.vercel.app\n\n\nitch.io\ncomrade-lenan.itch.io/ticker\n\n\nREADME\nREADME"
+    "section": "Links and Resources",
+    "text": "Links and Resources\n\n\n\nPlay\ntickergame.vercel.app\n\n\nTutorial\ntickergame.vercel.app/tutorial\n\n\nitch.io\ncomrade-lenan.itch.io/ticker\n\n\nGitHub Repository\ngithub.com/letrinhandn/ticker\n\n\nREADME\nProject Documentation\n\n\nRulebook\nVersion 5 Rules\n\n\n\nTICKER is a simulated board game and does not execute real securities trades."
   },
   {
     "objectID": "posts/retro-typewriter-cyberdeck/index.html",
@@ -193,7 +179,7 @@
     "href": "index.html",
     "title": "Tech Lab",
     "section": "",
-    "text": "Rafetus\n\n10 min\n\n\napps\n\n\n\n\n\n\n\nNov 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTerminal Trade\n\n10 min\n\n\napps\n\n\n\n\n\n\n\nNov 19, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nRetro Typewriter Cyberdeck\n\n11 min\n\n\nhardware\n\n\n\n\n\n\n\nNov 18, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTICKER\n\n3 min\n\n\ngames\n\n\n\n\n\n\n\nNov 17, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Rafetus\n\n10 min\n\n\napps\n\n\n\n\n\n\n\nNov 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTerminal Trade\n\n10 min\n\n\napps\n\n\n\n\n\n\n\nNov 19, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nRetro Typewriter Cyberdeck\n\n11 min\n\n\nhardware\n\n\n\n\n\n\n\nNov 18, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTICKER\n\n10 min\n\n\ngames\n\n\n\n\n\n\n\nNov 17, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/rafetus/index.html",

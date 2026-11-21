@@ -206,259 +206,257 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div class="lang-vi">
-<p><strong>Cờ chứng khoán — board game multiplayer</strong></p>
-<p><strong>Chơi</strong> <a href="https://tickergame.vercel.app">tickergame.vercel.app</a><br>
-<strong>Tutorial</strong> <a href="https://tickergame.vercel.app/tutorial">tickergame.vercel.app/tutorial</a><br>
+<p><strong>Trò chơi cờ chứng khoán nhiều người chơi</strong></p>
+<p><strong>Chơi trực tuyến</strong> <a href="https://tickergame.vercel.app/">tickergame.vercel.app</a><br>
+<strong>Hướng dẫn chơi</strong> <a href="https://tickergame.vercel.app/tutorial">tickergame.vercel.app/tutorial</a><br>
 <strong>itch.io</strong> <a href="https://comrade-lenan.itch.io/ticker">comrade-lenan.itch.io/ticker</a><br>
 <strong>Mã nguồn</strong> <a href="https://github.com/letrinhandn/ticker">github.com/letrinhandn/ticker</a></p>
 <section id="tổng-quan" class="level2">
 <h2 class="anchored" data-anchor-id="tổng-quan">Tổng quan</h2>
-<p>TICKER (Cờ chứng khoán) là board game multiplayer về thị trường. Chia room code, ngồi ghế quỹ, trade đến khi còn một fund. Không cần tài khoản.</p>
+<p>TICKER (Cờ chứng khoán) là trò chơi bàn cờ chiến thuật nhiều người chơi lấy cảm hứng từ Cờ tỷ phú, với chủ đề và cơ chế giao dịch xoay quanh thị trường chứng khoán. Trò chơi được phát triển để chơi trực tiếp trên trình duyệt. Thay vì mua bán bất động sản, mỗi người điều hành một quỹ đầu tư, giao dịch cổ phiếu và chứng chỉ quỹ ETF, đồng thời quản lý tiền mặt trước các biến động thị trường và nghĩa vụ thanh toán.</p>
+<p>Trò chơi kết hợp di chuyển bằng xúc xắc với các quyết định đầu tư. Giá cổ phiếu phụ thuộc vào mức ngành biến động trong khoảng từ −5 đến +5. Việc sở hữu cổ phần của những công ty có lợi nhuận tạo ra thu nhập khi quỹ đi qua ô START, trong khi tiền mặt phải chịu thuế tại ô này. Người chơi còn có thể nhận phí khi đối thủ ghé vào ô công ty mà mình nắm giữ cổ phần. Ván chơi kết thúc khi chỉ còn một quỹ chưa phá sản.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="brand/cover.jpg" class="img-fluid figure-img" alt="Hình 1. Bìa game TICKER."></p>
-<figcaption>Hình 1. Bìa game TICKER.</figcaption>
+<p><img src="brand/cover.jpg" class="img-fluid figure-img" alt="Hình 1. Bìa trò chơi TICKER."></p>
+<figcaption>Hình 1. Bìa trò chơi TICKER.</figcaption>
 </figure>
 </div>
 </section>
-<section id="gameplay" class="level2">
-<h2 class="anchored" data-anchor-id="gameplay">Gameplay</h2>
-<p>Bàn xanh có ô công ty, vòng ETF, góc START / SEC / WEEKEND. Xúc xắc ở giữa. Bộ Price Reaction và Market News cạnh track 8 ngành.</p>
+<section id="cơ-chế-trò-chơi" class="level2">
+<h2 class="anchored" data-anchor-id="cơ-chế-trò-chơi">Cơ chế trò chơi</h2>
+<section id="bàn-cờ-và-thị-trường" class="level3">
+<h3 class="anchored" data-anchor-id="bàn-cờ-và-thị-trường">Bàn cờ và thị trường</h3>
+<p>Bàn chơi gồm các ô công ty, quỹ ETF, tin tức thị trường, thuế và những vị trí đặc biệt như START, Weekend và SEC Investigation. Mỗi lượt, người chơi đổ hai xúc xắc, di chuyển quân cờ và xử lý sự kiện tại ô dừng.</p>
+<p>Thị trường được chia thành tám nhóm ngành, mỗi nhóm có một mức biến động từ −5 đến +5. Giá cổ phiếu và doanh thu trên mỗi cổ phần của công ty được xác định theo mức ngành hiện tại. Giá chứng chỉ quỹ ETF được tính từ giá trị của những nhóm ngành cấu thành. Các mức ngành thay đổi theo sự kiện thị trường và phản ứng giá khi giao dịch.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="screenshots/01-board.jpg" class="img-fluid figure-img" alt="Hình 2. Bàn chơi TICKER."></p>
 <figcaption>Hình 2. Bàn chơi TICKER.</figcaption>
 </figure>
 </div>
-<p>Tạo phòng, gửi mã ngắn, chọn ghế quỹ, chơi EN hoặc VI; cũng có thể xem bot chơi.</p>
+</section>
+<section id="giao-dịch-và-quản-lý-quỹ" class="level3">
+<h3 class="anchored" data-anchor-id="giao-dịch-và-quản-lý-quỹ">Giao dịch và quản lý quỹ</h3>
+<p>Mỗi quỹ bắt đầu với 5.000 M$ tiền mặt. Khi đến ô công ty hoặc ETF, người chơi có thể thực hiện một lệnh mua hoặc bán theo quy tắc của trò chơi.</p>
+<p>Khi ghé ô công ty, quỹ phải trả phí cho những người chơi khác đang sở hữu cổ phần của công ty đó. Số tiền mỗi người nhận được tính theo phí ghé ô trên mỗi cổ phần nhân với số cổ phần họ nắm giữ. Người chơi không phải trả phí cho cổ phần của chính mình. Ô ETF không phát sinh phí ghé ô.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="screenshots/02-lobby.jpg" class="img-fluid figure-img" alt="Hình 3. Phòng chờ (lobby)."></p>
-<figcaption>Hình 3. Phòng chờ (lobby).</figcaption>
+<p><img src="screenshots/03-company-deed.jpg" class="img-fluid figure-img" alt="Hình 3. Thẻ thông tin công ty."></p>
+<figcaption>Hình 3. Thẻ thông tin công ty.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="screenshots/03-company-deed.jpg" class="img-fluid figure-img" alt="Hình 4. Thẻ deed công ty."></p>
-<figcaption>Hình 4. Thẻ deed công ty.</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="screenshots/04-trade-buy.jpg" class="img-fluid figure-img" alt="Hình 5. Khoảnh khắc mua cổ phiếu."></p>
-<figcaption>Hình 5. Khoảnh khắc mua cổ phiếu.</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="screenshots/05-price-reaction.jpg" class="img-fluid figure-img" alt="Hình 6. Thẻ Price Reaction."></p>
-<figcaption>Hình 6. Thẻ Price Reaction.</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="screenshots/06-market-news.jpg" class="img-fluid figure-img" alt="Hình 7. Thẻ Market News."></p>
-<figcaption>Hình 7. Thẻ Market News.</figcaption>
+<p><img src="screenshots/04-trade-buy.jpg" class="img-fluid figure-img" alt="Hình 4. Giao dịch mua cổ phiếu."></p>
+<figcaption>Hình 4. Giao dịch mua cổ phiếu.</figcaption>
 </figure>
 </div>
 </section>
-<section id="stack" class="level2">
-<h2 class="anchored" data-anchor-id="stack">Stack</h2>
-<ul>
-<li>Next.js App Router (board UI)</li>
-<li>Cloudflare PartyServer — một Durable Object mỗi room</li>
-<li>Rulebook: <a href="https://github.com/letrinhandn/ticker/blob/main/docs/rulebook/MARKETPOLY_RULEBOOK_V5.md">MARKETPOLY_RULEBOOK_V5.md</a></li>
-</ul>
+<section id="thuế-và-lợi-nhuận-khi-qua-ô-start" class="level3">
+<h3 class="anchored" data-anchor-id="thuế-và-lợi-nhuận-khi-qua-ô-start">Thuế và lợi nhuận khi qua ô START</h3>
+<p>Mỗi lần đi qua hoặc dừng tại ô START, quỹ phải nộp thuế bằng 10% số tiền mặt hiện có. Sau đó, hệ thống quyết toán kết quả kinh doanh của các công ty trong danh mục dựa trên doanh thu theo mức ngành, chi phí hoạt động và số cổ phần đang nắm giữ. Quỹ nhận tiền nếu kết quả ròng là lãi và phải thanh toán nếu kết quả là lỗ. ETF không tham gia quyết toán này.</p>
+<p>Cơ chế này khuyến khích người chơi mua cổ phần của những công ty có khả năng sinh lời, thay vì chỉ tích trữ tiền mặt. Tuy nhiên, quỹ vẫn phải duy trì đủ thanh khoản để trả thuế, phí ghé ô và các nghĩa vụ bắt buộc khác. Nếu đã thanh lý tài sản có thể bán mà vẫn không thể thanh toán, quỹ sẽ phá sản và rời ván chơi.</p>
 </section>
-<section id="develop" class="level2">
-<h2 class="anchored" data-anchor-id="develop">Develop</h2>
+<section id="tin-tức-và-phản-ứng-giá" class="level3">
+<h3 class="anchored" data-anchor-id="tin-tức-và-phản-ứng-giá">Tin tức và phản ứng giá</h3>
+<p>TICKER sử dụng hai bộ thẻ chính để tạo biến động thị trường. Thẻ Market News tác động đến trạng thái các nhóm ngành thông qua những sự kiện tăng hoặc giảm giá. Thẻ Price Reaction được sử dụng khi giao dịch cổ phiếu, khiến giá có thể thay đổi trước khi lệnh được thực hiện.</p>
+<p>Hai cơ chế này buộc người chơi cân nhắc quy mô giao dịch, mức độ tập trung danh mục và rủi ro thanh khoản thay vì chỉ lựa chọn tài sản có giá thấp.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/05-price-reaction.jpg" class="img-fluid figure-img" alt="Hình 5. Thẻ phản ứng giá."></p>
+<figcaption>Hình 5. Thẻ phản ứng giá.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/06-market-news.jpg" class="img-fluid figure-img" alt="Hình 6. Thẻ tin tức thị trường."></p>
+<figcaption>Hình 6. Thẻ tin tức thị trường.</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="chơi-nhiều-người-và-đối-thủ-máy" class="level2">
+<h2 class="anchored" data-anchor-id="chơi-nhiều-người-và-đối-thủ-máy">Chơi nhiều người và đối thủ máy</h2>
+<p>Mỗi phòng chơi hỗ trợ từ hai đến bốn vị trí quỹ. Người chơi có thể tạo phòng, chia sẻ mã tham gia và chọn một vị trí trong phòng chờ mà không cần đăng ký tài khoản. Giao diện có tiếng Việt và tiếng Anh.</p>
+<p>TICKER hỗ trợ chơi cùng người khác, đấu với quỹ do máy điều khiển hoặc theo dõi một ván đấu giữa các quỹ tự động. Người tham gia có thể vào phòng với vai trò quan sát trước khi chọn vị trí. Nếu rời phòng giữa ván, quỹ đang điều khiển sẽ tiếp tục chơi tự động.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/02-lobby.jpg" class="img-fluid figure-img" alt="Hình 7. Phòng chờ TICKER."></p>
+<figcaption>Hình 7. Phòng chờ TICKER.</figcaption>
+</figure>
+</div>
+</section>
+<section id="kiến-trúc-và-phát-triển" class="level2">
+<h2 class="anchored" data-anchor-id="kiến-trúc-và-phát-triển">Kiến trúc và phát triển</h2>
+<p>Giao diện trò chơi được xây dựng bằng Next.js với App Router. Phần đồng bộ nhiều người chơi sử dụng PartyServer trên Cloudflare Workers, kết hợp Durable Objects để duy trì một phiên xử lý riêng cho mỗi phòng. Cấu trúc mã nguồn tách phần hiển thị bàn cờ, dữ liệu thẻ, bộ luật, đối thủ máy và giao thức đồng bộ trạng thái.</p>
+<p>Dự án cũng có các công cụ kiểm thử và mô phỏng nhiều ván nhằm đánh giá cân bằng giữa các chiến lược và cấu hình quỹ. Giao diện công khai được triển khai trên Vercel, trong khi máy chủ đồng bộ hoạt động trên Cloudflare. Trang itch.io dẫn đến phiên bản trò chơi trực tuyến này.</p>
+<section id="chạy-trên-máy-cá-nhân" class="level3">
+<h3 class="anchored" data-anchor-id="chạy-trên-máy-cá-nhân">Chạy trên máy cá nhân</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> .env.example .env.local</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run dev:all</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Đặt <code>NEXT_PUBLIC_PARTY_HOST=localhost:8888</code> trong <code>.env.local</code>.</p>
-<ul>
-<li>Next.js: <a href="http://localhost:3010" class="uri">http://localhost:3010</a></li>
-<li>PartyServer: port 8888</li>
-</ul>
-<p>Vào lobby với tư cách spectator, rồi chọn ghế. Rời giữa ván thì ghế đó tiếp tục autoplay.</p>
+<p>Đặt <code>NEXT_PUBLIC_PARTY_HOST=localhost:8888</code> trong tệp <code>.env.local</code>. Sau đó mở <a href="http://localhost:3010">http://localhost:3010</a> để sử dụng trò chơi. Dịch vụ đồng bộ chạy trên cổng <code>8888</code>.</p>
+<p>Tài liệu luật chơi được lưu trong <a href="https://github.com/letrinhandn/ticker/blob/main/docs/rulebook/MARKETPOLY_RULEBOOK_V5.md">bộ luật phiên bản V5</a>. Hướng dẫn dành cho người chơi có tại <a href="https://tickergame.vercel.app/tutorial">trang hướng dẫn chính thức</a>.</p>
 </section>
-<section id="deploy" class="level2">
-<h2 class="anchored" data-anchor-id="deploy">Deploy</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Piece</th>
-<th>Host</th>
-<th>Production</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Frontend</td>
-<td>Vercel</td>
-<td><a href="https://tickergame.vercel.app" class="uri">https://tickergame.vercel.app</a></td>
-</tr>
-<tr class="even">
-<td>Realtime</td>
-<td>Cloudflare Workers</td>
-<td><a href="https://ticker.letrinhan123.workers.dev" class="uri">https://ticker.letrinhan123.workers.dev</a></td>
-</tr>
-</tbody>
-</table>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run party:deploy</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> vercel deploy <span class="at">--prod</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Trên Vercel, đặt <code>NEXT_PUBLIC_PARTY_HOST</code> thành <code>ticker.letrinhan123.workers.dev</code>.</p>
 </section>
-<section id="liên-kết" class="level2">
-<h2 class="anchored" data-anchor-id="liên-kết">Liên kết</h2>
+<section id="liên-kết-và-tài-nguyên" class="level2">
+<h2 class="anchored" data-anchor-id="liên-kết-và-tài-nguyên">Liên kết và tài nguyên</h2>
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
-<td>Repo</td>
-<td><a href="https://github.com/letrinhandn/ticker">github.com/letrinhandn/ticker</a></td>
+<td>Chơi trực tuyến</td>
+<td><a href="https://tickergame.vercel.app/">tickergame.vercel.app</a></td>
 </tr>
 <tr class="even">
-<td>Play</td>
-<td><a href="https://tickergame.vercel.app">tickergame.vercel.app</a></td>
+<td>Hướng dẫn chơi</td>
+<td><a href="https://tickergame.vercel.app/tutorial">tickergame.vercel.app/tutorial</a></td>
 </tr>
 <tr class="odd">
 <td>itch.io</td>
 <td><a href="https://comrade-lenan.itch.io/ticker">comrade-lenan.itch.io/ticker</a></td>
 </tr>
 <tr class="even">
+<td>Mã nguồn</td>
+<td><a href="https://github.com/letrinhandn/ticker">github.com/letrinhandn/ticker</a></td>
+</tr>
+<tr class="odd">
 <td>README</td>
-<td><a href="https://github.com/letrinhandn/ticker#readme">README</a></td>
+<td><a href="https://github.com/letrinhandn/ticker#readme">Tài liệu dự án</a></td>
+</tr>
+<tr class="even">
+<td>Luật chơi</td>
+<td><a href="https://github.com/letrinhandn/ticker/blob/main/docs/rulebook/MARKETPOLY_RULEBOOK_V5.md">Bộ luật V5</a></td>
 </tr>
 </tbody>
 </table>
+<p><em>TICKER là trò chơi mô phỏng, không thực hiện giao dịch chứng khoán thật.</em></p>
 </section>
 </div>
 <div class="lang-en">
-<p><strong>Multiplayer stock-market board game (Cờ chứng khoán)</strong></p>
-<p><strong>Play</strong> <a href="https://tickergame.vercel.app">tickergame.vercel.app</a><br>
+<p><strong>Multiplayer Stock Market Board Game</strong></p>
+<p><strong>Play</strong> <a href="https://tickergame.vercel.app/">tickergame.vercel.app</a><br>
 <strong>Tutorial</strong> <a href="https://tickergame.vercel.app/tutorial">tickergame.vercel.app/tutorial</a><br>
 <strong>itch.io</strong> <a href="https://comrade-lenan.itch.io/ticker">comrade-lenan.itch.io/ticker</a><br>
-<strong>Source</strong> <a href="https://github.com/letrinhandn/ticker">github.com/letrinhandn/ticker</a></p>
+<strong>Source Code</strong> <a href="https://github.com/letrinhandn/ticker">github.com/letrinhandn/ticker</a></p>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>TICKER is a multiplayer stock-market board game. Share a room code, take a fund seat, and trade until one fund remains. No accounts.</p>
+<p>TICKER is a multiplayer strategy board game inspired by Monopoly, reimagined around stock market trading and playable directly in a web browser. Instead of buying and selling properties, each player manages an investment fund, trades company shares and exchange-traded fund (ETF) units, and maintains enough cash to meet payments as market conditions change.</p>
+<p>The game combines dice-based movement with investment decisions. Share prices depend on sector levels ranging from −5 to +5. Holding shares in profitable companies can generate income when a fund passes START, while cash holdings are taxed at that space. Players can also collect fees when opponents land on company spaces in which they own shares. A match ends when only one solvent fund remains.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="brand/cover.jpg" class="img-fluid figure-img" alt="Figure 1. TICKER cover art."></p>
-<figcaption>Figure 1. TICKER cover art.</figcaption>
+<p><img src="brand/cover.jpg" class="img-fluid figure-img" alt="Figure 1. TICKER game cover."></p>
+<figcaption>Figure 1. TICKER game cover.</figcaption>
 </figure>
 </div>
 </section>
-<section id="gameplay-1" class="level2">
-<h2 class="anchored" data-anchor-id="gameplay-1">Gameplay</h2>
-<p>The green felt board has company tiles, ETF rings, and corners for START, SEC, and WEEKEND. Dice sit in the center. Price Reaction and Market News decks sit beside the eight-sector market track.</p>
+<section id="gameplay" class="level2">
+<h2 class="anchored" data-anchor-id="gameplay">Gameplay</h2>
+<section id="board-and-market" class="level3">
+<h3 class="anchored" data-anchor-id="board-and-market">Board and Market</h3>
+<p>The board includes company spaces, ETFs, market news, taxes, and special locations such as START, Weekend, and SEC Investigation. Players roll two dice, move around the board, and resolve the effects of the spaces they land on.</p>
+<p>The market is divided into eight sectors, each with a level ranging from −5 to +5. A company’s share price and revenue per share are determined by its sector’s current level. ETF unit prices are calculated from the values of their underlying sector components. Sector levels change in response to market events and price reactions during trading.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="screenshots/01-board.jpg" class="img-fluid figure-img" alt="Figure 2. TICKER game board."></p>
 <figcaption>Figure 2. TICKER game board.</figcaption>
 </figure>
 </div>
-<p>Create a room, share the short code, pick a fund seat, and play in English or Vietnamese. You can also watch computer-controlled funds.</p>
+</section>
+<section id="trading-and-fund-management" class="level3">
+<h3 class="anchored" data-anchor-id="trading-and-fund-management">Trading and Fund Management</h3>
+<p>Each fund begins with 5,000 M$ in cash. Landing on a company or ETF space can open an opportunity to place one buy or sell order under the game’s trading rules.</p>
+<p>When a fund lands on a company space, it pays a visit fee to the other players who own shares in that company. Each shareholder receives the per-share visit fee multiplied by the number of shares they hold. Players do not pay fees on their own shares, and ETF spaces have no visit fees.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="screenshots/02-lobby.jpg" class="img-fluid figure-img" alt="Figure 3. Room lobby."></p>
-<figcaption>Figure 3. Room lobby.</figcaption>
+<p><img src="screenshots/03-company-deed.jpg" class="img-fluid figure-img" alt="Figure 3. Company deed card."></p>
+<figcaption>Figure 3. Company deed card.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="screenshots/03-company-deed.jpg" class="img-fluid figure-img" alt="Figure 4. Company deed card."></p>
-<figcaption>Figure 4. Company deed card.</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="screenshots/04-trade-buy.jpg" class="img-fluid figure-img" alt="Figure 5. Trade buy moment."></p>
-<figcaption>Figure 5. Trade buy moment.</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="screenshots/05-price-reaction.jpg" class="img-fluid figure-img" alt="Figure 6. Price Reaction card."></p>
-<figcaption>Figure 6. Price Reaction card.</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="screenshots/06-market-news.jpg" class="img-fluid figure-img" alt="Figure 7. Market News card."></p>
-<figcaption>Figure 7. Market News card.</figcaption>
+<p><img src="screenshots/04-trade-buy.jpg" class="img-fluid figure-img" alt="Figure 4. Share purchase."></p>
+<figcaption>Figure 4. Share purchase.</figcaption>
 </figure>
 </div>
 </section>
-<section id="stack-1" class="level2">
-<h2 class="anchored" data-anchor-id="stack-1">Stack</h2>
-<ul>
-<li>Next.js App Router for the board UI</li>
-<li>Cloudflare PartyServer with one Durable Object per room</li>
-<li>Rulebook: <a href="https://github.com/letrinhandn/ticker/blob/main/docs/rulebook/MARKETPOLY_RULEBOOK_V5.md">MARKETPOLY_RULEBOOK_V5.md</a></li>
-</ul>
+<section id="taxes-and-operating-returns-at-start" class="level3">
+<h3 class="anchored" data-anchor-id="taxes-and-operating-returns-at-start">Taxes and Operating Returns at START</h3>
+<p>Whenever a fund passes or lands on START, it first pays a tax equal to 10% of its current cash balance. The game then settles the operating results of the companies in its portfolio based on revenue at the current sector level, operating costs, and the number of shares held. The fund receives a payment for a net profit or makes a payment for a net loss. ETF holdings are excluded from this settlement.</p>
+<p>This encourages players to invest in companies with the potential to generate profits rather than simply accumulate cash. At the same time, each fund must retain enough liquidity to cover taxes, visit fees, and other mandatory payments. A fund goes bankrupt if it cannot meet an obligation after liquidating all eligible holdings.</p>
 </section>
-<section id="develop-1" class="level2">
-<h2 class="anchored" data-anchor-id="develop-1">Develop</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> .env.example .env.local</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run dev:all</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Set <code>NEXT_PUBLIC_PARTY_HOST=localhost:8888</code> in <code>.env.local</code>.</p>
-<ul>
-<li>Next.js: <a href="http://localhost:3010" class="uri">http://localhost:3010</a></li>
-<li>PartyServer: port 8888</li>
-</ul>
-<p>You start in the room lobby as a spectator, then join a seat. If you leave mid-game, that seat keeps autoplaying.</p>
+<section id="market-news-and-price-reactions" class="level3">
+<h3 class="anchored" data-anchor-id="market-news-and-price-reactions">Market News and Price Reactions</h3>
+<p>TICKER uses two main card decks to model market changes. Market News cards move sector levels in response to bullish or bearish events. Price Reaction cards apply to company share orders and may change prices before a trade is executed.</p>
+<p>Together, these mechanics make order size, portfolio concentration, and liquidity relevant to each decision, rather than reducing the game to buying the cheapest available assets.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/05-price-reaction.jpg" class="img-fluid figure-img" alt="Figure 5. Price Reaction card."></p>
+<figcaption>Figure 5. Price Reaction card.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/06-market-news.jpg" class="img-fluid figure-img" alt="Figure 6. Market News card."></p>
+<figcaption>Figure 6. Market News card.</figcaption>
+</figure>
+</div>
 </section>
-<section id="deploy-1" class="level2">
-<h2 class="anchored" data-anchor-id="deploy-1">Deploy</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Piece</th>
-<th>Host</th>
-<th>Production</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Frontend</td>
-<td>Vercel</td>
-<td><a href="https://tickergame.vercel.app" class="uri">https://tickergame.vercel.app</a></td>
-</tr>
-<tr class="even">
-<td>Realtime</td>
-<td>Cloudflare Workers</td>
-<td><a href="https://ticker.letrinhan123.workers.dev" class="uri">https://ticker.letrinhan123.workers.dev</a></td>
-</tr>
-</tbody>
-</table>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run party:deploy</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> vercel deploy <span class="at">--prod</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>On Vercel, set <code>NEXT_PUBLIC_PARTY_HOST</code> to <code>ticker.letrinhan123.workers.dev</code>.</p>
 </section>
-<section id="links" class="level2">
-<h2 class="anchored" data-anchor-id="links">Links</h2>
+<section id="multiplayer-and-computer-controlled-funds" class="level2">
+<h2 class="anchored" data-anchor-id="multiplayer-and-computer-controlled-funds">Multiplayer and Computer-Controlled Funds</h2>
+<p>Each room supports two to four fund seats. Players can create a room, share a short join code, and select a seat in the lobby without registering an account. The interface is available in English and Vietnamese.</p>
+<p>TICKER supports matches between people, matches against computer-controlled funds, and spectator sessions watching automated funds play. Players enter a room as spectators before taking a seat. If a player leaves during a match, their fund continues playing automatically.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/02-lobby.jpg" class="img-fluid figure-img" alt="Figure 7. TICKER lobby."></p>
+<figcaption>Figure 7. TICKER lobby.</figcaption>
+</figure>
+</div>
+</section>
+<section id="architecture-and-development" class="level2">
+<h2 class="anchored" data-anchor-id="architecture-and-development">Architecture and Development</h2>
+<p>The game interface is built with Next.js App Router. Real-time multiplayer sessions run on PartyServer through Cloudflare Workers, using Durable Objects to maintain a separate room instance for each match. The codebase separates the board interface, card content, game engine, computer-controlled opponents, and state synchronization protocol.</p>
+<p>The project also includes tests and multi-game simulations for evaluating balance across strategies and fund configurations. The public interface is deployed on Vercel, while the real-time service runs on Cloudflare. The itch.io page links to this browser-based version.</p>
+<section id="running-locally" class="level3">
+<h3 class="anchored" data-anchor-id="running-locally">Running Locally</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> .env.example .env.local</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run dev:all</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Set <code>NEXT_PUBLIC_PARTY_HOST=localhost:8888</code> in <code>.env.local</code>, then open <a href="http://localhost:3010">http://localhost:3010</a>. The real-time server runs on port <code>8888</code>.</p>
+<p>The project includes a <a href="https://github.com/letrinhandn/ticker/blob/main/docs/rulebook/MARKETPOLY_RULEBOOK_V5.md">Version 5 rulebook</a>. A player-facing explanation is available in the <a href="https://tickergame.vercel.app/tutorial">official tutorial</a>.</p>
+</section>
+</section>
+<section id="links-and-resources" class="level2">
+<h2 class="anchored" data-anchor-id="links-and-resources">Links and Resources</h2>
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
-<td>Repo</td>
-<td><a href="https://github.com/letrinhandn/ticker">github.com/letrinhandn/ticker</a></td>
-</tr>
-<tr class="even">
 <td>Play</td>
-<td><a href="https://tickergame.vercel.app">tickergame.vercel.app</a></td>
+<td><a href="https://tickergame.vercel.app/">tickergame.vercel.app</a></td>
+</tr>
+<tr class="even">
+<td>Tutorial</td>
+<td><a href="https://tickergame.vercel.app/tutorial">tickergame.vercel.app/tutorial</a></td>
 </tr>
 <tr class="odd">
 <td>itch.io</td>
 <td><a href="https://comrade-lenan.itch.io/ticker">comrade-lenan.itch.io/ticker</a></td>
 </tr>
 <tr class="even">
+<td>GitHub Repository</td>
+<td><a href="https://github.com/letrinhandn/ticker">github.com/letrinhandn/ticker</a></td>
+</tr>
+<tr class="odd">
 <td>README</td>
-<td><a href="https://github.com/letrinhandn/ticker#readme">README</a></td>
+<td><a href="https://github.com/letrinhandn/ticker#readme">Project Documentation</a></td>
+</tr>
+<tr class="even">
+<td>Rulebook</td>
+<td><a href="https://github.com/letrinhandn/ticker/blob/main/docs/rulebook/MARKETPOLY_RULEBOOK_V5.md">Version 5 Rules</a></td>
 </tr>
 </tbody>
 </table>
+<p><em>TICKER is a simulated board game and does not execute real securities trades.</em></p>
 </section>
 </div>
 
