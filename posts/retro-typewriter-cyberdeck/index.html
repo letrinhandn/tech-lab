@@ -6,10 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-11-21">
-<meta name="description" content="First note in the tech notebook.">
+<meta name="author" content="Le Tri Nhan">
+<meta name="dcterms.date" content="2026-11-18">
+<meta name="description" content="Portable Pi 5 cyberdeck trong hộp gỗ vintage: UPS, màn 7”, keyboard 40%, Pwnagotchi.">
 
-<title>Hello Tech Lab – Tech Lab</title>
+<title>Retro Typewriter Cyberdeck – Tech Lab</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,34 +119,50 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#mục-tiêu" id="toc-mục-tiêu" class="nav-link active" data-scroll-target="#mục-tiêu">Mục tiêu</a></li>
+  <li><a href="#bom-rút-gọn" id="toc-bom-rút-gọn" class="nav-link" data-scroll-target="#bom-rút-gọn">BOM (rút gọn)</a></li>
+  <li><a href="#kiến-trúc-ngắn" id="toc-kiến-trúc-ngắn" class="nav-link" data-scroll-target="#kiến-trúc-ngắn">Kiến trúc ngắn</a></li>
+  <li><a href="#known-issues" id="toc-known-issues" class="nav-link" data-scroll-target="#known-issues">Known issues</a></li>
+  <li><a href="#liên-kết" id="toc-liên-kết" class="nav-link" data-scroll-target="#liên-kết">Liên kết</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Hello Tech Lab</h1>
+<h1 class="title">Retro Typewriter Cyberdeck</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">notes</div>
+    <div class="quarto-category">hardware</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    First note in the tech notebook.
+    Portable Pi 5 cyberdeck trong hộp gỗ vintage: UPS, màn 7”, keyboard 40%, Pwnagotchi.
   </div>
 </div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Le Tri Nhan </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 21, 2026</p>
+      <p class="date">November 18, 2026</p>
     </div>
   </div>
   
@@ -157,9 +174,98 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Scaffold post for Tech Lab.</p>
+<p>Cyberdeck tự chứa, dựng quanh <strong>Raspberry Pi 5</strong>, đặt trong hộp gỗ trang trí tái sử dụng. Thiết kế và lắp tại London, đông 2024/2025.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="thumbnail.jpg" class="img-fluid figure-img" alt="Retro Typewriter Cyberdeck front"></p>
+<figcaption>Front</figcaption>
+</figure>
+</div>
+<section id="mục-tiêu" class="level2">
+<h2 class="anchored" data-anchor-id="mục-tiêu">Mục tiêu</h2>
+<ul>
+<li>Portable: có pin, không phụ thuộc ổ cắm</li>
+<li>Self-contained: display + input + compute + network trong một khối</li>
+<li>Dual-purpose: Linux workstation + passive 802.11 monitoring (Pwnagotchi)</li>
+<li>Không in 3D / CNC: enclosure lấy sẵn rồi lắp</li>
+</ul>
+</section>
+<section id="bom-rút-gọn" class="level2">
+<h2 class="anchored" data-anchor-id="bom-rút-gọn">BOM (rút gọn)</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Spec</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SBC</td>
+<td>Raspberry Pi 5, 4GB</td>
+</tr>
+<tr class="even">
+<td>Display</td>
+<td>GeeekPi 7” IPS 1024×600</td>
+</tr>
+<tr class="odd">
+<td>Power</td>
+<td>Waveshare UPS HAT (E) + 2×18650</td>
+</tr>
+<tr class="even">
+<td>Keyboard</td>
+<td>IDOBAO ID42 40%, Kailh Box Navy</td>
+</tr>
+<tr class="odd">
+<td>Enclosure</td>
+<td>European vintage wood box ~30×15×12cm</td>
+</tr>
+</tbody>
+</table>
+<p>Tổng linh kiện đã chốt khoảng £256 + $19 + pin.</p>
+</section>
+<section id="kiến-trúc-ngắn" class="level2">
+<h2 class="anchored" data-anchor-id="kiến-trúc-ngắn">Kiến trúc ngắn</h2>
+<ul>
+<li><strong>Compute:</strong> Pi 5, Ubuntu 24.04, active cooler</li>
+<li><strong>Power:</strong> UPS HAT 5V/6A, sạc USB-C khi đang chạy</li>
+<li><strong>Display:</strong> panel trên nắp, Micro HDMI xoắn qua bản lề</li>
+<li><strong>Input:</strong> keyboard 40% USB bên ngoài</li>
+<li><strong>Network:</strong> Wi-Fi onboard + USB adapter; Pwnagotchi riêng với e-ink 2.13”</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="internals.jpg" class="img-fluid figure-img" alt="Cyberdeck internals"></p>
+<figcaption>Internals</figcaption>
+</figure>
+</div>
+</section>
+<section id="known-issues" class="level2">
+<h2 class="anchored" data-anchor-id="known-issues">Known issues</h2>
+<ul>
+<li>% pin UPS qua I2C trên Ubuntu chưa ổn</li>
+<li>Đóng nắp đôi khi cần rút cáp một phần (constraint hình học hộp)</li>
+<li>Thông gió thụ động: throttle khi CPU kéo dài</li>
+</ul>
+</section>
+<section id="liên-kết" class="level2">
+<h2 class="anchored" data-anchor-id="liên-kết">Liên kết</h2>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td>Repo</td>
+<td><a href="https://github.com/letrinhandn/retro-typewriter-cyberdeck">github.com/letrinhandn/retro-typewriter-cyberdeck</a></td>
+</tr>
+<tr class="even">
+<td>README</td>
+<td><a href="https://github.com/letrinhandn/retro-typewriter-cyberdeck#readme">README đầy đủ + photos</a></td>
+</tr>
+</tbody>
+</table>
+<p>Nguồn: README của repo phần cứng.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script>

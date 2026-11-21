@@ -1,23 +1,163 @@
 [
   {
-    "objectID": "posts/hello-tech/index.html",
-    "href": "posts/hello-tech/index.html",
-    "title": "Hello Tech Lab",
+    "objectID": "posts/ticker/index.html",
+    "href": "posts/ticker/index.html",
+    "title": "TICKER",
     "section": "",
-    "text": "Scaffold post for Tech Lab."
+    "text": "TICKER (Cờ chứng khoán) là board game multiplayer về thị trường. Chia room code, ngồi ghế quỹ, trade đến khi còn một fund. Không cần tài khoản."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Tech Lab",
+    "objectID": "posts/ticker/index.html#chơi",
+    "href": "posts/ticker/index.html#chơi",
+    "title": "TICKER",
+    "section": "Chơi",
+    "text": "Chơi\n\nPlay: tickergame.vercel.app\nTutorial: tickergame.vercel.app/tutorial\nitch.io: comrade-lenan.itch.io/ticker"
+  },
+  {
+    "objectID": "posts/ticker/index.html#gameplay",
+    "href": "posts/ticker/index.html#gameplay",
+    "title": "TICKER",
+    "section": "Gameplay",
+    "text": "Gameplay\nBàn xanh có ô công ty, vòng ETF, góc START / SEC / WEEKEND. Xúc xắc ở giữa. Bộ Price Reaction và Market News cạnh track 8 ngành. Tạo phòng, gửi mã ngắn, chọn ghế quỹ, chơi EN hoặc VI; cũng có thể xem bot chơi."
+  },
+  {
+    "objectID": "posts/ticker/index.html#stack",
+    "href": "posts/ticker/index.html#stack",
+    "title": "TICKER",
+    "section": "Stack",
+    "text": "Stack\n\nNext.js App Router (board UI)\nCloudflare PartyServer — một Durable Object mỗi room\nRulebook: docs/rulebook/MARKETPOLY_RULEBOOK_V5.md trong repo"
+  },
+  {
+    "objectID": "posts/ticker/index.html#develop",
+    "href": "posts/ticker/index.html#develop",
+    "title": "TICKER",
+    "section": "Develop",
+    "text": "Develop\nnpm install\ncp .env.example .env.local\nnpm run dev:all\nĐặt NEXT_PUBLIC_PARTY_HOST=localhost:8888 trong .env.local."
+  },
+  {
+    "objectID": "posts/ticker/index.html#liên-kết",
+    "href": "posts/ticker/index.html#liên-kết",
+    "title": "TICKER",
+    "section": "Liên kết",
+    "text": "Liên kết\n\n\n\nRepo\ngithub.com/letrinhandn/ticker\n\n\nPlay\ntickergame.vercel.app\n\n\nitch.io\ncomrade-lenan.itch.io/ticker\n\n\nREADME\nREADME TICKER\n\n\n\nNguồn: README của repo game."
+  },
+  {
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html",
+    "href": "posts/retro-typewriter-cyberdeck/index.html",
+    "title": "Retro Typewriter Cyberdeck",
     "section": "",
-    "text": "Hello Tech Lab\n\n1 min\n\n\nnotes\n\n\n\nFirst note in the tech notebook.\n\n\n\nNov 21, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Cyberdeck tự chứa, dựng quanh Raspberry Pi 5, đặt trong hộp gỗ trang trí tái sử dụng. Thiết kế và lắp tại London, đông 2024/2025."
+  },
+  {
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#mục-tiêu",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#mục-tiêu",
+    "title": "Retro Typewriter Cyberdeck",
+    "section": "Mục tiêu",
+    "text": "Mục tiêu\n\nPortable: có pin, không phụ thuộc ổ cắm\nSelf-contained: display + input + compute + network trong một khối\nDual-purpose: Linux workstation + passive 802.11 monitoring (Pwnagotchi)\nKhông in 3D / CNC: enclosure lấy sẵn rồi lắp"
+  },
+  {
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#bom-rút-gọn",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#bom-rút-gọn",
+    "title": "Retro Typewriter Cyberdeck",
+    "section": "BOM (rút gọn)",
+    "text": "BOM (rút gọn)\n\n\n\nComponent\nSpec\n\n\n\n\nSBC\nRaspberry Pi 5, 4GB\n\n\nDisplay\nGeeekPi 7” IPS 1024×600\n\n\nPower\nWaveshare UPS HAT (E) + 2×18650\n\n\nKeyboard\nIDOBAO ID42 40%, Kailh Box Navy\n\n\nEnclosure\nEuropean vintage wood box ~30×15×12cm\n\n\n\nTổng linh kiện đã chốt khoảng £256 + $19 + pin."
+  },
+  {
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#kiến-trúc-ngắn",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#kiến-trúc-ngắn",
+    "title": "Retro Typewriter Cyberdeck",
+    "section": "Kiến trúc ngắn",
+    "text": "Kiến trúc ngắn\n\nCompute: Pi 5, Ubuntu 24.04, active cooler\nPower: UPS HAT 5V/6A, sạc USB-C khi đang chạy\nDisplay: panel trên nắp, Micro HDMI xoắn qua bản lề\nInput: keyboard 40% USB bên ngoài\nNetwork: Wi-Fi onboard + USB adapter; Pwnagotchi riêng với e-ink 2.13”\n\n\n\n\nInternals"
+  },
+  {
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#known-issues",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#known-issues",
+    "title": "Retro Typewriter Cyberdeck",
+    "section": "Known issues",
+    "text": "Known issues\n\n% pin UPS qua I2C trên Ubuntu chưa ổn\nĐóng nắp đôi khi cần rút cáp một phần (constraint hình học hộp)\nThông gió thụ động: throttle khi CPU kéo dài"
+  },
+  {
+    "objectID": "posts/retro-typewriter-cyberdeck/index.html#liên-kết",
+    "href": "posts/retro-typewriter-cyberdeck/index.html#liên-kết",
+    "title": "Retro Typewriter Cyberdeck",
+    "section": "Liên kết",
+    "text": "Liên kết\n\n\n\nRepo\ngithub.com/letrinhandn/retro-typewriter-cyberdeck\n\n\nREADME\nREADME đầy đủ + photos\n\n\n\nNguồn: README của repo phần cứng."
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Personal notes on apps, electronics, and building systems — by Le Tri Nhan.\nHub: letrinhan-site"
+    "text": "Tech Lab là notebook cho apps, hardware và games.\nBài viết giới thiệu rút từ README / product page của từng dự án. Hub letrinhan-site chỉ wire card tới các bài này."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Tech Lab",
+    "section": "",
+    "text": "Rafetus\n\n1 min\n\n\napps\n\n\n\nAI document manager cho vault tài liệu lớn: nạp file, ghi chú, quan hệ tri thức và chat với AI.\n\n\n\nNov 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTerminal Trade\n\n2 min\n\n\napps\n\n\n\nLocal market-research terminal (Next.js): desks F1–F8, dữ liệu công khai, chạy trên máy bạn.\n\n\n\nNov 19, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nRetro Typewriter Cyberdeck\n\n2 min\n\n\nhardware\n\n\n\nPortable Pi 5 cyberdeck trong hộp gỗ vintage: UPS, màn 7”, keyboard 40%, Pwnagotchi.\n\n\n\nNov 18, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTICKER\n\n1 min\n\n\ngames\n\n\n\nCờ chứng khoán — multiplayer board game: room code, ngồi ghế quỹ, trade đến khi còn một fund.\n\n\n\nNov 17, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/rafetus/index.html",
+    "href": "posts/rafetus/index.html",
+    "title": "Rafetus",
+    "section": "",
+    "text": "Rafetus giúp cá nhân và team đổ tài liệu vào một vault, viết note, nối quan hệ giữa các mảnh kiến thức, rồi chat với AI trên toàn bộ kho không cấu trúc."
+  },
+  {
+    "objectID": "posts/rafetus/index.html#làm-gì-được",
+    "href": "posts/rafetus/index.html#làm-gì-được",
+    "title": "Rafetus",
+    "section": "Làm gì được",
+    "text": "Làm gì được\n\nNạp và tổ chức tài liệu lớn (PDF, note, nguồn hỗn hợp)\nViết note gắn vào vault thay vì tách rời từng file\nNối quan hệ giữa tài liệu / ý tưởng (knowledge graph nhẹ)\nChat AI theo ngữ cảnh vault, không chỉ theo một file đang mở"
+  },
+  {
+    "objectID": "posts/rafetus/index.html#dùng-thử",
+    "href": "posts/rafetus/index.html#dùng-thử",
+    "title": "Rafetus",
+    "section": "Dùng thử",
+    "text": "Dùng thử\n\nWeb: rafetus.vn\nApp Store: Rafetus trên iOS"
+  },
+  {
+    "objectID": "posts/rafetus/index.html#liên-kết",
+    "href": "posts/rafetus/index.html#liên-kết",
+    "title": "Rafetus",
+    "section": "Liên kết",
+    "text": "Liên kết\n\n\n\nProduct\nrafetus.vn\n\n\nHub card\nletrinhan-site\n\n\n\nBài này là intro trên Tech Lab. Chi tiết sản phẩm và đăng nhập nằm ở site Rafetus."
+  },
+  {
+    "objectID": "posts/terminal-trade/index.html",
+    "href": "posts/terminal-trade/index.html",
+    "title": "Terminal Trade",
+    "section": "",
+    "text": "Terminal Trade là market research terminal chạy local bằng Next.js. Chạy trên máy bạn, dùng dữ liệu công khai (và key tùy chọn trong .env.local). Không phải lời khuyên đầu tư."
+  },
+  {
+    "objectID": "posts/terminal-trade/index.html#desks",
+    "href": "posts/terminal-trade/index.html#desks",
+    "title": "Terminal Trade",
+    "section": "Desks",
+    "text": "Desks\n\n\n\nKey\nDesk\nNội dung\n\n\n\n\nF1\nDashboard\nIndices, FX, commodities, pulse, quote, news\n\n\nF2\nMarkets\nOHLCV candles, watchlist, correlation\n\n\nF3\nEquity\nResearch workbench, financials, ownership, ESG\n\n\nF4\nSignals\nRule-based detectors + chart markers\n\n\nF5\nPortfolio\nPaper blotter, heatmap, NAV, risk\n\n\nF6\nEconomy\nFRED macro series\n\n\nF7\nNews\nRSS monitor\n\n\nF8\nGeo\nMacro risk proxies, Yahoo corr, GDELT\n\n\n\nThêm: Nodes (correlation canvas), Ideas (screener), Options (Deribit / Yahoo chain)."
+  },
+  {
+    "objectID": "posts/terminal-trade/index.html#data-sources",
+    "href": "posts/terminal-trade/index.html#data-sources",
+    "title": "Terminal Trade",
+    "section": "Data sources",
+    "text": "Data sources\nYahoo Finance · CoinGecko · Coinbase · FRED · GDELT · Deribit · alternative.me · UN Comtrade.\nOptional keys: FRED_API_KEY, FINNHUB_API_KEY, COINGECKO_DEMO_API_KEY (xem .env.example)."
+  },
+  {
+    "objectID": "posts/terminal-trade/index.html#quick-start",
+    "href": "posts/terminal-trade/index.html#quick-start",
+    "title": "Terminal Trade",
+    "section": "Quick start",
+    "text": "Quick start\npnpm install\ncp .env.example .env.local\npnpm dev\nMở http://localhost:4726 — giữ API key trong .env.local, không đưa lên host công khai."
+  },
+  {
+    "objectID": "posts/terminal-trade/index.html#liên-kết",
+    "href": "posts/terminal-trade/index.html#liên-kết",
+    "title": "Terminal Trade",
+    "section": "Liên kết",
+    "text": "Liên kết\n\n\n\nRepo\ngithub.com/letrinhandn/Terminal-Trade\n\n\nDemo\nterminal-trade-iota.vercel.app\n\n\nLicense\nMIT · research / education only\n\n\n\nNguồn: README Terminal Trade."
   }
 ]

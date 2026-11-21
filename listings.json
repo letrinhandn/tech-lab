@@ -2,7 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/hello-tech/index.html"
+      "/posts/rafetus/index.html",
+      "/posts/terminal-trade/index.html",
+      "/posts/retro-typewriter-cyberdeck/index.html",
+      "/posts/ticker/index.html"
     ]
   }
 ]
