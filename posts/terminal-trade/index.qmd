@@ -37,20 +37,6 @@ Run on your machine only. No hosted deploy. Free public data plus optional keys 
 
 ![Options](screenshots/options.png){fig-alt="Options desk"}
 
-## More UI
-
-![Overview tab](pictures/ov-tab.png){fig-alt="Overview tab"}
-
-![FIN subtab](pictures/fin-subtab.png){fig-alt="FIN subtab"}
-
-![Portfolio tab](pictures/port-tab.png){fig-alt="Portfolio tab"}
-
-![BT tab](pictures/bt-tab.png){fig-alt="BT tab"}
-
-![OP tab](pictures/op-tab.png){fig-alt="OP tab"}
-
-![3D vol surface](pictures/3d-vol-surface.png){fig-alt="3D volatility surface"}
-
 ## Data sources
 
 | Source | Used for |
