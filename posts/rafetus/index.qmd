@@ -1,12 +1,13 @@
 ---
 title: "Rafetus"
-description: "Ứng dụng quản lý tài liệu tích hợp trí tuệ nhân tạo — lưu trữ, tìm kiếm ngữ nghĩa, ghi chú và hỏi đáp với Rafai."
+description: "AI document manager — semantic search, notes, knowledge graph, and Rafai. Ứng dụng quản lý tài liệu tích hợp AI."
 author: "Le Tri Nhan"
 date: 2026-11-20
 categories: [apps]
 image: "thumbnail.jpg"
 ---
 
+::: {.lang-vi}
 **Ứng dụng quản lý tài liệu tích hợp trí tuệ nhân tạo**
 
 **Website** [rafetus.vn](https://rafetus.vn/)  
@@ -124,3 +125,124 @@ Với triết lý **Thinking Without Limits**, Rafetus được phát triển nh
 | X | [@RafetusApp](https://x.com/RafetusApp) |
 
 ![Biểu tượng Rafetus](brand/icon.png){fig-alt="Rafetus icon" width="120"}
+:::
+
+::: {.lang-en}
+**AI-Powered Document Management Application**
+
+**Website** [rafetus.vn](https://rafetus.vn/)  
+**App Store** [Rafetus](https://apps.apple.com/app/id6768253916)  
+**Web App** [app.rafetus.vn](https://app.rafetus.vn/)
+
+![Rafetus Interface](screenshots/01-hero-ask-ai.jpg){fig-alt="Rafetus Ask AI interface"}
+
+## Overview
+
+Rafetus is an AI-powered document management application designed to store, organize, search, and retrieve information from digital documents.
+
+The project addresses the challenges of managing and accessing information as document collections grow. Rather than functioning solely as a file storage application, Rafetus brings together document management, semantic search, note-taking, and AI-assisted question answering within a single system.
+
+Its primary focus is information retrieval across multiple documents, source traceability, and the organization of relationships between documents and notes through a knowledge graph.
+
+## Core Features
+
+### Document Library
+
+Rafetus supports the storage and management of common document formats, including PDF and DOCX. Documents can be organized using folders, tags, and descriptive metadata for easier management and retrieval.
+
+Uploaded content is processed and indexed to support document search and AI-assisted question answering. Documents, notes, and related information are maintained within a unified library.
+
+### Deep Search
+
+Rafetus uses semantic search to retrieve information based on the meaning of a query rather than relying exclusively on exact keyword matching.
+
+This allows users to locate relevant content across documents and notes, even when they do not remember the precise wording used in the original material.
+
+### Document Reading and Annotations
+
+The integrated document reader supports text highlighting, reading progress tracking, and note-taking during document review.
+
+Users can select passages and request explanations or analysis from the AI assistant without leaving the document being read.
+
+### Rafai AI Assistant
+
+Rafai is the AI assistant integrated into Rafetus, enabling natural language queries across a personal document library.
+
+The system retrieves and consolidates relevant information from multiple documents and notes to generate responses. Answers include source citations, allowing users to verify information against the original material.
+
+Users can also select specific reference documents for each conversation, controlling the scope of retrieval and the context available to the assistant.
+
+### Knowledge Graph
+
+Rafetus supports the development of a knowledge graph by establishing defined relationships between documents and notes.
+
+Users can create links representing references, supporting information, or critical relationships between related ideas. These connections are visualized as a network to support knowledge organization and exploration.
+
+The knowledge graph also provides additional context for Rafai during information retrieval, combining document content with relationships explicitly defined by the user.
+
+![Rafetus Knowledge Graph](screenshots/07-knowledge-graph.jpg){fig-alt="Rafetus knowledge graph"}
+
+## Privacy and Data Control
+
+Rafetus is designed with access controls and personal data management in mind.
+
+Users can determine which information is available to Rafai and disable AI features when they are not required. According to the Rafetus privacy policy, personal data is not used to train artificial intelligence models.
+
+Further details are available in the [Privacy Policy](https://rafetus.vn/privacy).
+
+## Platforms and Plans
+
+Rafetus is available as a web application and an iPhone app. Both platforms share the same account system for accessing and managing document libraries.
+
+The application offers three subscription plans with different storage capacities.
+
+| Plan | Storage |
+|---|---|
+| Free | 500 MB |
+| Plus | 20 GB |
+| Pro | 100 GB |
+
+AI processing uses a separate credit system, with additional credits available according to usage requirements.
+
+Plan details are available on the [Pricing](https://rafetus.vn/pricing) page.
+
+## Project Development
+
+Rafetus is developed by Le Tri Nhan and Ho Van Thanh. Its infrastructure uses services provided by AWS, Cloudflare, and Supabase.
+
+The project focuses on three primary areas of development, including document data management, information retrieval, and the application of artificial intelligence to personal knowledge organization.
+
+Ongoing development focuses on improving retrieval across large document libraries, extending knowledge relationships, and refining context retrieval for the Rafai assistant.
+
+Under the philosophy of **Thinking Without Limits**, Rafetus is being developed as a platform for the long-term accumulation, organization, and use of personal knowledge.
+
+## Screenshots
+
+![Document Library](screenshots/02-ai-library.jpg){fig-alt="Document library"}
+
+![Deep Search](screenshots/03-deep-search.jpg){fig-alt="Deep search"}
+
+![Document Reader](screenshots/04-reader-selection.jpg){fig-alt="Document reader"}
+
+![Library Tags](screenshots/05-library-tags.jpg){fig-alt="Library tags"}
+
+![Library Folders](screenshots/06-library-folders.jpg){fig-alt="Library folders"}
+
+## Links and Resources
+
+| | |
+| --- | --- |
+| Official Website | [rafetus.vn](https://rafetus.vn/) |
+| iOS Application | [Rafetus on the App Store](https://apps.apple.com/app/id6768253916) |
+| Web Application | [app.rafetus.vn](https://app.rafetus.vn/) |
+| Sign In | [auth.rafetus.vn](https://auth.rafetus.vn/login?client=web) |
+| Rafai Assistant | [rafetus.vn/ai](https://rafetus.vn/ai) |
+| Tutorial | [rafetus.vn/tutorial](https://rafetus.vn/tutorial) |
+| About | [rafetus.vn/about](https://rafetus.vn/about) |
+| Pricing | [rafetus.vn/pricing](https://rafetus.vn/pricing) |
+| Privacy Policy | [rafetus.vn/privacy](https://rafetus.vn/privacy) |
+| Email | [support@rafetus.vn](mailto:support@rafetus.vn) |
+| X | [@RafetusApp](https://x.com/RafetusApp) |
+
+![Rafetus Icon](brand/icon.png){fig-alt="Rafetus icon" width="120"}
+:::

@@ -788,6 +788,33 @@ html[data-theme="dark"] body:not(:has(.quarto-listing)) #quarto-document-content
   border-color: var(--dm-border) !important;
 }
 
+/* Body copy must stay ivory — Bootstrap ink/burgundy was invisible on dark */
+html[data-theme="dark"] #quarto-document-content p,
+html[data-theme="dark"] #quarto-document-content li,
+html[data-theme="dark"] #quarto-document-content td,
+html[data-theme="dark"] #quarto-document-content th,
+html[data-theme="dark"] #quarto-document-content strong,
+html[data-theme="dark"] #quarto-document-content em,
+html[data-theme="dark"] main.content p,
+html[data-theme="dark"] main.content li {
+  color: var(--dm-text) !important;
+}
+
+/* VI / EN post bodies — toggle via html[data-lang] */
+.lang-vi,
+.lang-en {
+  display: none;
+}
+
+html[data-lang="vi"] .lang-vi,
+html:not([data-lang]) .lang-vi {
+  display: block;
+}
+
+html[data-lang="en"] .lang-en {
+  display: block;
+}
+
 html[data-theme="dark"] #title-block-header .title,
 html[data-theme="dark"] main.content h1,
 html[data-theme="dark"] main.content h2,

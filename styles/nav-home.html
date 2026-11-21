@@ -47,9 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function applyLang(lang) {
+    if (lang !== "vi" && lang !== "en") lang = "vi";
     try {
       localStorage.setItem(LANG_KEY, lang);
     } catch (e) {}
+    document.documentElement.dataset.lang = lang;
     var btn = document.getElementById("lang-chip");
     if (btn) btn.textContent = lang === "vi" ? "VI" : "EN";
   }
