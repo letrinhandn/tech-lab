@@ -49,6 +49,7 @@ format:
     link-external-newwindow: true
     mainfont: "Be Vietnam Pro"
     respect-user-color-scheme: false
+    include-in-header: styles/theme-boot.html
     include-after-body: styles/nav-home.html
 
 execute:

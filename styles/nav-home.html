@@ -1,9 +1,80 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+  var THEME_KEY = "letrinhan-site-theme";
+  var LANG_KEY = "letrinhan-site-locale";
+
   var brand = document.querySelector(".navbar-brand");
   if (brand) brand.setAttribute("href", "https://letrinhandn.github.io/letrinhan-site/");
+
   document.querySelectorAll(".quarto-listing-category-title").forEach(function (el) {
     el.textContent = "Tags";
   });
+
+  function readTheme() {
+    try {
+      var t = localStorage.getItem(THEME_KEY);
+      if (t === "light" || t === "dark") return t;
+    } catch (e) {}
+    return document.documentElement.dataset.theme === "light" ? "light" : "dark";
+  }
+
+  function readLang() {
+    try {
+      var l = localStorage.getItem(LANG_KEY);
+      if (l === "vi" || l === "en") return l;
+    } catch (e) {}
+    return (navigator.language || "vi").toLowerCase().startsWith("vi") ? "vi" : "en";
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    try {
+      localStorage.setItem(THEME_KEY, theme);
+    } catch (e) {}
+    var btn = document.getElementById("theme-chip");
+    if (btn) {
+      var lang = readLang();
+      btn.textContent = theme === "dark" ? (lang === "vi" ? "Tối" : "Dark") : (lang === "vi" ? "Sáng" : "Light");
+    }
+  }
+
+  function applyLang(lang) {
+    try {
+      localStorage.setItem(LANG_KEY, lang);
+    } catch (e) {}
+    var btn = document.getElementById("lang-chip");
+    if (btn) btn.textContent = lang === "vi" ? "VI" : "EN";
+    applyTheme(readTheme());
+  }
+
+  var host = document.querySelector(".navbar");
+  if (host && !document.getElementById("site-controls")) {
+    var wrap = document.createElement("div");
+    wrap.className = "site-controls";
+    wrap.id = "site-controls";
+
+    var themeBtn = document.createElement("button");
+    themeBtn.type = "button";
+    themeBtn.className = "header-chip";
+    themeBtn.id = "theme-chip";
+    themeBtn.addEventListener("click", function () {
+      applyTheme(readTheme() === "dark" ? "light" : "dark");
+    });
+
+    var langBtn = document.createElement("button");
+    langBtn.type = "button";
+    langBtn.className = "header-chip";
+    langBtn.id = "lang-chip";
+    langBtn.addEventListener("click", function () {
+      applyLang(readLang() === "vi" ? "en" : "vi");
+    });
+
+    wrap.appendChild(themeBtn);
+    wrap.appendChild(langBtn);
+    host.appendChild(wrap);
+  }
+
+  applyTheme(readTheme());
+  applyLang(readLang());
 });
 </script>
