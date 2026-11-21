@@ -629,21 +629,24 @@ body {
   display: none !important;
 }
 
-/* Dark mode — deep ink field, clearer cream contrast (not muddy maroon-on-maroon) */
+/* Dark mode — hub burgundy field, tuned for readable cream contrast */
 html[data-theme="dark"] {
-  --dm-bg: #14060a;
-  --dm-surface: #241016;
-  --dm-raised: #2e161c;
-  --dm-border: rgba(232, 220, 204, 0.22);
-  --dm-text: #ece2d4;
-  --dm-muted: #b5a695;
-  --dm-gold: #d4a84b;
+  --dm-bg: #3a070e;
+  --dm-surface: #4a1018;
+  --dm-raised: #5a1820;
+  --dm-border: rgba(217, 202, 179, 0.32);
+  --dm-text: #f0e6d8;
+  --dm-muted: #c4b4a0;
+  --dm-gold: #bc8034;
+  --dm-mid: #90323d;
 }
 
 html[data-theme="dark"] body.quarto-light,
 html[data-theme="dark"] body.quarto-dark,
 html[data-theme="dark"] body {
-  background: var(--dm-bg) !important;
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 0%, #90323d 0%, transparent 55%),
+    linear-gradient(180deg, #5e0b15 0%, var(--dm-bg) 48%, #2a050a 100%) !important;
   color: var(--dm-text) !important;
 }
 
@@ -712,24 +715,26 @@ html[data-theme="dark"] .quarto-grid-item .card-img-top {
 }
 
 html[data-theme="dark"] .quarto-listing-filter .input-group-text {
-  background: var(--dm-raised) !important;
-  border-color: var(--dm-border) !important;
-  color: var(--dm-muted) !important;
+  background: rgba(0, 0, 0, 0.28) !important;
+  border: 1px solid var(--dm-border) !important;
+  border-right: 0 !important;
+  color: var(--dm-text) !important;
 }
 
 html[data-theme="dark"] .quarto-listing-filter .search {
-  background: var(--dm-raised) !important;
-  border-color: var(--dm-border) !important;
+  background: rgba(0, 0, 0, 0.28) !important;
+  border: 1px solid var(--dm-border) !important;
   color: var(--dm-text) !important;
 }
 
 html[data-theme="dark"] .quarto-listing-filter .search::placeholder {
-  color: var(--dm-muted) !important;
+  color: rgba(240, 230, 216, 0.55) !important;
   opacity: 1;
 }
 
 html[data-theme="dark"] .quarto-listing-filter .search:focus {
   border-color: var(--dm-gold) !important;
+  background: rgba(0, 0, 0, 0.4) !important;
 }
 
 html[data-theme="dark"] main.content a,
