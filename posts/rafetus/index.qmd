@@ -14,8 +14,6 @@ image: "thumbnail.jpg"
 **App Store** [Rafetus](https://apps.apple.com/app/id6768253916)  
 **Ứng dụng web** [app.rafetus.vn](https://app.rafetus.vn/)
 
-![Giao diện Rafetus](screenshots/01-hero-ask-ai.jpg){fig-alt="Giao diện Rafetus — Ask AI"}
-
 ## Tổng quan
 
 Rafetus là ứng dụng quản lý tài liệu tích hợp trí tuệ nhân tạo, hỗ trợ lưu trữ, tổ chức, tìm kiếm và khai thác thông tin từ tài liệu số.
@@ -23,6 +21,8 @@ Rafetus là ứng dụng quản lý tài liệu tích hợp trí tuệ nhân t�
 Dự án được phát triển nhằm giải quyết những khó khăn trong việc quản lý và tra cứu tài liệu khi khối lượng thông tin ngày càng lớn. Thay vì chỉ tập trung vào lưu trữ tệp, Rafetus kết hợp quản lý tài liệu, tìm kiếm ngữ nghĩa, ghi chú và hỏi đáp bằng trí tuệ nhân tạo trong cùng một hệ thống.
 
 Điểm trọng tâm của Rafetus là khả năng truy xuất thông tin trên nhiều tài liệu, duy trì nguồn tham chiếu và thiết lập mối liên hệ giữa các nội dung thông qua đồ thị tri thức.
+
+![Hình 1. Giao diện hỏi đáp với trợ lý Rafai.](screenshots/01-hero-ask-ai.jpg){fig-alt="Hình 1. Giao diện hỏi đáp với trợ lý Rafai." fig-align="center"}
 
 ## Chức năng chính
 
@@ -32,17 +32,25 @@ Rafetus hỗ trợ lưu trữ và quản lý các định dạng tài liệu ph�
 
 Sau khi tải lên, nội dung tài liệu được xử lý và lập chỉ mục để phục vụ tìm kiếm và hỏi đáp. Người dùng có thể quản lý tài liệu, ghi chú và những thông tin liên quan trong cùng một thư viện.
 
+![Hình 2. Thư viện tài liệu trong Rafetus.](screenshots/02-ai-library.jpg){fig-alt="Hình 2. Thư viện tài liệu trong Rafetus." fig-align="center"}
+
+![Hình 3. Quản lý thư mục trong thư viện.](screenshots/06-library-folders.jpg){fig-alt="Hình 3. Quản lý thư mục trong thư viện." fig-align="center"}
+
 ### Tìm kiếm chuyên sâu
 
 Rafetus sử dụng công nghệ tìm kiếm ngữ nghĩa để truy xuất nội dung dựa trên ý nghĩa của câu truy vấn, thay vì phụ thuộc hoàn toàn vào từ khóa chính xác.
 
 Tính năng này cho phép tìm kiếm thông tin liên quan trong nhiều tài liệu và ghi chú, kể cả khi người dùng không nhớ chính xác cách diễn đạt trong văn bản gốc.
 
+![Hình 4. Tìm kiếm chuyên sâu trên thư viện.](screenshots/03-deep-search.jpg){fig-alt="Hình 4. Tìm kiếm chuyên sâu trên thư viện." fig-align="center"}
+
 ### Đọc và ghi chú tài liệu
 
 Trình đọc tích hợp hỗ trợ xem tài liệu, đánh dấu những đoạn quan trọng, theo dõi vị trí đọc và tạo ghi chú trong quá trình nghiên cứu.
 
 Người dùng có thể lựa chọn trực tiếp một đoạn văn bản để yêu cầu trí tuệ nhân tạo giải thích hoặc phân tích mà không cần rời khỏi tài liệu đang đọc.
+
+![Hình 5. Trình đọc tài liệu và chọn đoạn văn.](screenshots/04-reader-selection.jpg){fig-alt="Hình 5. Trình đọc tài liệu và chọn đoạn văn." fig-align="center"}
 
 ### Trợ lý trí tuệ nhân tạo Rafai
 
@@ -52,6 +60,8 @@ Hệ thống có thể tìm kiếm, tổng hợp nội dung từ nhiều tài li
 
 Rafai cũng cho phép lựa chọn những nguồn tài liệu cụ thể trong từng phiên hỏi đáp nhằm giới hạn phạm vi truy xuất và kiểm soát ngữ cảnh sử dụng.
 
+![Hình 6. Quản lý thẻ phân loại tài liệu.](screenshots/05-library-tags.jpg){fig-alt="Hình 6. Quản lý thẻ phân loại tài liệu." fig-align="center"}
+
 ### Đồ thị tri thức
 
 Rafetus hỗ trợ xây dựng đồ thị tri thức thông qua việc liên kết tài liệu và ghi chú theo những mối quan hệ xác định.
@@ -60,7 +70,7 @@ Người dùng có thể thiết lập các liên kết thể hiện sự tham c
 
 Đồ thị tri thức đồng thời cung cấp ngữ cảnh bổ sung cho Rafai trong quá trình tìm kiếm và tổng hợp thông tin, kết hợp nội dung tài liệu với những liên kết do người dùng thiết lập.
 
-![Đồ thị tri thức Rafetus](screenshots/07-knowledge-graph.jpg){fig-alt="Đồ thị tri thức Rafetus"}
+![Hình 7. Đồ thị tri thức trong Rafetus.](screenshots/07-knowledge-graph.jpg){fig-alt="Hình 7. Đồ thị tri thức trong Rafetus." fig-align="center"}
 
 ## Quyền riêng tư và dữ liệu
 
@@ -96,18 +106,6 @@ Dự án tập trung vào ba lĩnh vực chính gồm quản lý dữ liệu tà
 
 Với triết lý **Thinking Without Limits**, Rafetus được phát triển như một nền tảng hỗ trợ tích lũy, tổ chức và khai thác tri thức lâu dài.
 
-## Hình ảnh giao diện
-
-![Thư viện tài liệu](screenshots/02-ai-library.jpg){fig-alt="Thư viện tài liệu"}
-
-![Tìm kiếm chuyên sâu](screenshots/03-deep-search.jpg){fig-alt="Tìm kiếm chuyên sâu"}
-
-![Trình đọc tài liệu](screenshots/04-reader-selection.jpg){fig-alt="Trình đọc tài liệu"}
-
-![Quản lý thẻ phân loại](screenshots/05-library-tags.jpg){fig-alt="Quản lý thẻ phân loại"}
-
-![Quản lý thư mục](screenshots/06-library-folders.jpg){fig-alt="Quản lý thư mục"}
-
 ## Liên kết và tài nguyên
 
 | | |
@@ -123,8 +121,6 @@ Với triết lý **Thinking Without Limits**, Rafetus được phát triển nh
 | Privacy | [rafetus.vn/privacy](https://rafetus.vn/privacy) |
 | Email | [support@rafetus.vn](mailto:support@rafetus.vn) |
 | X | [@RafetusApp](https://x.com/RafetusApp) |
-
-![Biểu tượng Rafetus](brand/icon.png){fig-alt="Rafetus icon" width="120"}
 :::
 
 ::: {.lang-en}
@@ -134,8 +130,6 @@ Với triết lý **Thinking Without Limits**, Rafetus được phát triển nh
 **App Store** [Rafetus](https://apps.apple.com/app/id6768253916)  
 **Web App** [app.rafetus.vn](https://app.rafetus.vn/)
 
-![Rafetus Interface](screenshots/01-hero-ask-ai.jpg){fig-alt="Rafetus Ask AI interface"}
-
 ## Overview
 
 Rafetus is an AI-powered document management application designed to store, organize, search, and retrieve information from digital documents.
@@ -143,6 +137,8 @@ Rafetus is an AI-powered document management application designed to store, orga
 The project addresses the challenges of managing and accessing information as document collections grow. Rather than functioning solely as a file storage application, Rafetus brings together document management, semantic search, note-taking, and AI-assisted question answering within a single system.
 
 Its primary focus is information retrieval across multiple documents, source traceability, and the organization of relationships between documents and notes through a knowledge graph.
+
+![Figure 1. Asking questions with the Rafai assistant.](screenshots/01-hero-ask-ai.jpg){fig-alt="Figure 1. Asking questions with the Rafai assistant." fig-align="center"}
 
 ## Core Features
 
@@ -152,17 +148,25 @@ Rafetus supports the storage and management of common document formats, includin
 
 Uploaded content is processed and indexed to support document search and AI-assisted question answering. Documents, notes, and related information are maintained within a unified library.
 
+![Figure 2. Document library in Rafetus.](screenshots/02-ai-library.jpg){fig-alt="Figure 2. Document library in Rafetus." fig-align="center"}
+
+![Figure 3. Folder management in the library.](screenshots/06-library-folders.jpg){fig-alt="Figure 3. Folder management in the library." fig-align="center"}
+
 ### Deep Search
 
 Rafetus uses semantic search to retrieve information based on the meaning of a query rather than relying exclusively on exact keyword matching.
 
 This allows users to locate relevant content across documents and notes, even when they do not remember the precise wording used in the original material.
 
+![Figure 4. Deep search across the library.](screenshots/03-deep-search.jpg){fig-alt="Figure 4. Deep search across the library." fig-align="center"}
+
 ### Document Reading and Annotations
 
 The integrated document reader supports text highlighting, reading progress tracking, and note-taking during document review.
 
 Users can select passages and request explanations or analysis from the AI assistant without leaving the document being read.
+
+![Figure 5. Document reader with text selection.](screenshots/04-reader-selection.jpg){fig-alt="Figure 5. Document reader with text selection." fig-align="center"}
 
 ### Rafai AI Assistant
 
@@ -172,6 +176,8 @@ The system retrieves and consolidates relevant information from multiple documen
 
 Users can also select specific reference documents for each conversation, controlling the scope of retrieval and the context available to the assistant.
 
+![Figure 6. Document tags in the library.](screenshots/05-library-tags.jpg){fig-alt="Figure 6. Document tags in the library." fig-align="center"}
+
 ### Knowledge Graph
 
 Rafetus supports the development of a knowledge graph by establishing defined relationships between documents and notes.
@@ -180,7 +186,7 @@ Users can create links representing references, supporting information, or criti
 
 The knowledge graph also provides additional context for Rafai during information retrieval, combining document content with relationships explicitly defined by the user.
 
-![Rafetus Knowledge Graph](screenshots/07-knowledge-graph.jpg){fig-alt="Rafetus knowledge graph"}
+![Figure 7. Knowledge graph in Rafetus.](screenshots/07-knowledge-graph.jpg){fig-alt="Figure 7. Knowledge graph in Rafetus." fig-align="center"}
 
 ## Privacy and Data Control
 
@@ -216,18 +222,6 @@ Ongoing development focuses on improving retrieval across large document librari
 
 Under the philosophy of **Thinking Without Limits**, Rafetus is being developed as a platform for the long-term accumulation, organization, and use of personal knowledge.
 
-## Screenshots
-
-![Document Library](screenshots/02-ai-library.jpg){fig-alt="Document library"}
-
-![Deep Search](screenshots/03-deep-search.jpg){fig-alt="Deep search"}
-
-![Document Reader](screenshots/04-reader-selection.jpg){fig-alt="Document reader"}
-
-![Library Tags](screenshots/05-library-tags.jpg){fig-alt="Library tags"}
-
-![Library Folders](screenshots/06-library-folders.jpg){fig-alt="Library folders"}
-
 ## Links and Resources
 
 | | |
@@ -243,6 +237,4 @@ Under the philosophy of **Thinking Without Limits**, Rafetus is being developed 
 | Privacy Policy | [rafetus.vn/privacy](https://rafetus.vn/privacy) |
 | Email | [support@rafetus.vn](mailto:support@rafetus.vn) |
 | X | [@RafetusApp](https://x.com/RafetusApp) |
-
-![Rafetus Icon](brand/icon.png){fig-alt="Rafetus icon" width="120"}
 :::

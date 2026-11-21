@@ -456,13 +456,41 @@ main.content pre code,
   background: transparent;
 }
 
+main.content figure,
+#quarto-document-content figure,
+.quarto-figure {
+  text-align: center;
+  margin: 1.35rem auto 1.6rem;
+}
+
 main.content figure img,
 #quarto-document-content figure img,
+.quarto-figure img,
 main.content img,
 #quarto-document-content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   border: 1px solid $rule-strong;
   box-shadow: none;
   background: #fff;
+}
+
+main.content figcaption,
+#quarto-document-content figcaption,
+.quarto-figure .figure-caption,
+.figure-caption {
+  text-align: center !important;
+  margin-top: 0.55rem;
+  font-size: 0.9rem;
+  color: $ink-muted;
+}
+
+html[data-theme="dark"] main.content figcaption,
+html[data-theme="dark"] #quarto-document-content figcaption,
+html[data-theme="dark"] .quarto-figure .figure-caption,
+html[data-theme="dark"] .figure-caption {
+  color: var(--dm-muted) !important;
 }
 
 #quarto-document-content > p:first-of-type {
