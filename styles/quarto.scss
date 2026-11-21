@@ -544,17 +544,6 @@ main.content img,
   color: $burgundy-mid;
 }
 
-.nav-footer {
-  border-top: 1px solid $rule-strong;
-  margin-top: 2rem;
-  background: $footer-bg !important;
-  color: $taupe !important;
-}
-
-.nav-footer a {
-  color: $burgundy-mid;
-}
-
 ::selection {
   background: rgba(188, 128, 52, 0.35);
   color: $ink;
