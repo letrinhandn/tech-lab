@@ -445,6 +445,22 @@ main.content img,
   border-left-color: $burgundy-mid;
 }
 
+/* Wide: 2 cards/row; below ~lg: single column (Quarto cols-2 stays 2 until 576px) */
+@media (max-width: 991.98px) {
+  .quarto-listing-cols-2 {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .quarto-listing-cols-2 .quarto-grid-item .card-img,
+  .quarto-listing-cols-2 .quarto-grid-item .listing-image,
+  .quarto-listing-cols-2 .quarto-grid-item img.thumbnail-image,
+  .quarto-listing-cols-2 .quarto-grid-item .card-img-top {
+    height: 180px !important;
+  }
+}
+
 .quarto-grid-item {
   border: 1px solid $rule-strong !important;
   background: $paper-raised !important;

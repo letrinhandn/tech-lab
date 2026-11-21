@@ -7,7 +7,7 @@ listing:
   categories: true
   sort-ui: false
   filter-ui: true
-  grid-columns: 1
+  grid-columns: 2
   grid-item-border: false
   image-height: 220px
   fields: [image, title, description, date, reading-time, categories]
