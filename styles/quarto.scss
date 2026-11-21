@@ -353,6 +353,36 @@ body {
   z-index: 1;
 }
 
+/* Clear fixed header — sticky TOC/Tags were using top:0 and sitting under navbar */
+:root {
+  --lab-header-offset: 4.85rem;
+}
+
+body.nav-fixed {
+  padding-top: var(--lab-header-offset) !important;
+}
+
+.sidebar.margin-sidebar,
+.sidebar.toc-left,
+#quarto-margin-sidebar {
+  top: var(--lab-header-offset) !important;
+  padding-top: 0.85rem !important;
+  max-height: calc(100vh - var(--lab-header-offset) - 1rem) !important;
+}
+
+#quarto-margin-sidebar .quarto-listing-category,
+#quarto-margin-sidebar .quarto-listing-category-title,
+#quarto-margin-sidebar #toc-title,
+#quarto-margin-sidebar nav[role="doc-toc"] > h2 {
+  scroll-margin-top: calc(var(--lab-header-offset) + 0.5rem);
+}
+
+@media (max-width: 991.98px) {
+  :root {
+    --lab-header-offset: 4.35rem;
+  }
+}
+
 /* Listing home: no page title / intro block */
 body:has(.quarto-listing) #title-block-header {
   display: none !important;
