@@ -1,6 +1,6 @@
 ---
 title: "Rafetus"
-description: "AI document manager — semantic search, notes, knowledge graph, and Rafai. Ứng dụng quản lý tài liệu tích hợp AI."
+description: ""
 author: "Le Tri Nhan"
 date: 2026-11-20
 categories: [apps]
