@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1c906a3c4de6f90249f058a2449e35ff.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-402b839b19177f97fbbbad4b1b57386a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -376,6 +376,70 @@ document.addEventListener("DOMContentLoaded", function () {
     document.documentElement.dataset.lang = lang;
     var btn = document.getElementById("lang-chip");
     if (btn) btn.textContent = lang === "vi" ? "VI" : "EN";
+    buildLangToc(lang);
+  }
+
+  // Quarto skips TOC when headings live inside .lang-vi / .lang-en — rebuild for active locale
+  function buildLangToc(lang) {
+    var sidebar = document.getElementById("quarto-margin-sidebar");
+    if (!sidebar) return;
+    if (!document.querySelector(".lang-vi, .lang-en")) return;
+
+    var root = document.querySelector(lang === "en" ? ".lang-en" : ".lang-vi");
+    if (!root) {
+      sidebar.innerHTML = "";
+      return;
+    }
+
+    var heads = root.querySelectorAll("h2, h3");
+    if (!heads.length) {
+      sidebar.innerHTML = "";
+      return;
+    }
+
+    var title = lang === "en" ? "On this page" : "Trong trang này";
+    var html =
+      '<nav id="TOC" role="doc-toc">' +
+      '<h2 id="toc-title">' +
+      title +
+      "</h2><ul class=\"summary\">";
+
+    var pendingClose = false;
+    heads.forEach(function (h) {
+      var id = h.id;
+      if (!id) {
+        id = (h.getAttribute("data-anchor-id") || "").trim();
+        if (id) h.id = id;
+      }
+      if (!id) return;
+      var text = (h.textContent || "").replace(/\s+/g, " ").trim();
+      if (!text) return;
+      var level = h.tagName.toLowerCase() === "h3" ? 3 : 2;
+      if (level === 2) {
+        if (pendingClose) html += "</ul></li>";
+        html +=
+          '<li><a href="#' +
+          id +
+          '" class="nav-link">' +
+          text +
+          '</a><ul>';
+        pendingClose = true;
+      } else {
+        if (!pendingClose) {
+          html += "<li><ul>";
+          pendingClose = true;
+        }
+        html +=
+          '<li><a href="#' +
+          id +
+          '" class="nav-link">' +
+          text +
+          "</a></li>";
+      }
+    });
+    if (pendingClose) html += "</ul></li>";
+    html += "</ul></nav>";
+    sidebar.innerHTML = html;
   }
 
   var host = document.querySelector(".navbar");
