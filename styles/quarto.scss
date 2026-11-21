@@ -629,25 +629,49 @@ body {
   display: none !important;
 }
 
-/* Dark mode — hub burgundy field, tuned for readable cream contrast */
+/* Dark mode — same burgundy gradient as hub root */
 html[data-theme="dark"] {
   --dm-bg: #3a070e;
-  --dm-surface: #4a1018;
-  --dm-raised: #5a1820;
+  --dm-surface: rgba(58, 7, 14, 0.72);
+  --dm-raised: rgba(94, 11, 21, 0.85);
   --dm-border: rgba(217, 202, 179, 0.32);
-  --dm-text: #f0e6d8;
-  --dm-muted: #c4b4a0;
+  --dm-text: #d9cab3;
+  --dm-muted: #8c7a6b;
   --dm-gold: #bc8034;
   --dm-mid: #90323d;
+  --burgundy: #5e0b15;
 }
 
 html[data-theme="dark"] body.quarto-light,
 html[data-theme="dark"] body.quarto-dark,
 html[data-theme="dark"] body {
+  position: relative;
+  isolation: isolate;
+  /* Exact hub .site dark background */
   background:
-    radial-gradient(ellipse 70% 40% at 50% 0%, #90323d 0%, transparent 55%),
-    linear-gradient(180deg, #5e0b15 0%, var(--dm-bg) 48%, #2a050a 100%) !important;
+    radial-gradient(ellipse 70% 45% at 50% 12%, #90323d 0%, transparent 58%),
+    linear-gradient(180deg, #90323d 0%, #5e0b15 55%, #3a070e 100%) !important;
+  background-attachment: fixed !important;
   color: var(--dm-text) !important;
+}
+
+/* Soft glyph wash like hub field (CSS-only) */
+html[data-theme="dark"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='140' viewBox='0 0 180 140'%3E%3Ctext x='4' y='18' fill='%23d9cab3' font-family='monospace' font-size='11'%3E%7B%7D%3C/text%3E%3Ctext x='40' y='34' fill='%23d9cab3' font-family='monospace' font-size='11'%3E%24%3C/text%3E%3Ctext x='78' y='22' fill='%23d9cab3' font-family='monospace' font-size='11'%3E%26%3C/text%3E%3Ctext x='118' y='40' fill='%23d9cab3' font-family='monospace' font-size='11'%3E%3C%3E%3C/text%3E%3Ctext x='12' y='68' fill='%23d9cab3' font-family='monospace' font-size='11'%3E%5B%5D%3C/text%3E%3Ctext x='58' y='80' fill='%23d9cab3' font-family='monospace' font-size='11'%3E01%3C/text%3E%3Ctext x='108' y='72' fill='%23d9cab3' font-family='monospace' font-size='11'%3Ex%3C/text%3E%3Ctext x='148' y='88' fill='%23d9cab3' font-family='monospace' font-size='11'%3E%2B%3C/text%3E%3Ctext x='28' y='118' fill='%23d9cab3' font-family='monospace' font-size='11'%3E%2F%2F%3C/text%3E%3Ctext x='88' y='124' fill='%23d9cab3' font-family='monospace' font-size='11'%3E%3D%3E%3C/text%3E%3Ctext x='140' y='112' fill='%23d9cab3' font-family='monospace' font-size='11'%3E*%3C/text%3E%3C/svg%3E");
+  background-size: 180px 140px;
+}
+
+html[data-theme="dark"] #quarto-header,
+html[data-theme="dark"] #quarto-content,
+html[data-theme="dark"] .page-columns {
+  position: relative;
+  z-index: 1;
 }
 
 html[data-theme="dark"] #quarto-content {
