@@ -353,9 +353,9 @@ body {
   z-index: 1;
 }
 
-/* Clear fixed header — sticky TOC/Tags were using top:0 and sitting under navbar */
+/* Clear fixed header — Quarto sticky sidebars default to top:0 */
 :root {
-  --lab-header-offset: 4.85rem;
+  --lab-header-offset: 6rem; /* >= Quarto's 82px nav-fixed padding */
 }
 
 body.nav-fixed {
@@ -364,22 +364,29 @@ body.nav-fixed {
 
 .sidebar.margin-sidebar,
 .sidebar.toc-left,
+#quarto-margin-sidebar.sidebar.margin-sidebar,
 #quarto-margin-sidebar {
   top: var(--lab-header-offset) !important;
-  padding-top: 0.85rem !important;
-  max-height: calc(100vh - var(--lab-header-offset) - 1rem) !important;
+  padding-top: 1.15rem !important;
+  max-height: calc(100vh - var(--lab-header-offset) - 1.25rem) !important;
 }
 
-#quarto-margin-sidebar .quarto-listing-category,
+/* Quarto sets listing category padding-top: 0 — restore clearance under header */
+#quarto-margin-sidebar .quarto-listing-category {
+  padding-top: 0.35rem !important;
+}
+
 #quarto-margin-sidebar .quarto-listing-category-title,
 #quarto-margin-sidebar #toc-title,
 #quarto-margin-sidebar nav[role="doc-toc"] > h2 {
-  scroll-margin-top: calc(var(--lab-header-offset) + 0.5rem);
+  margin-top: 0 !important;
+  padding-top: 0.15rem;
+  scroll-margin-top: calc(var(--lab-header-offset) + 0.75rem);
 }
 
 @media (max-width: 991.98px) {
   :root {
-    --lab-header-offset: 4.35rem;
+    --lab-header-offset: 5.25rem;
   }
 }
 
