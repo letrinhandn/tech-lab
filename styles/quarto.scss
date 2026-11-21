@@ -578,6 +578,10 @@ body {
   margin: 0;
   padding: 0.35rem 0.6rem;
   min-width: 2.6rem;
+  min-height: 1.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-family: "Be Vietnam Pro", sans-serif;
   font-size: 0.68rem;
   font-weight: 700;
@@ -588,6 +592,17 @@ body {
   background: #2a050a;
   border: 2px solid #d9cab3;
   cursor: pointer;
+}
+
+.header-chip.is-icon {
+  min-width: 1.85rem;
+  padding: 0.3rem;
+}
+
+.header-chip svg {
+  display: block;
+  width: 0.95rem;
+  height: 0.95rem;
 }
 
 .header-chip:hover,
