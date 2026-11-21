@@ -8,185 +8,191 @@ image: "thumbnail.jpg"
 ---
 
 ::: {.lang-vi}
-**Máy tính xách tay tự chế quanh Raspberry Pi 5**
+**Máy tính di động tự lắp ráp sử dụng Raspberry Pi 5**
 
-**Mã nguồn** [github.com/letrinhandn/retro-typewriter-cyberdeck](https://github.com/letrinhandn/retro-typewriter-cyberdeck)
+**Thời gian thực hiện** Mùa đông 2024–2025, London, Vương quốc Anh  
+**Mã nguồn và tài liệu** [GitHub](https://github.com/letrinhandn/retro-typewriter-cyberdeck)
 
 ## Tổng quan
 
-Cyberdeck tự chứa, dựng quanh **Raspberry Pi 5**, đặt trong hộp gỗ trang trí tái sử dụng. Thiết kế và lắp tại London, đông 2024/2025.
+Retro Typewriter Cyberdeck là dự án máy tính di động tự lắp ráp dựa trên Raspberry Pi 5, sử dụng một hộp gỗ trang trí kiểu cổ điển làm vỏ thiết bị. Dự án được thiết kế và hoàn thiện tại London trong mùa đông 2024–2025, với mục tiêu tạo ra một máy tính chạy Linux có thể mang theo và sử dụng bằng nguồn pin độc lập.
 
-Đây là khối máy portable: có pin, màn hình, bàn phím, máy tính và mạng trong cùng một khối — vừa làm workstation Linux, vừa kèm Pwnagotchi theo dõi 802.11 thụ động.
+Thiết bị kết hợp máy tính, màn hình, nguồn điện dự phòng và kết nối mạng trong một hộp gỗ nhỏ gọn. Bàn phím cơ kết nối qua USB được bố trí trên phần đế khi sử dụng. Ngoài các tác vụ viết, nghiên cứu và làm việc với dòng lệnh, hệ thống còn có một mô-đun Pwnagotchi hoạt động độc lập phục vụ quan sát mạng không dây 802.11 ở chế độ thụ động.
 
-![Hình 1. Mặt trước Retro Typewriter Cyberdeck.](images/front.jpeg){fig-alt="Hình 1. Mặt trước Retro Typewriter Cyberdeck." fig-align="center"}
+Dự án ưu tiên việc tận dụng linh kiện thương mại và vật liệu sẵn có, không sử dụng in 3D hoặc gia công CNC cho phần vỏ.
 
-## Mục tiêu thiết kế
+![Hình 1. Retro Typewriter Cyberdeck khi đóng hộp.](images/front.jpeg){fig-alt="Hình 1. Retro Typewriter Cyberdeck khi đóng hộp." fig-align="center"}
 
-- Portable: có pin, không phụ thuộc ổ cắm
-- Self-contained: display + input + compute + network trong một khối
-- Dual-purpose: Linux workstation + passive 802.11 monitoring (Pwnagotchi)
-- Không in 3D / CNC: enclosure lấy sẵn rồi lắp
+![Hình 2. Bố trí thiết bị khi sử dụng.](images/pov.jpeg){fig-alt="Hình 2. Bố trí thiết bị khi sử dụng." fig-align="center"}
 
-## Bill of Materials
+## Thiết kế phần cứng
 
-| Component | Specification | Source | Unit Price |
-|---|---|---|---|
-| SBC | Raspberry Pi 5, 4GB | Amazon UK | £143.00 |
-| Display | GeeekPi 7" IPS LCD, 1024x600, 60Hz, 500 cd/m2, HDMI | Amazon UK | £44.99 |
-| UPS HAT | Waveshare UPS HAT (E), 5V/6A output, bi-directional fast charge, Pogo Pin connector | Amazon UK | £39.99 |
-| Thermal | Raspberry Pi Active Cooler (official) | Amazon UK | £9.56 |
-| Display cable | Coiled Micro HDMI to HDMI, 4K@60Hz, 0.5-2.4M | AliExpress | $3.97 |
-| Internal wiring | HOQO FFC Flat Flexible Cable kit, 18 connector types | AliExpress | $10.05 |
-| Enclosure | European Vintage Small Wood Box with lock, approx. 30x15x12cm | AliExpress | $4.77 |
-| Keyboard | IDOBAO ID42 40%, hotswap, Kailh Box Navy switches, white keycaps | AliExpress | £18.87 |
-| Battery cells | 2x 18650 Li-ion, 4200mAh, 3.7V | - | TBD |
+### Bộ xử lý và hệ điều hành
 
-**Tổng linh kiện đã chốt: ~£256.41 + $18.79 + pin**
+Hệ thống sử dụng Raspberry Pi 5 với 4 GB RAM, chạy Ubuntu 24.04 LTS. Đây là nền tảng xử lý chính cho các tác vụ thông thường trên Linux, đặc biệt là soạn thảo, tra cứu và sử dụng dòng lệnh. Bộ tản nhiệt chủ động chính hãng Raspberry Pi được lắp trực tiếp trên bo mạch.
 
-![Hình 2. Phần cứng bên trong hộp.](images/internals.jpeg){fig-alt="Hình 2. Phần cứng bên trong hộp." fig-align="center"}
+### Nguồn điện
 
-## Kiến trúc hệ thống
+Waveshare UPS HAT (E) cung cấp nguồn 5 V, tối đa 6 A cho Raspberry Pi 5 thông qua đầu nối của mô-đun. Nguồn dự phòng sử dụng hai cell lithium-ion 18650, mỗi cell được ghi theo cấu hình dự án là 4.200 mAh ở điện áp danh định 3,7 V, tương đương khoảng 31 Wh tổng năng lượng danh định.
 
-### Compute
+Mô-đun hỗ trợ sạc qua USB-C trong khi hệ thống tiếp tục hoạt động. Việc đọc phần trăm pin qua giao tiếp I²C trên Ubuntu vẫn chưa ổn định, do đó đây chưa phải chức năng được hoàn thiện trong bản lắp ráp hiện tại.
 
-Raspberry Pi 5 (4GB LPDDR4X) chạy Ubuntu 24.04 LTS. Active cooler gắn trực tiếp lên SoC và thoát nhiệt qua khe phía sau enclosure.
+### Màn hình và bàn phím
 
-### Power
+Màn hình IPS GeeekPi 7 inch, độ phân giải 1024 × 600 ở 60 Hz, được gắn vào mặt trong của nắp hộp. Cáp Micro HDMI dạng xoắn đi qua khoảng hở gần bản lề để kết nối màn hình với bo mạch.
 
-Waveshare UPS HAT (E) gắn GPIO qua Pogo Pins, cấp 5V/6A. Hai cell 18650 (~31Wh) nằm trong bay pin của HAT. Có thể sạc USB-C khi đang chạy. Đọc % pin qua I2C trên Ubuntu chưa ổn định.
+Bàn phím cơ IDOBAO ID42 bố cục 40%, hỗ trợ thay switch và sử dụng Kailh Box Navy cùng bộ phím màu trắng. Bàn phím kết nối qua USB và được đặt trên phần đế khi thiết bị mở ra để làm việc.
 
-### Display
+### Kết nối mạng và mô-đun phụ
 
-Panel GeeekPi 7" gắn mặt trong nắp, nối bằng cáp Micro HDMI xoắn qua bản lề. Độ phân giải 1024×600 @ 60Hz.
+Raspberry Pi sử dụng kết nối không dây tích hợp, kết hợp một bộ chuyển đổi Wi-Fi qua USB. Mô-đun Pwnagotchi có màn hình mực điện tử 2,13 inch và hoạt động độc lập với hệ điều hành chính. Thành phần này được bố trí như một hệ thống phụ dành cho nghiên cứu, quan sát mạng 802.11 thụ động trong môi trường được phép.
 
-![Hình 3. Mặt sau và khe thoát nhiệt.](images/back.jpeg){fig-alt="Hình 3. Mặt sau và khe thoát nhiệt." fig-align="center"}
+### Kết cấu vỏ
 
-### Input
+Vỏ thiết bị được tận dụng từ hộp gỗ trang trí có khóa, kích thước xấp xỉ 30 × 15 × 12 cm. Khoang phía trên chứa Raspberry Pi, mô-đun cấp nguồn và pin; các miếng xốp được cắt thủ công để cố định linh kiện trong quá trình di chuyển. Khoang còn lại dành cho cáp và phụ kiện.
 
-Bàn phím IDOBAO ID42 40%, Kailh Box Navy, keycap trắng. Kết nối USB, nằm ngoài enclosure.
+Thiết kế không yêu cầu vỏ in 3D hoặc các chi tiết gia công theo bản vẽ. Đổi lại, kích thước hộp và đường đi dây tạo ra một số giới hạn về việc đóng nắp và lưu thông không khí.
 
-### Networking
+![Hình 3. Bố trí linh kiện bên trong hộp.](images/internals.jpeg){fig-alt="Hình 3. Bố trí linh kiện bên trong hộp." fig-align="center"}
 
-Wi-Fi onboard BCM43455; thêm USB adapter mở rộng. Pwnagotchi chạy trên microcontroller riêng với e-ink 2.13", bắt handshake 802.11 thụ động độc lập với OS chính.
+## Danh sách linh kiện
 
-### Cấu trúc bên trong
+| Thành phần | Cấu hình | Chi phí ghi nhận |
+|---|---|---:|
+| Máy tính đơn bo | Raspberry Pi 5, 4 GB | £143.00 |
+| Màn hình | GeeekPi IPS 7 inch, 1024 × 600, 60 Hz | £44.99 |
+| Bộ cấp nguồn dự phòng | Waveshare UPS HAT (E), 5 V/6 A | £39.99 |
+| Tản nhiệt | Raspberry Pi Active Cooler | £9.56 |
+| Cáp hình ảnh | Micro HDMI sang HDMI dạng xoắn | $3.97 |
+| Dây nối trong hộp | Bộ cáp mềm HOQO FFC | $10.05 |
+| Vỏ thiết bị | Hộp gỗ trang trí khoảng 30 × 15 × 12 cm | $4.77 |
+| Bàn phím | IDOBAO ID42 40%, Kailh Box Navy | £18.87 |
+| Pin | 2 cell lithium-ion 18650 | Chưa xác định |
 
-Ngăn trên chứa stack Pi 5 + UPS HAT + cooler + pin, cố định bằng miếng xốp. Ngăn dưới để trống mang phụ kiện: Pwnagotchi, cáp, adapter.
+**Chi phí linh kiện đã ghi nhận** khoảng £256.41 và $18.79, chưa bao gồm pin. Đây là giá mua được lưu trong tài liệu dự án, không phải báo giá hiện hành.
 
-![Hình 4. Góc nhìn khi làm việc.](images/pov.jpeg){fig-alt="Hình 4. Góc nhìn khi làm việc." fig-align="center"}
+## Giới hạn của bản lắp ráp
 
-## Known issues
+Bản hiện tại đã đáp ứng mục tiêu vận hành bằng pin và cung cấp một môi trường làm việc Linux di động. Tuy nhiên, một số hạn chế phần cứng vẫn còn tồn tại.
 
-| Issue | Status |
+| Vấn đề | Tình trạng |
 |---|---|
-| % pin UPS qua I2C trên Ubuntu chưa ổn | Open |
-| Đóng nắp đôi khi cần rút cáp một phần | By design (constraint hình học hộp) |
-| Thông gió thụ động: throttle khi CPU kéo dài | Acceptable under normal load |
+| Đọc phần trăm pin qua I²C trên Ubuntu | Chưa ổn định |
+| Đóng nắp hộp | Cần tháo bớt kết nối cáp do giới hạn không gian |
+| Thông gió của vỏ | Sử dụng khe thoát khí phía sau, có thể giảm xung nhịp khi tải CPU cao kéo dài |
 
-![Hình 5. Thử nghiệm trên bàn.](images/lib-test.jpeg){fig-alt="Hình 5. Thử nghiệm trên bàn." fig-align="center"}
+Dù Raspberry Pi có bộ tản nhiệt chủ động riêng, vỏ gỗ chưa có quạt thông gió chuyên dụng. Vì vậy, thiết bị phù hợp hơn với các tác vụ nhẹ và trung bình so với những công việc yêu cầu CPU chạy ở tải cao trong thời gian dài.
 
-## OS và phần mềm
+![Hình 4. Mặt sau và khe thoát khí.](images/back.jpeg){fig-alt="Hình 4. Mặt sau và khe thoát khí." fig-align="center"}
 
-- Ubuntu 24.04 LTS (Raspberry Pi build)
-- Pwnagotchi: AI standalone trên co-processor, không chung OS với máy chính
-- Mục đích chính: viết, nghiên cứu, làm việc terminal
+## Kết quả và phạm vi sử dụng
 
-## Liên kết
+Retro Typewriter Cyberdeck là bản thử nghiệm phần cứng mang tính cá nhân, kết hợp nền tảng máy tính đơn bo với thiết kế vỏ tái sử dụng. Cấu hình hướng đến các công việc như viết, nghiên cứu và thao tác trong môi trường dòng lệnh, đồng thời dành không gian cho những mô-đun điện tử phụ trợ.
+
+Dự án cho thấy khả năng xây dựng một máy tính Linux có nguồn pin từ các linh kiện phổ biến mà không cần quy trình gia công vỏ chuyên dụng. Những giới hạn về dây nối, thông gió và theo dõi pin cũng là các vấn đề cần tiếp tục xử lý nếu phát triển sang phiên bản hoàn thiện hơn.
+
+![Hình 5. Thử nghiệm thiết bị tại bàn làm việc.](images/lib-test.jpeg){fig-alt="Hình 5. Thử nghiệm thiết bị tại bàn làm việc." fig-align="center"}
+
+## Liên kết và tài nguyên
 
 | | |
 | --- | --- |
-| Repo | [github.com/letrinhandn/retro-typewriter-cyberdeck](https://github.com/letrinhandn/retro-typewriter-cyberdeck) |
-| README | [README + photos](https://github.com/letrinhandn/retro-typewriter-cyberdeck#readme) |
+| Kho mã nguồn | [github.com/letrinhandn/retro-typewriter-cyberdeck](https://github.com/letrinhandn/retro-typewriter-cyberdeck) |
+| Tài liệu dự án | [README và hình ảnh](https://github.com/letrinhandn/retro-typewriter-cyberdeck#readme) |
+| Giấy phép | [MIT](https://github.com/letrinhandn/retro-typewriter-cyberdeck/blob/main/LICENSE) |
 :::
 
 ::: {.lang-en}
-**Self-contained portable computing unit around Raspberry Pi 5**
+**A portable Raspberry Pi 5 computer built from off-the-shelf hardware**
 
-**Source** [github.com/letrinhandn/retro-typewriter-cyberdeck](https://github.com/letrinhandn/retro-typewriter-cyberdeck)
+**Build period** Winter 2024–2025, London, United Kingdom  
+**Repository** [GitHub](https://github.com/letrinhandn/retro-typewriter-cyberdeck)
 
 ## Overview
 
-A self-contained portable computing unit built around the Raspberry Pi 5, housed in a repurposed decorative wooden chest. Designed and assembled in London, winter 2024/2025.
+Retro Typewriter Cyberdeck is a custom portable computer built around a Raspberry Pi 5 and housed in a repurposed vintage-style wooden chest. Designed and assembled in London during the winter of 2024–2025, the project explores a battery-powered Linux workstation that can be transported and used without a continuous connection to mains power.
 
-Fully portable and battery-backed: display, input, compute, and networking in one enclosure — a general-purpose Linux workstation with a Pwnagotchi co-processor for passive 802.11 monitoring.
+The build brings computing hardware, a display, backup power, and network connectivity into a compact case. A USB mechanical keyboard is positioned on the base during operation. Alongside writing, research, and terminal work, a separate Pwnagotchi module supports passive observation of 802.11 wireless networks.
 
-![Figure 1. Front view of the Retro Typewriter Cyberdeck.](images/front.jpeg){fig-alt="Figure 1. Front view of the Retro Typewriter Cyberdeck." fig-align="center"}
+The enclosure is made from readily available parts and materials, without 3D printing or CNC machining.
 
-## Design Objectives
+![Figure 1. Retro Typewriter Cyberdeck with the lid closed.](images/front.jpeg){fig-alt="Figure 1. Retro Typewriter Cyberdeck with the lid closed." fig-align="center"}
 
-- Fully portable: battery-backed, no dependency on mains power
-- Self-contained: display, input, compute, and networking in one enclosure
-- Dual-purpose: general-purpose Linux workstation and passive 802.11 network monitoring via Pwnagotchi co-processor
-- No 3D printing, no CNC: enclosure repurposed from off-the-shelf hardware
+![Figure 2. Working configuration.](images/pov.jpeg){fig-alt="Figure 2. Working configuration." fig-align="center"}
+
+## Hardware Design
+
+### Computing Platform
+
+The main system uses a Raspberry Pi 5 with 4 GB of RAM running Ubuntu 24.04 LTS. It provides a general-purpose Linux environment for writing, research, and command-line tasks. An official Raspberry Pi Active Cooler is installed on the board.
+
+### Power System
+
+A Waveshare UPS HAT (E) supplies the Raspberry Pi with 5 V at up to 6 A. The battery assembly consists of two 18650 lithium-ion cells, listed in the project specification at 4,200 mAh and 3.7 V each. This corresponds to approximately 31 Wh of combined nominal energy.
+
+The UPS module supports USB-C charging while the computer remains operational. Battery percentage reporting over I²C is not yet reliable under Ubuntu and remains an unresolved limitation of the current build.
+
+### Display and Keyboard
+
+A 7-inch GeeekPi IPS display, operating at 1024 × 600 and 60 Hz, is mounted inside the lid. A coiled Micro HDMI cable passes near the hinge to connect the panel to the main board.
+
+Input is provided by an IDOBAO ID42 40% hot-swappable mechanical keyboard with Kailh Box Navy switches and white keycaps. It connects over USB and sits on the base when the device is opened for use.
+
+### Networking and Auxiliary Module
+
+The Raspberry Pi uses its integrated wireless interface alongside a secondary USB Wi-Fi adapter. A Pwnagotchi module with a 2.13-inch e-ink display operates independently of the main Linux system. It serves as an auxiliary platform for passive 802.11 observation in authorized environments.
+
+### Enclosure and Internal Layout
+
+The enclosure is a repurposed decorative wooden chest measuring approximately 30 × 15 × 12 cm. The upper compartment holds the Raspberry Pi, power module, and battery cells, with hand-cut foam dividers used to keep the components in place. The remaining compartment provides storage for cables and accessories.
+
+This approach avoids a custom-manufactured housing, but the dimensions of the chest impose practical constraints on cable routing, lid closure, and airflow.
+
+![Figure 3. Internal component layout.](images/internals.jpeg){fig-alt="Figure 3. Internal component layout." fig-align="center"}
 
 ## Bill of Materials
 
-| Component | Specification | Source | Unit Price |
-|---|---|---|---|
-| SBC | Raspberry Pi 5, 4GB | Amazon UK | £143.00 |
-| Display | GeeekPi 7" IPS LCD, 1024x600, 60Hz, 500 cd/m2, HDMI | Amazon UK | £44.99 |
-| UPS HAT | Waveshare UPS HAT (E), 5V/6A output, bi-directional fast charge, Pogo Pin connector | Amazon UK | £39.99 |
-| Thermal | Raspberry Pi Active Cooler (official) | Amazon UK | £9.56 |
-| Display cable | Coiled Micro HDMI to HDMI, 4K@60Hz, 0.5-2.4M | AliExpress | $3.97 |
-| Internal wiring | HOQO FFC Flat Flexible Cable kit, 18 connector types | AliExpress | $10.05 |
-| Enclosure | European Vintage Small Wood Box with lock, approx. 30x15x12cm | AliExpress | $4.77 |
-| Keyboard | IDOBAO ID42 40%, hotswap, Kailh Box Navy switches, white keycaps | AliExpress | £18.87 |
-| Battery cells | 2x 18650 Li-ion, 4200mAh, 3.7V | - | TBD |
+| Component | Specification | Recorded cost |
+|---|---|---:|
+| Single-board computer | Raspberry Pi 5, 4 GB | £143.00 |
+| Display | GeeekPi 7-inch IPS, 1024 × 600, 60 Hz | £44.99 |
+| Uninterruptible power module | Waveshare UPS HAT (E), 5 V/6 A | £39.99 |
+| Cooling | Raspberry Pi Active Cooler | £9.56 |
+| Display cable | Coiled Micro HDMI to HDMI | $3.97 |
+| Internal wiring | HOQO FFC cable kit | $10.05 |
+| Enclosure | Decorative wooden chest, approximately 30 × 15 × 12 cm | $4.77 |
+| Keyboard | IDOBAO ID42 40%, Kailh Box Navy | £18.87 |
+| Battery cells | Two 18650 lithium-ion cells | Not recorded |
 
-**Total (confirmed components): ~£256.41 + $18.79 + batteries**
+**Recorded component total** approximately £256.41 plus $18.79, excluding the batteries. These figures reflect the project's documented purchases rather than current retail pricing.
 
-![Figure 2. Internal hardware layout.](images/internals.jpeg){fig-alt="Figure 2. Internal hardware layout." fig-align="center"}
+## Known Limitations
 
-## System Architecture
-
-### Compute
-
-Raspberry Pi 5 (4GB LPDDR4X) running Ubuntu 24.04 LTS. The active cooler is fitted directly to the SoC heatspreader and routed to exhaust through a ventilation gap at the rear of the enclosure.
-
-### Power
-
-The Waveshare UPS HAT (E) is stacked directly on the GPIO header via Pogo Pins, supplying 5V/6A to the Pi. Two 18650 Li-ion cells (4200mAh each, ~31Wh combined at nominal voltage) are housed in the HAT's integrated battery bay. The HAT supports hot-swap charging via USB-C. Battery percentage readout via I2C on Ubuntu remains unreliable.
-
-### Display
-
-The GeeekPi 7" IPS panel is mounted on the inner face of the lid, connected via a coiled Micro HDMI cable routed through the hinge gap. Resolution is 1024×600 at 60Hz.
-
-![Figure 3. Rear view and ventilation gap.](images/back.jpeg){fig-alt="Figure 3. Rear view and ventilation gap." fig-align="center"}
-
-### Input
-
-IDOBAO ID42 40% hotswap mechanical keyboard with Kailh Box Navy switches and white keycaps. The keyboard sits external to the enclosure and connects via USB.
-
-### Networking
-
-The Pi's onboard BCM43455 handles primary wireless. A secondary USB Wi-Fi adapter extends range. The Pwnagotchi co-processor runs on a dedicated microcontroller with its own 2.13" e-ink status display.
-
-### Internal Structure
-
-The upper compartment houses the main board stack and battery cells with styrofoam-carved dividers. The lower compartment is left open as carry space for peripherals.
-
-![Figure 4. Working point of view.](images/pov.jpeg){fig-alt="Figure 4. Working point of view." fig-align="center"}
-
-## Known Issues
+The current build demonstrates battery-backed operation and a portable Linux working environment. Several mechanical and system-level limitations remain.
 
 | Issue | Status |
 |---|---|
-| UPS battery percentage unreliable via I2C on Ubuntu | Open |
-| Lid closure requires partial cable disconnection | By design (constraint of enclosure geometry) |
-| No active ventilation: relies on passive gap at rear | Acceptable under normal load; throttles under sustained CPU stress |
+| Battery percentage reporting over I²C on Ubuntu | Unreliable |
+| Closing the lid | Requires partial cable disconnection due to limited clearance |
+| Enclosure ventilation | Relies on a rear gap and may lead to CPU throttling under sustained heavy load |
 
-![Figure 5. Bench test setup.](images/lib-test.jpeg){fig-alt="Figure 5. Bench test setup." fig-align="center"}
+Although the Raspberry Pi has its own active cooler, the wooden enclosure has no dedicated ventilation fan. The system is therefore better suited to light and moderate workloads than prolonged CPU-intensive tasks.
 
-## OS and Software
+![Figure 4. Rear of the enclosure and ventilation gap.](images/back.jpeg){fig-alt="Figure 4. Rear of the enclosure and ventilation gap." fig-align="center"}
 
-- Ubuntu 24.04 LTS (Raspberry Pi build)
-- Pwnagotchi: standalone AI on co-processor, does not share OS with main system
-- Primary use: writing, research, terminal work
+## Project Scope
 
-## Links
+Retro Typewriter Cyberdeck is a personal hardware prototype combining a single-board computer with a repurposed enclosure. Its primary uses are writing, research, and terminal-based work, with room for separate electronic modules and accessories.
+
+The project demonstrates how a battery-powered Linux computer can be assembled from commonly available components without custom enclosure fabrication. Cable management, cooling, and battery monitoring remain the main areas for refinement in a subsequent revision.
+
+![Figure 5. Workstation test.](images/lib-test.jpeg){fig-alt="Figure 5. Workstation test." fig-align="center"}
+
+## Links and Resources
 
 | | |
 | --- | --- |
-| Repo | [github.com/letrinhandn/retro-typewriter-cyberdeck](https://github.com/letrinhandn/retro-typewriter-cyberdeck) |
-| README | [README + photos](https://github.com/letrinhandn/retro-typewriter-cyberdeck#readme) |
+| Repository | [github.com/letrinhandn/retro-typewriter-cyberdeck](https://github.com/letrinhandn/retro-typewriter-cyberdeck) |
+| Project Documentation | [README and photos](https://github.com/letrinhandn/retro-typewriter-cyberdeck#readme) |
+| License | [MIT](https://github.com/letrinhandn/retro-typewriter-cyberdeck/blob/main/LICENSE) |
 :::
