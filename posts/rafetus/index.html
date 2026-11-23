@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-9f996b49d6c6a042c0545b2f0bd4523a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-8e658119a4cfc6f1440edeb571a54cd7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -650,8 +650,26 @@ document.addEventListener("DOMContentLoaded", function () {
     sidebar.innerHTML = html;
   }
 
-  var host = document.querySelector(".navbar");
-  if (host && !document.getElementById("site-controls")) {
+  function ensureFooterHost() {
+    var footer = document.getElementById("quarto-footer");
+    if (!footer) {
+      footer = document.createElement("footer");
+      footer.id = "quarto-footer";
+      footer.className = "footer bg-primary lab-site-footer";
+      document.body.appendChild(footer);
+    }
+    footer.classList.add("lab-site-footer");
+    var nav = footer.querySelector(".nav-footer");
+    if (!nav) {
+      nav = document.createElement("div");
+      nav.className = "nav-footer";
+      footer.appendChild(nav);
+    }
+    return nav;
+  }
+
+  if (!document.getElementById("site-controls")) {
+    var host = ensureFooterHost();
     var wrap = document.createElement("div");
     wrap.className = "site-controls";
     wrap.id = "site-controls";
