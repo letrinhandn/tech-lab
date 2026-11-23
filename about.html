@@ -36,7 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8e658119a4cfc6f1440edeb571a54cd7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a6451669cd454e896c6296581a25ea16.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -114,8 +114,8 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Policy</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://letrinhandn.github.io/investment-research-lab/"> 
-<span class="menu-text">Finance</span></a>
+    <a class="nav-link" href="https://letrinhandn.github.io/philosophy-lab/"> 
+<span class="menu-text">Philosophy</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -164,8 +164,87 @@ document.addEventListener("DOMContentLoaded", function () {
   var THEME_KEY = "letrinhan-site-theme";
   var LANG_KEY = "letrinhan-site-locale";
 
+  /* Keep in sync with hub LOCAL_SITE_BASE + local preview ports */
+  var PROD_ORIGIN = "https://letrinhandn.github.io";
+  var LOCAL_BASE = {
+    "tech-lab": "http://127.0.0.1:4202/",
+    "economic-lab": "http://127.0.0.1:4203/",
+    "policy-lab": "http://127.0.0.1:4204/",
+    "philosophy-lab": "http://127.0.0.1:4201/",
+    "letrinhan-site": "http://127.0.0.1:5173/letrinhan-site/",
+  };
+  var PORT_LAB = {
+    "4201": "philosophy-lab",
+    "4202": "tech-lab",
+    "4203": "economic-lab",
+    "4204": "policy-lab",
+    "5173": "letrinhan-site",
+  };
+
+  function isLocalHost() {
+    var h = location.hostname;
+    return h === "localhost" || h === "127.0.0.1";
+  }
+
+  function resolveSiteHref(href) {
+    if (!href || !isLocalHost()) return href;
+    try {
+      var url = new URL(href, location.href);
+      if (url.hostname !== "letrinhandn.github.io") return href;
+      var parts = url.pathname.split("/").filter(Boolean);
+      var key = parts[0];
+      if (!key || !LOCAL_BASE[key]) return href;
+      var rest = parts.slice(1).join("/");
+      if (!rest) return LOCAL_BASE[key];
+      return (
+        LOCAL_BASE[key] + rest + (url.pathname.endsWith("/") ? "/" : "")
+      );
+    } catch (e) {
+      return href;
+    }
+  }
+
+  function rewriteLocalNav() {
+    if (!isLocalHost()) return;
+    document
+      .querySelectorAll('a[href*="letrinhandn.github.io"]')
+      .forEach(function (a) {
+        var next = resolveSiteHref(a.getAttribute("href"));
+        if (next) a.setAttribute("href", next);
+      });
+
+    var labKey = PORT_LAB[location.port] || null;
+    if (!labKey) {
+      var m = location.pathname.match(
+        /\/(tech-lab|economic-lab|policy-lab|philosophy-lab|letrinhan-site)(?:\/|$)/
+      );
+      if (m) labKey = m[1];
+    }
+    if (!labKey) return;
+
+    var localHref = LOCAL_BASE[labKey];
+    document.querySelectorAll(".navbar-nav .nav-link").forEach(function (a) {
+      var href = a.getAttribute("href") || "";
+      var on =
+        href === localHref ||
+        href.indexOf(PROD_ORIGIN + "/" + labKey) === 0 ||
+        (localHref && href.indexOf(localHref) === 0);
+      if (on) {
+        a.classList.add("active");
+        a.setAttribute("aria-current", "page");
+      }
+    });
+  }
+
   var brand = document.querySelector(".navbar-brand");
-  if (brand) brand.setAttribute("href", "https://letrinhandn.github.io/letrinhan-site/");
+  if (brand) {
+    brand.setAttribute(
+      "href",
+      resolveSiteHref("https://letrinhandn.github.io/letrinhan-site/")
+    );
+  }
+
+  rewriteLocalNav();
 
   document.querySelectorAll(".quarto-listing-category-title").forEach(function (el) {
     el.textContent = "Tags";
