@@ -142,16 +142,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function navLabelFor(href, fallback, lang) {
     var path = (href || "").toLowerCase();
+    var vi = lang !== "en";
     if (path.indexOf("philosophy-lab") !== -1) {
-      return lang === "en" ? "Philosophy" : "Triết học";
+      return vi ? "Triết học" : "Philosophy";
     }
-    if (path.indexOf("tech-lab") !== -1) return "Tech";
-    if (path.indexOf("economic-lab") !== -1) return "Economics";
-    if (path.indexOf("policy-lab") !== -1) return "Policy";
+    if (path.indexOf("tech-lab") !== -1) return vi ? "Công nghệ" : "Tech";
+    if (path.indexOf("economic-lab") !== -1) return vi ? "Kinh tế" : "Economics";
+    if (path.indexOf("policy-lab") !== -1) return vi ? "Chính sách" : "Policy";
     var t = (fallback || "").replace(/\s+/g, " ").trim();
     // Never keep abbreviated Phil / Triết in the chrome
     if (/^phil$/i.test(t) || /^tri[eế]t$/i.test(t)) {
-      return lang === "en" ? "Philosophy" : "Triết học";
+      return vi ? "Triết học" : "Philosophy";
     }
     return t;
   }
@@ -174,8 +175,10 @@ document.addEventListener("DOMContentLoaded", function () {
     } catch (e) {}
     document.documentElement.dataset.lang = lang;
     var btn = document.getElementById("lang-chip");
-    // Label = destination language (USWDS two-language pattern)
-    if (btn) btn.textContent = lang === "vi" ? "EN" : "VI";
+    // Current language chip (VI / EN) — matches visible copy
+    if (btn) btn.textContent = lang === "vi" ? "VI" : "EN";
+    var notebooks = document.querySelector(".site-drawer-label");
+    if (notebooks) notebooks.textContent = lang === "vi" ? "Sổ tay" : "Notebooks";
     syncNavLabels(lang);
     buildLangToc(lang);
   }
