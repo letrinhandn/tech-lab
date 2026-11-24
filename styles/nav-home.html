@@ -346,7 +346,22 @@ document.addEventListener("DOMContentLoaded", function () {
     var brandBox =
       host.querySelector(".navbar-brand-container") ||
       host.querySelector(".navbar-brand");
-    ensureControls(host);
+    var controls = ensureControls(host);
+
+    // Force single-row DOM order: menu | (absolute brand) | theme/lang
+    // Prevents Bootstrap order from dropping the toggler onto grid row 2
+    if (toggler.parentNode === host) host.insertBefore(toggler, host.firstChild);
+    if (brandBox && brandBox.parentNode === host) {
+      brandBox.classList.add("lab-header-brand");
+      host.insertBefore(brandBox, toggler.nextSibling);
+    }
+    if (controls && controls.parentNode === host) host.appendChild(controls);
+    if (collapse && collapse.parentNode === host) {
+      collapse.setAttribute("hidden", "");
+      collapse.style.display = "none";
+    }
+    var tools = host.querySelector(".quarto-navbar-tools");
+    if (tools) tools.style.display = "none";
 
     // Force hub order: menu | brand | controls
     host.classList.add("lab-header-bar");

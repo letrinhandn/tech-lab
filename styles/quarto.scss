@@ -90,6 +90,9 @@ body {
   position: relative !important;
   display: grid !important;
   grid-template-columns: auto 1fr auto !important;
+  /* One row only — brand is absolute and must not create a 2nd track */
+  grid-template-rows: var(--logo-compact) !important;
+  grid-auto-rows: var(--logo-compact) !important;
   align-items: center !important;
   column-gap: 0.75rem !important;
   width: 100% !important;
@@ -102,8 +105,10 @@ body {
 
 .navbar-toggler,
 .lab-menu-btn {
-  grid-column: 1;
-  justify-self: start;
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  justify-self: start !important;
+  align-self: center !important;
   z-index: 5;
   width: 1.85rem !important;
   height: 1.85rem !important;
@@ -120,6 +125,8 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  /* Kill Bootstrap/Quarto order that shoved the toggler onto row 2 */
+  order: 0 !important;
 }
 
 .navbar-toggler:hover,
@@ -153,7 +160,10 @@ body {
   left: 50% !important;
   top: 50% !important;
   transform: translate(-50%, -50%) !important;
-  grid-column: 2;
+  /* Stay out of grid placement entirely (was creating a 2nd row) */
+  grid-column: unset !important;
+  grid-row: unset !important;
+  order: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
   max-width: none !important;
@@ -163,6 +173,7 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 4;
+  pointer-events: auto;
 }
 
 .navbar .navbar-brand,
@@ -206,7 +217,10 @@ body {
 
 .site-controls-header,
 .site-controls {
-  grid-column: 3;
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+  justify-self: end !important;
+  align-self: center !important;
   z-index: 5;
   display: flex !important;
   align-items: center;
@@ -214,6 +228,17 @@ body {
   gap: 0.4rem;
   margin: 0 !important;
   flex-shrink: 0;
+  order: 0 !important;
+}
+
+/* Hidden Quarto chrome must not occupy grid tracks */
+#navbarCollapse,
+.navbar .navbar-collapse,
+.quarto-navbar-tools {
+  display: none !important;
+  grid-column: unset !important;
+  grid-row: unset !important;
+  order: 0 !important;
 }
 
 .header-chip {
