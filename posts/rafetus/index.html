@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-a6451669cd454e896c6296581a25ea16.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-5137cb915986a0aa539b641bdfe30305.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -117,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://letrinhandn.github.io/philosophy-lab/"> 
-<span class="menu-text">Phil</span></a>
+<span class="menu-text">Philosophy</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -573,6 +573,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function currentLabKey() {
+    var labKey = PORT_LAB[location.port] || null;
+    if (!labKey) {
+      var m = location.pathname.match(
+        /\/(tech-lab|economic-lab|policy-lab|philosophy-lab|letrinhan-site)(?:\/|$)/
+      );
+      if (m) labKey = m[1];
+    }
+    return labKey;
+  }
+
   function rewriteLocalNav() {
     if (!isLocalHost()) return;
     document
@@ -581,28 +592,25 @@ document.addEventListener("DOMContentLoaded", function () {
         var next = resolveSiteHref(a.getAttribute("href"));
         if (next) a.setAttribute("href", next);
       });
+  }
 
-    var labKey = PORT_LAB[location.port] || null;
-    if (!labKey) {
-      var m = location.pathname.match(
-        /\/(tech-lab|economic-lab|policy-lab|philosophy-lab|letrinhan-site)(?:\/|$)/
-      );
-      if (m) labKey = m[1];
-    }
+  function markActiveLinks() {
+    var labKey = currentLabKey();
     if (!labKey) return;
-
     var localHref = LOCAL_BASE[labKey];
-    document.querySelectorAll(".navbar-nav .nav-link").forEach(function (a) {
-      var href = a.getAttribute("href") || "";
-      var on =
-        href === localHref ||
-        href.indexOf(PROD_ORIGIN + "/" + labKey) === 0 ||
-        (localHref && href.indexOf(localHref) === 0);
-      if (on) {
-        a.classList.add("active");
-        a.setAttribute("aria-current", "page");
-      }
-    });
+    var prodHref = PROD_ORIGIN + "/" + labKey;
+    document
+      .querySelectorAll(".navbar-nav .nav-link, .site-drawer-link")
+      .forEach(function (a) {
+        var href = a.getAttribute("href") || "";
+        var on =
+          href === localHref ||
+          href.indexOf(prodHref) === 0 ||
+          (localHref && href.indexOf(localHref) === 0);
+        a.classList.toggle("active", on);
+        if (on) a.setAttribute("aria-current", "page");
+        else a.removeAttribute("aria-current");
+      });
   }
 
   var brand = document.querySelector(".navbar-brand");
@@ -643,6 +651,13 @@ document.addEventListener("DOMContentLoaded", function () {
     return '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 7 7 0 1 0 20.5 14.2Z"/></svg>';
   }
 
+  function menuSvg(open) {
+    if (open) {
+      return '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="square" d="M6 6l12 12M18 6L6 18"/></svg>';
+    }
+    return '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="square" d="M4 7h16M4 12h16M4 17h16"/></svg>';
+  }
+
   function applyTheme(theme) {
     document.documentElement.dataset.theme = theme;
     try {
@@ -655,6 +670,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function navLabelFor(href, fallback, lang) {
+    var path = (href || "").toLowerCase();
+    if (path.indexOf("philosophy-lab") !== -1) {
+      return lang === "en" ? "Philosophy" : "Triết học";
+    }
+    if (path.indexOf("tech-lab") !== -1) return "Tech";
+    if (path.indexOf("economic-lab") !== -1) return "Economics";
+    if (path.indexOf("policy-lab") !== -1) return "Policy";
+    var t = (fallback || "").replace(/\s+/g, " ").trim();
+    // Never keep abbreviated Phil / Triết in the chrome
+    if (/^phil$/i.test(t) || /^tri[eế]t$/i.test(t)) {
+      return lang === "en" ? "Philosophy" : "Triết học";
+    }
+    return t;
+  }
+
+  function syncNavLabels(lang) {
+    document.querySelectorAll(".site-drawer-link, .navbar-nav .nav-link").forEach(function (a) {
+      var href = a.getAttribute("href") || "";
+      var next = navLabelFor(href, a.textContent, lang);
+      if (next) {
+        a.textContent = next;
+        a.title = next;
+      }
+    });
+  }
+
   function applyLang(lang) {
     if (lang !== "vi" && lang !== "en") lang = "vi";
     try {
@@ -662,7 +704,9 @@ document.addEventListener("DOMContentLoaded", function () {
     } catch (e) {}
     document.documentElement.dataset.lang = lang;
     var btn = document.getElementById("lang-chip");
-    if (btn) btn.textContent = lang === "vi" ? "VI" : "EN";
+    // Label = destination language (USWDS two-language pattern)
+    if (btn) btn.textContent = lang === "vi" ? "EN" : "VI";
+    syncNavLabels(lang);
     buildLangToc(lang);
   }
 
@@ -709,7 +753,7 @@ document.addEventListener("DOMContentLoaded", function () {
           id +
           '" class="nav-link">' +
           text +
-          '</a><ul>';
+          "</a><ul>";
         pendingClose = true;
       } else {
         if (!pendingClose) {
@@ -729,28 +773,30 @@ document.addEventListener("DOMContentLoaded", function () {
     sidebar.innerHTML = html;
   }
 
-  function ensureFooterHost() {
-    var footer = document.getElementById("quarto-footer");
-    if (!footer) {
-      footer = document.createElement("footer");
-      footer.id = "quarto-footer";
-      footer.className = "footer bg-primary lab-site-footer";
-      document.body.appendChild(footer);
-    }
-    footer.classList.add("lab-site-footer");
-    var nav = footer.querySelector(".nav-footer");
-    if (!nav) {
-      nav = document.createElement("div");
-      nav.className = "nav-footer";
-      footer.appendChild(nav);
-    }
-    return nav;
+  function collectNavItems() {
+    var lang = readLang();
+    var seen = {};
+    var items = [];
+    document.querySelectorAll(".navbar-nav .nav-link").forEach(function (a) {
+      var href = a.getAttribute("href") || "";
+      var raw = (a.textContent || "").replace(/\s+/g, " ").trim();
+      if (!href || !raw) return;
+      var resolved = resolveSiteHref(href);
+      var text = navLabelFor(resolved || href, raw, lang);
+      var key = resolved + "|" + text.toLowerCase();
+      if (seen[key]) return;
+      seen[key] = true;
+      items.push({ href: resolved, text: text, title: text });
+    });
+    return items;
   }
 
-  if (!document.getElementById("site-controls")) {
-    var host = ensureFooterHost();
+  function ensureControls(host) {
+    if (document.getElementById("site-controls")) {
+      return document.getElementById("site-controls");
+    }
     var wrap = document.createElement("div");
-    wrap.className = "site-controls";
+    wrap.className = "site-controls site-controls-header";
     wrap.id = "site-controls";
 
     var themeBtn = document.createElement("button");
@@ -776,10 +822,149 @@ document.addEventListener("DOMContentLoaded", function () {
     wrap.appendChild(themeBtn);
     wrap.appendChild(langBtn);
     host.appendChild(wrap);
+    return wrap;
   }
 
+  function mountLeftDrawer() {
+    var navbar =
+      document.querySelector("#quarto-header .navbar") ||
+      document.querySelector(".navbar");
+    var host =
+      document.querySelector("#quarto-header .navbar-container") ||
+      document.querySelector(".navbar .container-fluid") ||
+      navbar;
+    if (!navbar || !host) return;
+
+    document.body.classList.add("lab-hub-chrome");
+
+    var oldFooter = document.getElementById("quarto-footer");
+    if (oldFooter) oldFooter.remove();
+
+    var collapse = document.getElementById("navbarCollapse");
+    var items = collectNavItems();
+    if (collapse) {
+      collapse.classList.remove("show");
+      collapse.setAttribute("hidden", "");
+      collapse.style.display = "none";
+    }
+
+    var toggler =
+      document.querySelector(".navbar-toggler") ||
+      document.getElementById("lab-menu-btn");
+    if (!toggler) {
+      toggler = document.createElement("button");
+      toggler.type = "button";
+      toggler.className = "navbar-toggler lab-menu-btn";
+      toggler.id = "lab-menu-btn";
+      host.insertBefore(toggler, host.firstChild);
+    }
+    toggler.classList.add("lab-menu-btn", "header-chip", "is-icon");
+    toggler.removeAttribute("data-bs-toggle");
+    toggler.removeAttribute("data-bs-target");
+    toggler.removeAttribute("aria-controls");
+    toggler.setAttribute("type", "button");
+    toggler.setAttribute("aria-expanded", "false");
+    toggler.setAttribute("aria-controls", "lab-drawer");
+    toggler.setAttribute("aria-label", "Open menu");
+    toggler.title = "Open menu";
+    toggler.innerHTML = menuSvg(false);
+
+    // Keep brand visually centered; move controls to the right edge of the bar
+    var brandBox =
+      host.querySelector(".navbar-brand-container") ||
+      host.querySelector(".navbar-brand");
+    ensureControls(host);
+
+    // Force hub order: menu | brand | controls
+    host.classList.add("lab-header-bar");
+    if (brandBox) brandBox.classList.add("lab-header-brand");
+
+    if (document.getElementById("lab-drawer-layer")) {
+      markActiveLinks();
+      return;
+    }
+
+    var layer = document.createElement("div");
+    layer.className = "site-drawer-layer";
+    layer.id = "lab-drawer-layer";
+    layer.setAttribute("aria-hidden", "true");
+
+    var backdrop = document.createElement("button");
+    backdrop.type = "button";
+    backdrop.className = "site-drawer-backdrop";
+    backdrop.setAttribute("aria-label", "Close menu");
+    backdrop.tabIndex = -1;
+
+    var drawer = document.createElement("nav");
+    drawer.className = "site-drawer";
+    drawer.id = "lab-drawer";
+    drawer.setAttribute("aria-label", "Notebooks");
+
+    var label = document.createElement("p");
+    label.className = "site-drawer-label";
+    label.textContent = "Notebooks";
+    drawer.appendChild(label);
+
+    items.forEach(function (item) {
+      var a = document.createElement("a");
+      a.className = "site-drawer-link";
+      a.href = item.href;
+      a.title = item.title;
+      a.textContent = item.text;
+      a.tabIndex = -1;
+      a.addEventListener("click", function () {
+        setDrawerOpen(false);
+      });
+      drawer.appendChild(a);
+    });
+
+    layer.appendChild(backdrop);
+    layer.appendChild(drawer);
+    document.body.appendChild(layer);
+
+    var open = false;
+    function setDrawerOpen(next) {
+      open = !!next;
+      layer.classList.toggle("is-open", open);
+      layer.setAttribute("aria-hidden", open ? "false" : "true");
+      document.body.classList.toggle("lab-drawer-open", open);
+      document.body.style.overflow = open ? "hidden" : "";
+      toggler.setAttribute("aria-expanded", open ? "true" : "false");
+      toggler.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      toggler.title = open ? "Close menu" : "Open menu";
+      toggler.innerHTML = menuSvg(open);
+      backdrop.tabIndex = open ? 0 : -1;
+      drawer.querySelectorAll(".site-drawer-link").forEach(function (a) {
+        a.tabIndex = open ? 0 : -1;
+      });
+    }
+
+    toggler.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      setDrawerOpen(!open);
+    });
+    backdrop.addEventListener("click", function () {
+      setDrawerOpen(false);
+    });
+    window.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && open) setDrawerOpen(false);
+    });
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (open) setDrawerOpen(false);
+      },
+      { passive: true }
+    );
+
+    markActiveLinks();
+  }
+
+  mountLeftDrawer();
   applyTheme(readTheme());
   applyLang(readLang());
+  markActiveLinks();
 });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
