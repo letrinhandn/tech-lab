@@ -73,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-3c7d6d67566a4caf093bc1a30974cbc1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-5f5bea764b37cf0b9d53f0c84e6697a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -779,7 +779,22 @@ document.addEventListener("DOMContentLoaded", function () {
     var brandBox =
       host.querySelector(".navbar-brand-container") ||
       host.querySelector(".navbar-brand");
-    ensureControls(host);
+    var controls = ensureControls(host);
+
+    // Force single-row DOM order: menu | (absolute brand) | theme/lang
+    // Prevents Bootstrap order from dropping the toggler onto grid row 2
+    if (toggler.parentNode === host) host.insertBefore(toggler, host.firstChild);
+    if (brandBox && brandBox.parentNode === host) {
+      brandBox.classList.add("lab-header-brand");
+      host.insertBefore(brandBox, toggler.nextSibling);
+    }
+    if (controls && controls.parentNode === host) host.appendChild(controls);
+    if (collapse && collapse.parentNode === host) {
+      collapse.setAttribute("hidden", "");
+      collapse.style.display = "none";
+    }
+    var tools = host.querySelector(".quarto-navbar-tools");
+    if (tools) tools.style.display = "none";
 
     // Force hub order: menu | brand | controls
     host.classList.add("lab-header-bar");
