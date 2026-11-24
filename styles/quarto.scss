@@ -64,7 +64,7 @@ body {
   color: $ink;
 }
 
-/* Shared header — same 3-col grid as hub compact: Tech Economics | avatar | Quant Finance */
+/* Hub-synced chrome: [menu] avatar [theme/lang] + left drawer */
 #quarto-header {
   background: #3a070e;
   overflow: visible !important;
@@ -72,8 +72,6 @@ body {
 
 .navbar {
   --logo-compact: 40px;
-  --logo-gap: 1.25rem;
-  --nav-gap: 0.65rem;
   --header-pad-y: 0.55rem;
   background: #3a070e !important;
   border-bottom: 3px solid #d9cab3 !important;
@@ -82,17 +80,89 @@ body {
   padding: var(--header-pad-y) 1rem !important;
   overflow: visible !important;
   align-items: center;
+  display: flex !important;
 }
 
 .navbar > .container,
 .navbar > .container-fluid,
-.navbar-container.container-fluid {
-  width: min(720px, 100%) !important;
-  max-width: 720px !important;
+.navbar-container.container-fluid,
+.navbar-container.lab-header-bar {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: auto 1fr auto !important;
+  align-items: center !important;
+  column-gap: 0.75rem !important;
+  width: 100% !important;
+  max-width: none !important;
   height: 100% !important;
-  margin: 0 auto !important;
+  margin: 0 !important;
   padding: 0 !important;
   overflow: visible !important;
+}
+
+.navbar-toggler,
+.lab-menu-btn {
+  grid-column: 1;
+  justify-self: start;
+  z-index: 5;
+  width: 1.85rem !important;
+  height: 1.85rem !important;
+  min-width: 1.85rem !important;
+  min-height: 1.85rem !important;
+  padding: 0.3rem !important;
+  margin: 0 !important;
+  border: 2px solid #d9cab3 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: #2a050a !important;
+  color: #d9cab3 !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.navbar-toggler:hover,
+.navbar-toggler:focus-visible,
+.lab-menu-btn:hover,
+.lab-menu-btn:focus-visible {
+  color: $gold !important;
+  border-color: $gold !important;
+  outline: none;
+  box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+  display: none !important;
+}
+
+.navbar-toggler svg,
+.lab-menu-btn svg {
+  display: block;
+  width: 0.95rem;
+  height: 0.95rem;
+  color: inherit;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.navbar .navbar-brand-container,
+.navbar-brand-container,
+.lab-header-brand {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  grid-column: 2;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
+  width: var(--logo-compact) !important;
+  height: var(--logo-compact) !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
 }
 
 .navbar .navbar-brand,
@@ -126,226 +196,202 @@ body {
   display: none !important;
 }
 
-@media (min-width: 992px) {
-  .navbar-toggler {
-    display: none !important;
-  }
-
-  /* Hub-identical geometry: left nav | avatar | right nav */
-  .navbar-container.container-fluid {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    column-gap: var(--nav-gap);
-    align-items: center;
-  }
-
-  .navbar .navbar-brand-container,
-  .navbar-brand-container {
-    position: static !important;
-    transform: none !important;
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: center;
-    margin: 0 !important;
-    padding: 0 !important;
-    max-width: none !important;
-    width: calc(var(--logo-compact) + var(--logo-gap)) !important;
-    height: var(--logo-compact) !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-  }
-
-  /* Collapse children become grid items of the container */
-  .navbar-container #navbarCollapse,
-  .navbar .navbar-collapse {
-    display: contents !important;
-    visibility: visible !important;
-  }
-
-  .navbar-nav.navbar-nav-scroll.me-auto {
-    grid-column: 1;
-    grid-row: 1;
-    margin: 0 !important;
-    padding: 0 !important;
-    justify-content: flex-end !important;
-    justify-self: stretch;
-    align-self: center;
-    flex-direction: row !important;
-    flex-wrap: nowrap;
-    gap: 0.35rem 0.55rem;
-  }
-
-  .navbar-nav.navbar-nav-scroll.ms-auto {
-    grid-column: 3;
-    grid-row: 1;
-    margin: 0 !important;
-    padding: 0 !important;
-    justify-content: flex-start !important;
-    justify-self: stretch;
-    align-self: center;
-    flex-direction: row !important;
-    flex-wrap: nowrap;
-    gap: 0.35rem 0.55rem;
-  }
+/* Inline Quarto nav is harvested into the left drawer — keep hidden */
+#navbarCollapse,
+.navbar .navbar-collapse,
+.navbar-nav {
+  display: none !important;
+  visibility: hidden !important;
 }
 
-.navbar-nav .nav-link {
+.site-controls-header,
+.site-controls {
+  grid-column: 3;
+  z-index: 5;
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  margin: 0 !important;
+  flex-shrink: 0;
+}
+
+.header-chip {
+  margin: 0;
+  padding: 0.35rem 0.6rem;
+  min-width: 2.6rem;
+  min-height: 1.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-family: "Be Vietnam Pro", sans-serif;
-  font-weight: 650;
-  font-size: 0.78rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  line-height: 1.2;
-  color: rgba(217, 202, 179, 0.88) !important;
-  border: 2px solid transparent;
-  padding: 0.35rem 0.55rem !important;
+  color: #d9cab3 !important;
+  background: #2a050a !important;
+  border: 2px solid #d9cab3 !important;
+  cursor: pointer;
+}
+
+.header-chip.is-icon {
+  min-width: 1.85rem;
+  padding: 0.3rem;
+}
+
+.header-chip svg {
+  display: block;
+  width: 0.95rem;
+  height: 0.95rem;
+  color: inherit !important;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.header-chip:hover,
+.header-chip:focus-visible {
+  color: $gold !important;
+  border-color: $gold !important;
+  outline: none;
+}
+
+/* Left drawer — match hub root */
+.site-drawer-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 1080;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.site-drawer-layer.is-open {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.site-drawer-backdrop {
+  position: absolute;
+  inset: 0;
   margin: 0;
-  white-space: nowrap;
+  padding: 0;
+  border: 0;
+  background: rgba(10, 2, 4, 0.55);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s steps(4, end);
+}
+
+.site-drawer-layer.is-open .site-drawer-backdrop {
+  opacity: 1;
+}
+
+.site-drawer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: min(17.5rem, 84vw);
   box-sizing: border-box;
+  padding: 1.1rem 0.9rem 1.25rem;
+  background: #2a050a;
+  border-right: 3px solid #d9cab3;
+  color: #d9cab3;
+  transform: translateX(-105%);
+  transition: transform 0.22s steps(5, end);
+  overflow-y: auto;
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus {
+.site-drawer-layer.is-open .site-drawer {
+  transform: translateX(0);
+}
+
+.site-drawer-label {
+  margin: 0 0 0.45rem;
+  padding: 0 0.55rem;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(217, 202, 179, 0.62);
+}
+
+.site-drawer-link {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem 0.85rem;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #d9cab3 !important;
+  border: 2px solid transparent;
+  background: transparent;
+}
+
+.site-drawer-link:hover,
+.site-drawer-link:focus-visible {
   color: $gold !important;
-  border-color: rgba(188, 128, 52, 0.55);
+  border-color: #d9cab3;
+  outline: none;
 }
 
-.navbar-nav .nav-link.active,
-.navbar-nav .nav-item .nav-link[aria-current="page"] {
+.site-drawer-link.active,
+.site-drawer-link[aria-current="page"] {
   color: $gold !important;
   border-color: #d9cab3;
   background: rgba(188, 128, 52, 0.12);
 }
 
-/* Active lab in the shared navigator */
-.navbar-nav .nav-link[href="https://letrinhandn.github.io/tech-lab/"] {
-  color: $gold !important;
-  border-color: #d9cab3;
-  background: rgba(188, 128, 52, 0.12);
+body.lab-drawer-open .lab-market-ticker {
+  display: none !important;
+  height: 0 !important;
+  border: 0 !important;
 }
 
 @media (max-width: 991.98px) {
   .navbar {
     --logo-compact: 36px;
     --header-pad-y: 0.45rem;
-    height: auto !important;
-    min-height: calc(var(--logo-compact) + var(--header-pad-y) * 2 + 3px);
     padding: var(--header-pad-y) 0.75rem !important;
-    display: grid !important;
-    grid-template-columns: auto 1fr auto auto;
-    grid-template-areas:
-      "toggler . chips brand"
-      "menu menu menu menu";
-    align-items: center;
-    column-gap: 0.45rem;
-    row-gap: 0;
   }
 
-  /* Flatten so toggler / brand / menu join the navbar grid with .site-controls */
-  .navbar > .container,
-  .navbar > .container-fluid,
-  .navbar-container.container-fluid {
-    display: contents !important;
-    width: auto !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
+  .navbar-toggler,
+  .lab-menu-btn,
+  .header-chip.is-icon {
+    width: 1.7rem !important;
+    height: 1.7rem !important;
+    min-width: 1.7rem !important;
+    min-height: 1.7rem !important;
+    padding: 0.26rem !important;
   }
 
-  .navbar-toggler {
-    grid-area: toggler;
-    order: 0 !important;
-    width: 2.35rem;
-    height: 2.35rem;
-    padding: 0.3rem !important;
-    margin: 0 !important;
-    border: 2px solid #d9cab3 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
+  .header-chip {
+    min-width: 2.35rem;
+    min-height: 1.7rem;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.62rem;
   }
 
-  .navbar-toggler:focus,
-  .navbar-toggler:focus-visible {
-    box-shadow: none !important;
-    outline: 1px solid $gold;
-  }
-
-  .navbar-toggler-icon {
-    width: 1.1rem;
-    height: 1.1rem;
-  }
-
-  .site-controls {
-    position: static !important;
-    top: auto !important;
-    right: auto !important;
-    transform: none !important;
-    grid-area: chips;
-    justify-self: end;
-    gap: 0.35rem;
-  }
-
-  .navbar .navbar-brand-container,
-  .navbar-brand-container {
-    grid-area: brand;
-    position: static !important;
-    transform: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    width: var(--logo-compact) !important;
-    height: var(--logo-compact) !important;
-    max-width: none !important;
-    justify-self: end;
-  }
-
-  #navbarCollapse {
-    display: none !important;
-    grid-area: menu;
-  }
-
-  #navbarCollapse.show {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    width: 100% !important;
-    margin: 0.55rem 0 0 !important;
-    padding: 0.55rem 0 0.15rem !important;
-    border-top: 1px solid rgba(217, 202, 179, 0.35);
-    gap: 0.15rem;
-  }
-
-  #navbarCollapse .navbar-nav,
-  #navbarCollapse .navbar-nav.me-auto,
-  #navbarCollapse .navbar-nav.ms-auto {
-    display: flex !important;
-    flex-direction: column !important;
-    flex-wrap: nowrap !important;
-    align-items: stretch !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    gap: 0.1rem;
-  }
-
-  #navbarCollapse .nav-item {
-    width: 100%;
-  }
-
-  #navbarCollapse .nav-link {
-    width: 100%;
-    text-align: left;
-    padding: 0.55rem 0.65rem !important;
-  }
-
-  .quarto-navbar-tools {
-    display: none !important;
+  .site-drawer {
+    width: min(16.5rem, 88vw);
   }
 }
+
+#quarto-footer,
+footer.footer {
+  display: none !important;
+}
+
 
 #quarto-content,
 .page-columns {
@@ -797,71 +843,6 @@ body {
 
 .navbar {
   background: #3a070e !important;
-}
-
-/* Header chips — theme + lang (shared with hub) */
-.navbar {
-  position: relative;
-}
-
-.site-controls {
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-/* Desktop: chips float to the right of the centered nav strip */
-@media (min-width: 992px) {
-  .site-controls {
-    position: absolute;
-    top: 50%;
-    right: 1rem;
-    transform: translateY(-50%);
-  }
-}
-
-.header-chip {
-  margin: 0;
-  padding: 0.35rem 0.6rem;
-  min-width: 2.6rem;
-  min-height: 1.85rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #d9cab3;
-  background: #2a050a;
-  border: 2px solid #d9cab3;
-  cursor: pointer;
-}
-
-.header-chip.is-icon {
-  min-width: 1.85rem;
-  padding: 0.3rem;
-}
-
-.header-chip svg {
-  display: block;
-  width: 0.95rem;
-  height: 0.95rem;
-}
-
-.header-chip:hover,
-.header-chip:focus-visible {
-  color: $gold;
-  border-color: $gold;
-  outline: none;
-}
-
-/* No site footer — nav in header is enough */
-.nav-footer {
-  display: none !important;
 }
 
 /* Dark mode — same burgundy gradient as hub root */
